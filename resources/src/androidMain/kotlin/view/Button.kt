@@ -121,9 +121,9 @@ private fun android.widget.Button.applyButtonStyleWithText(style: KalugaButtonSt
                 intArrayOf(),
             ),
             intArrayOf(
-                style.pressedStyle.textColor,
-                style.disabledStyle.textColor,
-                style.defaultStyle.textColor,
+                style.pressedStyle.textColor.currentColor,
+                style.disabledStyle.textColor.currentColor,
+                style.defaultStyle.textColor.currentColor,
             ),
         ),
     )
@@ -213,14 +213,14 @@ private fun android.widget.Button.applyBackgroundStyle(style: KalugaButtonStyle<
                 is KalugaButtonStyle.WithoutText<*> -> defaultRippleForeground
             }
             RippleDrawable(
-                ColorStateList(arrayOf(intArrayOf()), intArrayOf(foregroundColor)),
+                ColorStateList(arrayOf(intArrayOf()), intArrayOf(foregroundColor.currentColor)),
                 stateListDrawable,
                 null,
             )
         }
         is RippleStyle.CustomRipple -> {
             RippleDrawable(
-                ColorStateList(arrayOf(intArrayOf()), intArrayOf(rippleStyle.color)),
+                ColorStateList(arrayOf(intArrayOf()), intArrayOf(rippleStyle.color.currentColor)),
                 stateListDrawable,
                 null,
             )

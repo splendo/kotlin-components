@@ -48,7 +48,7 @@ fun KalugaLabel.Composable(modifier: Modifier) {
             Text(
                 modifier = modifier,
                 text = text,
-                color = style.color.composable,
+                color = style.color.composable(),
                 fontFamily = FontFamily(style.font),
                 fontSize = style.size.sp,
                 textAlign = style.alignment.composable,

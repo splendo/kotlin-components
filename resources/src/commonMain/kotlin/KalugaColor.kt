@@ -134,12 +134,21 @@ fun colorFrom(hexString: String): KalugaColor? = if (hexString.startsWith('#')) 
 }
 
 /**
- * The inverted [KalugaColor]
+ * Creates a [KalugaColor] that uses [darkModeColor] when [isInDarkMode] and this color otherwise.
+ * If this color has a dark mode already it will be overwritten.
+ * If [darkModeColor] has a dark mode, it will be used.
+ * @param darkModeColor the [KalugaColor] to use when [isInDarkMode]
+ * @return a [KalugaColor] that supports a custom color in dark mode.
+ */
+expect infix fun KalugaColor.withDarkMode(darkModeColor: KalugaColor): KalugaColor
+
+/**
+ * The inverted [KalugaColor]. Value will be respective to whether [isInDarkMode].
  */
 val KalugaColor.inverted: KalugaColor get() = colorFrom(1.0 - red, 1.0 - green, 1.0 - blue, alpha)
 
 /**
- * The hex string representing this color
+ * The hex string representing this color. Value will be respective to whether [isInDarkMode].
  */
 val KalugaColor.hexString: String
     get() {

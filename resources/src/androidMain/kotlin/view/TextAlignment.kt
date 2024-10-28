@@ -18,7 +18,6 @@
 package com.splendo.kaluga.resources.view
 
 import android.content.Context
-import android.os.Build
 import android.text.Layout
 import android.text.TextUtils
 import android.view.Gravity
@@ -67,12 +66,7 @@ val Layout.Alignment.gravity: Int get() = when (this) {
 }
 
 internal fun Context.isLayoutLeftToRight(): Boolean {
-    val locale = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-        resources.configuration.locales.get(0)
-    } else {
-        @Suppress("DEPRECATION")
-        resources.configuration.locale
-    }
+    val locale = resources.configuration.locales.get(0)
 
     return TextUtils.getLayoutDirectionFromLocale(locale) == View.LAYOUT_DIRECTION_LTR
 }

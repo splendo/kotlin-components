@@ -21,6 +21,8 @@ import kotlinx.cinterop.get
 import platform.CoreGraphics.CGColorGetAlpha
 import platform.CoreGraphics.CGColorGetComponents
 import platform.UIKit.UIColor
+import platform.UIKit.UIUserInterfaceStyle
+import platform.UIKit.colorWithDynamicProvider
 
 /**
  * Class describing a color
@@ -29,42 +31,42 @@ import platform.UIKit.UIColor
 actual data class KalugaColor(val uiColor: UIColor)
 
 /**
- * Gets the red value of the color in a range between `0.0` and `1.0`
+ * Gets the red value of the color in a range between `0.0` and `1.0`. Value will be respective to whether [isInDarkMode].
  */
 actual val KalugaColor.red: Double get() = CGColorGetComponents(uiColor.CGColor)?.get(0)?.toDouble() ?: 0.0
 
 /**
- * Gets the red value of the color in a range between `0` and `255`
+ * Gets the red value of the color in a range between `0` and `255`. Value will be respective to whether [isInDarkMode].
  */
 actual val KalugaColor.redInt: Int get() = (red * 255.0).toInt()
 
 /**
- * Gets the green value of the color in a range between `0.0` and `1.0`
+ * Gets the green value of the color in a range between `0.0` and `1.0`. Value will be respective to whether [isInDarkMode].
  */
 actual val KalugaColor.green: Double get() = CGColorGetComponents(uiColor.CGColor)?.get(1)?.toDouble() ?: 0.0
 
 /**
- * Gets the green value of the color in a range between `0` and `255`
+ * Gets the green value of the color in a range between `0` and `255`. Value will be respective to whether [isInDarkMode].
  */
 actual val KalugaColor.blueInt: Int get() = (blue * 255.0).toInt()
 
 /**
- * Gets the blue value of the color in a range between `0.0` and `1.0`
+ * Gets the blue value of the color in a range between `0.0` and `1.0`. Value will be respective to whether [isInDarkMode].
  */
 actual val KalugaColor.blue: Double get() = CGColorGetComponents(uiColor.CGColor)?.get(2)?.toDouble() ?: 0.0
 
 /**
- * Gets the blue value of the color in a range between `0` and `255`
+ * Gets the blue value of the color in a range between `0` and `255`. Value will be respective to whether [isInDarkMode].
  */
 actual val KalugaColor.greenInt: Int get() = (green * 255.0).toInt()
 
 /**
- * Gets the alpha value of the color in a range between `0.0` and `1.0`
+ * Gets the alpha value of the color in a range between `0.0` and `1.0`. Value will be respective to whether [isInDarkMode].
  */
 actual val KalugaColor.alpha: Double get() = CGColorGetAlpha(uiColor.CGColor).toDouble()
 
 /**
- * Gets the alpha value of the color in a range between `0` and `255`
+ * Gets the alpha value of the color in a range between `0` and `255`. Value will be respective to whether [isInDarkMode].
  */
 actual val KalugaColor.alphaInt: Int get() = (alpha * 255.0).toInt()
 
@@ -88,3 +90,19 @@ actual fun colorFrom(red: Double, green: Double, blue: Double, alpha: Double): K
  */
 actual fun colorFrom(redInt: Int, greenInt: Int, blueInt: Int, alphaInt: Int): KalugaColor =
     colorFrom(redInt.toDouble() / 255.0, greenInt.toDouble() / 255.0, blueInt.toDouble() / 255.0, alphaInt.toDouble() / 255.0)
+
+/**
+ * Creates a [KalugaColor] that uses [darkModeColor] when [isInDarkMode] and this color otherwise.
+ * If this color has a dark mode already it will be overwritten.
+ * If [darkModeColor] has a dark mode, it will be used.
+ * @param darkModeColor the [KalugaColor] to use when [isInDarkMode]
+ * @return a [KalugaColor] that supports a custom color in dark mode.
+ */
+actual infix fun KalugaColor.withDarkMode(darkModeColor: KalugaColor): KalugaColor = KalugaColor(UIColor.colorWithDynamicProvider { traits ->
+    if (traits?.userInterfaceStyle() == UIUserInterfaceStyle.UIUserInterfaceStyleDark) {
+        darkModeColor.uiColor
+    } else {
+        uiColor
+    }
+})
+

@@ -28,10 +28,15 @@ import com.splendo.kaluga.resources.KalugaColor
 @Composable
 fun KalugaColor.composable(): Color {
     return Color(
-        if (isSystemInDarkTheme()) {
-            darkModeColor
-        } else {
-            defaultColor
+        when (this) {
+            is KalugaColor.RGBColor -> color
+            is KalugaColor.DarkLightColor -> {
+                if (isSystemInDarkTheme()) {
+                    darkColor.color
+                } else {
+                    defaultColor.color
+                }
+            }
         }
     )
 }

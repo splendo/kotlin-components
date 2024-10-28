@@ -34,7 +34,7 @@ data class HSLColor(val hue: Double, val saturation: Double, val lightness: Doub
 /**
  * Gets the [HSLColor] equivalent to this [KalugaColor]
  */
-val KalugaColor.hsl: HSLColor get() {
+val KalugaColor.RGBColor.hsl: HSLColor get() {
     val max = max(red, max(green, blue))
     val min = min(red, min(green, blue))
     val lightness = (max + min) / 2.0
@@ -64,7 +64,7 @@ val KalugaColor.hsl: HSLColor get() {
 /**
  * Gets the [KalugaColor] equivalent to this [HSLColor]
  */
-val HSLColor.color: KalugaColor get() {
+val HSLColor.color: KalugaColor.RGBColor get() {
     return if (saturation == 0.0) {
         colorFrom(lightness, lightness, lightness)
     } else {
@@ -97,14 +97,26 @@ val HSLColor.color: KalugaColor get() {
  * Increases the lightness of a [KalugaColor] by this factor.
  * @param value the amount by which to increase the lightness. Should range between `0.0` and `1.0`
  */
-fun KalugaColor.lightenBy(value: Double): KalugaColor = hsl.let {
+fun KalugaColor.RGBColor.lightenBy(value: Double): KalugaColor.RGBColor = hsl.let {
     return it.copy(lightness = ((1.0 - it.lightness) * value) + it.lightness).color
+}
+
+fun KalugaColor.lightenBy(value: Double) = when (this) {
+    is KalugaColor.RGBColor -> lightenBy(value)
+    is KalugaColor.DarkLightColor -> defaultColor.lightenBy(value) withDarkMode darkColor.lightenBy(value)
+    else -> throw IllegalArgumentException("Unknown KalugaColor $this")
 }
 
 /**
  * Decreases the lightness of a [KalugaColor] by this factor.
  * @param value the amount by which to decrease the lightness. Should range between `0.0` and `1.0`
  */
-fun KalugaColor.darkenBy(value: Double): KalugaColor = hsl.let {
+fun KalugaColor.RGBColor.darkenBy(value: Double): KalugaColor.RGBColor = hsl.let {
     return it.copy(lightness = (it.lightness - (it.lightness) * value)).color
+}
+
+fun KalugaColor.darkenBy(value: Double) = when (this) {
+    is KalugaColor.RGBColor -> darkenBy(value)
+    is KalugaColor.DarkLightColor -> defaultColor.darkenBy(value) withDarkMode darkColor.darkenBy(value)
+    else -> throw IllegalArgumentException("Unknown KalugaColor $this")
 }

@@ -51,7 +51,7 @@ fun Modifier.backgroundStyle(backgroundStyle: KalugaBackgroundStyle) = backgroun
 @Composable
 fun KalugaBackgroundStyle.FillStyle.brush(): Brush = when (this) {
     is KalugaBackgroundStyle.FillStyle.Solid -> SolidColor(color.composable())
-    is KalugaBackgroundStyle.FillStyle.Gradient -> gradientStyle.brush
+    is KalugaBackgroundStyle.FillStyle.Gradient -> gradientStyle.brush()
 }
 
 /**

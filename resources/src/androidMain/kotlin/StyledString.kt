@@ -119,10 +119,10 @@ actual class StyledStringBuilder constructor(string: String, private val default
 
     private fun StringStyleAttribute.CharacterStyleAttribute.characterStyle(range: IntRange): CharacterStyle = when (this) {
         is StringStyleAttribute.CharacterStyleAttribute.BackgroundColor -> BackgroundColorSpan(
-            color,
+            color.currentColor,
         )
         is StringStyleAttribute.CharacterStyleAttribute.ForegroundColor -> ForegroundColorSpan(
-            color,
+            color.currentColor,
         )
         is StringStyleAttribute.CharacterStyleAttribute.Font -> CustomCharacterStyle {
             typeface = font
@@ -134,7 +134,7 @@ actual class StyledStringBuilder constructor(string: String, private val default
         is StringStyleAttribute.CharacterStyleAttribute.TextStyle -> CustomCharacterStyle {
             typeface = textStyle.font
             textSize = textStyle.size.spToPixel(context)
-            color = textStyle.color
+            color = textStyle.color.currentColor
         }
         is StringStyleAttribute.CharacterStyleAttribute.Shadow -> CustomCharacterStyle {
             setShadowLayer(
@@ -177,7 +177,7 @@ actual class StyledStringBuilder constructor(string: String, private val default
                     val strokePaint = TextPaint(paint).apply {
                         style = Paint.Style.STROKE
                         strokeWidth = width
-                        color = this@characterStyle.color
+                        color = this@characterStyle.color.currentColor
                     }
 
                     if (start < range.first) {
@@ -250,7 +250,7 @@ private class CustomURLSpan(url: String, private val linkStyle: LinkStyle?) : UR
     override fun updateDrawState(ds: TextPaint) {
         super.updateDrawState(ds)
         linkStyle?.let {
-            ds.color = it.color
+            ds.color = it.color.currentColor
             ds.isUnderlineText = it.isUnderlined
         }
     }

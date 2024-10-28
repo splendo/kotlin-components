@@ -21,56 +21,65 @@ package com.splendo.kaluga.resources
 
 import androidx.annotation.ColorInt
 
-/**
- * Class describing a color
- * @property defaultColor the Color to use when [isInDarkMode] is `false`
- * @property darkModeColor the Color to use when [isInDarkMode] is `true`
- * @property currentColor the Color to use respective to the current value of [isInDarkMode]
- */
-actual data class KalugaColor(@ColorInt val defaultColor: Int, @ColorInt val darkModeColor: Int = defaultColor) {
+actual sealed class KalugaColor {
     @get:ColorInt
-    val currentColor: Int get() = if (isInDarkMode) darkModeColor else defaultColor
+    abstract val currentColor: Int
+
+    actual data class RGBColor(@ColorInt val color: Int) : KalugaColor() {
+        override val currentColor: Int = color
+    }
+
+    actual data class DarkLightColor(actual val defaultColor: RGBColor, actual val darkColor: RGBColor = defaultColor) : KalugaColor() {
+        constructor(@ColorInt defaultColor: Int, @ColorInt darkModeColor: Int = defaultColor) : this(RGBColor(defaultColor), RGBColor(darkModeColor))
+        @get:ColorInt
+        override val currentColor: Int get() = if (isInDarkMode) {
+            darkColor
+        } else {
+            defaultColor
+        }.currentColor
+    }
+
 }
 
 /**
  * Gets the red value of the color in a range between `0.0` and `1.0`. Value will be respective to whether [isInDarkMode].
  */
-actual val KalugaColor.red: Double get() = redInt.toDouble() / 255.0
+actual val KalugaColor.RGBColor.red: Double get() = redInt.toDouble() / 255.0
 
 /**
  * Gets the red value of the color in a range between `0` and `255`. Value will be respective to whether [isInDarkMode].
  */
-actual val KalugaColor.redInt: Int get() = android.graphics.Color.red(currentColor)
+actual val KalugaColor.RGBColor.redInt: Int get() = android.graphics.Color.red(currentColor)
 
 /**
  * Gets the green value of the color in a range between `0.0` and `1.0`. Value will be respective to whether [isInDarkMode].
  */
-actual val KalugaColor.green: Double get() = greenInt.toDouble() / 255.0
+actual val KalugaColor.RGBColor.green: Double get() = greenInt.toDouble() / 255.0
 
 /**
  * Gets the green value of the color in a range between `0` and `255`. Value will be respective to whether [isInDarkMode].
  */
-actual val KalugaColor.greenInt: Int get() = android.graphics.Color.green(currentColor)
+actual val KalugaColor.RGBColor.greenInt: Int get() = android.graphics.Color.green(currentColor)
 
 /**
  * Gets the blue value of the color in a range between `0.0` and `1.0`. Value will be respective to whether [isInDarkMode].
  */
-actual val KalugaColor.blue: Double get() = blueInt.toDouble() / 255.0
+actual val KalugaColor.RGBColor.blue: Double get() = blueInt.toDouble() / 255.0
 
 /**
  * Gets the blue value of the color in a range between `0` and `255`. Value will be respective to whether [isInDarkMode].
  */
-actual val KalugaColor.blueInt: Int get() = android.graphics.Color.blue(currentColor)
+actual val KalugaColor.RGBColor.blueInt: Int get() = android.graphics.Color.blue(currentColor)
 
 /**
  * Gets the alpha value of the color in a range between `0.0` and `1.0`. Value will be respective to whether [isInDarkMode].
  */
-actual val KalugaColor.alpha: Double get() = alphaInt.toDouble() / 255.0
+actual val KalugaColor.RGBColor.alpha: Double get() = alphaInt.toDouble() / 255.0
 
 /**
  * Gets the alpha value of the color in a range between `0` and `255`. Value will be respective to whether [isInDarkMode].
  */
-actual val KalugaColor.alphaInt: Int get() = android.graphics.Color.alpha(currentColor)
+actual val KalugaColor.RGBColor.alphaInt: Int get() = android.graphics.Color.alpha(currentColor)
 
 /**
  * Creates a [KalugaColor] using red, green, blue, and (optional) alpha, all ranging between `0.0` and `1.0`.
@@ -80,8 +89,8 @@ actual val KalugaColor.alphaInt: Int get() = android.graphics.Color.alpha(curren
  * @param alpha The alpha color value ranging between `0.0` and `1.0`. Defaults to `1.0`
  * @return The [KalugaColor] with the corresponding red, green, blue, and alpha values
  */
-actual fun colorFrom(red: Double, green: Double, blue: Double, alpha: Double): KalugaColor =
-    KalugaColor(android.graphics.Color.argb((alpha * 255.0).toInt(), (red * 255.0).toInt(), (green * 255.0).toInt(), (blue * 255.0).toInt()))
+actual fun colorFrom(red: Double, green: Double, blue: Double, alpha: Double): KalugaColor.RGBColor =
+    KalugaColor.RGBColor(android.graphics.Color.argb((alpha * 255.0).toInt(), (red * 255.0).toInt(), (green * 255.0).toInt(), (blue * 255.0).toInt()))
 
 /**
  * Creates a [KalugaColor] using red, green, blue, and (optional) alpha, all ranging between `0` and `255`.
@@ -91,7 +100,7 @@ actual fun colorFrom(red: Double, green: Double, blue: Double, alpha: Double): K
  * @param alphaInt The alpha color value ranging between `0` and `255`. Defaults to `255`
  * @return The [KalugaColor] with the corresponding red, green, blue, and alpha values
  */
-actual fun colorFrom(redInt: Int, greenInt: Int, blueInt: Int, alphaInt: Int): KalugaColor = KalugaColor(android.graphics.Color.argb(alphaInt, redInt, greenInt, blueInt))
+actual fun colorFrom(redInt: Int, greenInt: Int, blueInt: Int, alphaInt: Int): KalugaColor.RGBColor = KalugaColor.RGBColor(android.graphics.Color.argb(alphaInt, redInt, greenInt, blueInt))
 
 /**
  * Creates a [KalugaColor] that uses [darkModeColor] when [isInDarkMode] and this color otherwise.
@@ -100,4 +109,4 @@ actual fun colorFrom(redInt: Int, greenInt: Int, blueInt: Int, alphaInt: Int): K
  * @param darkModeColor the [KalugaColor] to use when [isInDarkMode]
  * @return a [KalugaColor] that supports a custom color in dark mode.
  */
-actual infix fun KalugaColor.withDarkMode(darkModeColor: KalugaColor): KalugaColor = KalugaColor(defaultColor, darkModeColor.darkModeColor)
+actual infix fun KalugaColor.RGBColor.withDarkMode(darkModeColor: KalugaColor.RGBColor): KalugaColor.DarkLightColor = KalugaColor.DarkLightColor(this, darkModeColor)

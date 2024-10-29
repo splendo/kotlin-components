@@ -211,6 +211,7 @@ public final class com/splendo/kaluga/resources/ColorCommonKt {
 	public static final fun blue (Lcom/splendo/kaluga/resources/KalugaColor$DarkLightColor;Z)D
 	public static final fun blueInt (Lcom/splendo/kaluga/resources/KalugaColor$DarkLightColor;Z)I
 	public static final fun colorFrom (Ljava/lang/String;)Lcom/splendo/kaluga/resources/KalugaColor$RGBColor;
+	public static final fun getFlipped (Lcom/splendo/kaluga/resources/KalugaColor$DarkLightColor;)Lcom/splendo/kaluga/resources/KalugaColor$DarkLightColor;
 	public static final fun getHexString (Lcom/splendo/kaluga/resources/KalugaColor$RGBColor;)Ljava/lang/String;
 	public static final fun getInverted (Lcom/splendo/kaluga/resources/KalugaColor$DarkLightColor;)Lcom/splendo/kaluga/resources/KalugaColor$DarkLightColor;
 	public static final fun getInverted (Lcom/splendo/kaluga/resources/KalugaColor$RGBColor;)Lcom/splendo/kaluga/resources/KalugaColor$RGBColor;

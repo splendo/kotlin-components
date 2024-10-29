@@ -99,7 +99,6 @@ fun KalugaColor.DarkLightColor.red(forDarkMode: Boolean) = rgbColor(forDarkMode)
  */
 expect val KalugaColor.RGBColor.redInt: Int
 
-
 /**
  * Gets the red value of the color [forDarkMode] in a range between `0` and `255`
  * @param forDarkMode if `true` will return the red value of [KalugaColor.DarkLightColor.darkColor], otherwise the value of [KalugaColor.DarkLightColor.defaultColor].
@@ -122,7 +121,6 @@ fun KalugaColor.DarkLightColor.green(forDarkMode: Boolean) = rgbColor(forDarkMod
  */
 expect val KalugaColor.RGBColor.greenInt: Int
 
-
 /**
  * Gets the green value of the color [forDarkMode] in a range between `0` and `255`
  * @param forDarkMode if `true` will return the green value of [KalugaColor.DarkLightColor.darkColor], otherwise the value of [KalugaColor.DarkLightColor.defaultColor].
@@ -144,7 +142,6 @@ fun KalugaColor.DarkLightColor.blue(forDarkMode: Boolean) = rgbColor(forDarkMode
  * Gets the blue value of the color in a range between `0` and `255`
  */
 expect val KalugaColor.RGBColor.blueInt: Int
-
 
 /**
  * Gets the blue value of the color [forDarkMode] in a range between `0` and `255`

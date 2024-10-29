@@ -17,6 +17,7 @@
 
 package com.splendo.kaluga.resources.compose
 
+import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
@@ -33,31 +34,31 @@ import com.splendo.kaluga.resources.stylable.GradientStyle
 /**
  * Gets a [Brush] from a [GradientStyle]
  */
-val GradientStyle.brush: Brush
-    get() = when (this) {
-        is GradientStyle.Linear -> Brush.linearGradient(
-            *colorPoints.colorStops.toTypedArray(),
-            start = orientation.offset.first,
-            end = orientation.offset.second,
-        )
-        is GradientStyle.Radial -> RelativeRadialGradient(
-            centerPoint,
-            radius = radius,
-            colorStops = colorPoints.colorStops.toTypedArray(),
-        )
-        is GradientStyle.Angular -> RelativeSweepGradient(
-            centerPoint,
-            *colorPoints.colorStops.toTypedArray(),
-        )
-    }
+@Composable
+fun GradientStyle.brush(): Brush = when (this) {
+    is GradientStyle.Linear -> Brush.linearGradient(
+        *colorPoints.colorStops().toTypedArray(),
+        start = orientation.offset.first,
+        end = orientation.offset.second,
+    )
+    is GradientStyle.Radial -> RelativeRadialGradient(
+        centerPoint,
+        radius = radius,
+        colorStops = colorPoints.colorStops().toTypedArray(),
+    )
+    is GradientStyle.Angular -> RelativeSweepGradient(
+        centerPoint,
+        *colorPoints.colorStops().toTypedArray(),
+    )
+}
 
-private val List<GradientStyle.ColorPoint>.colorStops: List<Pair<Float, Color>>
-    get() = map {
-        Pair(
-            it.offset,
-            it.color.composable,
-        )
-    }
+@Composable
+private fun List<GradientStyle.ColorPoint>.colorStops(): List<Pair<Float, Color>> = map {
+    Pair(
+        it.offset,
+        it.color.composable(),
+    )
+}
 
 private val GradientStyle.Linear.Orientation.offset: Pair<Offset, Offset>
     get() = when (this) {

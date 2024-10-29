@@ -59,5 +59,5 @@ fun TintedImage.Composable(
     alignment = alignment,
     contentScale = contentScale,
     alpha = alpha,
-    colorFilter = ColorFilter.tint(tint.composable),
+    colorFilter = ColorFilter.tint(tint.composable()),
 )

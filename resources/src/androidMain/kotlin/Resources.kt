@@ -18,6 +18,7 @@
 package com.splendo.kaluga.resources
 
 import android.content.Context
+import android.content.res.Configuration
 import android.content.res.Resources
 import android.graphics.Typeface
 import android.os.Handler
@@ -69,10 +70,21 @@ actual class DefaultColorLoader(private val context: Context?) : KalugaColorLoad
         }
         val id = context.resources.getIdentifier(identifier, "color", context.packageName)
         return try {
-            ContextCompat.getColor(context, id)
+            KalugaColor.DarkLightColor(
+                ContextCompat.getColor(context.themedContext(false), id),
+                ContextCompat.getColor(context.themedContext(true), id),
+            )
         } catch (e: Resources.NotFoundException) {
             defaultValue
         }
+    }
+
+    private fun Context.themedContext(withNightMode: Boolean): Context {
+        val res: Resources = resources
+        val configuration = Configuration(res.configuration)
+        configuration.uiMode = if (withNightMode) Configuration.UI_MODE_NIGHT_YES else Configuration.UI_MODE_NIGHT_NO
+
+        return createConfigurationContext(configuration)
     }
 }
 

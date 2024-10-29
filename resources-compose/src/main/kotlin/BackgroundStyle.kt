@@ -39,17 +39,19 @@ import com.splendo.kaluga.resources.stylable.KalugaBackgroundStyle
  * @param backgroundStyle the [KalugaBackgroundStyle] to modify with
  * @return a [Modifier] that adds a background according to the [KalugaBackgroundStyle]
  */
+@Composable
 fun Modifier.backgroundStyle(backgroundStyle: KalugaBackgroundStyle) = background(
-    backgroundStyle.fillStyle.brush,
+    backgroundStyle.fillStyle.brush(),
     backgroundStyle.shape.shape,
-).border(backgroundStyle.strokeStyle.borderStroke, backgroundStyle.shape.shape)
+).border(backgroundStyle.strokeStyle.borderStroke(), backgroundStyle.shape.shape)
 
 /**
  * Gets the [Brush] of a [KalugaBackgroundStyle.FillStyle]
  */
-val KalugaBackgroundStyle.FillStyle.brush: Brush get() = when (this) {
-    is KalugaBackgroundStyle.FillStyle.Solid -> SolidColor(color.composable)
-    is KalugaBackgroundStyle.FillStyle.Gradient -> gradientStyle.brush
+@Composable
+fun KalugaBackgroundStyle.FillStyle.brush(): Brush = when (this) {
+    is KalugaBackgroundStyle.FillStyle.Solid -> SolidColor(color.composable())
+    is KalugaBackgroundStyle.FillStyle.Gradient -> gradientStyle.brush()
 }
 
 /**
@@ -89,9 +91,10 @@ val KalugaBackgroundStyle.Shape.shape: Shape get() = when (this) {
     is KalugaBackgroundStyle.Shape.Oval -> androidx.compose.foundation.shape.CircleShape
 }
 
-val KalugaBackgroundStyle.StrokeStyle.borderStroke: BorderStroke get() = when (this) {
+@Composable
+fun KalugaBackgroundStyle.StrokeStyle.borderStroke(): BorderStroke = when (this) {
     is KalugaBackgroundStyle.StrokeStyle.None -> BorderStroke(0.0f.dp, Color.Transparent)
-    is KalugaBackgroundStyle.StrokeStyle.Stroke -> BorderStroke(width.dp, color.composable)
+    is KalugaBackgroundStyle.StrokeStyle.Stroke -> BorderStroke(width.dp, color.composable())
 }
 
 @Preview

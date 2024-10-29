@@ -50,7 +50,7 @@ actual class DefaultColorLoader(private val bundle: NSBundle, private val traitC
     actual constructor() : this(NSBundle.mainBundle, null)
     actual override fun loadColor(identifier: String, defaultValue: KalugaColor?): KalugaColor? = UIColor
         .colorNamed(identifier, bundle, traitCollection)
-        ?.let { KalugaColor(it) } ?: defaultValue
+        ?.let { KalugaColor.DarkLightColor(it) } ?: defaultValue
 }
 
 /**

@@ -36,29 +36,29 @@ import com.splendo.kaluga.resources.stylable.GradientStyle
  */
 @Composable
 fun GradientStyle.brush(): Brush = when (this) {
-        is GradientStyle.Linear -> Brush.linearGradient(
-            *colorPoints.colorStops().toTypedArray(),
-            start = orientation.offset.first,
-            end = orientation.offset.second,
-        )
-        is GradientStyle.Radial -> RelativeRadialGradient(
-            centerPoint,
-            radius = radius,
-            colorStops = colorPoints.colorStops().toTypedArray(),
-        )
-        is GradientStyle.Angular -> RelativeSweepGradient(
-            centerPoint,
-            *colorPoints.colorStops().toTypedArray(),
-        )
-    }
+    is GradientStyle.Linear -> Brush.linearGradient(
+        *colorPoints.colorStops().toTypedArray(),
+        start = orientation.offset.first,
+        end = orientation.offset.second,
+    )
+    is GradientStyle.Radial -> RelativeRadialGradient(
+        centerPoint,
+        radius = radius,
+        colorStops = colorPoints.colorStops().toTypedArray(),
+    )
+    is GradientStyle.Angular -> RelativeSweepGradient(
+        centerPoint,
+        *colorPoints.colorStops().toTypedArray(),
+    )
+}
 
 @Composable
 private fun List<GradientStyle.ColorPoint>.colorStops(): List<Pair<Float, Color>> = map {
-        Pair(
-            it.offset,
-            it.color.composable(),
-        )
-    }
+    Pair(
+        it.offset,
+        it.color.composable(),
+    )
+}
 
 private val GradientStyle.Linear.Orientation.offset: Pair<Offset, Offset>
     get() = when (this) {

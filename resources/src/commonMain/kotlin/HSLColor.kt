@@ -32,7 +32,7 @@ import kotlin.math.min
 data class HSLColor(val hue: Double, val saturation: Double, val lightness: Double, val alpha: Double = 1.0)
 
 /**
- * Gets the [HSLColor] equivalent to this [KalugaColor]
+ * Gets the [HSLColor] equivalent to this [KalugaColor.RGBColor]
  */
 val KalugaColor.RGBColor.hsl: HSLColor get() {
     val max = max(red, max(green, blue))
@@ -62,7 +62,7 @@ val KalugaColor.RGBColor.hsl: HSLColor get() {
 }
 
 /**
- * Gets the [KalugaColor] equivalent to this [HSLColor]
+ * Gets the [KalugaColor.RGBColor] equivalent to this [HSLColor]
  */
 val HSLColor.color: KalugaColor.RGBColor get() {
     return if (saturation == 0.0) {
@@ -94,13 +94,18 @@ val HSLColor.color: KalugaColor.RGBColor get() {
 }
 
 /**
- * Increases the lightness of a [KalugaColor] by this factor.
+ * Increases the lightness of a [KalugaColor.RGBColor] by this factor.
  * @param value the amount by which to increase the lightness. Should range between `0.0` and `1.0`
  */
 fun KalugaColor.RGBColor.lightenBy(value: Double): KalugaColor.RGBColor = hsl.let {
     return it.copy(lightness = ((1.0 - it.lightness) * value) + it.lightness).color
 }
 
+/**
+ * Increases the lightness of a [KalugaColor] by this factor.
+ * If this is a [KalugaColor.DarkLightColor] each component wll be lightened individually.
+ * @param value the amount by which to increase the lightness. Should range between `0.0` and `1.0`
+ */
 fun KalugaColor.lightenBy(value: Double) = when (this) {
     is KalugaColor.RGBColor -> lightenBy(value)
     is KalugaColor.DarkLightColor -> defaultColor.lightenBy(value) withDarkMode darkColor.lightenBy(value)
@@ -108,13 +113,18 @@ fun KalugaColor.lightenBy(value: Double) = when (this) {
 }
 
 /**
- * Decreases the lightness of a [KalugaColor] by this factor.
+ * Decreases the lightness of a [KalugaColor.RGBColor] by this factor.
  * @param value the amount by which to decrease the lightness. Should range between `0.0` and `1.0`
  */
 fun KalugaColor.RGBColor.darkenBy(value: Double): KalugaColor.RGBColor = hsl.let {
     return it.copy(lightness = (it.lightness - (it.lightness) * value)).color
 }
 
+/**
+ * Decreases the lightness of a [KalugaColor] by this factor.
+ * If this is a [KalugaColor.DarkLightColor] each component wll be darkened individually.
+ * @param value the amount by which to decrease the lightness. Should range between `0.0` and `1.0`
+ */
 fun KalugaColor.darkenBy(value: Double) = when (this) {
     is KalugaColor.RGBColor -> darkenBy(value)
     is KalugaColor.DarkLightColor -> defaultColor.darkenBy(value) withDarkMode darkColor.darkenBy(value)

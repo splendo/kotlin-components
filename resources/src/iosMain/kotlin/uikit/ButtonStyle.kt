@@ -48,7 +48,6 @@ import platform.UIKit.UIControlStateDisabled
 import platform.UIKit.UIControlStateHighlighted
 import platform.UIKit.UIControlStateNormal
 import platform.UIKit.UIEdgeInsetsMake
-import platform.UIKit.UIGraphicsGetImageFromCurrentImageContext
 import platform.UIKit.UIGraphicsImageRenderer
 import platform.UIKit.UIImage
 import platform.UIKit.UIUserInterfaceLayoutDirection

@@ -70,7 +70,6 @@ actual class DefaultColorLoader(private val context: Context?) : KalugaColorLoad
         }
         val id = context.resources.getIdentifier(identifier, "color", context.packageName)
         return try {
-
             KalugaColor.DarkLightColor(
                 ContextCompat.getColor(context.themedContext(false), id),
                 ContextCompat.getColor(context.themedContext(true), id),

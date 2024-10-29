@@ -26,17 +26,15 @@ import com.splendo.kaluga.resources.KalugaColor
  * Gets a [Color] from a [KalugaColor]
  */
 @Composable
-fun KalugaColor.composable(): Color {
-    return Color(
-        when (this) {
-            is KalugaColor.RGBColor -> color
-            is KalugaColor.DarkLightColor -> {
-                if (isSystemInDarkTheme()) {
-                    darkColor.color
-                } else {
-                    defaultColor.color
-                }
+fun KalugaColor.composable(): Color = Color(
+    when (this) {
+        is KalugaColor.RGBColor -> color
+        is KalugaColor.DarkLightColor -> {
+            if (isSystemInDarkTheme()) {
+                darkColor.color
+            } else {
+                defaultColor.color
             }
         }
-    )
-}
+    },
+)

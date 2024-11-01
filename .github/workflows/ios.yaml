@@ -80,7 +80,9 @@ jobs:
 
       - name: run install
         working-directory: example/ios
-        run: ./install.sh
+        run: \ 
+          brew install sourcery
+          ./install.sh
 
       - name: build example
         working-directory: example/ios

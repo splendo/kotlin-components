@@ -1,9 +1,5 @@
 name: 'Setup macOS workspace reusable workflow'
 
-env:
-  GRADLE_OPTS: "-Dorg.gradle.jvmargs=\"-Xmx8G -XX:MaxMetaspaceSize=512m -Dorg.gradle.daemon=false -Dkotlin.incremental=false\" -Dorg.gradle.daemon=false -Dkotlin.incremental=false -Dkotlin.daemon.jvm.options=-Xmx8G,-XX:MaxMetaspaceSize=512m,-Dorg.gradle.daemon=false,-Dkotlin.incremental=false"
-  JAVA_OPTS: "-Xmx8G -XX:MaxMetaspaceSize=512m -Dorg.gradle.daemon=false -Dkotlin.incremental=false"
-
 on:
   workflow_call:
     inputs:
@@ -41,10 +37,6 @@ jobs:
           echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
           sudo udevadm control --reload-rules
           sudo udevadm trigger --name-match=kvm
-
-      - name: remove VM settings as defined in gradle.properties (for using in the IDE)
-        run: sed -i '' -e '/org.gradle.jvmargs/d' gradle.properties; cat gradle.properties
-        shell: bash
 
       - name: setup tools and enable Gradle cache writing
         uses: ./.github/workflows/setup_tools_linux/

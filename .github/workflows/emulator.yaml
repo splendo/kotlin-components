@@ -33,7 +33,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        api-level: [24, 34]
+        api-level: [24, 35]
         project: ${{ fromJSON(needs.build.outputs.projects) }}
     steps:
       - name: checkout
@@ -103,6 +103,13 @@ jobs:
           script: |
             ./script/check_emulator.sh
             ./gradlew ${{ inputs.video && 'recordAndroid' }} :${{ matrix.project }}:connectedDebugAndroidTest
+
+      - name: Upload test reports on failure
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: "Android UI tests for ${{ matrix.project }}"
+          path: "${{ matrix.project }}/build/reports/androidTests/connected/debug/**"
 
       - name: rename video
         if: always() && inputs.video    

@@ -42,10 +42,7 @@ jobs:
           submodules: recursive
 
       - name: Setup tools and cache for workspace
-        uses: ./.github/workflows/setup_tools_macos/
-        with:
-          kotlinVersion: ${{ needs.build.outputs.kotlinVersion }}
-          arch: ${{ runner.arch == 'X86' && 'x86' || runner.arch == 'X64' && 'x86_64' || runner.arch == 'ARM' && 'arm32' || 'arm64' }}
+        uses: ./.github/workflows/setup_tools_linux/
 
       - name: Enable KVM group perms
         run: |

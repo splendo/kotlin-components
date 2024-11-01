@@ -1,4 +1,4 @@
-name: Android tests
+name: Android tests and example
 on:
   pull_request:
   push:
@@ -25,7 +25,7 @@ jobs:
           java-version: 17
 
       - name: build example
-        run: ./gradlew android:assembleDebug
+        run: ./gradlew --stacktrace android:assembleDebug
         working-directory: example
 
   test:

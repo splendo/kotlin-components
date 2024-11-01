@@ -591,7 +591,6 @@
 			buildConfigurationList = 74C754F7F747073B076C3A91 /* Build configuration list for PBXNativeTarget "Demo" */;
 			buildPhases = (
 				95D0860F27D2540B00838E57 /* Compile Kotlin/Native */,
-				20BB9E6A29631B600096E836 /* SwiftLint */,
 				744156D82DB12C1F9CC3C68F /* Sources */,
 				74B635A880CB81844D31A213 /* Frameworks */,
 				746C535FD7586B544C684D34 /* Resources */,
@@ -695,25 +694,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		20BB9E6A29631B600096E836 /* SwiftLint */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = SwiftLint;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nexport PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
 		95D0860F27D2540B00838E57 /* Compile Kotlin/Native */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;

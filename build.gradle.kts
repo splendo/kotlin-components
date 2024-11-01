@@ -30,3 +30,9 @@ publishing {
         }
     }
 }
+
+dependencies {
+    subprojects.forEach { project ->
+        kover(project)
+    }
+}

@@ -1,12 +1,8 @@
 public final class com/splendo/kaluga/base/ApplicationHolder {
-	public static final field Companion Lcom/splendo/kaluga/base/ApplicationHolder$Companion;
-	public fun <init> ()V
-}
-
-public final class com/splendo/kaluga/base/ApplicationHolder$Companion {
-	public final fun getApplication ()Landroid/app/Application;
+	public static final field INSTANCE Lcom/splendo/kaluga/base/ApplicationHolder;
 	public final fun getApplicationContext ()Landroid/content/Context;
-	public final fun setApplication (Landroid/app/Application;)V
+	public final fun isInitialized ()Z
+	public final fun setApplicationContext (Landroid/content/Context;)V
 }
 
 public final class com/splendo/kaluga/base/KalugaThread {

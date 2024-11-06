@@ -392,8 +392,8 @@ public final class com/splendo/kaluga/resources/DefaultColors {
 
 public final class com/splendo/kaluga/resources/DefaultFontLoader : com/splendo/kaluga/resources/FontLoader {
 	public fun <init> ()V
-	public fun <init> (Landroid/content/Context;Landroid/os/Handler;)V
-	public fun loadFont (Ljava/lang/String;Landroid/graphics/Typeface;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun <init> (Landroid/content/Context;)V
+	public fun loadFont (Ljava/lang/String;Landroid/graphics/Typeface;)Landroid/graphics/Typeface;
 }
 
 public final class com/splendo/kaluga/resources/DefaultImageLoader : com/splendo/kaluga/resources/ImageLoader {
@@ -410,7 +410,7 @@ public final class com/splendo/kaluga/resources/DefaultStringLoader : com/splend
 }
 
 public abstract interface class com/splendo/kaluga/resources/FontLoader {
-	public abstract fun loadFont (Ljava/lang/String;Landroid/graphics/Typeface;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun loadFont (Ljava/lang/String;Landroid/graphics/Typeface;)Landroid/graphics/Typeface;
 }
 
 public final class com/splendo/kaluga/resources/FontStyle : java/lang/Enum {

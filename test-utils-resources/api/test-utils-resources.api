@@ -10,8 +10,8 @@ public final class com/splendo/kaluga/test/resources/MockFontLoader : com/splend
 	public fun <init> ()V
 	public fun <init> (Z)V
 	public synthetic fun <init> (ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public final fun getLoadFontMock ()Lcom/splendo/kaluga/test/base/mock/SuspendMethodMock;
-	public fun loadFont (Ljava/lang/String;Landroid/graphics/Typeface;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun getLoadFontMock ()Lcom/splendo/kaluga/test/base/mock/MethodMock;
+	public fun loadFont (Ljava/lang/String;Landroid/graphics/Typeface;)Landroid/graphics/Typeface;
 }
 
 public final class com/splendo/kaluga/test/resources/MockImageLoader : com/splendo/kaluga/resources/ImageLoader {

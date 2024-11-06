@@ -24,8 +24,7 @@ import android.graphics.Typeface
 import android.os.Handler
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
-import com.splendo.kaluga.base.ApplicationHolder.Companion.application
-import com.splendo.kaluga.base.ApplicationHolder.Companion.applicationContext
+import com.splendo.kaluga.base.ApplicationHolder
 import kotlinx.coroutines.CompletableDeferred
 
 /**
@@ -33,7 +32,7 @@ import kotlinx.coroutines.CompletableDeferred
  * @param context the [Context] from which to load the string resources
  */
 actual class DefaultStringLoader(private val context: Context?) : StringLoader {
-    actual constructor() : this(if (application != null) applicationContext else null)
+    actual constructor() : this(if (ApplicationHolder.isInitialized) ApplicationHolder.applicationContext else null)
     actual override fun loadString(identifier: String, defaultValue: String): String {
         if (context == null) {
             return defaultValue
@@ -63,7 +62,7 @@ actual class DefaultStringLoader(private val context: Context?) : StringLoader {
  * @param context the [Context] from which to load the color resources
  */
 actual class DefaultColorLoader(private val context: Context?) : KalugaColorLoader {
-    actual constructor() : this(if (application != null) applicationContext else null)
+    actual constructor() : this(if (ApplicationHolder.isInitialized) ApplicationHolder.applicationContext else null)
     actual override fun loadColor(identifier: String, defaultValue: KalugaColor?): KalugaColor? {
         if (context == null) {
             return defaultValue
@@ -93,7 +92,7 @@ actual class DefaultColorLoader(private val context: Context?) : KalugaColorLoad
  * @param context the [Context] from which to load the image resources
  */
 actual class DefaultImageLoader(private val context: Context?) : ImageLoader {
-    actual constructor() : this(if (application != null) applicationContext else null)
+    actual constructor() : this(if (ApplicationHolder.isInitialized) ApplicationHolder.applicationContext else null)
     actual override fun loadImage(identifier: String, defaultValue: KalugaImage?): KalugaImage? {
         if (context == null) {
             return defaultValue
@@ -113,7 +112,7 @@ actual class DefaultImageLoader(private val context: Context?) : ImageLoader {
  * @param handler a [Handler] for the thread the completion of loading the font should called on. If `null`, the UI thread will be used.
  */
 actual class DefaultFontLoader(private val context: Context?, private val handler: Handler?) : FontLoader {
-    actual constructor() : this(if (application != null) applicationContext else null, null)
+    actual constructor() : this(if (ApplicationHolder.isInitialized) ApplicationHolder.applicationContext else null, null)
     actual override suspend fun loadFont(identifier: String, defaultValue: KalugaFont?): KalugaFont? {
         if (context == null) {
             return defaultValue

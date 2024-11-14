@@ -583,8 +583,8 @@ public class com/splendo/kaluga/resources/RGBColorSerializer : kotlinx/serializa
 public final class com/splendo/kaluga/resources/ResourcesKt {
 	public static final fun asColor (Ljava/lang/String;Lcom/splendo/kaluga/resources/KalugaColorLoader;Lcom/splendo/kaluga/resources/KalugaColor;)Lcom/splendo/kaluga/resources/KalugaColor;
 	public static synthetic fun asColor$default (Ljava/lang/String;Lcom/splendo/kaluga/resources/KalugaColorLoader;Lcom/splendo/kaluga/resources/KalugaColor;ILjava/lang/Object;)Lcom/splendo/kaluga/resources/KalugaColor;
-	public static final fun asFont (Ljava/lang/String;Lcom/splendo/kaluga/resources/FontLoader;Landroid/graphics/Typeface;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public static synthetic fun asFont$default (Ljava/lang/String;Lcom/splendo/kaluga/resources/FontLoader;Landroid/graphics/Typeface;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public static final fun asFont (Ljava/lang/String;Lcom/splendo/kaluga/resources/FontLoader;Landroid/graphics/Typeface;)Landroid/graphics/Typeface;
+	public static synthetic fun asFont$default (Ljava/lang/String;Lcom/splendo/kaluga/resources/FontLoader;Landroid/graphics/Typeface;ILjava/lang/Object;)Landroid/graphics/Typeface;
 	public static final fun asImage (Ljava/lang/String;Lcom/splendo/kaluga/resources/ImageLoader;Lcom/splendo/kaluga/resources/KalugaImage;)Lcom/splendo/kaluga/resources/KalugaImage;
 	public static synthetic fun asImage$default (Ljava/lang/String;Lcom/splendo/kaluga/resources/ImageLoader;Lcom/splendo/kaluga/resources/KalugaImage;ILjava/lang/Object;)Lcom/splendo/kaluga/resources/KalugaImage;
 	public static final fun localized (Ljava/lang/String;Lcom/splendo/kaluga/resources/StringLoader;Ljava/lang/String;)Ljava/lang/String;

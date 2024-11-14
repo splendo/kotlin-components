@@ -28,18 +28,21 @@ import com.splendo.kaluga.base.ApplicationHolder
 
 @Suppress("EnumEntryName")
 private enum class DefType {
-    string, plurals, color, drawable, font
+    string,
+    plurals,
+    color,
+    drawable,
+    font,
 }
 
 @SuppressLint("DiscouragedApi")
-private fun <T> Context.getResource(name: String, defType: DefType, get: Context.(Int) -> T?): T? =
-    try {
-        resources.getIdentifier(name, defType.name, packageName)
-            .takeIf { it != 0 }
-            ?.let { id -> get(id) }
-    } catch (e: Resources.NotFoundException) {
-        null
-    }
+private fun <T> Context.getResource(name: String, defType: DefType, get: Context.(Int) -> T?): T? = try {
+    resources.getIdentifier(name, defType.name, packageName)
+        .takeIf { it != 0 }
+        ?.let { id -> get(id) }
+} catch (e: Resources.NotFoundException) {
+    null
+}
 
 /**
  * Default implementation of a [StringLoader].
@@ -47,9 +50,8 @@ private fun <T> Context.getResource(name: String, defType: DefType, get: Context
  */
 actual class DefaultStringLoader(private val context: Context?) : StringLoader {
     actual constructor() : this(if (ApplicationHolder.isInitialized) ApplicationHolder.applicationContext else null)
-    actual override fun loadString(identifier: String, defaultValue: String): String =
-        context?.getResource(identifier, DefType.string, Context::getString)
-            ?: defaultValue
+    actual override fun loadString(identifier: String, defaultValue: String): String = context?.getResource(identifier, DefType.string, Context::getString)
+        ?: defaultValue
 
     actual override fun loadQuantityString(identifier: String, quantity: Int, defaultValue: String): String =
         context?.getResource(identifier, DefType.plurals) { id -> resources.getQuantityString(id, quantity, quantity) }
@@ -62,13 +64,12 @@ actual class DefaultStringLoader(private val context: Context?) : StringLoader {
  */
 actual class DefaultColorLoader(private val context: Context?) : KalugaColorLoader {
     actual constructor() : this(if (ApplicationHolder.isInitialized) ApplicationHolder.applicationContext else null)
-    actual override fun loadColor(identifier: String, defaultValue: KalugaColor?): KalugaColor? =
-        context?.getResource(identifier, DefType.color) { id ->
-            KalugaColor.DarkLightColor(
-                ContextCompat.getColor(context.themedContext(false), id),
-                ContextCompat.getColor(context.themedContext(true), id),
-            )
-        } ?: defaultValue
+    actual override fun loadColor(identifier: String, defaultValue: KalugaColor?): KalugaColor? = context?.getResource(identifier, DefType.color) { id ->
+        KalugaColor.DarkLightColor(
+            ContextCompat.getColor(context.themedContext(false), id),
+            ContextCompat.getColor(context.themedContext(true), id),
+        )
+    } ?: defaultValue
 
     private fun Context.themedContext(withNightMode: Boolean): Context {
         val res: Resources = resources

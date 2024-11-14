@@ -135,8 +135,8 @@ class ColorViewModel(private val alertPresenterBuilder: BaseAlertPresenter.Build
                     is KalugaColor.RGBColor -> color
                     is KalugaColor.DarkLightColor -> color.defaultColor
                     else -> throw IllegalArgumentException("Invalid Color $color")
-                }
-            )
+                },
+            ),
         )
     }
 
@@ -147,8 +147,8 @@ class ColorViewModel(private val alertPresenterBuilder: BaseAlertPresenter.Build
                     is KalugaColor.RGBColor -> color
                     is KalugaColor.DarkLightColor -> color.darkColor
                     else -> throw IllegalArgumentException("Invalid Color $color")
-                }
-            )
+                },
+            ),
         )
     }
 

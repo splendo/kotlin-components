@@ -24,8 +24,6 @@ import android.content.res.Resources
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
 import com.splendo.kaluga.base.ApplicationHolder
-import com.splendo.kaluga.resources.FontLoader
-import com.splendo.kaluga.resources.KalugaFont
 
 /**
  * Sets up an infrastructure for previews.
@@ -42,11 +40,8 @@ fun KalugaPreview(resourcePackageOverride: String? = null, content: @Composable 
     content()
 }
 
-private class PreviewContextWrapper private constructor(
-    base: Context,
-    private val packageNameOverride: String?,
-    private val resourcesOverride: Resources?,
-) : ContextWrapper(base) {
+private class PreviewContextWrapper private constructor(base: Context, private val packageNameOverride: String?, private val resourcesOverride: Resources?) :
+    ContextWrapper(base) {
     constructor(base: Context, packageNameOverride: String?) : this(base, packageNameOverride, null)
     override fun getPackageName(): String = packageNameOverride ?: super.getPackageName()
     override fun createConfigurationContext(overrideConfiguration: Configuration): Context {

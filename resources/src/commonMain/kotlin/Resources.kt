@@ -149,4 +149,4 @@ fun String.asImage(imageLoader: ImageLoader = DefaultImageLoader(), defaultValue
  * @param defaultValue The [KalugaFont] to return if no match was found for the identifier. Defaults to `null`.
  * @return The [KalugaFont] associated with the identifier represented by this String, or [defaultValue] if no such [KalugaFont] could be found.
  */
-suspend fun String.asFont(fontLoader: FontLoader = DefaultFontLoader(), defaultValue: KalugaFont? = null): KalugaFont? = fontLoader.loadFont(this, defaultValue)
+fun String.asFont(fontLoader: FontLoader = DefaultFontLoader(), defaultValue: KalugaFont? = null): KalugaFont? = fontLoader.loadFont(this, defaultValue)

@@ -69,5 +69,5 @@ actual class DefaultImageLoader(private val bundle: NSBundle, private val traitC
  * Default implementation of a [FontLoader].
  */
 actual class DefaultFontLoader actual constructor() : FontLoader {
-    actual override suspend fun loadFont(identifier: String, defaultValue: KalugaFont?): KalugaFont? = UIFont.fontWithName(identifier, UIFont.labelFontSize) ?: defaultValue
+    actual override fun loadFont(identifier: String, defaultValue: KalugaFont?): KalugaFont? = UIFont.fontWithName(identifier, UIFont.labelFontSize) ?: defaultValue
 }

@@ -29,6 +29,10 @@ public final class com/splendo/kaluga/resources/compose/KalugaLabelKt {
 	public static final fun PreviewKalugaLabel (Landroidx/compose/runtime/Composer;I)V
 }
 
+public final class com/splendo/kaluga/resources/compose/KalugaPreviewKt {
+	public static final fun KalugaPreview (Ljava/lang/String;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
+}
+
 public final class com/splendo/kaluga/resources/compose/TextAlignmentKt {
 	public static final fun getComposable (Lcom/splendo/kaluga/resources/stylable/KalugaTextAlignment;)I
 }

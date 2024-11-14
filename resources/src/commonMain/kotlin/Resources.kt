@@ -98,14 +98,14 @@ interface FontLoader {
      * @param defaultValue The [KalugaFont] to return if no match was found for the identifier.
      * @return The associated [KalugaFont] resources or [defaultValue] if no such resource was found.
      */
-    suspend fun loadFont(identifier: String, defaultValue: KalugaFont?): KalugaFont?
+    fun loadFont(identifier: String, defaultValue: KalugaFont?): KalugaFont?
 }
 
 /**
  * Default implementation of a [FontLoader].
  */
 expect class DefaultFontLoader() : FontLoader {
-    override suspend fun loadFont(identifier: String, defaultValue: KalugaFont?): KalugaFont?
+    override fun loadFont(identifier: String, defaultValue: KalugaFont?): KalugaFont?
 }
 
 /**

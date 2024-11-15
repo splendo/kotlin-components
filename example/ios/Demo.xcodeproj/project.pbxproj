@@ -90,6 +90,7 @@
 		C0C827F580A4F1950E9B10EE /* Shape+Helpers.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2BAEDD60E67CE8F9277AC6 /* Shape+Helpers.generated.swift */; };
 		C77C23B538A4DFB02C0E0773 /* LazyView.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095989173871C8CDA70C49E1 /* LazyView.generated.swift */; };
 		C9555693B015ADE12795997D /* NavigationBarColor.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9189D92DAF37F9815ECFDC /* NavigationBarColor.generated.swift */; };
+		D0F06CF9B138426F812F3B0B /* ShapeView.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9730959B8EF5B66133F731D2 /* ShapeView.generated.swift */; };
 		D174F54A364898AC7E0962FC /* KalugaBackgroundStyle+SwiftUI.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF72582307421E9939C863E /* KalugaBackgroundStyle+SwiftUI.generated.swift */; };
 		D17DC9D74F0BD77D12813366 /* Observable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6681B8FDABE90D9625CA407A /* Observable.generated.swift */; };
 		D976FB8DC34A35578A995B2E /* KalugaButton+SwiftUI.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5304E64813F87A2C71BD40C2 /* KalugaButton+SwiftUI.generated.swift */; };
@@ -215,6 +216,7 @@
 		89DAFF461D97215C4B63A0A1 /* PlatformMappers.generated.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = PlatformMappers.generated.swift; sourceTree = "<group>"; };
 		93070CB7E1723F904DBEDD26 /* DefaultValues.generated.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = DefaultValues.generated.swift; sourceTree = "<group>"; };
 		944D74BABB71F3B76E746EC8 /* TintedImage+Image.generated.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = "TintedImage+Image.generated.swift"; sourceTree = "<group>"; };
+		9730959B8EF5B66133F731D2 /* ShapeView.generated.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; lastKnownFileType = sourcecode.swift; name = ShapeView.generated.swift; path = ShapeView.generated.swift; sourceTree = "<group>"; };
 		978348A6235DF586005B140B /* PermissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionViewController.swift; sourceTree = "<group>"; };
 		A1AD210B87A46DBD057A7D28 /* Navigation.generated.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Navigation.generated.swift; sourceTree = "<group>"; };
 		A8678F48E60D40E6AB06177C /* LifecycleViewModel.generated.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = LifecycleViewModel.generated.swift; sourceTree = "<group>"; };
@@ -553,6 +555,7 @@
 				8165D122BD8D8848D7242385 /* UninitializedSubject.generated.swift */,
 				2F34DFA21F534655B6FD3D03 /* KeyboardManager.generated.swift */,
 				944D74BABB71F3B76E746EC8 /* TintedImage+Image.generated.swift */,
+				9730959B8EF5B66133F731D2 /* ShapeView.generated.swift */,
 			);
 			path = KalugaSwiftUI;
 			sourceTree = "<group>";
@@ -801,6 +804,7 @@
 				1529FF0B35BD7AB3B6E838A9 /* UninitializedSubject.generated.swift in Sources */,
 				9481F22DC3CFE170CE894584 /* KeyboardManager.generated.swift in Sources */,
 				FEA04DB9D0C154DAAC5F351C /* TintedImage+Image.generated.swift in Sources */,
+				D0F06CF9B138426F812F3B0B /* ShapeView.generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

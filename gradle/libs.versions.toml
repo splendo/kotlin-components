@@ -1,7 +1,7 @@
 [versions]
 kaluga = "1.6.0"
 
-androidGradle = "8.7.1"
+androidGradle = "8.7.2"
 androidBuildTools = "34.0.0"
 androidCompileSdk = "35"
 androidMinSdk = "24"
@@ -18,21 +18,21 @@ kotlinx-coroutines = "1.9.0"
 kotlinx-serialization = "1.7.3"
 accompanist = "0.36.0"
 android-material = "1.12.0"
-android-play-review = "2.0.1"
+android-play-review = "2.0.2"
 android-play-services-location = "21.3.0"
-androidx-activity = "1.9.2"
+androidx-activity = "1.9.3"
 androidx-appcompat = "1.7.0"
 androidx-arch-core = "2.2.0"
 androidx-browser = "1.8.0"
-androidx-compose = "1.7.3"
-androidx-compose-constraintlayout = "1.0.1"
-androidx-compose-ui = "1.7.3"
-androidx-compose-material = "1.3.0"
-androidx-constraintlayout = "2.1.4"
-androidx-core = "1.13.1"
-androidx-fragment = "1.8.4"
-androidx-lifecycle = "2.8.6"
-androidx-navigation = "2.8.2"
+androidx-compose = "1.7.5"
+androidx-compose-constraintlayout = "1.1.0"
+androidx-compose-ui = "1.7.5"
+androidx-compose-material = "1.3.1"
+androidx-constraintlayout = "2.2.0"
+androidx-core = "1.15.0"
+androidx-fragment = "1.8.5"
+androidx-lifecycle = "2.8.7"
+androidx-navigation = "2.8.4"
 androidx-test = "1.6.1"
 androidx-test-runner = "1.6.2"
 androidx-test-espresso = "3.6.1"
@@ -40,8 +40,7 @@ androidx-test-junit = "1.2.1"
 androidx-test-uiautomator = "2.3.0"
 bytebuddy = "1.15.4"
 junit = "4.13.2"
-koin = "3.5.6"
-koin-compose = "3.5.6"
+koin = "4.0.0"
 mockito = "5.14.1"
 napier = "2.7.1"
 nordic-support = "1.6.0"
@@ -192,7 +191,7 @@ junit = { module = "junit:junit", version.ref = "junit" }
 # Koin
 koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin" }
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
-koin-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koin-compose" }
+koin-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koin" }
 
 napier = { module = "io.github.aakira:napier", version.ref = "napier" }
 nordic-support-scanner = { module = "no.nordicsemi.android.support.v18:scanner", version.ref = "nordic-support" }

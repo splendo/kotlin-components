@@ -1,4 +1,4 @@
-name: 'Setup macOS workspace reusable workflow'
+name: 'Setup linux workspace reusable workflow'
 
 on:
   workflow_call:

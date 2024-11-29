@@ -24,7 +24,6 @@ jobs:
 
     outputs:
       projects: ${{ steps.envFile.outputs.projects }}
-      kotlinVersion: ${{ steps.kotlinVersion.outputs.kotlinVersion }}
 
     steps:
       - name: checkout

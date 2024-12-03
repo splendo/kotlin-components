@@ -18,6 +18,7 @@
 package com.splendo.kaluga.resources.compose
 
 import android.graphics.Typeface
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.layout.Arrangement
@@ -27,7 +28,9 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
@@ -44,7 +47,11 @@ import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
+import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
 import com.splendo.kaluga.resources.DefaultColors
+import com.splendo.kaluga.resources.KalugaColor
+import com.splendo.kaluga.resources.KalugaImage
 import com.splendo.kaluga.resources.StringStyleAttribute
 import com.splendo.kaluga.resources.StyledStringBuilder
 import com.splendo.kaluga.resources.stylable.ButtonImage
@@ -66,7 +73,7 @@ import com.splendo.kaluga.resources.view.KalugaLabel
  * See [ButtonDefaults.buttonElevation].
  */
 @Composable
-fun KalugaButton.Composable(modifier: Modifier, elevation: ButtonElevation = ButtonDefaults.buttonElevation()) {
+fun KalugaButton.Composable(modifier: Modifier = Modifier, elevation: ButtonElevation = ButtonDefaults.buttonElevation()) {
     val interactionSource: MutableInteractionSource = remember { MutableInteractionSource() }
     val pressed by interactionSource.collectIsPressedAsState()
     val stateStyle = style.getStateStyle(isEnabled, pressed)
@@ -97,8 +104,8 @@ fun KalugaButton.Composable(modifier: Modifier, elevation: ButtonElevation = But
                     }
                 }
                 when (val style = style) {
-                    is KalugaButtonStyle.TextOnly -> style.Composable(modifier = modifier, isEnabled = isEnabled, isPressed = pressed, createLabel)
-                    is KalugaButtonStyle.WithImageAndText -> style.Composable(modifier = modifier, isEnabled = isEnabled, isPressed = pressed, createLabel)
+                    is KalugaButtonStyle.TextOnly -> style.Composable(isEnabled = isEnabled, isPressed = pressed, createLabel)
+                    is KalugaButtonStyle.WithImageAndText -> style.Composable(modifier = Modifier, isEnabled = isEnabled, isPressed = pressed, createLabel)
                 }
             }
         }
@@ -107,40 +114,52 @@ fun KalugaButton.Composable(modifier: Modifier, elevation: ButtonElevation = But
 
 @Composable
 private fun KalugaButtonStyle.WithImageAndText.Composable(modifier: Modifier, isEnabled: Boolean, isPressed: Boolean, createLabel: (KalugaTextStyle) -> KalugaLabel) {
-    val elements: @Composable (Modifier) -> List<@Composable () -> Unit> = { weight ->
-        listOf(
-            { (this as KalugaButtonStyle.WithImage<*>).Composable(isEnabled = isEnabled, isPressed = isPressed) },
-            { (this as KalugaButtonStyle.WithText<*>).Composable(modifier = weight, isEnabled = isEnabled, isPressed = isPressed, createLabel) },
-        )
+    @Composable
+    fun imageComposable() {
+        (this as KalugaButtonStyle.WithImage<*>).Composable(isEnabled = isEnabled, isPressed = isPressed)
+    }
+
+    @Composable
+    fun textComposable() {
+        (this as KalugaButtonStyle.WithText<*>).Composable(isEnabled = isEnabled, isPressed = isPressed, createLabel)
     }
 
     val isRightToLeft = LocalLayoutDirection.current == LayoutDirection.Rtl
 
     when (imageGravity) {
-        ImageGravity.START -> Row(modifier = modifier, horizontalArrangement = Arrangement.spacedBy(spacing.dp), verticalAlignment = Alignment.CenterVertically) {
-            elements(Modifier.weight(1.0f)).let { if (isRightToLeft) it.reversed() else it }.forEach { it() }
+
+        ImageGravity.START, ImageGravity.LEFT, ImageGravity.END, ImageGravity.RIGHT ->
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(spacing.dp),
+            ) {
+                if (imageGravity == ImageGravity.START && !isRightToLeft ||
+                    imageGravity == ImageGravity.END && isRightToLeft ||
+                    imageGravity == ImageGravity.LEFT
+                ) {
+                    imageComposable()
+                    textComposable()
+                } else {
+                    textComposable()
+                    imageComposable()
+                }
+            }
+
+        ImageGravity.TOP -> Column(horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(spacing.dp)) {
+            imageComposable()
+            textComposable()
         }
-        ImageGravity.LEFT -> Row(modifier = modifier, horizontalArrangement = Arrangement.spacedBy(spacing.dp), verticalAlignment = Alignment.CenterVertically) {
-            elements(Modifier.weight(1.0f)).forEach { it() }
-        }
-        ImageGravity.END -> Row(modifier = modifier, horizontalArrangement = Arrangement.spacedBy(spacing.dp), verticalAlignment = Alignment.CenterVertically) {
-            elements(Modifier.weight(1.0f)).let { if (isRightToLeft) it else it.reversed() }.forEach { it() }
-        }
-        ImageGravity.RIGHT -> Row(modifier = modifier, horizontalArrangement = Arrangement.spacedBy(spacing.dp), verticalAlignment = Alignment.CenterVertically) {
-            elements(Modifier.weight(1.0f)).reversed().forEach { it() }
-        }
-        ImageGravity.TOP -> Column(modifier = modifier, horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(spacing.dp)) {
-            elements(Modifier.fillMaxWidth()).forEach { it() }
-        }
-        ImageGravity.BOTTOM -> Column(modifier = modifier, horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(spacing.dp)) {
-            elements(Modifier.fillMaxWidth()).reversed().forEach { it() }
+
+        ImageGravity.BOTTOM -> Column(horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(spacing.dp)) {
+            textComposable()
+            imageComposable()
         }
     }
 }
 
 @Composable
-private fun KalugaButtonStyle.WithText<*>.Composable(modifier: Modifier, isEnabled: Boolean, isPressed: Boolean, createLabel: (KalugaTextStyle) -> KalugaLabel) {
-    createLabel(getStateTextStyle(isEnabled, isPressed)).Composable(modifier = modifier)
+private fun KalugaButtonStyle.WithText<*>.Composable(isEnabled: Boolean, isPressed: Boolean, createLabel: (KalugaTextStyle) -> KalugaLabel) {
+    createLabel(getStateTextStyle(isEnabled, isPressed)).Composable()
 }
 
 @Composable
@@ -158,7 +177,7 @@ private fun KalugaButtonStyle.WithImage<*>.Composable(isEnabled: Boolean, isPres
 
 @Composable
 @Preview
-fun PreviewKalugaButton() {
+private fun PreviewKalugaButton() {
     val buttonStyle = KalugaButtonStyle.textOnly {
         font = Typeface.DEFAULT_BOLD
         textSize = 14.0f
@@ -175,24 +194,67 @@ fun PreviewKalugaButton() {
             setBackgroundStyle(DefaultColors.white, KalugaBackgroundStyle.Shape.Rectangle(5.0f))
         }
     }
-    Column(modifier = Modifier.size(100.dp)) {
-        KalugaButton.Plain("Plain Text", buttonStyle, true) {}.Composable(
-            modifier = Modifier.fillMaxWidth(),
-        )
-        KalugaButton.Styled(
-            "Styled Text".styled(
-                StyledStringBuilder.Provider(LocalContext.current),
-                buttonStyle.getStateTextStyle(isEnabled = true, isPressed = false),
-                {
-                    StringStyleAttribute.CharacterStyleAttribute.ForegroundColor(
-                        DefaultColors.darkBlue,
-                    ) to IntRange(0, 5)
-                },
-            ),
-            buttonStyle,
-            true,
-        ) {}.Composable(
-            modifier = Modifier.fillMaxWidth(),
-        )
+
+    val image = KalugaImage(AppCompatResources.getDrawable(LocalContext.current, android.R.drawable.ic_dialog_info)!!)
+
+    fun buttonWithImageStyle(imageGravity: ImageGravity) = KalugaButtonStyle.withImageAndText {
+        font = Typeface.DEFAULT_BOLD
+        textSize = 14.0f
+        this.imageGravity = imageGravity
+        imageSize = ImageSize.Sized(width = 15F, height = 15F)
+        spacing = 8F
+        defaultStyle = ButtonStateStyle.withImageAndText {
+            textColor = DefaultColors.white
+            setImage(image)
+            setBackgroundStyle(DefaultColors.red, KalugaBackgroundStyle.Shape.Rectangle(5.0f))
+        }
+        pressedStyle = ButtonStateStyle.withImageAndText {
+            textColor = DefaultColors.red
+            setImage(image)
+            setBackgroundStyle(DefaultColors.white, KalugaBackgroundStyle.Shape.Rectangle(5.0f))
+        }
+        disabledStyle = ButtonStateStyle.withImageAndText {
+            textColor = DefaultColors.black
+            setImage(image)
+            setBackgroundStyle(DefaultColors.white, KalugaBackgroundStyle.Shape.Rectangle(5.0f))
+        }
+    }
+
+    @Composable
+    fun styledText(plainText: String) = plainText.styled(
+        StyledStringBuilder.Provider(LocalContext.current),
+        buttonStyle.getStateTextStyle(isEnabled = true, isPressed = false),
+        {
+            StringStyleAttribute.CharacterStyleAttribute.ForegroundColor(
+                DefaultColors.darkBlue,
+            ) to IntRange(0, 5)
+        },
+    )
+
+    Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+        KalugaButton.Plain("Plain Text", buttonStyle, true) {}
+            .Composable()
+        KalugaButton.Plain("Plain Text Max", buttonStyle, true) {}
+            .Composable(modifier = Modifier.fillMaxWidth())
+
+        KalugaButton.Styled(styledText("Styled Text"), buttonStyle, true) {}
+            .Composable(modifier = Modifier.align(Alignment.CenterHorizontally))
+        KalugaButton.Styled(styledText("Styled Text Max"), buttonStyle, true) {}
+            .Composable(modifier = Modifier.fillMaxWidth())
+
+        KalugaButton.Plain("Plain With Image", buttonWithImageStyle(ImageGravity.END), true) {}
+            .Composable(modifier = Modifier.align(Alignment.End))
+        KalugaButton.Plain("Plain With Image Max", buttonWithImageStyle(ImageGravity.END), true) {}
+            .Composable(modifier = Modifier.fillMaxWidth())
+
+        KalugaButton.Styled(styledText("Styled With Image"), buttonWithImageStyle(ImageGravity.END), true) {}
+            .Composable(modifier = Modifier.align(Alignment.Start))
+        KalugaButton.Styled(styledText("Styled With Image Max"), buttonWithImageStyle(ImageGravity.END), true) {}
+            .Composable(modifier = Modifier.fillMaxWidth())
+
+        KalugaButton.Plain("Plain With Image On Top", buttonWithImageStyle(ImageGravity.TOP), true) {}
+            .Composable()
+        KalugaButton.Plain("Plain With Image On Top Max", buttonWithImageStyle(ImageGravity.TOP), true) {}
+            .Composable(modifier = Modifier.fillMaxWidth())
     }
 }

@@ -1,5 +1,4 @@
 public final class com/splendo/kaluga/resources/compose/BackgroundStyleKt {
-	public static final fun PreviewBackgroundStyle (Landroidx/compose/runtime/Composer;I)V
 	public static final fun backgroundStyle (Landroidx/compose/ui/Modifier;Lcom/splendo/kaluga/resources/stylable/KalugaBackgroundStyle;Landroidx/compose/runtime/Composer;I)Landroidx/compose/ui/Modifier;
 	public static final fun borderStroke (Lcom/splendo/kaluga/resources/stylable/KalugaBackgroundStyle$StrokeStyle;Landroidx/compose/runtime/Composer;I)Landroidx/compose/foundation/BorderStroke;
 	public static final fun brush (Lcom/splendo/kaluga/resources/stylable/KalugaBackgroundStyle$FillStyle;Landroidx/compose/runtime/Composer;I)Landroidx/compose/ui/graphics/Brush;
@@ -16,7 +15,6 @@ public final class com/splendo/kaluga/resources/compose/GradientStyleKt {
 
 public final class com/splendo/kaluga/resources/compose/KalugaButtonKt {
 	public static final fun Composable (Lcom/splendo/kaluga/resources/view/KalugaButton;Landroidx/compose/ui/Modifier;Landroidx/compose/material3/ButtonElevation;Landroidx/compose/runtime/Composer;II)V
-	public static final fun PreviewKalugaButton (Landroidx/compose/runtime/Composer;I)V
 }
 
 public final class com/splendo/kaluga/resources/compose/KalugaImageKt {
@@ -25,8 +23,7 @@ public final class com/splendo/kaluga/resources/compose/KalugaImageKt {
 }
 
 public final class com/splendo/kaluga/resources/compose/KalugaLabelKt {
-	public static final fun Composable (Lcom/splendo/kaluga/resources/view/KalugaLabel;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;I)V
-	public static final fun PreviewKalugaLabel (Landroidx/compose/runtime/Composer;I)V
+	public static final fun Composable (Lcom/splendo/kaluga/resources/view/KalugaLabel;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;II)V
 }
 
 public final class com/splendo/kaluga/resources/compose/KalugaPreviewKt {

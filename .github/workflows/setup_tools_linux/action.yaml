@@ -1,5 +1,5 @@
-name: "setup tools and caching for macOS workspace"
-description: "setup tools and caching for macOS workspace"
+name: "setup tools and caching for linux workspace"
+description: "setup tools and caching for linux workspace"
 inputs:
   gradle-cache-read-only:
     default: 'true'

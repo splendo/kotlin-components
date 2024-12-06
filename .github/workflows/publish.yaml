@@ -2,8 +2,6 @@ name: Publish
 on: push
 
 env:
-  GRADLE_OPTS: "-Dorg.gradle.jvmargs=\"-Xmx8G -XX:MaxMetaspaceSize=512m -Dorg.gradle.daemon=false -Dkotlin.incremental=false\" -Dorg.gradle.daemon=false -Dkotlin.incremental=false -Dkotlin.daemon.jvm.options=-Xmx8G,-XX:MaxMetaspaceSize=512m,-Dorg.gradle.daemon=false,-Dkotlin.incremental=false"
-  JAVA_OPTS: "-Xmx8G -XX:MaxMetaspaceSize=512m -Dorg.gradle.daemon=false -Dkotlin.incremental=false"
   SIGNING_SECRET_KEY_RING_FILE: ${{ github.workspace }}/kaluga-library-components/keys/secret-keys.gpg
 
 concurrency: publish-${{ github.ref_name }}
@@ -21,10 +19,6 @@ jobs:
         uses: actions/checkout@v4
         with:
           submodules: recursive
-
-
-      # remove VM settings as defined for using the IDE
-      - run: sed -i '' -e '/org.gradle.jvmargs/d' gradle.properties; cat gradle.properties
 
       # TODO: use setup_tools_macos
 

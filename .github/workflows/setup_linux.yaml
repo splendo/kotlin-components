@@ -1,4 +1,4 @@
-name: 'Setup macOS workspace reusable workflow'
+name: 'Setup linux workspace reusable workflow'
 
 on:
   workflow_call:
@@ -24,7 +24,6 @@ jobs:
 
     outputs:
       projects: ${{ steps.envFile.outputs.projects }}
-      kotlinVersion: ${{ steps.kotlinVersion.outputs.kotlinVersion }}
 
     steps:
       - name: checkout

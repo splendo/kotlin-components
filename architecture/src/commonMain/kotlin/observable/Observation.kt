@@ -109,7 +109,8 @@ open class Observation<R : T, T, OO : ObservableOptional<R>>(override val initia
             val result = (v as? ObservableOptional.Value<*>)?.value as R
 
             this@Observation.observers.synchronized {
-                forEach {
+                // iterate on a copy to prevent concurrent modification
+                toTypedArray().forEach {
                     it(result)
                 }
             }

@@ -71,7 +71,7 @@ fun TintedImage.Composable(
 @Composable
 private fun TintedImagePreview() {
     val image = KalugaImage(AppCompatResources.getDrawable(LocalContext.current, android.R.drawable.ic_media_play)!!).tinted(
-        DefaultColors.blue
+        DefaultColors.blue,
     )
 
     image.Composable(contentDescription = "Play")

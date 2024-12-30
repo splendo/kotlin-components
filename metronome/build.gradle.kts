@@ -9,6 +9,8 @@ kaluga {
         common {
             main {
                 implementation(project(":base"))
+                implementation(project(":media"))
+                implementation(project(":scientific"))
                 implementation(project(":logging"))
             }
             test {

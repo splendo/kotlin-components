@@ -28,7 +28,7 @@ import kotlin.time.Duration
 
 class DefaultMetronome(private val settings: MetronomeSettings, private val timer: Flow<Duration>, private val mediaPlayer: MetronomeMediaPlayer) : Metronome {
     private class Builder(private val mediaPlayer: MetronomeMediaPlayer) : Metronome.Builder {
-        override fun intervalMetronome(settings: MetronomeSettings, timer: Flow<Duration>) = DefaultMetronome(settings, timer, mediaPlayer)
+        override fun metronome(settings: MetronomeSettings, timer: Flow<Duration>) = DefaultMetronome(settings, timer, mediaPlayer)
     }
 
     class Manager(source: MediaSource, private val mediaPlayer: MetronomeMediaPlayer = DefaultMetronomeMediaPlayer(source)) : Metronome.Manager {

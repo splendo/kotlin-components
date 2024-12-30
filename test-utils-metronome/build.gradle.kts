@@ -9,6 +9,7 @@ kaluga {
         common {
             main {
                 implementation(project(":metronome"))
+                implementation(project(":test-utils-base"))
             }
         }
     }

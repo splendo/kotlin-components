@@ -15,6 +15,7 @@ kaluga {
             }
             test {
                 implementation(project(":test-utils-base"))
+                implementation(project(":test-utils-metronome"))
             }
         }
     }

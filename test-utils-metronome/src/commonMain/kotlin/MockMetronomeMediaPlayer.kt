@@ -15,25 +15,20 @@
 
  */
 
-package com.splendo.kaluga.metronome
+package com.splendo.kaluga.test.metronome
 
-import kotlinx.coroutines.flow.Flow
-import kotlin.time.Duration
-import kotlin.time.Duration.Companion.milliseconds
+import com.splendo.kaluga.metronome.MetronomeMediaPlayer
+import com.splendo.kaluga.test.base.mock.call
+import com.splendo.kaluga.test.base.mock.parameters.mock
 
-interface Metronome {
-
-    companion object {
-        val TIMER_TICK_INTERVAL = 1.milliseconds
+class MetronomeMediaPlayerMock : MetronomeMediaPlayer {
+    class MockedMethods(private val player: MetronomeMediaPlayer) {
+        val close = player::close.mock()
+        val play = player::play.mock()
     }
 
-    interface Builder {
-        fun metronome(settings: MetronomeSettings, timer: Flow<Duration>): Metronome
-    }
+    val mock = MockedMethods(this)
 
-    interface Manager : AutoCloseable {
-        suspend fun prepare(): Builder
-    }
-
-    suspend fun run()
+    override fun close() = mock.close.call()
+    override fun play() = mock.play.call()
 }

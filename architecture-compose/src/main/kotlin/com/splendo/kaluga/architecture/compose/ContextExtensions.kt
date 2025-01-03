@@ -32,4 +32,8 @@ val Context.activity: ComponentActivity? get() = when (this) {
     else -> null
 }
 
+/**
+ * Gets the [AppCompatActivity] of a [Context] if it exists.
+ * This does a recursive lookup if [Context] is a [ContextWrapper]
+ */
 val Context.appCompatActivity: AppCompatActivity? get() = activity as? AppCompatActivity

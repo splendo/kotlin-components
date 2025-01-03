@@ -116,6 +116,28 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal|top"
+                android:paddingBottom="20dp">
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/play_stop_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:kalugaButton="@{viewModel.playStopSoundButton.stateFlow}"/>
+                <TextView
+                    android:id="@+id/sound_bpm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.soundBPMLabel.stateFlow}"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="5dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:text="0 bpm"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@id/playtime_progress"
                 android:orientation="horizontal"
                 android:gravity="center_horizontal|top"

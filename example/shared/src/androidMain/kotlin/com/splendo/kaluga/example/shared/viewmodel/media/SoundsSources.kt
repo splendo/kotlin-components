@@ -17,9 +17,14 @@
 
 package com.splendo.kaluga.example.shared.viewmodel.media
 
+import android.content.res.AssetFileDescriptor
+import com.splendo.kaluga.example.shared.R
 import com.splendo.kaluga.media.MediaSource
+import com.splendo.kaluga.media.mediaSourceFromUrl
 
 actual object SoundsSources {
-    actual val beep: MediaSource
-        get() = TODO("Not yet implemented")
+//    actual val beep: MediaSource = mediaSourceFromUr`l("https://cdn.freesound.org/previews/459/459992_6253486-lq.mp3"```)!!
+    actual val beep: MediaSource = MediaSource.Asset(
+        context.getResources().openRawResourceFd(R.raw.sound)
+    );
 }

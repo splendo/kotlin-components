@@ -1,5 +1,6 @@
 public final class com/splendo/kaluga/architecture/compose/ContextExtensionsKt {
-	public static final fun getActivity (Landroid/content/Context;)Landroidx/appcompat/app/AppCompatActivity;
+	public static final fun getActivity (Landroid/content/Context;)Landroidx/activity/ComponentActivity;
+	public static final fun getAppCompatActivity (Landroid/content/Context;)Landroidx/appcompat/app/AppCompatActivity;
 }
 
 public final class com/splendo/kaluga/architecture/compose/ObservablesKt {

@@ -35,12 +35,14 @@ import com.splendo.kaluga.base.text.format
 import com.splendo.kaluga.example.shared.stylable.ButtonStyles
 import com.splendo.kaluga.media.BaseMediaManager
 import com.splendo.kaluga.media.DefaultMediaPlayer
+import com.splendo.kaluga.media.DefaultSoundPlayer
 import com.splendo.kaluga.media.MediaPlayer
 import com.splendo.kaluga.media.MediaSource
 import com.splendo.kaluga.media.MediaSurfaceProvider
 import com.splendo.kaluga.media.PlaybackError
 import com.splendo.kaluga.media.PlaybackState
 import com.splendo.kaluga.media.Resolution
+import com.splendo.kaluga.media.SoundPlayer
 import com.splendo.kaluga.media.duration
 import com.splendo.kaluga.media.isVideo
 import com.splendo.kaluga.media.mediaSourceFromUrl
@@ -49,6 +51,7 @@ import com.splendo.kaluga.resources.asImage
 import com.splendo.kaluga.resources.localized
 import com.splendo.kaluga.resources.view.KalugaButton
 import kotlinx.coroutines.CompletableDeferred
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.flatMapLatest
@@ -75,6 +78,8 @@ class MediaViewModel(
     private companion object {
         val playbackFormatter = NumberFormatter(style = NumberFormatStyle.Decimal(minIntegerDigits = 1U)).apply { positiveSuffix = "x" }
         val volumeFormatter = NumberFormatter(style = NumberFormatStyle.Percentage(maxFractionDigits = 0U))
+        const val SOUND_BPM_INITIAL = 80
+        const val SOUND_BPM_STEP = 20
     }
 
     private val mediaPlayerDispatcher = singleThreadDispatcher("MediaPlayer")
@@ -251,6 +256,31 @@ class MediaViewModel(
     val resolution = mediaPlayer.playableMedia.flatMapLatest { playableMedia ->
         playableMedia?.resolution ?: flowOf(Resolution.ZERO)
     }.toInitializedObservable(Resolution.ZERO, coroutineScope)
+
+    private var soundPlayer = MediaSoundLoopPlayer(coroutineScope, mediaSource = SoundsSources.beep).apply {
+        updateBPM(SOUND_BPM_INITIAL)
+    }
+    private val playingSound = MutableStateFlow(false)
+    val playStopSoundButton = playingSound.map {
+        if (it) {
+            KalugaButton.WithoutText(ButtonStyles.mediaButton("stop".asImage()!!)) {
+                playingSound.value = false
+                soundPlayer.stop()
+            }
+        } else {
+            KalugaButton.WithoutText(ButtonStyles.mediaButton("play_arrow".asImage()!!)) {
+                playingSound.value = true
+                soundPlayer.play()
+            }
+        }
+    }.toUninitializedObservable(coroutineScope)
+
+    private val soundPlayBPM = MutableStateFlow(SOUND_BPM_INITIAL)
+    val soundBPMLabel = soundPlayBPM.map { "$it bpm" }.toUninitializedObservable(coroutineScope)
+    fun updateBPM(value: Int) {
+        soundPlayBPM.value = SOUND_BPM_INITIAL + value * SOUND_BPM_STEP
+        soundPlayer.updateBPM(soundPlayBPM.value)
+    }
 
     init {
         coroutineScope.launch {

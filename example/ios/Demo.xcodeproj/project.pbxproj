@@ -87,6 +87,7 @@
 		8679BDAA7F79F92DAC24AF23 /* ListObservable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31718DE342D28B4942D37524 /* ListObservable.generated.swift */; };
 		93EC5B31E0ADDED3225B15C9 /* Color+Color.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F49DA13243DC3767266475 /* Color+Color.generated.swift */; };
 		9481F22DC3CFE170CE894584 /* KeyboardManager.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F34DFA21F534655B6FD3D03 /* KeyboardManager.generated.swift */; };
+		BC5100D32D27F9B600095938 /* sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BC5100D22D27F9B600095938 /* sound.mp3 */; };
 		C77C23B538A4DFB02C0E0773 /* LazyView.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095989173871C8CDA70C49E1 /* LazyView.generated.swift */; };
 		C9555693B015ADE12795997D /* NavigationBarColor.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9189D92DAF37F9815ECFDC /* NavigationBarColor.generated.swift */; };
 		D0F06CF9B138426F812F3B0B /* ShapeView.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9730959B8EF5B66133F731D2 /* ShapeView.generated.swift */; };
@@ -219,6 +220,7 @@
 		978348A6235DF586005B140B /* PermissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionViewController.swift; sourceTree = "<group>"; };
 		A1AD210B87A46DBD057A7D28 /* Navigation.generated.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Navigation.generated.swift; sourceTree = "<group>"; };
 		A8678F48E60D40E6AB06177C /* LifecycleViewModel.generated.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = LifecycleViewModel.generated.swift; sourceTree = "<group>"; };
+		BC5100D22D27F9B600095938 /* sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sound.mp3; sourceTree = "<group>"; };
 		CCF6BD3638095E5452785FF3 /* KalugaLabel+SwiftUI.generated.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = "KalugaLabel+SwiftUI.generated.swift"; sourceTree = "<group>"; };
 		D7A59766D89528BA5F4327BD /* Subject.generated.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Subject.generated.swift; sourceTree = "<group>"; };
 		EA317627E5725424F6B7569C /* KalugaDate+Extensions.generated.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = "KalugaDate+Extensions.generated.swift"; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 		2025CA2929C9FC310037DF68 /* Media */ = {
 			isa = PBXGroup;
 			children = (
+				BC5100D22D27F9B600095938 /* sound.mp3 */,
 				2025CA2A29C9FC480037DF68 /* MediaViewController.swift */,
 			);
 			path = Media;
@@ -636,12 +639,6 @@
 			attributes = {
 				LastUpgradeCheck = 1420;
 				ORGANIZATIONNAME = "Splendo Consulting B.V.";
-				TargetAttributes = {
-					74555136E1B2BB715E50195E = {
-						DevelopmentTeam = 2732HQPVJP;
-						ProvisioningStyle = Manual;
-					};
-				};
 			};
 			buildConfigurationList = 742F13205C35E0F5E5498808 /* Build configuration list for PBXProject "Demo" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -683,6 +680,7 @@
 				74C75886D08DD78EA65E6DD9 /* Assets.xcassets in Resources */,
 				7478297FCF44ED1D49525D4E /* LaunchScreen.storyboard in Resources */,
 				74E6599B023623BD96737582 /* Main.storyboard in Resources */,
+				BC5100D32D27F9B600095938 /* sound.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -946,9 +944,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 2732HQPVJP;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SFJ9XKKL47;
 				FRAMEWORK_SEARCH_PATHS = (
 					$BUILT_PRODUCTS_DIR,
 					"$(SRCROOT)/../shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)",
@@ -966,7 +964,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.splendo.kaluga.example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Kaluga example";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

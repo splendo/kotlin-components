@@ -66,7 +66,10 @@ class MediaViewController: UIViewController {
     @IBOutlet var stopButton: UIButton!
     @IBOutlet var loopButton: UIButton!
     @IBOutlet var rateButton: UIButton!
-
+    @IBOutlet weak var playStopSoundButton: UIButton!
+    @IBOutlet weak var soundBPMStepper: UIStepper!
+    @IBOutlet weak var soundBPMLabel: UILabel!
+    
     deinit {
         lifecycleManager.unbind()
     }
@@ -162,13 +165,24 @@ class MediaViewController: UIViewController {
                     if let volumeButton = volumeButton {
                         ButtonStyleKt.bindButton(self.volumeButton, button: volumeButton)
                     }
-                }
+                },
+                self.viewModel.playStopSoundButton.observe { playStopSoundButton in
+                    if let playStopSoundButton = playStopSoundButton {
+                        ButtonStyleKt.bindButton(self.playStopSoundButton, button: playStopSoundButton)
+                    }
+                },
+                self.viewModel.soundBPMLabel.observe { soundBPM in
+                    self.soundBPMLabel.text = soundBPM as? String
+                },
             ]
         }
     }
     
     @IBAction func sliderValueChanged(_ sender: Any) {
         viewModel.seekTo(progress: Double(playtimeProgress.value))
+    }
+    @IBAction func updateSoundBPM(_ sender: UIStepper) {
+        viewModel.updateBPM(value: Int32(sender.value))
     }
 }
 

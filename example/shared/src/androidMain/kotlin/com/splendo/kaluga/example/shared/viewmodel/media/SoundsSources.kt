@@ -1,5 +1,5 @@
 /*
- Copyright 2024 Splendo Consulting B.V. The Netherlands
+ Copyright 2025 Splendo Consulting B.V. The Netherlands
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -15,21 +15,11 @@
 
  */
 
-package com.splendo.kaluga.media
+package com.splendo.kaluga.example.shared.viewmodel.media
 
-/**
- *  Plays a sound from [MediaSource]
- *  Meant for short low latency audio
- */
-interface SoundPlayer : AutoCloseable {
-    /** Plays the sound */
-    fun play()
-}
+import com.splendo.kaluga.media.MediaSource
 
-/**
- * A default implementation of [SoundPlayer]
-*/
-expect class DefaultSoundPlayer(source: MediaSource) : SoundPlayer {
-    override fun close()
-    override fun play()
+actual object SoundsSources {
+    actual val beep: MediaSource
+        get() = TODO("Not yet implemented")
 }

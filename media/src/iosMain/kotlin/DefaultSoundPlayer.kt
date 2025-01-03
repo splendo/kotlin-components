@@ -17,6 +17,7 @@
 
 package com.splendo.kaluga.media
 
+import com.splendo.kaluga.media.DefaultSoundPlayer.State.Foreground
 import kotlinx.cinterop.CPointer
 import kotlinx.cinterop.ObjCObjectVar
 import kotlinx.cinterop.alloc

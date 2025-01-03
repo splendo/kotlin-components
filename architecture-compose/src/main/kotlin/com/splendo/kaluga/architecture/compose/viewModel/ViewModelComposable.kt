@@ -1,5 +1,7 @@
 package com.splendo.kaluga.architecture.compose.viewModel
 
+import android.util.Log
+import androidx.activity.ComponentActivity
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
@@ -29,7 +31,7 @@ import com.splendo.kaluga.architecture.viewmodel.LifecycleSubscribableManager
 @Composable
 fun <ViewModel : BaseLifecycleViewModel> ViewModelComposable(viewModel: ViewModel, content: @Composable (ViewModel.() -> Unit)? = null) {
     LocalContext.current.activity?.let {
-        ViewModelComposable(it, it.supportFragmentManager, viewModel, content)
+        ViewModelComposable(it, (it as? AppCompatActivity)?.supportFragmentManager, viewModel, content)
     }
 }
 
@@ -47,13 +49,17 @@ fun <ViewModel : BaseLifecycleViewModel> FragmentViewModelComposable(viewModel: 
 
 @Composable
 private fun <ViewModel : BaseLifecycleViewModel> ViewModelComposable(
-    activity: AppCompatActivity?,
-    fragmentManager: FragmentManager,
+    activity: ComponentActivity?,
+    fragmentManager: FragmentManager?,
     viewModel: ViewModel,
     content: @Composable (ViewModel.() -> Unit)? = null,
 ) {
     // Link the ViewModel to existing LifecycleSubscribable
-    viewModel.linkLifecycle(activity, fragmentManager)
+    if (fragmentManager != null) {
+        viewModel.linkLifecycle(activity as? AppCompatActivity, fragmentManager)
+    } else {
+        Log.w("ViewModelComposable", "ViewModel not linked to lifecycle due to missing FragmentManager")
+    }
 
     // Get a List of all ComposableLifecycleSubscribable of the viewModel.
     val composeLifecycleSubscribables = viewModel.composableLifecycleSubscribable()

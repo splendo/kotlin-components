@@ -24,7 +24,7 @@ import platform.Foundation.NSURL
 actual object SoundsSources {
     actual val beep: MediaSource by lazy {
         val path = NSBundle.mainBundle.pathForResource("sound", "mp3")
-        require(path != null) { "Invalid file for metronome_sound" }
+        require(path != null) { "Invalid file for sound" }
         MediaSource.URL(
             NSURL.fileURLWithPath(path),
             listOf(MediaSource.URL.Option.PreferPreciseDurationAndTiming(isPreferred = true)),

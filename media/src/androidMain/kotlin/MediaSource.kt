@@ -30,6 +30,7 @@ import java.net.URL
  * The source at which [PlayableMedia] can be found
  */
 actual sealed class MediaSource {
+    actual sealed class Local : MediaSource()
 
     /**
      * A [MediaSource] that has an associated [AssetFileDescriptor]
@@ -65,7 +66,7 @@ actual sealed class MediaSource {
         val cookies: List<HttpCookie>? = null,
     ) : MediaSource()
 
-    data class Id(val id: Int) : MediaSource()
+    data class Id(val id: String) : MediaSource()
 }
 
 /**

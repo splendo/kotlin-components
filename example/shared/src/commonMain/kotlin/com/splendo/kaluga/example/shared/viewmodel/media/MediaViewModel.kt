@@ -294,7 +294,7 @@ class MediaViewModel(
     }.toUninitializedObservable(coroutineScope)
 
     val soundBPMLabel = soundPlayBPM.map { "$it bpm" }.toUninitializedObservable(coroutineScope)
-    fun updateBPM(value: Int) {
+    private fun updateBPM(value: Int) {
         soundPlayBPM.value = SOUND_BPM_INITIAL + value * SOUND_BPM_STEP
         soundPlayer.updateBPM(soundPlayBPM.value)
     }

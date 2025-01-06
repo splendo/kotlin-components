@@ -39,6 +39,7 @@ import platform.Foundation.NSUUID
  * The source at which [PlayableMedia] can be found
  */
 actual sealed class MediaSource {
+    actual sealed class Local : MediaSource()
 
     /**
      * A [MediaSource] that has an associated [AVAsset]

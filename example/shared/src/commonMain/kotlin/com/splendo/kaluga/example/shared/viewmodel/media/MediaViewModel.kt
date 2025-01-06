@@ -80,6 +80,8 @@ class MediaViewModel(
         val volumeFormatter = NumberFormatter(style = NumberFormatStyle.Percentage(maxFractionDigits = 0U))
         const val SOUND_BPM_INITIAL = 80
         const val SOUND_BPM_STEP = 20
+        const val MIN_STEPPER_VALUE = 0
+        const val MAX_STEPPER_VALUE = 20
     }
 
     private val mediaPlayerDispatcher = singleThreadDispatcher("MediaPlayer")
@@ -276,6 +278,21 @@ class MediaViewModel(
     }.toUninitializedObservable(coroutineScope)
 
     private val soundPlayBPM = MutableStateFlow(SOUND_BPM_INITIAL)
+    private var soundBPMStepperValue = 0
+    val plusBPMButton = soundPlayBPM.map {
+        KalugaButton.Plain("+", ButtonStyles.default, isEnabled = soundBPMStepperValue < MAX_STEPPER_VALUE) {
+            soundBPMStepperValue ++
+            updateBPM(soundBPMStepperValue)
+        }
+    }.toUninitializedObservable(coroutineScope)
+
+    val minusBPMButton = soundPlayBPM.map {
+        KalugaButton.Plain("-", ButtonStyles.default, isEnabled = soundBPMStepperValue > MIN_STEPPER_VALUE) {
+            soundBPMStepperValue --
+            updateBPM(soundBPMStepperValue)
+        }
+    }.toUninitializedObservable(coroutineScope)
+
     val soundBPMLabel = soundPlayBPM.map { "$it bpm" }.toUninitializedObservable(coroutineScope)
     fun updateBPM(value: Int) {
         soundPlayBPM.value = SOUND_BPM_INITIAL + value * SOUND_BPM_STEP

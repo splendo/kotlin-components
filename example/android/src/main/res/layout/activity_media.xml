@@ -102,6 +102,16 @@
                         android:layout_marginEnd="5dp"
                         android:text="@{viewModel.soundBPMLabel.stateFlow}"
                         tools:text="0 bpm" />
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/bpm_plus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:kalugaButton="@{viewModel.plusBPMButton.stateFlow}" />
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/bpm_minus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:kalugaButton="@{viewModel.minusBPMButton.stateFlow}" />
                 </LinearLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout

@@ -64,6 +64,8 @@ actual sealed class MediaSource {
         val headers: Map<String, String>? = null,
         val cookies: List<HttpCookie>? = null,
     ) : MediaSource()
+
+    data class Id(val id: Int): MediaSource()
 }
 
 /**

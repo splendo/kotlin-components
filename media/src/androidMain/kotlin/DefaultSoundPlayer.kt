@@ -19,6 +19,7 @@ package com.splendo.kaluga.media
 
 import android.media.AudioAttributes
 import android.media.SoundPool
+import com.splendo.kaluga.base.ApplicationHolder
 import java.net.URL
 
 actual class DefaultSoundPlayer actual constructor(source: MediaSource) : SoundPlayer {
@@ -40,7 +41,15 @@ actual class DefaultSoundPlayer actual constructor(source: MediaSource) : SoundP
         soundPool.release()
     }
 
-    private fun SoundPool.load(source: MediaSource): Int = if (source is MediaSource.Url) load(source.url) else throw MediaSoundError.UnexpectedMediaSourceShouldBeURL
+    // private fun SoundPool.load(source: MediaSource): Int = if (source is MediaSource.Url) load(source.url) else throw MediaSoundError.UnexpectedMediaSourceShouldBeURL
+    private fun SoundPool.load(source: MediaSource): Int = when(source) {
+        is MediaSource.Url -> load(source.url)
+        is MediaSource.Asset -> TODO()
+        is MediaSource.File -> TODO()
+        is MediaSource.Content -> load(source.uri.path, 1)
+        is MediaSource.Id -> load(ApplicationHolder.applicationContext, source.id, 1)
+        else -> throw MediaSoundError.UnexpectedMediaSourceShouldBeURL
+    }
 
     private fun SoundPool.load(url: URL): Int = if (url.path != null) load(url.path, 1) else throw MediaSoundError.CannotAccessMediaSource
 }

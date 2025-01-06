@@ -25,7 +25,5 @@ import com.splendo.kaluga.media.MediaSource
 import com.splendo.kaluga.media.mediaSourceFromUrl
 
 actual object SoundsSources {
-//    actual val beep: MediaSource = mediaSourceFromUrl("https://cdn.freesound.org/previews/459/459992_6253486-lq.mp3")!!
-    actual val beep: MediaSource = MediaSource.Id(id = R.raw.sound_2)
-//    actual val beep: MediaSource = MediaSource.Content()
+    actual val beep: MediaSource = MediaSource.Id(id = R.raw.sound)
 }

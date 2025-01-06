@@ -42,7 +42,7 @@ actual class DefaultSoundPlayer actual constructor(source: MediaSource) : SoundP
     }
 
     // private fun SoundPool.load(source: MediaSource): Int = if (source is MediaSource.Url) load(source.url) else throw MediaSoundError.UnexpectedMediaSourceShouldBeURL
-    private fun SoundPool.load(source: MediaSource): Int = when(source) {
+    private fun SoundPool.load(source: MediaSource): Int = when (source) {
         is MediaSource.Url -> load(source.url)
         is MediaSource.Asset -> TODO()
         is MediaSource.File -> TODO()

@@ -36,13 +36,13 @@ actual sealed class MediaSource {
      * A [MediaSource] that has an associated [AssetFileDescriptor]
      * @property descriptor the [AssetFileDescriptor] associated with the media source
      */
-    data class Asset(val descriptor: AssetFileDescriptor) : MediaSource()
+    data class Asset(val descriptor: AssetFileDescriptor) : Local()
 
     /**
      * A [MediaSource] that has an associated [FileDescriptor]
      * @property descriptor the [FileDescriptor] associated with the media source
      */
-    data class File(val descriptor: FileDescriptor) : MediaSource()
+    data class File(val descriptor: FileDescriptor, val offset: Long, val length: Long) : Local()
 
     /**
      * A [MediaSource] that is located at a [URL]
@@ -66,7 +66,7 @@ actual sealed class MediaSource {
         val cookies: List<HttpCookie>? = null,
     ) : MediaSource()
 
-    data class Id(val id: String) : MediaSource()
+    data class Bundle(val fileName: String, val defType: String = "raw") : Local()
 }
 
 /**
@@ -79,3 +79,5 @@ actual fun mediaSourceFromUrl(url: String): MediaSource? = try {
 } catch (e: MalformedURLException) {
     null
 }
+
+actual fun mediaSourceFromLocalFile(fileName: String, fileType: String): MediaSource.Local? = MediaSource.Bundle(fileName)

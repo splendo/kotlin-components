@@ -31,6 +31,7 @@ import platform.AVFAudio.AVAudioFile
 import platform.AVFAudio.AVAudioSession
 import platform.AVFAudio.AVAudioSessionCategoryPlayback
 import platform.AVFAudio.AVAudioSessionRouteChangeNotification
+import platform.Foundation.NSBundle
 import platform.Foundation.NSError
 import platform.Foundation.NSNotification
 import platform.Foundation.NSNotificationCenter
@@ -41,9 +42,8 @@ import platform.Foundation.NSURL
 import platform.UIKit.UIApplicationDidEnterBackgroundNotification
 import platform.UIKit.UIApplicationWillEnterForegroundNotification
 
-actual class DefaultSoundPlayer actual constructor(source: MediaSource) : SoundPlayer {
-    private val url = if (source is MediaSource.URL) source.url else throw MediaSoundError.UnexpectedMediaSourceShouldBeURL
-    private val file = accessFile(url)
+actual class DefaultSoundPlayer actual constructor(source: MediaSource.Local) : SoundPlayer {
+    private val file = accessFile(source)
 
     init {
         observeNotifications()
@@ -167,8 +167,15 @@ actual class DefaultSoundPlayer actual constructor(source: MediaSource) : SoundP
         onNotification,
     )
 
-    private fun accessFile(url: NSURL): AVAudioFile = execute(
+    private fun accessFile(source: MediaSource.Local): AVAudioFile = execute(
         block = { errorPtr ->
+            val path = when (source) {
+                is MediaSource.Bundle -> NSBundle.mainBundle.pathForResource(source.fileName, source.fileType)
+                else -> error("Should be bundle")
+            }
+
+            require(path != null) { "Invalid file for sound" }
+            val url = NSURL.fileURLWithPath(path)
             AVAudioFile(forReading = url, error = errorPtr)
         },
         handleError = { error ->

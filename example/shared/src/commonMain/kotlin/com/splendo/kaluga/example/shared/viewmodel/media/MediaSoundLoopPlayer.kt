@@ -29,7 +29,7 @@ import kotlin.time.Duration.Companion.minutes
 
 class MediaSoundLoopPlayer(
     private val coroutineScope: CoroutineScope,
-    private val mediaSource: MediaSource,
+    private val mediaSource: MediaSource.Local,
     ) {
 
     private var player: DefaultSoundPlayer? = null

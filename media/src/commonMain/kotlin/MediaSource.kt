@@ -31,5 +31,4 @@ expect sealed class MediaSource {
  */
 expect fun mediaSourceFromUrl(url: String): MediaSource?
 
-// TODO: Implement it
-// expect fun mediaSourceFromLocalFile(fileName: String, fileType: String): MediaSource.Local?
+expect fun mediaSourceFromLocalFile(fileName: String, fileType: String): MediaSource.Local?

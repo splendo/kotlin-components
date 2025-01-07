@@ -288,6 +288,7 @@ actual class DefaultMediaManager(mediaSurfaceProvider: MediaSurfaceProvider?, pr
     private val MediaSource.avPlayerItem: AVPlayerItem get() = when (this) {
         is MediaSource.Asset -> AVPlayerItem(asset)
         is MediaSource.URL -> AVPlayerItem(AVURLAsset.URLAssetWithURL(url, options.associate { it.entry }))
+        is MediaSource.Bundle -> TODO()
     }
 
     actual override suspend fun renderVideoOnSurface(surface: MediaSurface?) {

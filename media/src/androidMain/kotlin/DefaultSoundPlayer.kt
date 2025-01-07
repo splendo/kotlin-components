@@ -21,7 +21,7 @@ import android.media.AudioAttributes
 import android.media.SoundPool
 import com.splendo.kaluga.base.ApplicationHolder
 
-actual class DefaultSoundPlayer actual constructor(source: MediaSource) : SoundPlayer {
+actual class DefaultSoundPlayer actual constructor(source: MediaSource.Local) : SoundPlayer {
 
     private val soundPool = SoundPool.Builder().apply {
         val attributes = AudioAttributes.Builder().apply {
@@ -40,19 +40,16 @@ actual class DefaultSoundPlayer actual constructor(source: MediaSource) : SoundP
         soundPool.release()
     }
 
-    // private fun SoundPool.load(source: MediaSource): Int = if (source is MediaSource.Url) load(source.url) else throw MediaSoundError.UnexpectedMediaSourceShouldBeURL
-    private fun SoundPool.load(source: MediaSource): Int = when (source) {
-        is MediaSource.Url -> TODO()
-        is MediaSource.Asset -> TODO()
-        is MediaSource.File -> TODO()
-        is MediaSource.Content -> TODO()
-        is MediaSource.Id -> load(
-            ApplicationHolder.applicationContext,
-            ApplicationHolder.applicationContext.resources.getIdentifier(source.id, "raw", ApplicationHolder.applicationContext.packageName),
-            1,
-        )
+    private fun SoundPool.load(source: MediaSource.Local): Int = when (source) {
+        is MediaSource.Asset -> load(source.descriptor, 1)
+        is MediaSource.File -> load(source.descriptor, source.offset, source.length, 1)
+        is MediaSource.Bundle -> ApplicationHolder.applicationContext.let { context ->
+            load(
+                context,
+                context.resources.getIdentifier(source.fileName, source.defType, context.packageName),
+                1,
+            )
+        }
         else -> throw MediaSoundError.UnexpectedMediaSourceShouldBeId
     }
-
-    // private fun SoundPool.load(url: URL): Int = if (url.path != null) load(url.path, 1) else throw MediaSoundError.CannotAccessMediaSource
 }

@@ -18,7 +18,9 @@
 package com.splendo.kaluga.example.shared.viewmodel.media
 
 import com.splendo.kaluga.media.MediaSource
+import com.splendo.kaluga.media.mediaSourceFromLocalFile
 
-expect object SoundsSources {
-    val beep: MediaSource
+object SoundsSources {
+    //TODO: Throw correct error
+    val beep: MediaSource.Local = mediaSourceFromLocalFile("sound", "mp3") ?: error("")
 }

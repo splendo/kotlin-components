@@ -135,6 +135,8 @@ actual sealed class MediaSource {
             }
         }
     }
+
+    data class Bundle(val fileName: String, val fileType: String) : Local()
 }
 
 /**
@@ -144,3 +146,5 @@ actual sealed class MediaSource {
  */
 actual fun mediaSourceFromUrl(url: String): MediaSource? =
     NSURL.URLWithString(url)?.let { MediaSource.URL(it, options = listOf(MediaSource.URL.Option.PreferPreciseDurationAndTiming(true))) }
+
+actual fun mediaSourceFromLocalFile(fileName: String, fileType: String): MediaSource.Local? = MediaSource.Bundle(fileName, fileType)

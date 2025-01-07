@@ -29,7 +29,7 @@ interface SoundPlayer : AutoCloseable {
 /**
  * A default implementation of [SoundPlayer]
 */
-expect class DefaultSoundPlayer(source: MediaSource) : SoundPlayer {
+expect class DefaultSoundPlayer(source: MediaSource.Local) : SoundPlayer {
     override fun close()
     override fun play()
 }

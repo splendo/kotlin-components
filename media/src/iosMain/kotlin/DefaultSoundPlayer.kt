@@ -42,7 +42,11 @@ import platform.Foundation.NSURL
 import platform.UIKit.UIApplicationDidEnterBackgroundNotification
 import platform.UIKit.UIApplicationWillEnterForegroundNotification
 
-actual class DefaultSoundPlayer actual constructor(source: MediaSource.Local) : SoundPlayer {
+actual class DefaultSoundPlayer(source: MediaSource.Local, private val configuration: Configuration) : SoundPlayer {
+    data class Configuration(val restartIfRouteChanged: Boolean = true)
+
+    actual constructor(source: MediaSource.Local) : this(source, configuration = Configuration())
+
     private val file = accessFile(source)
 
     init {
@@ -80,7 +84,7 @@ actual class DefaultSoundPlayer actual constructor(source: MediaSource.Local) : 
         (state as? T)?.block()
     }
 
-    inner class ForegroundMetronomeMediaPlayer : SoundPlayer {
+    inner class ForegroundMetronomeMediaPlayer(private val startAutomatically: Boolean = true) : SoundPlayer {
         private val node = AVAudioPlayerNode()
 
         private val audioEngine = AVAudioEngine().apply {
@@ -98,7 +102,9 @@ actual class DefaultSoundPlayer actual constructor(source: MediaSource.Local) : 
                 prepareAudioSession()
             }
 
-            node.play()
+            if (startAutomatically) {
+                start()
+            }
         }
 
         private fun prepareAudioSession() {
@@ -112,6 +118,10 @@ actual class DefaultSoundPlayer actual constructor(source: MediaSource.Local) : 
                     MediaSoundError.CannotSetAudioSessionConfiguration(error.localizedDescription)
                 },
             )
+        }
+
+        fun start() {
+            node.play()
         }
 
         override fun close() {
@@ -151,11 +161,11 @@ actual class DefaultSoundPlayer actual constructor(source: MediaSource.Local) : 
             }
         }
 
-        // Based on Apple documentation we should not play on speaker if user unplugged headphones
-        // Responding to audio route changes: https://developer.apple.com/documentation/avfaudio/responding-to-audio-route-changes
         observeNotification(AVAudioSessionRouteChangeNotification) {
             state = state.changeRoute {
-                ForegroundMetronomeMediaPlayer()
+                // Apple doesn't recommend to play on speaker if user unplugged headphones
+                // Responding to audio route changes: https://developer.apple.com/documentation/avfaudio/responding-to-audio-route-changes
+                ForegroundMetronomeMediaPlayer(startAutomatically = configuration.restartIfRouteChanged)
             }
         }
     }

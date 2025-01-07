@@ -25,6 +25,5 @@ import com.splendo.kaluga.media.MediaSource
 import com.splendo.kaluga.media.mediaSourceFromUrl
 
 actual object SoundsSources {
-    actual val beep: MediaSource = MediaSource.Id(id = "sound_3")
-//    actual val beep: MediaSource = MediaSource.Id(id = R.raw.sound)
+    actual val beep: MediaSource = MediaSource.Id(id = "sound")
 }

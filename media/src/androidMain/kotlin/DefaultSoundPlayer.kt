@@ -20,7 +20,6 @@ package com.splendo.kaluga.media
 import android.media.AudioAttributes
 import android.media.SoundPool
 import com.splendo.kaluga.base.ApplicationHolder
-import java.net.URL
 
 actual class DefaultSoundPlayer actual constructor(source: MediaSource) : SoundPlayer {
 
@@ -47,7 +46,11 @@ actual class DefaultSoundPlayer actual constructor(source: MediaSource) : SoundP
         is MediaSource.Asset -> TODO()
         is MediaSource.File -> TODO()
         is MediaSource.Content -> TODO()
-        is MediaSource.Id -> load(ApplicationHolder.applicationContext, ApplicationHolder.applicationContext.resources.getIdentifier(source.id, "raw", ApplicationHolder.applicationContext.packageName), 1)
+        is MediaSource.Id -> load(
+            ApplicationHolder.applicationContext,
+            ApplicationHolder.applicationContext.resources.getIdentifier(source.id, "raw", ApplicationHolder.applicationContext.packageName),
+            1,
+        )
         else -> throw MediaSoundError.UnexpectedMediaSourceShouldBeId
     }
 

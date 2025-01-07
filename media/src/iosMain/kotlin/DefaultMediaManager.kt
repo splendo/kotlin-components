@@ -92,6 +92,7 @@ import platform.CoreMedia.CMTimeMakeWithSeconds
 import platform.CoreMedia.CMTimeSubtract
 import platform.CoreMedia.kCMTimeIndefinite
 import platform.CoreMedia.kCMTimeZero
+import platform.Foundation.NSBundle
 import platform.Foundation.NSError
 import platform.Foundation.NSKeyValueObservingOptionInitial
 import platform.Foundation.NSKeyValueObservingOptionNew
@@ -100,6 +101,7 @@ import platform.Foundation.NSNotificationCenter
 import platform.Foundation.NSNotificationName
 import platform.Foundation.NSOperationQueue.Companion.currentQueue
 import platform.Foundation.NSOperationQueue.Companion.mainQueue
+import platform.Foundation.NSURL
 import platform.UIKit.UIApplicationDidEnterBackgroundNotification
 import platform.UIKit.UIApplicationWillEnterForegroundNotification
 import platform.darwin.NSObjectProtocol
@@ -288,7 +290,12 @@ actual class DefaultMediaManager(mediaSurfaceProvider: MediaSurfaceProvider?, pr
     private val MediaSource.avPlayerItem: AVPlayerItem get() = when (this) {
         is MediaSource.Asset -> AVPlayerItem(asset)
         is MediaSource.URL -> AVPlayerItem(AVURLAsset.URLAssetWithURL(url, options.associate { it.entry }))
-        is MediaSource.Bundle -> TODO()
+        is MediaSource.Bundle -> {
+            val path = NSBundle.mainBundle.pathForResource(fileName, fileType)
+            requireNotNull(path)
+            val url = NSURL.fileURLWithPath(path)
+            AVPlayerItem(url)
+        }
     }
 
     actual override suspend fun renderVideoOnSurface(surface: MediaSurface?) {

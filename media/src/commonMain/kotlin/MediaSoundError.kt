@@ -18,9 +18,7 @@
 package com.splendo.kaluga.media
 
 sealed class MediaSoundError(message: String) : Error(message) {
-    data object UnexpectedMediaSourceShouldBeURL : MediaSoundError("Unexpected media source type. Should be URL.")
-    data object UnexpectedMediaSourceShouldBeId : MediaSoundError("Unexpected media source type. Should be Id.")
-    data object CannotAccessMediaSource : MediaSoundError("Cannot access media source.")
+    data object UnexpectedMediaSourceShouldBeLocal : MediaSoundError("Unexpected media source type. Should be Local.")
     class CannotAccessMediaFile(detailedDescription: String? = null) : MediaSoundError("Cannot access media file. $detailedDescription")
     class CannotStartAudioEngine(detailedDescription: String? = null) : MediaSoundError("Cannot start audio engine. $detailedDescription")
     class CannotSetAudioSessionConfiguration(detailedDescription: String? = null) : MediaSoundError("Failed to set the audio session configuration. $detailedDescription")

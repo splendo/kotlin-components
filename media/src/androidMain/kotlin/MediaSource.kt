@@ -66,6 +66,7 @@ actual sealed class MediaSource {
         val cookies: List<HttpCookie>? = null,
     ) : MediaSource()
 
+    // TODO: Add kdoc
     data class Bundle(val fileName: String, val defType: String = "raw") : Local()
 }
 

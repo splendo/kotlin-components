@@ -50,6 +50,6 @@ actual class DefaultSoundPlayer actual constructor(source: MediaSource.Local) : 
                 1,
             )
         }
-        else -> throw MediaSoundError.UnexpectedMediaSourceShouldBeId
+        else -> throw MediaSoundError.UnexpectedMediaSourceShouldBeLocal
     }
 }

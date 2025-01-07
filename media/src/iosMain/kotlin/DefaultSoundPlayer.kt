@@ -171,10 +171,9 @@ actual class DefaultSoundPlayer actual constructor(source: MediaSource.Local) : 
         block = { errorPtr ->
             val path = when (source) {
                 is MediaSource.Bundle -> NSBundle.mainBundle.pathForResource(source.fileName, source.fileType)
-                else -> error("Should be bundle")
+                else -> throw MediaSoundError.UnexpectedMediaSourceShouldBeLocal
             }
-
-            require(path != null) { "Invalid file for sound" }
+            requireNotNull(path)
             val url = NSURL.fileURLWithPath(path)
             AVAudioFile(forReading = url, error = errorPtr)
         },

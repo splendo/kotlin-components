@@ -19,7 +19,9 @@ package com.splendo.kaluga.media
 
 import android.media.MediaPlayer
 import android.media.PlaybackParams
+import android.net.Uri
 import android.os.Build
+import com.splendo.kaluga.base.ApplicationHolder
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asSharedFlow
@@ -136,7 +138,11 @@ actual class DefaultMediaManager(mediaSurfaceProvider: MediaSurfaceProvider?, co
             } else {
                 mediaPlayer.setDataSource(source.context, source.uri, source.headers)
             }
-            is MediaSource.Bundle -> TODO()
+            is MediaSource.Bundle -> {
+                ApplicationHolder.applicationContext.let { context ->
+                    mediaPlayer.setDataSource(context, Uri.parse("android.resource://" + context.packageName + "/" + source.fileName))
+                }
+            }
         }
         DefaultPlayableMedia(source, mediaPlayer)
     } catch (e: Throwable) {

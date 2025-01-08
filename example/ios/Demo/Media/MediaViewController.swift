@@ -66,7 +66,7 @@ class MediaViewController: UIViewController {
     @IBOutlet var stopButton: UIButton!
     @IBOutlet var loopButton: UIButton!
     @IBOutlet var rateButton: UIButton!
-    
+
     deinit {
         lifecycleManager.unbind()
     }
@@ -162,7 +162,8 @@ class MediaViewController: UIViewController {
                     if let volumeButton = volumeButton {
                         ButtonStyleKt.bindButton(self.volumeButton, button: volumeButton)
                     }
-                }            ]
+                }
+            ]
         }
     }
     

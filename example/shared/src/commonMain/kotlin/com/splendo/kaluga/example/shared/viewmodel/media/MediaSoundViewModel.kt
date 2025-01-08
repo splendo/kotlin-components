@@ -17,7 +17,6 @@
 
 package com.splendo.kaluga.example.shared.viewmodel.media
 
-import com.splendo.kaluga.alerts.BaseAlertPresenter
 import com.splendo.kaluga.architecture.observable.toUninitializedObservable
 import com.splendo.kaluga.architecture.viewmodel.BaseLifecycleViewModel
 import com.splendo.kaluga.example.shared.stylable.ButtonStyles
@@ -40,8 +39,8 @@ class MediaSoundViewModel : BaseLifecycleViewModel() {
     private companion object {
         const val SOUND_BPM_INITIAL = 80
         const val SOUND_BPM_STEP = 20
-        const val MIN_STEPPER_VALUE = 0
-        const val MAX_STEPPER_VALUE = 20
+        const val SOUND_BPM_MIN = 20
+        const val SOUND_BPM_MAX = 500
     }
 
     private var soundPlayer = MediaSoundLoopPlayer(coroutineScope, mediaSource = SoundsSources.beep).apply {
@@ -63,26 +62,28 @@ class MediaSoundViewModel : BaseLifecycleViewModel() {
     }.toUninitializedObservable(coroutineScope)
 
     private val soundPlayBPM = MutableStateFlow(SOUND_BPM_INITIAL)
-    private var soundBPMStepperValue = 0
-    val plusBPMButton = soundPlayBPM.map {
-        KalugaButton.Plain("+", ButtonStyles.default, isEnabled = soundBPMStepperValue < MAX_STEPPER_VALUE) {
-            soundBPMStepperValue ++
-            updateBPM(soundBPMStepperValue)
+    private val plusBPMEnabled = MutableStateFlow(true)
+    val plusBPMButton = plusBPMEnabled.map {
+        KalugaButton.Plain("+", ButtonStyles.default, isEnabled = it) {
+            updateBPM(soundPlayBPM.value + SOUND_BPM_STEP)
         }
     }.toUninitializedObservable(coroutineScope)
 
-    val minusBPMButton = soundPlayBPM.map {
-        KalugaButton.Plain("-", ButtonStyles.default, isEnabled = soundBPMStepperValue > MIN_STEPPER_VALUE) {
-            soundBPMStepperValue --
-            updateBPM(soundBPMStepperValue)
+    private val minusBPMEnabled = MutableStateFlow(true)
+    val minusBPMButton = minusBPMEnabled.map {
+        KalugaButton.Plain("-", ButtonStyles.default, isEnabled = soundPlayBPM.value > SOUND_BPM_MIN) {
+            updateBPM(soundPlayBPM.value - SOUND_BPM_STEP)
         }
     }.toUninitializedObservable(coroutineScope)
+
+    private fun updateBPM(bpm: Int) {
+        soundPlayBPM.value = bpm
+        plusBPMEnabled.value = bpm < SOUND_BPM_MAX
+        minusBPMEnabled.value = bpm > SOUND_BPM_MIN
+        soundPlayer.updateBPM(bpm)
+    }
 
     val soundBPMLabel = soundPlayBPM.map { "$it bpm" }.toUninitializedObservable(coroutineScope)
-    private fun updateBPM(value: Int) {
-        soundPlayBPM.value = SOUND_BPM_INITIAL + value * SOUND_BPM_STEP
-        soundPlayer.updateBPM(soundPlayBPM.value)
-    }
 
     override fun onCleared() {
         super.onCleared()

@@ -35,14 +35,12 @@ import com.splendo.kaluga.base.text.format
 import com.splendo.kaluga.example.shared.stylable.ButtonStyles
 import com.splendo.kaluga.media.BaseMediaManager
 import com.splendo.kaluga.media.DefaultMediaPlayer
-import com.splendo.kaluga.media.DefaultSoundPlayer
 import com.splendo.kaluga.media.MediaPlayer
 import com.splendo.kaluga.media.MediaSource
 import com.splendo.kaluga.media.MediaSurfaceProvider
 import com.splendo.kaluga.media.PlaybackError
 import com.splendo.kaluga.media.PlaybackState
 import com.splendo.kaluga.media.Resolution
-import com.splendo.kaluga.media.SoundPlayer
 import com.splendo.kaluga.media.duration
 import com.splendo.kaluga.media.isVideo
 import com.splendo.kaluga.media.mediaSourceFromUrl

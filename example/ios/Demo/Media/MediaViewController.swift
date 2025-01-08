@@ -66,10 +66,6 @@ class MediaViewController: UIViewController {
     @IBOutlet var stopButton: UIButton!
     @IBOutlet var loopButton: UIButton!
     @IBOutlet var rateButton: UIButton!
-    @IBOutlet weak var playStopSoundButton: UIButton!
-    @IBOutlet weak var plusBPMButton: UIButton!
-    @IBOutlet weak var minusBPMButton: UIButton!
-    @IBOutlet weak var soundBPMLabel: UILabel!
     
     deinit {
         lifecycleManager.unbind()
@@ -166,26 +162,7 @@ class MediaViewController: UIViewController {
                     if let volumeButton = volumeButton {
                         ButtonStyleKt.bindButton(self.volumeButton, button: volumeButton)
                     }
-                },
-                self.viewModel.playStopSoundButton.observe { playStopSoundButton in
-                    if let playStopSoundButton = playStopSoundButton {
-                        ButtonStyleKt.bindButton(self.playStopSoundButton, button: playStopSoundButton)
-                    }
-                },
-                self.viewModel.soundBPMLabel.observe { soundBPM in
-                    self.soundBPMLabel.text = soundBPM as? String
-                },
-                self.viewModel.minusBPMButton.observe { minusBPMButton in
-                    if let minusBPMButton = minusBPMButton {
-                        ButtonStyleKt.bindButton(self.minusBPMButton, button: minusBPMButton)
-                    }
-                },
-                self.viewModel.plusBPMButton.observe { plusBPMButton in
-                    if let plusBPMButton = plusBPMButton {
-                        ButtonStyleKt.bindButton(self.plusBPMButton, button: plusBPMButton)
-                    }
-                }
-            ]
+                }            ]
         }
     }
     

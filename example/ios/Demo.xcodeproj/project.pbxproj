@@ -89,6 +89,7 @@
 		9481F22DC3CFE170CE894584 /* KeyboardManager.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F34DFA21F534655B6FD3D03 /* KeyboardManager.generated.swift */; };
 		BC5100D52D2C3B2200095938 /* sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BC5100D42D2C3B2200095938 /* sound.mp3 */; };
 		BC5100D92D2EB42700095938 /* MediaListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5100D82D2EB42700095938 /* MediaListViewController.swift */; };
+		BC5100DB2D2ECC7600095938 /* MediaSoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5100DA2D2ECC7600095938 /* MediaSoundViewController.swift */; };
 		C77C23B538A4DFB02C0E0773 /* LazyView.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095989173871C8CDA70C49E1 /* LazyView.generated.swift */; };
 		C9555693B015ADE12795997D /* NavigationBarColor.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9189D92DAF37F9815ECFDC /* NavigationBarColor.generated.swift */; };
 		D0F06CF9B138426F812F3B0B /* ShapeView.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9730959B8EF5B66133F731D2 /* ShapeView.generated.swift */; };
@@ -223,6 +224,7 @@
 		A8678F48E60D40E6AB06177C /* LifecycleViewModel.generated.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = LifecycleViewModel.generated.swift; sourceTree = "<group>"; };
 		BC5100D42D2C3B2200095938 /* sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sound.mp3; sourceTree = "<group>"; };
 		BC5100D82D2EB42700095938 /* MediaListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaListViewController.swift; sourceTree = "<group>"; };
+		BC5100DA2D2ECC7600095938 /* MediaSoundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaSoundViewController.swift; sourceTree = "<group>"; };
 		CCF6BD3638095E5452785FF3 /* KalugaLabel+SwiftUI.generated.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = "KalugaLabel+SwiftUI.generated.swift"; sourceTree = "<group>"; };
 		D7A59766D89528BA5F4327BD /* Subject.generated.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Subject.generated.swift; sourceTree = "<group>"; };
 		EA317627E5725424F6B7569C /* KalugaDate+Extensions.generated.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = "KalugaDate+Extensions.generated.swift"; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 				BC5100D42D2C3B2200095938 /* sound.mp3 */,
 				2025CA2A29C9FC480037DF68 /* MediaViewController.swift */,
 				BC5100D82D2EB42700095938 /* MediaListViewController.swift */,
+				BC5100DA2D2ECC7600095938 /* MediaSoundViewController.swift */,
 			);
 			path = Media;
 			sourceTree = "<group>";
@@ -737,6 +740,7 @@
 				2073D0F227032B5B002CB856 /* ColorViewController.swift in Sources */,
 				20BB9E7A29645AA10096E836 /* TimerView.swift in Sources */,
 				201EA2232938F11700C562EC /* ResourcesListView.swift in Sources */,
+				BC5100DB2D2ECC7600095938 /* MediaSoundViewController.swift in Sources */,
 				20524A24257BEA1E0054B57E /* DateTimePickerViewController.swift in Sources */,
 				20C7D1CF24699A6C00C9A63F /* UIControl+Closure.swift in Sources */,
 				4BC0CBDF269F1D25000512A9 /* BeaconsViewController.swift in Sources */,

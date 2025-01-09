@@ -30,6 +30,9 @@ import java.net.URL
  * The source at which [PlayableMedia] can be found
  */
 actual sealed class MediaSource {
+    /**
+     * A [MediaSource] that is located at a device
+     */
     actual sealed class Local : MediaSource()
 
     /**
@@ -66,7 +69,11 @@ actual sealed class MediaSource {
         val cookies: List<HttpCookie>? = null,
     ) : MediaSource()
 
-    // TODO: Add kdoc
+    /**
+     * A [MediaSource] that has is located in an application bundle
+     * @property fileName the name of the media source file
+     * @property defType the type of resource
+     */
     data class Bundle(val fileName: String, val defType: String = "raw") : Local()
 }
 
@@ -81,4 +88,10 @@ actual fun mediaSourceFromUrl(url: String): MediaSource? = try {
     null
 }
 
+/**
+ * Attempts to create a [MediaSource] from a file name
+ * @param fileName the name of the media source file
+ * @param fileType the type of the media source file
+ * @return the [MediaSource.Local] associated with the file or `null` if none could be created
+ */
 actual fun mediaSourceFromLocalFile(fileName: String, fileType: String): MediaSource.Local? = MediaSource.Bundle(fileName)

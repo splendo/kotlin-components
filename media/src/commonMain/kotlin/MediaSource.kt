@@ -21,6 +21,9 @@ package com.splendo.kaluga.media
  * The source at which [PlayableMedia] can be found
  */
 expect sealed class MediaSource {
+    /**
+     * A [MediaSource] that is located at a device
+     */
     sealed class Local : MediaSource
 }
 
@@ -31,4 +34,10 @@ expect sealed class MediaSource {
  */
 expect fun mediaSourceFromUrl(url: String): MediaSource?
 
+/**
+ * Attempts to create a [MediaSource] from a file name
+ * @param fileName the name of the media source file
+ * @param fileType the type of the media source file
+ * @return the [MediaSource.Local] associated with the file or `null` if none could be created
+ */
 expect fun mediaSourceFromLocalFile(fileName: String, fileType: String): MediaSource.Local?

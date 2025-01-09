@@ -17,10 +17,20 @@
 
 package com.splendo.kaluga.example.media
 
+import android.os.Bundle
 import com.splendo.kaluga.architecture.viewmodel.KalugaViewModelActivity
+import com.splendo.kaluga.example.databinding.ActivityMediaSoundBinding
 import com.splendo.kaluga.example.shared.viewmodel.media.MediaSoundViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MediaSoundActivity : KalugaViewModelActivity<MediaSoundViewModel>()  {
-    override val viewModel: MediaSoundViewModel
-        get() = TODO("Not yet implemented")
+    override val viewModel: MediaSoundViewModel by viewModel()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        val binding = ActivityMediaSoundBinding.inflate(layoutInflater, null, false)
+        binding.viewModel = viewModel
+        binding.lifecycleOwner = this
+    }
 }

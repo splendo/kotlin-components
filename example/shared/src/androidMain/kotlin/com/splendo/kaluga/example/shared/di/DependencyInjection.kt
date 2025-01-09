@@ -55,6 +55,7 @@ import com.splendo.kaluga.example.shared.viewmodel.location.LocationViewModel
 import com.splendo.kaluga.example.shared.viewmodel.media.MediaListNavigationAction
 import com.splendo.kaluga.example.shared.viewmodel.media.MediaListViewModel
 import com.splendo.kaluga.example.shared.viewmodel.media.MediaNavigationAction
+import com.splendo.kaluga.example.shared.viewmodel.media.MediaSoundViewModel
 import com.splendo.kaluga.example.shared.viewmodel.media.MediaViewModel
 import com.splendo.kaluga.example.shared.viewmodel.permissions.NotificationPermissionViewModel
 import com.splendo.kaluga.example.shared.viewmodel.permissions.PermissionViewModel
@@ -173,6 +174,10 @@ internal val androidModule = module {
 
     viewModel { (navigator: Navigator<MediaListNavigationAction>) ->
         MediaListViewModel(navigator)
+    }
+
+    viewModel {
+        MediaSoundViewModel()
     }
 
     viewModel { (navigator: Navigator<SystemNavigationActions>) ->

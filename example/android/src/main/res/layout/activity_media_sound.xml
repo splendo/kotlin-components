@@ -14,9 +14,18 @@
      limitations under the License.
 
   -->
-
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout>
+<data>
+    <variable
+        name="viewModel"
+        type="com.splendo.kaluga.example.shared.viewmodel.media.MediaSoundViewModel" />
+</data>
+<androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/media_list"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.recyclerview.widget.RecyclerView>
+</layout>

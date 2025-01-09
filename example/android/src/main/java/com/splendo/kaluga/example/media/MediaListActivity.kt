@@ -39,8 +39,7 @@ class MediaListActivity : KalugaViewModelActivity<MediaListViewModel>() {
             ActivityNavigator<MediaListNavigationAction> { action ->
                 when (action) {
                     is MediaListNavigationAction.Media -> NavigationSpec.Activity<MediaActivity>()
-                    is MediaListNavigationAction.Sound -> TODO("Not implemented yet")
-//                    is MediaListNavigationAction.Sound -> NavigationSpec.Activity<SoundActivity>()
+                    is MediaListNavigationAction.Sound -> NavigationSpec.Activity<MediaSoundActivity>()
                 }
             },
         )

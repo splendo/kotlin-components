@@ -28,8 +28,23 @@ interface SoundPlayer : AutoCloseable {
 
 /**
  * A default implementation of [SoundPlayer]
+ * @param source the [MediaSource.Local] on which the media is found
 */
 expect class DefaultSoundPlayer(source: MediaSource.Local) : SoundPlayer {
+    /** Closes the sound player */
     override fun close()
+
+    /** Plays the sound */
     override fun play()
+}
+
+/**
+ * A [SoundPlayer] specific error
+ * @param message s descriptive error message
+ */
+sealed class MediaSoundError(message: String) : Error(message) {
+    data object UnexpectedMediaSourceShouldBeLocal : MediaSoundError("Unexpected media source type. Should be Local.")
+    class CannotAccessMediaFile(detailedDescription: String? = null) : MediaSoundError("Cannot access media file. $detailedDescription")
+    class CannotStartAudioEngine(detailedDescription: String? = null) : MediaSoundError("Cannot start audio engine. $detailedDescription")
+    class CannotSetAudioSessionConfiguration(detailedDescription: String? = null) : MediaSoundError("Failed to set the audio session configuration. $detailedDescription")
 }

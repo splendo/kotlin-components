@@ -42,9 +42,27 @@ import platform.Foundation.NSURL
 import platform.UIKit.UIApplicationDidEnterBackgroundNotification
 import platform.UIKit.UIApplicationWillEnterForegroundNotification
 
+/**
+ * A default implementation of [SoundPlayer]
+ * @param source the [MediaSource.Local] on which the media is found
+ * @param configuration the [Configuration] of [SoundPlayer]
+ */
 actual class DefaultSoundPlayer(source: MediaSource.Local, private val configuration: Configuration) : SoundPlayer {
-    data class Configuration(val restartIfRouteChanged: Boolean = true)
+    /**
+     * The [Configuration] of [SoundPlayer]
+     */
+    data class Configuration(
+        /**
+         * The player will be restarted if the route changed.
+         * Practically it means that the player will be updated if user connect/ disconnects audio outputs so the media can be played.
+         * Note apple doesn't recommend to play on speaker if user unplugged headphones (https://developer.apple.com/documentation/avfaudio/responding-to-audio-route-changes)
+         */
+        val restartIfRouteChanged: Boolean = true,
+    )
 
+    /**
+     * Creates [SoundPlayer] with default configuration
+     */
     actual constructor(source: MediaSource.Local) : this(source, configuration = Configuration())
 
     private val file = accessFile(source)
@@ -163,8 +181,6 @@ actual class DefaultSoundPlayer(source: MediaSource.Local, private val configura
 
         observeNotification(AVAudioSessionRouteChangeNotification) {
             state = state.changeRoute {
-                // Apple doesn't recommend to play on speaker if user unplugged headphones
-                // Responding to audio route changes: https://developer.apple.com/documentation/avfaudio/responding-to-audio-route-changes
                 ForegroundMetronomeMediaPlayer(startAutomatically = configuration.restartIfRouteChanged)
             }
         }

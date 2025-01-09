@@ -21,6 +21,10 @@ import android.media.AudioAttributes
 import android.media.SoundPool
 import com.splendo.kaluga.base.ApplicationHolder
 
+/**
+ * A default implementation of [SoundPlayer]
+ * @param source the [MediaSource.Local] on which the media is found
+ */
 actual class DefaultSoundPlayer actual constructor(source: MediaSource.Local) : SoundPlayer {
 
     private val soundPool = SoundPool.Builder().apply {

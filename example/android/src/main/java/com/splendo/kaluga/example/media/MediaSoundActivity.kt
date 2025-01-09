@@ -32,5 +32,7 @@ class MediaSoundActivity : KalugaViewModelActivity<MediaSoundViewModel>()  {
         val binding = ActivityMediaSoundBinding.inflate(layoutInflater, null, false)
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
+
+        setContentView(binding.root)
     }
 }

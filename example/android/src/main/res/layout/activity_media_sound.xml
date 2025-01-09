@@ -14,18 +14,63 @@
      limitations under the License.
 
   -->
-<layout>
-<data>
-    <variable
-        name="viewModel"
-        type="com.splendo.kaluga.example.shared.viewmodel.media.MediaSoundViewModel" />
-</data>
-<androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/media_list"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-</androidx.recyclerview.widget.RecyclerView>
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.splendo.kaluga.example.shared.viewmodel.media.MediaSoundViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/contraint_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/controls"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left|top"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:orientation="horizontal"
+                android:paddingBottom="20dp">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/play_stop_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:kalugaButton="@{viewModel.playStopSoundButton.stateFlow}" />
+
+                <TextView
+                    android:id="@+id/sound_bpm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:text="@{viewModel.soundBPMLabel.stateFlow}"
+                    tools:text="0 bpm" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/bpm_plus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:kalugaButton="@{viewModel.plusBPMButton.stateFlow}" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/bpm_minus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:kalugaButton="@{viewModel.minusBPMButton.stateFlow}" />
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

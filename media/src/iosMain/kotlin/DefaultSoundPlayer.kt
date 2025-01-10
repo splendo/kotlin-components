@@ -57,7 +57,7 @@ actual class DefaultSoundPlayer(source: MediaSource.Local, private val configura
          * Practically it means that the player will be updated if user connect/ disconnects audio outputs so the media can be played.
          * Note apple doesn't recommend to play on speaker if user unplugged headphones (https://developer.apple.com/documentation/avfaudio/responding-to-audio-route-changes)
          */
-        val restartIfRouteChanged: Boolean = true,
+        val restartIfRouteChanged: Boolean = false,
     )
 
     /**

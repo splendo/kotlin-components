@@ -40,7 +40,7 @@ import platform.Foundation.NSUUID
  */
 actual sealed class MediaSource {
     /**
-     * A [MediaSource] that is located at a device
+     * A [MediaSource] that is located on the device
      */
     actual sealed class Local : MediaSource()
 

@@ -22,7 +22,7 @@ package com.splendo.kaluga.media
  */
 expect sealed class MediaSource {
     /**
-     * A [MediaSource] that is located at a device
+     * A [MediaSource] that is located on the device
      */
     sealed class Local : MediaSource
 }

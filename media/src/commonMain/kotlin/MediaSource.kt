@@ -40,4 +40,4 @@ expect fun mediaSourceFromUrl(url: String): MediaSource?
  * @param fileType the type of the media source file
  * @return the [MediaSource.Local] associated with the file or `null` if none could be created
  */
-expect fun mediaSourceFromLocalFile(fileName: String, fileType: String): MediaSource.Local?
+expect fun mediaSourceFromLocalFile(fileName: String, fileType: String): MediaSource.Local

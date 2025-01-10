@@ -94,4 +94,4 @@ actual fun mediaSourceFromUrl(url: String): MediaSource? = try {
  * @param fileType the type of the media source file
  * @return the [MediaSource.Local] associated with the file or `null` if none could be created
  */
-actual fun mediaSourceFromLocalFile(fileName: String, fileType: String): MediaSource.Local? = MediaSource.Bundle(fileName)
+actual fun mediaSourceFromLocalFile(fileName: String, fileType: String): MediaSource.Local = MediaSource.Bundle(fileName)

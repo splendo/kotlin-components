@@ -35,7 +35,7 @@ public abstract class com/splendo/kaluga/media/BasePlaybackStateRepo : com/splen
 }
 
 public final class com/splendo/kaluga/media/DefaultMediaManager : com/splendo/kaluga/media/BaseMediaManager {
-	public fun <init> (Lcom/splendo/kaluga/media/MediaSurfaceProvider;Lkotlin/coroutines/CoroutineContext;)V
+	public fun <init> (Lcom/splendo/kaluga/media/MediaSurfaceProvider;Lkotlin/coroutines/CoroutineContext;Landroid/content/Context;)V
 	public fun getCurrentVolume ()Lkotlinx/coroutines/flow/Flow;
 	public fun initialize (Lcom/splendo/kaluga/media/PlayableMedia;)V
 	public fun pause ()V
@@ -49,6 +49,7 @@ public final class com/splendo/kaluga/media/DefaultMediaManager$Builder : com/sp
 	public fun <init> ()V
 	public synthetic fun create (Lcom/splendo/kaluga/media/MediaSurfaceProvider;Lkotlin/coroutines/CoroutineContext;)Lcom/splendo/kaluga/media/BaseMediaManager;
 	public fun create (Lcom/splendo/kaluga/media/MediaSurfaceProvider;Lkotlin/coroutines/CoroutineContext;)Lcom/splendo/kaluga/media/DefaultMediaManager;
+	public final fun create (Lcom/splendo/kaluga/media/MediaSurfaceProvider;Lkotlin/coroutines/CoroutineContext;Landroid/content/Context;)Lcom/splendo/kaluga/media/DefaultMediaManager;
 }
 
 public final class com/splendo/kaluga/media/DefaultMediaPlayer : com/splendo/kaluga/media/MediaPlayer, kotlinx/coroutines/CoroutineScope {
@@ -78,6 +79,7 @@ public final class com/splendo/kaluga/media/DefaultPlayableMedia : com/splendo/k
 
 public final class com/splendo/kaluga/media/DefaultSoundPlayer : com/splendo/kaluga/media/SoundPlayer {
 	public fun <init> (Lcom/splendo/kaluga/media/MediaSource$Local;)V
+	public fun <init> (Lcom/splendo/kaluga/media/MediaSource$Local;Landroid/content/Context;)V
 	public fun close ()V
 	public fun play ()V
 }

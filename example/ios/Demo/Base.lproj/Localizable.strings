@@ -9,6 +9,7 @@
 "feature_keyboard" = "Keyboard";
 "feature_location" = "Location";
 "feature_media" = "Media";
+"feature_media_sound" = "Sound";
 "feature_permissions" = "Permissions";
 "feature_links" = "Links";
 "feature_beacons" = "Beacons";

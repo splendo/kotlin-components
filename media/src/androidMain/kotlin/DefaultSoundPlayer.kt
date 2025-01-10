@@ -37,7 +37,19 @@ actual class DefaultSoundPlayer actual constructor(source: MediaSource.Local) : 
     private val soundId: Int = soundPool.load(source)
 
     actual override fun play() {
-        soundPool.play(soundId, /* leftVolume = */ 1F, /* rightVolume = */ 1F, /* priority = */ 1, /* loop = */ 0, /* rate = */ 1F)
+        soundPool.play(
+            soundId,
+            /* leftVolume */
+            1F,
+            /* rightVolume */
+            1F,
+            /* priority */
+            1,
+            /* loop */
+            0,
+            /* rate */
+            1F,
+        )
     }
 
     actual override fun close() {

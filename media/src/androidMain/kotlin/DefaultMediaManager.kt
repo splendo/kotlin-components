@@ -17,6 +17,7 @@
 
 package com.splendo.kaluga.media
 
+import android.content.Context
 import android.media.MediaPlayer
 import android.media.PlaybackParams
 import android.net.Uri
@@ -47,7 +48,7 @@ actual class DefaultPlayableMedia(actual override val source: MediaSource, priva
     actual override val currentPlayTime: Duration get() = mediaPlayer.currentPosition.milliseconds
     actual override val tracks get() = mediaPlayer.trackInfo.mapIndexed { index, trackInfo -> trackInfo.asTrackInfo(index) }
     private val mutex = Mutex()
-    private var videoSizeListener: android.media.MediaPlayer.OnVideoSizeChangedListener? = null
+    private var videoSizeListener: MediaPlayer.OnVideoSizeChangedListener? = null
     private val _resolution = MutableStateFlow(Resolution.ZERO)
     actual override val resolution: Flow<Resolution> = _resolution.asSharedFlow().onSubscription {
         mutex.withLock {
@@ -84,16 +85,25 @@ private fun AndroidTrackInfo.asTrackInfo(identifier: Int): TrackInfo = TrackInfo
  * Default implementation of [BaseMediaManager]
  * @param mediaSurfaceProvider a [MediaSurfaceProvider] that will automatically call [renderVideoOnSurface] for the latest [MediaSurface]
  * @param coroutineContext the [CoroutineContext] on which the media will be managed
+ * @param context the [Context] to access local resources
  */
-actual class DefaultMediaManager(mediaSurfaceProvider: MediaSurfaceProvider?, coroutineContext: CoroutineContext) : BaseMediaManager(mediaSurfaceProvider, coroutineContext) {
+actual class DefaultMediaManager(mediaSurfaceProvider: MediaSurfaceProvider?, coroutineContext: CoroutineContext, private val context: Context) :
+    BaseMediaManager(mediaSurfaceProvider, coroutineContext) {
 
     /**
      * Builder for creating a [DefaultMediaManager]
      */
     class Builder : BaseMediaManager.Builder {
-        override fun create(mediaSurfaceProvider: MediaSurfaceProvider?, coroutineContext: CoroutineContext): DefaultMediaManager = DefaultMediaManager(
+
+        /** Creates [DefaultMediaManager] with the application context */
+        override fun create(mediaSurfaceProvider: MediaSurfaceProvider?, coroutineContext: CoroutineContext): DefaultMediaManager =
+            create(mediaSurfaceProvider, coroutineContext, ApplicationHolder.applicationContext)
+
+        /** Creates [DefaultMediaManager] */
+        fun create(mediaSurfaceProvider: MediaSurfaceProvider?, coroutineContext: CoroutineContext, context: Context): DefaultMediaManager = DefaultMediaManager(
             mediaSurfaceProvider,
             coroutineContext,
+            context,
         )
     }
 
@@ -138,11 +148,7 @@ actual class DefaultMediaManager(mediaSurfaceProvider: MediaSurfaceProvider?, co
             } else {
                 mediaPlayer.setDataSource(source.context, source.uri, source.headers)
             }
-            is MediaSource.Bundle -> {
-                ApplicationHolder.applicationContext.let { context ->
-                    mediaPlayer.setDataSource(context, Uri.parse("android.resource://" + context.packageName + "/" + source.fileName))
-                }
-            }
+            is MediaSource.Bundle -> mediaPlayer.setDataSource(context, Uri.parse("android.resource://" + context.packageName + "/" + source.fileName))
         }
         DefaultPlayableMedia(source, mediaPlayer)
     } catch (e: Throwable) {

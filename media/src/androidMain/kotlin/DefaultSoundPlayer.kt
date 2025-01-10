@@ -17,6 +17,7 @@
 
 package com.splendo.kaluga.media
 
+import android.content.Context
 import android.media.AudioAttributes
 import android.media.SoundPool
 import com.splendo.kaluga.base.ApplicationHolder
@@ -25,7 +26,12 @@ import com.splendo.kaluga.base.ApplicationHolder
  * A default implementation of [SoundPlayer]
  * @param source the [MediaSource.Local] on which the media is found
  */
-actual class DefaultSoundPlayer actual constructor(source: MediaSource.Local) : SoundPlayer {
+actual class DefaultSoundPlayer(source: MediaSource.Local, private val context: Context) : SoundPlayer {
+
+    /**
+     * Creates [SoundPlayer] with the application context
+     */
+    actual constructor(source: MediaSource.Local) : this(source, ApplicationHolder.applicationContext)
 
     private val soundPool = SoundPool.Builder().apply {
         val attributes = AudioAttributes.Builder().apply {
@@ -59,13 +65,11 @@ actual class DefaultSoundPlayer actual constructor(source: MediaSource.Local) : 
     private fun SoundPool.load(source: MediaSource.Local): Int = when (source) {
         is MediaSource.Asset -> load(source.descriptor, 1)
         is MediaSource.File -> load(source.descriptor, source.offset, source.length, 1)
-        is MediaSource.Bundle -> ApplicationHolder.applicationContext.let { context ->
-            load(
-                context,
-                context.resources.getIdentifier(source.fileName, source.defType, context.packageName),
-                1,
-            )
-        }
+        is MediaSource.Bundle -> load(
+            context,
+            context.resources.getIdentifier(source.fileName, source.defType, context.packageName),
+            1,
+        )
         else -> throw MediaSoundError.UnexpectedMediaSourceShouldBeLocal
     }
 }

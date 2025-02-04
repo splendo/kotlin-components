@@ -20,10 +20,6 @@ package com.splendo.kaluga.scientific.converter.energy
 import com.splendo.kaluga.scientific.PhysicalQuantity
 import com.splendo.kaluga.scientific.ScientificValue
 import com.splendo.kaluga.scientific.converter.power.power
-import com.splendo.kaluga.scientific.unit.BritishThermalUnit
-import com.splendo.kaluga.scientific.unit.BritishThermalUnitPerHour
-import com.splendo.kaluga.scientific.unit.BritishThermalUnitPerMinute
-import com.splendo.kaluga.scientific.unit.BritishThermalUnitPerSecond
 import com.splendo.kaluga.scientific.unit.Centijoule
 import com.splendo.kaluga.scientific.unit.Centiwatt
 import com.splendo.kaluga.scientific.unit.CentiwattHour
@@ -34,13 +30,6 @@ import com.splendo.kaluga.scientific.unit.Decijoule
 import com.splendo.kaluga.scientific.unit.Deciwatt
 import com.splendo.kaluga.scientific.unit.DeciwattHour
 import com.splendo.kaluga.scientific.unit.Energy
-import com.splendo.kaluga.scientific.unit.Erg
-import com.splendo.kaluga.scientific.unit.ErgMultiple
-import com.splendo.kaluga.scientific.unit.ErgPerSecond
-import com.splendo.kaluga.scientific.unit.FootPoundForce
-import com.splendo.kaluga.scientific.unit.FootPoundForcePerMinute
-import com.splendo.kaluga.scientific.unit.FootPoundForcePerSecond
-import com.splendo.kaluga.scientific.unit.FootPoundal
 import com.splendo.kaluga.scientific.unit.Gigajoule
 import com.splendo.kaluga.scientific.unit.Gigawatt
 import com.splendo.kaluga.scientific.unit.GigawattHour
@@ -51,10 +40,7 @@ import com.splendo.kaluga.scientific.unit.Horsepower
 import com.splendo.kaluga.scientific.unit.HorsepowerHour
 import com.splendo.kaluga.scientific.unit.Hour
 import com.splendo.kaluga.scientific.unit.ImperialEnergy
-import com.splendo.kaluga.scientific.unit.InchOunceForce
-import com.splendo.kaluga.scientific.unit.InchPoundForce
-import com.splendo.kaluga.scientific.unit.InchPoundForcePerMinute
-import com.splendo.kaluga.scientific.unit.InchPoundForcePerSecond
+import com.splendo.kaluga.scientific.unit.ImperialNamedEnergyUnit
 import com.splendo.kaluga.scientific.unit.Joule
 import com.splendo.kaluga.scientific.unit.Kilojoule
 import com.splendo.kaluga.scientific.unit.Kilowatt
@@ -62,23 +48,24 @@ import com.splendo.kaluga.scientific.unit.KilowattHour
 import com.splendo.kaluga.scientific.unit.Megajoule
 import com.splendo.kaluga.scientific.unit.Megawatt
 import com.splendo.kaluga.scientific.unit.MegawattHour
+import com.splendo.kaluga.scientific.unit.MetricAndImperialNamedEnergyUnit
 import com.splendo.kaluga.scientific.unit.MetricEnergy
+import com.splendo.kaluga.scientific.unit.MetricNamedEnergyUnit
 import com.splendo.kaluga.scientific.unit.Microjoule
 import com.splendo.kaluga.scientific.unit.Microwatt
 import com.splendo.kaluga.scientific.unit.MicrowattHour
 import com.splendo.kaluga.scientific.unit.Millijoule
 import com.splendo.kaluga.scientific.unit.Milliwatt
 import com.splendo.kaluga.scientific.unit.MilliwattHour
-import com.splendo.kaluga.scientific.unit.Minute
 import com.splendo.kaluga.scientific.unit.Nanojoule
 import com.splendo.kaluga.scientific.unit.Nanowatt
 import com.splendo.kaluga.scientific.unit.NanowattHour
-import com.splendo.kaluga.scientific.unit.Second
 import com.splendo.kaluga.scientific.unit.Time
 import com.splendo.kaluga.scientific.unit.Watt
 import com.splendo.kaluga.scientific.unit.WattHour
 import com.splendo.kaluga.scientific.unit.imperial
 import com.splendo.kaluga.scientific.unit.metric
+import com.splendo.kaluga.scientific.unit.per
 import kotlin.jvm.JvmName
 
 @JvmName("wattHourDivHour")
@@ -157,51 +144,32 @@ infix operator fun <TimeUnit : Time> ScientificValue<PhysicalQuantity.Energy, Me
 infix operator fun <TimeUnit : Time> ScientificValue<PhysicalQuantity.Energy, Gigajoule>.div(time: ScientificValue<PhysicalQuantity.Time, TimeUnit>) =
     Gigawatt.metric.power(this, time)
 
-@JvmName("ergDivSecond")
-infix operator fun ScientificValue<PhysicalQuantity.Energy, Erg>.div(time: ScientificValue<PhysicalQuantity.Time, Second>) = ErgPerSecond.power(this, time)
+@JvmName("metricAndImperialNamedEnergyDivTime")
+infix operator fun <MetricAndImperialEnergy : MetricAndImperialNamedEnergyUnit, TimeUnit : Time> ScientificValue<PhysicalQuantity.Energy, MetricAndImperialEnergy>.div(
+    time: ScientificValue<PhysicalQuantity.Time, TimeUnit>,
+) = (
+    unit per
+        time.unit
+    ).power(this, time)
 
-@JvmName("ergMultipleDivSecond")
-infix operator fun <ErgUnit : ErgMultiple> ScientificValue<PhysicalQuantity.Energy, ErgUnit>.div(time: ScientificValue<PhysicalQuantity.Time, Second>) =
-    ErgPerSecond.power(this, time)
-
-@JvmName("footPoundalDivSecond")
-infix operator fun ScientificValue<PhysicalQuantity.Energy, FootPoundal>.div(time: ScientificValue<PhysicalQuantity.Time, Second>) = FootPoundForcePerSecond.power(this, time)
-
-@JvmName("footPoundalDivMinute")
-infix operator fun ScientificValue<PhysicalQuantity.Energy, FootPoundal>.div(time: ScientificValue<PhysicalQuantity.Time, Minute>) = FootPoundForcePerMinute.power(this, time)
-
-@JvmName("footPoundForceDivSecond")
-infix operator fun ScientificValue<PhysicalQuantity.Energy, FootPoundForce>.div(time: ScientificValue<PhysicalQuantity.Time, Second>) = FootPoundForcePerSecond.power(this, time)
-
-@JvmName("footPoundForceDivMinute")
-infix operator fun ScientificValue<PhysicalQuantity.Energy, FootPoundForce>.div(time: ScientificValue<PhysicalQuantity.Time, Minute>) = FootPoundForcePerMinute.power(this, time)
-
-@JvmName("inchPoundForceDivSecond")
-infix operator fun ScientificValue<PhysicalQuantity.Energy, InchPoundForce>.div(time: ScientificValue<PhysicalQuantity.Time, Second>) = InchPoundForcePerSecond.power(this, time)
-
-@JvmName("inchPoundForceDivMinute")
-infix operator fun ScientificValue<PhysicalQuantity.Energy, InchPoundForce>.div(time: ScientificValue<PhysicalQuantity.Time, Minute>) = InchPoundForcePerMinute.power(this, time)
-
-@JvmName("inchOunceForceDivSecond")
-infix operator fun ScientificValue<PhysicalQuantity.Energy, InchOunceForce>.div(time: ScientificValue<PhysicalQuantity.Time, Second>) = InchPoundForcePerSecond.power(this, time)
-
-@JvmName("inchOunceForceDivMinute")
-infix operator fun ScientificValue<PhysicalQuantity.Energy, InchOunceForce>.div(time: ScientificValue<PhysicalQuantity.Time, Minute>) = InchPoundForcePerMinute.power(this, time)
+@JvmName("metricNamedEnergyDivTime")
+infix operator fun <MetricEnergy : MetricNamedEnergyUnit, TimeUnit : Time> ScientificValue<PhysicalQuantity.Energy, MetricEnergy>.div(
+    time: ScientificValue<PhysicalQuantity.Time, TimeUnit>,
+) = (
+    unit per
+        time.unit
+    ).power(this, time)
 
 @JvmName("horsepowerHourDivHour")
 infix operator fun ScientificValue<PhysicalQuantity.Energy, HorsepowerHour>.div(time: ScientificValue<PhysicalQuantity.Time, Hour>) = Horsepower.power(this, time)
 
-@JvmName("britishThermalUnitDivHour")
-infix operator fun ScientificValue<PhysicalQuantity.Energy, BritishThermalUnit>.div(time: ScientificValue<PhysicalQuantity.Time, Hour>) =
-    BritishThermalUnitPerHour.power(this, time)
-
-@JvmName("britishThermalUnitDivMinute")
-infix operator fun ScientificValue<PhysicalQuantity.Energy, BritishThermalUnit>.div(time: ScientificValue<PhysicalQuantity.Time, Minute>) =
-    BritishThermalUnitPerMinute.power(this, time)
-
-@JvmName("britishThermalUnitDivSecond")
-infix operator fun ScientificValue<PhysicalQuantity.Energy, BritishThermalUnit>.div(time: ScientificValue<PhysicalQuantity.Time, Second>) =
-    BritishThermalUnitPerSecond.power(this, time)
+@JvmName("imperialNamedEnergyDivTime")
+infix operator fun <ImperialEnergy : ImperialNamedEnergyUnit, TimeUnit : Time> ScientificValue<PhysicalQuantity.Energy, ImperialEnergy>.div(
+    time: ScientificValue<PhysicalQuantity.Time, TimeUnit>,
+) = (
+    unit per
+        time.unit
+    ).power(this, time)
 
 @JvmName("metricEnergyDivTime")
 infix operator fun <EnergyUnit : MetricEnergy, TimeUnit : Time> ScientificValue<PhysicalQuantity.Energy, EnergyUnit>.div(time: ScientificValue<PhysicalQuantity.Time, TimeUnit>) =

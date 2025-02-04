@@ -68,7 +68,7 @@ class ElectricCurrentUnitTest {
 
     @Test
     fun currentFromPowerAndVoltageTest() {
-        assertEquals(1(Abampere), 2(ErgPerSecond) / 2(Abvolt))
+        assertEquals(1(Abampere), 2(Erg per Second) / 2(Abvolt))
         assertEquals(1(Ampere), 2(Watt) / 2(Volt))
     }
 

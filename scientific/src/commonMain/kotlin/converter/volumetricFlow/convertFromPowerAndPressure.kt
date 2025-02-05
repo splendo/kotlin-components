@@ -15,36 +15,36 @@
 
  */
 
-package com.splendo.kaluga.scientific.converter.power
+package com.splendo.kaluga.scientific.converter.volumetricFlow
 
 import com.splendo.kaluga.base.utils.Decimal
 import com.splendo.kaluga.scientific.DefaultScientificValue
 import com.splendo.kaluga.scientific.PhysicalQuantity
 import com.splendo.kaluga.scientific.ScientificValue
-import com.splendo.kaluga.scientific.byMultiplying
-import com.splendo.kaluga.scientific.unit.Power
-import com.splendo.kaluga.scientific.unit.Pressure
+import com.splendo.kaluga.scientific.byDividing
+import com.splendo.kaluga.scientific.unit.Time
+import com.splendo.kaluga.scientific.unit.Volume
 import com.splendo.kaluga.scientific.unit.VolumetricFlow
 import kotlin.jvm.JvmName
 
-@JvmName("powerFromPressureAndVolumetricFlowDefault")
+@JvmName("volumetricFlowFromVolumeAndTimeDefault")
 fun <
-    PressureUnit : Pressure,
+    VolumeUnit : Volume,
+    TimeUnit : Time,
     VolumetricFlowUnit : VolumetricFlow,
-    PowerUnit : Power,
-    > PowerUnit.power(
-    pressure: ScientificValue<PhysicalQuantity.Pressure, PressureUnit>,
-    volumetricFlow: ScientificValue<PhysicalQuantity.VolumetricFlow, VolumetricFlowUnit>,
-) = power(pressure, volumetricFlow, ::DefaultScientificValue)
+    > VolumetricFlowUnit.volumetricFlow(
+    volume: ScientificValue<PhysicalQuantity.Volume, VolumeUnit>,
+    time: ScientificValue<PhysicalQuantity.Time, TimeUnit>,
+) = volumetricFlow(volume, time, ::DefaultScientificValue)
 
-@JvmName("powerFromPressureAndVolumetricFlow")
+@JvmName("volumetricFlowFromVolumeAndTime")
 fun <
-    PressureUnit : Pressure,
+    VolumeUnit : Volume,
+    TimeUnit : Time,
     VolumetricFlowUnit : VolumetricFlow,
-    PowerUnit : Power,
-    Value : ScientificValue<PhysicalQuantity.Power, PowerUnit>,
-    > PowerUnit.power(
-    pressure: ScientificValue<PhysicalQuantity.Pressure, PressureUnit>,
-    volumetricFlow: ScientificValue<PhysicalQuantity.VolumetricFlow, VolumetricFlowUnit>,
-    factory: (Decimal, PowerUnit) -> Value,
-) = byMultiplying(pressure, volumetricFlow, factory)
+    Value : ScientificValue<PhysicalQuantity.VolumetricFlow, VolumetricFlowUnit>,
+    > VolumetricFlowUnit.volumetricFlow(
+    volume: ScientificValue<PhysicalQuantity.Volume, VolumeUnit>,
+    time: ScientificValue<PhysicalQuantity.Time, TimeUnit>,
+    factory: (Decimal, VolumetricFlowUnit) -> Value,
+) = byDividing(volume, time, factory)

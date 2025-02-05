@@ -22,10 +22,12 @@ import com.splendo.kaluga.scientific.convert
 import com.splendo.kaluga.scientific.converter.electricCurrent.times
 import com.splendo.kaluga.scientific.converter.energy.div
 import com.splendo.kaluga.scientific.converter.force.times
+import com.splendo.kaluga.scientific.converter.pressure.times
 import com.splendo.kaluga.scientific.converter.speed.times
 import com.splendo.kaluga.scientific.converter.temperature.deltaValue
 import com.splendo.kaluga.scientific.converter.temperature.div
 import com.splendo.kaluga.scientific.converter.voltage.times
+import com.splendo.kaluga.scientific.converter.volumetricFlow.times
 import com.splendo.kaluga.scientific.invoke
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -159,6 +161,54 @@ class PowerUnitTest {
         assertEquals(4(FootPoundForce per Second), 2(Foot per Second) * 2(PoundForce.usCustomary))
         assertEqualScientificValue(4(Watt), 2(Newton).convert(PoundForce) * 2(Meter per Second))
         assertEqualScientificValue(4(Watt), 2(Meter per Second) * 2(Newton).convert(PoundForce))
+    }
+
+    @Test
+    fun powerFromPressureAndVolumetricFlowTest() {
+        assertEqualScientificValue(4(Erg per Minute), 2(Barye) * 2(CubicCentimeter per Minute))
+        assertEqualScientificValue(4(Erg per Minute), 2(CubicCentimeter per Minute) * 2(Barye))
+        assertEqualScientificValue(4(Erg per Minute), 20(Decibarye) * 2(CubicCentimeter per Minute))
+        assertEqualScientificValue(4(Erg per Minute), 2(CubicCentimeter per Minute) * 20(Decibarye))
+        assertEqualScientificValue(4(InchPoundForce per Minute), 2(PoundSquareInch) * 2(CubicInch per Minute))
+        assertEqualScientificValue(4(InchPoundForce per Minute), 2(CubicInch per Minute) * 2(PoundSquareInch))
+        assertEqualScientificValue(4(InchPoundForce per Minute), 2(PoundSquareInch) * 2(CubicInch.ukImperial per Minute))
+        assertEqualScientificValue(4(InchPoundForce per Minute), 2(CubicInch.ukImperial per Minute) * 2(PoundSquareInch))
+        assertEqualScientificValue(4(InchPoundForce per Minute), 2(PoundSquareInch) * 2(CubicInch.usCustomary per Minute))
+        assertEqualScientificValue(4(InchPoundForce per Minute), 2(CubicInch.usCustomary per Minute) * 2(PoundSquareInch))
+        assertEqualScientificValue(4(InchOunceForce per Minute), 2(OunceSquareInch) * 2(CubicInch per Minute))
+        assertEqualScientificValue(4(InchOunceForce per Minute), 2(CubicInch per Minute) * 2(OunceSquareInch))
+        assertEqualScientificValue(4(InchOunceForce per Minute), 2(OunceSquareInch) * 2(CubicInch.ukImperial per Minute))
+        assertEqualScientificValue(4(InchOunceForce per Minute), 2(CubicInch.ukImperial per Minute) * 2(OunceSquareInch))
+        assertEqualScientificValue(4(InchOunceForce per Minute), 2(OunceSquareInch) * 2(CubicInch.usCustomary per Minute))
+        assertEqualScientificValue(4(InchOunceForce per Minute), 2(CubicInch.usCustomary per Minute) * 2(OunceSquareInch))
+        assertEqualScientificValue(4000(InchPoundForce per Minute), 2(KiloPoundSquareInch) * 2(CubicInch per Minute))
+        assertEqualScientificValue(4000(InchPoundForce per Minute), 2(CubicInch per Minute) * 2(KiloPoundSquareInch))
+        assertEqualScientificValue(4000(InchPoundForce per Minute), 2(KiloPoundSquareInch) * 2(CubicInch.ukImperial per Minute))
+        assertEqualScientificValue(4000(InchPoundForce per Minute), 2(CubicInch.ukImperial per Minute) * 2(KiloPoundSquareInch))
+        assertEqualScientificValue(4000(InchPoundForce per Minute), 2(KiloPoundSquareInch) * 2(CubicInch.usCustomary per Minute))
+        assertEqualScientificValue(4000(InchPoundForce per Minute), 2(CubicInch.usCustomary per Minute) * 2(KiloPoundSquareInch))
+        assertEqualScientificValue(4000(InchPoundForce per Minute), 2(KipSquareInch) * 2(CubicInch.usCustomary per Minute))
+        assertEqualScientificValue(4000(InchPoundForce per Minute), 2(CubicInch.usCustomary per Minute) * 2(KipSquareInch))
+        assertEqualScientificValue(8000(InchPoundForce per Minute), 2(USTonSquareInch) * 2(CubicInch.usCustomary per Minute))
+        assertEqualScientificValue(8000(InchPoundForce per Minute), 2(CubicInch.usCustomary per Minute) * 2(USTonSquareInch))
+        assertEqualScientificValue(8960(InchPoundForce per Minute), 2(ImperialTonSquareInch) * 2(CubicInch.ukImperial per Minute))
+        assertEqualScientificValue(8960(InchPoundForce per Minute), 2(CubicInch.ukImperial per Minute) * 2(ImperialTonSquareInch))
+        assertEqualScientificValue(4(FootPoundForce per Minute), 2(PoundSquareFoot) * 2(CubicFoot per Minute))
+        assertEqualScientificValue(4(FootPoundForce per Minute), 2(CubicFoot per Minute) * 2(PoundSquareFoot))
+        assertEqualScientificValue(4(FootPoundForce per Minute), 2(PoundSquareFoot) * 2(CubicFoot.ukImperial per Minute))
+        assertEqualScientificValue(4(FootPoundForce per Minute), 2(CubicFoot.ukImperial per Minute) * 2(PoundSquareFoot))
+        assertEqualScientificValue(4(FootPoundForce per Minute), 2(PoundSquareFoot) * 2(CubicFoot.usCustomary per Minute))
+        assertEqualScientificValue(4(FootPoundForce per Minute), 2(CubicFoot.usCustomary per Minute) * 2(PoundSquareFoot))
+        assertEqualScientificValue(4(FootPoundForce per Minute), 2(PoundSquareFoot.ukImperial) * 2(CubicFoot per Minute))
+        assertEqualScientificValue(4(FootPoundForce per Minute), 2(CubicFoot per Minute) * 2(PoundSquareFoot.ukImperial))
+        assertEqualScientificValue(4(FootPoundForce per Minute), 2(PoundSquareFoot.ukImperial) * 2(CubicFoot.ukImperial per Minute))
+        assertEqualScientificValue(4(FootPoundForce per Minute), 2(CubicFoot.ukImperial per Minute) * 2(PoundSquareFoot.ukImperial))
+        assertEqualScientificValue(4(FootPoundForce per Minute), 2(PoundSquareFoot.usCustomary) * 2(CubicFoot per Minute))
+        assertEqualScientificValue(4(FootPoundForce per Minute), 2(CubicFoot per Minute) * 2(PoundSquareFoot.usCustomary))
+        assertEqualScientificValue(4(FootPoundForce per Minute), 2(PoundSquareFoot.usCustomary) * 2(CubicFoot.usCustomary per Minute))
+        assertEqualScientificValue(4(FootPoundForce per Minute), 2(CubicFoot.usCustomary per Minute) * 2(PoundSquareFoot.usCustomary))
+        assertEqualScientificValue(4(Watt), 2(Pascal) * 2(CubicMeter per Second))
+        assertEqualScientificValue(4(Watt), 2(CubicMeter per Second) * 2(Pascal))
     }
 
     @Test

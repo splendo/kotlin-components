@@ -1,5 +1,5 @@
 /*
- Copyright 2022 Splendo Consulting B.V. The Netherlands
+ Copyright 2025 Splendo Consulting B.V. The Netherlands
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -15,36 +15,36 @@
 
  */
 
-package com.splendo.kaluga.scientific.converter.power
+package com.splendo.kaluga.scientific.converter.pressure
 
 import com.splendo.kaluga.base.utils.Decimal
 import com.splendo.kaluga.scientific.DefaultScientificValue
 import com.splendo.kaluga.scientific.PhysicalQuantity
 import com.splendo.kaluga.scientific.ScientificValue
-import com.splendo.kaluga.scientific.byMultiplying
+import com.splendo.kaluga.scientific.byDividing
 import com.splendo.kaluga.scientific.unit.Power
 import com.splendo.kaluga.scientific.unit.Pressure
 import com.splendo.kaluga.scientific.unit.VolumetricFlow
 import kotlin.jvm.JvmName
 
-@JvmName("powerFromPressureAndVolumetricFlowDefault")
+@JvmName("pressureFromPowerAndVolumetricFlowDefault")
 fun <
-    PressureUnit : Pressure,
-    VolumetricFlowUnit : VolumetricFlow,
     PowerUnit : Power,
-    > PowerUnit.power(
-    pressure: ScientificValue<PhysicalQuantity.Pressure, PressureUnit>,
+    VolumetricFlowUnit : VolumetricFlow,
+    PressureUnit : Pressure,
+    > PressureUnit.pressure(
+    power: ScientificValue<PhysicalQuantity.Power, PowerUnit>,
     volumetricFlow: ScientificValue<PhysicalQuantity.VolumetricFlow, VolumetricFlowUnit>,
-) = power(pressure, volumetricFlow, ::DefaultScientificValue)
+) = pressure(power, volumetricFlow, ::DefaultScientificValue)
 
-@JvmName("powerFromPressureAndVolumetricFlow")
+@JvmName("pressureFromPowerAndVolumetricFlow")
 fun <
-    PressureUnit : Pressure,
-    VolumetricFlowUnit : VolumetricFlow,
     PowerUnit : Power,
-    Value : ScientificValue<PhysicalQuantity.Power, PowerUnit>,
-    > PowerUnit.power(
-    pressure: ScientificValue<PhysicalQuantity.Pressure, PressureUnit>,
+    VolumetricFlowUnit : VolumetricFlow,
+    PressureUnit : Pressure,
+    Value : ScientificValue<PhysicalQuantity.Pressure, PressureUnit>,
+    > PressureUnit.pressure(
+    power: ScientificValue<PhysicalQuantity.Power, PowerUnit>,
     volumetricFlow: ScientificValue<PhysicalQuantity.VolumetricFlow, VolumetricFlowUnit>,
-    factory: (Decimal, PowerUnit) -> Value,
-) = byMultiplying(pressure, volumetricFlow, factory)
+    factory: (Decimal, PressureUnit) -> Value,
+) = byDividing(power, volumetricFlow, factory)

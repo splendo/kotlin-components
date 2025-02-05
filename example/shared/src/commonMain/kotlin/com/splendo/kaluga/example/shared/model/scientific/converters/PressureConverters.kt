@@ -155,4 +155,79 @@ val PhysicalQuantity.Pressure.converters get() = listOf<QuantityConverter<Physic
             else -> throw RuntimeException("Unexpected units: $leftUnit, $rightUnit")
         }
     },
+    QuantityConverterWithOperator(
+        "Power from Volumetric Flow",
+        QuantityConverter.WithOperator.Type.Multiplication,
+        PhysicalQuantity.VolumetricFlow,
+    ) { (leftValue, leftUnit), (rightValue, rightUnit) ->
+        when {
+            leftUnit is Barye && rightUnit is MetricVolumetricFlow -> {
+                DefaultScientificValue(leftValue, leftUnit) * DefaultScientificValue(rightValue, rightUnit)
+            }
+            leftUnit is BaryeMultiple && rightUnit is MetricVolumetricFlow -> {
+                DefaultScientificValue(leftValue, leftUnit) * DefaultScientificValue(rightValue, rightUnit)
+            }
+            leftUnit is PoundSquareInch && rightUnit is ImperialVolumetricFlow -> {
+                DefaultScientificValue(leftValue, leftUnit) * DefaultScientificValue(rightValue, rightUnit)
+            }
+            leftUnit is PoundSquareInch && rightUnit is UKImperialVolumetricFlow -> {
+                DefaultScientificValue(leftValue, leftUnit) * DefaultScientificValue(rightValue, rightUnit)
+            }
+            leftUnit is PoundSquareInch && rightUnit is USCustomaryVolumetricFlow -> {
+                DefaultScientificValue(leftValue, leftUnit) * DefaultScientificValue(rightValue, rightUnit)
+            }
+            leftUnit is OunceSquareInch && rightUnit is ImperialVolumetricFlow -> {
+                DefaultScientificValue(leftValue, leftUnit) * DefaultScientificValue(rightValue, rightUnit)
+            }
+            leftUnit is OunceSquareInch && rightUnit is UKImperialVolumetricFlow -> {
+                DefaultScientificValue(leftValue, leftUnit) * DefaultScientificValue(rightValue, rightUnit)
+            }
+            leftUnit is OunceSquareInch && rightUnit is USCustomaryVolumetricFlow -> {
+                DefaultScientificValue(leftValue, leftUnit) * DefaultScientificValue(rightValue, rightUnit)
+            }
+            leftUnit is KiloPoundSquareInch && rightUnit is ImperialVolumetricFlow -> {
+                DefaultScientificValue(leftValue, leftUnit) * DefaultScientificValue(rightValue, rightUnit)
+            }
+            leftUnit is KiloPoundSquareInch && rightUnit is UKImperialVolumetricFlow -> {
+                DefaultScientificValue(leftValue, leftUnit) * DefaultScientificValue(rightValue, rightUnit)
+            }
+            leftUnit is KiloPoundSquareInch && rightUnit is USCustomaryVolumetricFlow -> {
+                DefaultScientificValue(leftValue, leftUnit) * DefaultScientificValue(rightValue, rightUnit)
+            }
+            leftUnit is KipSquareInch && rightUnit is USCustomaryVolumetricFlow -> {
+                DefaultScientificValue(leftValue, leftUnit) * DefaultScientificValue(rightValue, rightUnit)
+            }
+            leftUnit is USTonSquareInch && rightUnit is USCustomaryVolumetricFlow -> {
+                DefaultScientificValue(leftValue, leftUnit) * DefaultScientificValue(rightValue, rightUnit)
+            }
+            leftUnit is ImperialTonSquareInch && rightUnit is UKImperialVolumetricFlow -> {
+                DefaultScientificValue(leftValue, leftUnit) * DefaultScientificValue(rightValue, rightUnit)
+            }
+            leftUnit is ImperialPressure && rightUnit is ImperialVolumetricFlow -> {
+                DefaultScientificValue(leftValue, leftUnit) * DefaultScientificValue(rightValue, rightUnit)
+            }
+            leftUnit is ImperialPressure && rightUnit is UKImperialVolumetricFlow -> {
+                DefaultScientificValue(leftValue, leftUnit) * DefaultScientificValue(rightValue, rightUnit)
+            }
+            leftUnit is ImperialPressure && rightUnit is USCustomaryVolumetricFlow -> {
+                DefaultScientificValue(leftValue, leftUnit) * DefaultScientificValue(rightValue, rightUnit)
+            }
+            leftUnit is UKImperialPressure && rightUnit is ImperialVolumetricFlow -> {
+                DefaultScientificValue(leftValue, leftUnit) * DefaultScientificValue(rightValue, rightUnit)
+            }
+            leftUnit is UKImperialPressure && rightUnit is UKImperialVolumetricFlow -> {
+                DefaultScientificValue(leftValue, leftUnit) * DefaultScientificValue(rightValue, rightUnit)
+            }
+            leftUnit is USCustomaryPressure && rightUnit is ImperialVolumetricFlow -> {
+                DefaultScientificValue(leftValue, leftUnit) * DefaultScientificValue(rightValue, rightUnit)
+            }
+            leftUnit is USCustomaryPressure && rightUnit is USCustomaryVolumetricFlow -> {
+                DefaultScientificValue(leftValue, leftUnit) * DefaultScientificValue(rightValue, rightUnit)
+            }
+            leftUnit is Pressure && rightUnit is VolumetricFlow -> {
+                DefaultScientificValue(leftValue, leftUnit) * DefaultScientificValue(rightValue, rightUnit)
+            }
+            else -> throw RuntimeException("Unexpected units: $leftUnit, $rightUnit")
+        }
+    },
 )

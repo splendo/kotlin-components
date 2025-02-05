@@ -1,5 +1,5 @@
 /*
- Copyright 2022 Splendo Consulting B.V. The Netherlands
+ Copyright 2025 Splendo Consulting B.V. The Netherlands
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -21,30 +21,30 @@ import com.splendo.kaluga.base.utils.Decimal
 import com.splendo.kaluga.scientific.DefaultScientificValue
 import com.splendo.kaluga.scientific.PhysicalQuantity
 import com.splendo.kaluga.scientific.ScientificValue
-import com.splendo.kaluga.scientific.byMultiplying
+import com.splendo.kaluga.scientific.byDividing
+import com.splendo.kaluga.scientific.unit.Energy
 import com.splendo.kaluga.scientific.unit.Power
-import com.splendo.kaluga.scientific.unit.Pressure
-import com.splendo.kaluga.scientific.unit.VolumetricFlow
+import com.splendo.kaluga.scientific.unit.Time
 import kotlin.jvm.JvmName
 
-@JvmName("powerFromPressureAndVolumetricFlowDefault")
+@JvmName("powerFromEnergyAndTimeDefault")
 fun <
-    PressureUnit : Pressure,
-    VolumetricFlowUnit : VolumetricFlow,
+    EnergyUnit : Energy,
+    TimeUnit : Time,
     PowerUnit : Power,
     > PowerUnit.power(
-    pressure: ScientificValue<PhysicalQuantity.Pressure, PressureUnit>,
-    volumetricFlow: ScientificValue<PhysicalQuantity.VolumetricFlow, VolumetricFlowUnit>,
-) = power(pressure, volumetricFlow, ::DefaultScientificValue)
+    energy: ScientificValue<PhysicalQuantity.Energy, EnergyUnit>,
+    time: ScientificValue<PhysicalQuantity.Time, TimeUnit>,
+) = power(energy, time, ::DefaultScientificValue)
 
-@JvmName("powerFromPressureAndVolumetricFlow")
+@JvmName("powerFromEnergyAndTime")
 fun <
-    PressureUnit : Pressure,
-    VolumetricFlowUnit : VolumetricFlow,
+    EnergyUnit : Energy,
+    TimeUnit : Time,
     PowerUnit : Power,
     Value : ScientificValue<PhysicalQuantity.Power, PowerUnit>,
     > PowerUnit.power(
-    pressure: ScientificValue<PhysicalQuantity.Pressure, PressureUnit>,
-    volumetricFlow: ScientificValue<PhysicalQuantity.VolumetricFlow, VolumetricFlowUnit>,
+    energy: ScientificValue<PhysicalQuantity.Energy, EnergyUnit>,
+    time: ScientificValue<PhysicalQuantity.Time, TimeUnit>,
     factory: (Decimal, PowerUnit) -> Value,
-) = byMultiplying(pressure, volumetricFlow, factory)
+) = byDividing(energy, time, factory)

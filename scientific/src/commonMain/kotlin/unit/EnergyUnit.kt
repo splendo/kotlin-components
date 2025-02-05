@@ -347,7 +347,7 @@ interface CalorieUnit : MetricBaseUnit<MeasurementSystem.MetricAndImperial, Phys
 data object Calorie : MetricAndImperialNamedEnergyUnit(), CalorieUnit by CalorieBase(4.184.toDecimal()) {
 
     internal class CalorieBase(val jouleInCalorie: Decimal, symbolPostfix: String = "") : CalorieUnit {
-        override val symbol: String = "Cal$symbolPostfix"
+        override val symbol: String = "cal$symbolPostfix"
         override val system = MeasurementSystem.MetricAndImperial
         override val quantity = PhysicalQuantity.Energy
         override fun fromSIUnit(value: Decimal): Decimal = value / jouleInCalorie

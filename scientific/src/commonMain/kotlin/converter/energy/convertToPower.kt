@@ -147,18 +147,12 @@ infix operator fun <TimeUnit : Time> ScientificValue<PhysicalQuantity.Energy, Gi
 @JvmName("metricAndImperialNamedEnergyDivTime")
 infix operator fun <MetricAndImperialEnergy : MetricAndImperialNamedEnergyUnit, TimeUnit : Time> ScientificValue<PhysicalQuantity.Energy, MetricAndImperialEnergy>.div(
     time: ScientificValue<PhysicalQuantity.Time, TimeUnit>,
-) = (
-    unit per
-        time.unit
-    ).power(this, time)
+) = (unit per time.unit).power(this, time)
 
 @JvmName("metricNamedEnergyDivTime")
 infix operator fun <MetricEnergy : MetricNamedEnergyUnit, TimeUnit : Time> ScientificValue<PhysicalQuantity.Energy, MetricEnergy>.div(
     time: ScientificValue<PhysicalQuantity.Time, TimeUnit>,
-) = (
-    unit per
-        time.unit
-    ).power(this, time)
+) = (unit per time.unit).power(this, time)
 
 @JvmName("horsepowerHourDivHour")
 infix operator fun ScientificValue<PhysicalQuantity.Energy, HorsepowerHour>.div(time: ScientificValue<PhysicalQuantity.Time, Hour>) = Horsepower.power(this, time)
@@ -166,10 +160,7 @@ infix operator fun ScientificValue<PhysicalQuantity.Energy, HorsepowerHour>.div(
 @JvmName("imperialNamedEnergyDivTime")
 infix operator fun <ImperialEnergy : ImperialNamedEnergyUnit, TimeUnit : Time> ScientificValue<PhysicalQuantity.Energy, ImperialEnergy>.div(
     time: ScientificValue<PhysicalQuantity.Time, TimeUnit>,
-) = (
-    unit per
-        time.unit
-    ).power(this, time)
+) = (unit per time.unit).power(this, time)
 
 @JvmName("metricEnergyDivTime")
 infix operator fun <EnergyUnit : MetricEnergy, TimeUnit : Time> ScientificValue<PhysicalQuantity.Energy, EnergyUnit>.div(time: ScientificValue<PhysicalQuantity.Time, TimeUnit>) =

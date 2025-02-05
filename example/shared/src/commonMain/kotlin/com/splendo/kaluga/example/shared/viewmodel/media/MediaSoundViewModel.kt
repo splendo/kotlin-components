@@ -91,10 +91,7 @@ class MediaSoundViewModel : BaseLifecycleViewModel() {
     }
 }
 
-private class MediaSoundLoopPlayer(
-    private val coroutineScope: CoroutineScope,
-    private val mediaSource: MediaSource.Local,
-) {
+private class MediaSoundLoopPlayer(private val coroutineScope: CoroutineScope, private val mediaSource: MediaSource.Local) {
 
     private var player: DefaultSoundPlayer? = null
 
@@ -111,7 +108,6 @@ private class MediaSoundLoopPlayer(
             }
         }
     }
-
 
     fun play() = coroutineScope.launch {
         player = DefaultSoundPlayer(source = mediaSource)

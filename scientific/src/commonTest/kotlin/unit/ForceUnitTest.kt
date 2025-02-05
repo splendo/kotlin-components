@@ -315,10 +315,10 @@ class ForceUnitTest {
 
     @Test
     fun forceFromPowerAndSpeedTest() {
-        assertEquals(1.0(Dyne), 2(ErgPerSecond) / 2(Centimeter per Second))
+        assertEquals(1.0(Dyne), 2(Erg per Second) / 2(Centimeter per Second))
         assertEquals(1.0(Newton), 2(Watt.metric) / 2(Meter per Second))
-        assertEquals(1.0(PoundForce), 2(FootPoundForcePerSecond) / 2(Foot per Second))
-        assertEquals(1.0(PoundForce), 2(FootPoundForcePerSecond).convert(Watt) / 2(Foot per Second))
+        assertEquals(1.0(PoundForce), 2(FootPoundForce per Second) / 2(Foot per Second))
+        assertEquals(1.0(PoundForce), 2(FootPoundForce per Second).convert(Watt) / 2(Foot per Second))
         assertEquals(1.0(Newton), 2(Watt.metric) / 2(Meter per Second).convert(Foot per Second))
     }
 

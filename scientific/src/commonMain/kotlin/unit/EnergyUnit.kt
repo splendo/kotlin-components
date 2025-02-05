@@ -25,9 +25,9 @@ import com.splendo.kaluga.scientific.PhysicalQuantity
 import kotlinx.serialization.Serializable
 
 /**
- * Set of all [MetricEnergy]
+ * Set of all [MetricNamedEnergyUnit]
  */
-val MetricEnergyUnits: Set<MetricEnergy> get() = setOf(
+val NamedMetricEnergyUnits: Set<MetricNamedEnergyUnit> get() = setOf(
     Joule,
     Nanojoule,
     Microjoule,
@@ -61,7 +61,26 @@ val MetricEnergyUnits: Set<MetricEnergy> get() = setOf(
     Kiloelectronvolt,
     Megaelectronvolt,
     Gigaelectronvolt,
-) + MetricAndImperialEnergyUnits.map { it.metric }.toSet()
+)
+
+/**
+ * Set of all [MetricEnergy]
+ */
+val MetricEnergyUnits: Set<MetricEnergy> get() = NamedMetricEnergyUnits + MetricAndImperialEnergyUnits.map { it.metric }.toSet()
+
+/**
+ * Set of all [MetricAndImperialNamedEnergyUnit]
+ */
+val NamedMetricAndImperialEnergyUnits: Set<MetricAndImperialNamedEnergyUnit> get() = setOf(
+    Calorie,
+    Calorie.IT,
+    Millicalorie,
+    Millicalorie.IT,
+    Kilocalorie,
+    Kilocalorie.IT,
+    Megacalorie,
+    Megacalorie.IT,
+)
 
 /**
  * Set of all [MetricAndImperialEnergy]
@@ -78,28 +97,26 @@ val MetricAndImperialEnergyUnits: Set<MetricAndImperialEnergy> get() = setOf(
     KilowattHour,
     MegawattHour,
     GigawattHour,
-    Calorie,
-    Calorie.IT,
-    Millicalorie,
-    Millicalorie.IT,
-    Kilocalorie,
-    Kilocalorie.IT,
-    Megacalorie,
-    Megacalorie.IT,
+) + NamedMetricAndImperialEnergyUnits
+
+/**
+ * Set of all [ImperialNamedEnergyUnit]
+ */
+val NamedImperialEnergyUnits: Set<ImperialNamedEnergyUnit> get() = setOf(
+    FootPoundal,
+    FootPoundForce,
+    InchPoundForce,
+    InchOunceForce,
+    BritishThermalUnit,
+    BritishThermalUnit.Thermal,
 )
 
 /**
  * Set of all [ImperialEnergy]
  */
 val ImperialEnergyUnits: Set<ImperialEnergy> get() = setOf(
-    FootPoundal,
-    FootPoundForce,
-    InchPoundForce,
-    InchOunceForce,
     HorsepowerHour,
-    BritishThermalUnit,
-    BritishThermalUnit.Thermal,
-) + MetricAndImperialEnergyUnits.map { it.imperial }.toSet()
+) + NamedImperialEnergyUnits + MetricAndImperialEnergyUnits.map { it.imperial }.toSet()
 
 /**
  * Set of all [Energy]
@@ -139,8 +156,37 @@ sealed class MetricAndImperialEnergy :
     Energy(),
     MetricAndImperialScientificUnit<PhysicalQuantity.Energy>
 
+/**
+ * A [SystemScientificUnit] for [PhysicalQuantity.Energy] that is named, i.e. its name is not derived from the unit of another physical quantity
+ */
+sealed interface NamedEnergyUnit<System : MeasurementSystem> : SystemScientificUnit<System, PhysicalQuantity.Energy>
+
+/**
+ * A [MetricAndImperialEnergy] [NamedEnergyUnit].
+ */
 @Serializable
-data object Joule : MetricEnergy(), MetricBaseUnit<MeasurementSystem.Metric, PhysicalQuantity.Energy> {
+sealed class MetricAndImperialNamedEnergyUnit :
+    MetricAndImperialEnergy(),
+    NamedEnergyUnit<MeasurementSystem.MetricAndImperial>
+
+/**
+ * A [MetricEnergy] [NamedEnergyUnit].
+ */
+@Serializable
+sealed class MetricNamedEnergyUnit :
+    MetricEnergy(),
+    NamedEnergyUnit<MeasurementSystem.Metric>
+
+/**
+ * An [ImperialEnergy] [NamedEnergyUnit].
+ */
+@Serializable
+sealed class ImperialNamedEnergyUnit :
+    ImperialEnergy(),
+    NamedEnergyUnit<MeasurementSystem.Imperial>
+
+@Serializable
+data object Joule : MetricNamedEnergyUnit(), MetricBaseUnit<MeasurementSystem.Metric, PhysicalQuantity.Energy> {
     override val symbol: String = "J"
     override val system = MeasurementSystem.Metric
     override val quantity = PhysicalQuantity.Energy
@@ -150,7 +196,7 @@ data object Joule : MetricEnergy(), MetricBaseUnit<MeasurementSystem.Metric, Phy
 
 @Serializable
 sealed class JouleMultiple :
-    MetricEnergy(),
+    MetricNamedEnergyUnit(),
     MetricMultipleUnit<MeasurementSystem.Metric, PhysicalQuantity.Energy, Joule>
 
 @Serializable
@@ -184,7 +230,7 @@ data object Megajoule : JouleMultiple(), MetricMultipleUnit<MeasurementSystem.Me
 data object Gigajoule : JouleMultiple(), MetricMultipleUnit<MeasurementSystem.Metric, PhysicalQuantity.Energy, Joule> by Giga(Joule)
 
 @Serializable
-data object Erg : MetricEnergy(), MetricBaseUnit<MeasurementSystem.Metric, PhysicalQuantity.Energy> {
+data object Erg : MetricNamedEnergyUnit(), MetricBaseUnit<MeasurementSystem.Metric, PhysicalQuantity.Energy> {
     const val ERG_IN_JOULE = 10000000
     override val symbol: String = "erg"
     override val system = MeasurementSystem.Metric
@@ -195,7 +241,7 @@ data object Erg : MetricEnergy(), MetricBaseUnit<MeasurementSystem.Metric, Physi
 
 @Serializable
 sealed class ErgMultiple :
-    MetricEnergy(),
+    MetricNamedEnergyUnit(),
     MetricMultipleUnit<MeasurementSystem.Metric, PhysicalQuantity.Energy, Erg>
 
 @Serializable
@@ -273,7 +319,7 @@ data object MegawattHour : WattHourMultiple(), MetricMultipleUnit<MeasurementSys
 data object GigawattHour : WattHourMultiple(), MetricMultipleUnit<MeasurementSystem.MetricAndImperial, PhysicalQuantity.Energy, WattHour> by Giga(WattHour)
 
 @Serializable
-data object Electronvolt : MetricEnergy(), MetricBaseUnit<MeasurementSystem.Metric, PhysicalQuantity.Energy> {
+data object Electronvolt : MetricNamedEnergyUnit(), MetricBaseUnit<MeasurementSystem.Metric, PhysicalQuantity.Energy> {
     override val symbol: String = "eV"
     override val system = MeasurementSystem.Metric
     override val quantity = PhysicalQuantity.Energy
@@ -283,7 +329,7 @@ data object Electronvolt : MetricEnergy(), MetricBaseUnit<MeasurementSystem.Metr
 
 @Serializable
 sealed class ElectronvoltMultiple :
-    MetricEnergy(),
+    MetricNamedEnergyUnit(),
     MetricMultipleUnit<MeasurementSystem.Metric, PhysicalQuantity.Energy, Electronvolt>
 
 @Serializable
@@ -319,10 +365,10 @@ data object Gigaelectronvolt : ElectronvoltMultiple(), MetricMultipleUnit<Measur
 interface CalorieUnit : MetricBaseUnit<MeasurementSystem.MetricAndImperial, PhysicalQuantity.Energy>
 
 @Serializable
-data object Calorie : MetricAndImperialEnergy(), CalorieUnit by CalorieBase(4.184.toDecimal()) {
+data object Calorie : MetricAndImperialNamedEnergyUnit(), CalorieUnit by CalorieBase(4.184.toDecimal()) {
 
     internal class CalorieBase(val jouleInCalorie: Decimal, symbolPostfix: String = "") : CalorieUnit {
-        override val symbol: String = "Cal$symbolPostfix"
+        override val symbol: String = "cal$symbolPostfix"
         override val system = MeasurementSystem.MetricAndImperial
         override val quantity = PhysicalQuantity.Energy
         override fun fromSIUnit(value: Decimal): Decimal = value / jouleInCalorie
@@ -330,17 +376,17 @@ data object Calorie : MetricAndImperialEnergy(), CalorieUnit by CalorieBase(4.18
     }
 
     @Serializable
-    data object IT : MetricAndImperialEnergy(), CalorieUnit by CalorieBase(4.1868.toDecimal(), "-IT")
+    data object IT : MetricAndImperialNamedEnergyUnit(), CalorieUnit by CalorieBase(4.1868.toDecimal(), "-IT")
 }
 
 @Serializable
 sealed class CalorieMultiple :
-    MetricAndImperialEnergy(),
+    MetricAndImperialNamedEnergyUnit(),
     MetricMultipleUnit<MeasurementSystem.MetricAndImperial, PhysicalQuantity.Energy, Calorie> {
 
     @Serializable
     sealed class IT :
-        MetricAndImperialEnergy(),
+        MetricAndImperialNamedEnergyUnit(),
         MetricMultipleUnit<MeasurementSystem.MetricAndImperial, PhysicalQuantity.Energy, Calorie.IT>
 }
 
@@ -366,7 +412,7 @@ data object Megacalorie : CalorieMultiple(), MetricMultipleUnit<MeasurementSyste
 }
 
 @Serializable
-data object FootPoundal : ImperialEnergy() {
+data object FootPoundal : ImperialNamedEnergyUnit() {
     override val symbol: String = "ftpdl"
     override val system = MeasurementSystem.Imperial
     override val quantity = PhysicalQuantity.Energy
@@ -375,7 +421,7 @@ data object FootPoundal : ImperialEnergy() {
 }
 
 @Serializable
-data object FootPoundForce : ImperialEnergy() {
+data object FootPoundForce : ImperialNamedEnergyUnit() {
     override val symbol: String = "ftlbf"
     override val system = MeasurementSystem.Imperial
     override val quantity = PhysicalQuantity.Energy
@@ -384,7 +430,7 @@ data object FootPoundForce : ImperialEnergy() {
 }
 
 @Serializable
-data object InchPoundForce : ImperialEnergy() {
+data object InchPoundForce : ImperialNamedEnergyUnit() {
     override val symbol: String = "inlbf"
     override val system = MeasurementSystem.Imperial
     override val quantity = PhysicalQuantity.Energy
@@ -393,7 +439,7 @@ data object InchPoundForce : ImperialEnergy() {
 }
 
 @Serializable
-data object InchOunceForce : ImperialEnergy() {
+data object InchOunceForce : ImperialNamedEnergyUnit() {
     override val symbol: String = "inozf"
     override val system = MeasurementSystem.Imperial
     override val quantity = PhysicalQuantity.Energy
@@ -411,7 +457,7 @@ data object HorsepowerHour : ImperialEnergy() {
 }
 
 @Serializable
-data object BritishThermalUnit : ImperialEnergy(), SystemScientificUnit<MeasurementSystem.Imperial, PhysicalQuantity.Energy> by BritishThermalUnitBase(Calorie.IT) {
+data object BritishThermalUnit : ImperialNamedEnergyUnit(), SystemScientificUnit<MeasurementSystem.Imperial, PhysicalQuantity.Energy> by BritishThermalUnitBase(Calorie.IT) {
 
     internal class BritishThermalUnitBase(private val calorieUnit: CalorieUnit, symbolPostfix: String = "") :
         SystemScientificUnit<MeasurementSystem.Imperial, PhysicalQuantity.Energy> {
@@ -423,7 +469,7 @@ data object BritishThermalUnit : ImperialEnergy(), SystemScientificUnit<Measurem
     }
 
     @Serializable
-    data object Thermal : ImperialEnergy(), SystemScientificUnit<MeasurementSystem.Imperial, PhysicalQuantity.Energy> by BritishThermalUnitBase(Calorie, "-th")
+    data object Thermal : ImperialNamedEnergyUnit(), SystemScientificUnit<MeasurementSystem.Imperial, PhysicalQuantity.Energy> by BritishThermalUnitBase(Calorie, "-th")
 }
 
 /**

@@ -226,28 +226,19 @@ val PhysicalQuantity.Time.converters get() = listOf<QuantityConverter<PhysicalQu
             leftUnit is Hour && rightUnit is Gigawatt -> {
                 DefaultScientificValue(leftValue, leftUnit) * DefaultScientificValue(rightValue, rightUnit)
             }
-            leftUnit is Time && rightUnit is ErgPerSecond -> {
+            leftUnit is Time && rightUnit is MetricAndImperialCombinedPower -> {
+                DefaultScientificValue(leftValue, leftUnit) * DefaultScientificValue(rightValue, rightUnit)
+            }
+            leftUnit is Time && rightUnit is MetricCombinedPower -> {
                 DefaultScientificValue(leftValue, leftUnit) * DefaultScientificValue(rightValue, rightUnit)
             }
             leftUnit is Time && rightUnit is MetricPower -> {
                 DefaultScientificValue(leftValue, leftUnit) * DefaultScientificValue(rightValue, rightUnit)
             }
-            leftUnit is Time && rightUnit is InchPoundForcePerSecond -> {
-                DefaultScientificValue(leftValue, leftUnit) * DefaultScientificValue(rightValue, rightUnit)
-            }
-            leftUnit is Time && rightUnit is InchPoundForcePerMinute -> {
+            leftUnit is Time && rightUnit is ImperialCombinedPower -> {
                 DefaultScientificValue(leftValue, leftUnit) * DefaultScientificValue(rightValue, rightUnit)
             }
             leftUnit is Hour && rightUnit is Horsepower -> {
-                DefaultScientificValue(leftValue, leftUnit) * DefaultScientificValue(rightValue, rightUnit)
-            }
-            leftUnit is Time && rightUnit is BritishThermalUnitPerSecond -> {
-                DefaultScientificValue(leftValue, leftUnit) * DefaultScientificValue(rightValue, rightUnit)
-            }
-            leftUnit is Time && rightUnit is BritishThermalUnitPerMinute -> {
-                DefaultScientificValue(leftValue, leftUnit) * DefaultScientificValue(rightValue, rightUnit)
-            }
-            leftUnit is Time && rightUnit is BritishThermalUnitPerHour -> {
                 DefaultScientificValue(leftValue, leftUnit) * DefaultScientificValue(rightValue, rightUnit)
             }
             leftUnit is Time && rightUnit is ImperialPower -> {

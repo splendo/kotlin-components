@@ -359,52 +359,82 @@ val PhysicalQuantity.Energy.converters get() = listOf<QuantityConverter<Physical
             leftUnit is WattHour && rightUnit is Hour -> {
                 DefaultScientificValue(leftValue, leftUnit) / DefaultScientificValue(rightValue, rightUnit)
             }
-            leftUnit is WattHourMultiple && rightUnit is Hour -> {
+            leftUnit is NanowattHour && rightUnit is Hour -> {
+                DefaultScientificValue(leftValue, leftUnit) / DefaultScientificValue(rightValue, rightUnit)
+            }
+            leftUnit is MicrowattHour && rightUnit is Hour -> {
+                DefaultScientificValue(leftValue, leftUnit) / DefaultScientificValue(rightValue, rightUnit)
+            }
+            leftUnit is MilliwattHour && rightUnit is Hour -> {
+                DefaultScientificValue(leftValue, leftUnit) / DefaultScientificValue(rightValue, rightUnit)
+            }
+            leftUnit is CentiwattHour && rightUnit is Hour -> {
+                DefaultScientificValue(leftValue, leftUnit) / DefaultScientificValue(rightValue, rightUnit)
+            }
+            leftUnit is DeciwattHour && rightUnit is Hour -> {
+                DefaultScientificValue(leftValue, leftUnit) / DefaultScientificValue(rightValue, rightUnit)
+            }
+            leftUnit is DecawattHour && rightUnit is Hour -> {
+                DefaultScientificValue(leftValue, leftUnit) / DefaultScientificValue(rightValue, rightUnit)
+            }
+            leftUnit is HectowattHour && rightUnit is Hour -> {
+                DefaultScientificValue(leftValue, leftUnit) / DefaultScientificValue(rightValue, rightUnit)
+            }
+            leftUnit is KilowattHour && rightUnit is Hour -> {
+                DefaultScientificValue(leftValue, leftUnit) / DefaultScientificValue(rightValue, rightUnit)
+            }
+            leftUnit is MegawattHour && rightUnit is Hour -> {
+                DefaultScientificValue(leftValue, leftUnit) / DefaultScientificValue(rightValue, rightUnit)
+            }
+            leftUnit is GigawattHour && rightUnit is Hour -> {
+                DefaultScientificValue(leftValue, leftUnit) / DefaultScientificValue(rightValue, rightUnit)
+            }
+            leftUnit is WattHour && rightUnit is Hour -> {
                 DefaultScientificValue(leftValue, leftUnit) / DefaultScientificValue(rightValue, rightUnit)
             }
             leftUnit is Joule && rightUnit is Time -> {
                 DefaultScientificValue(leftValue, leftUnit) / DefaultScientificValue(rightValue, rightUnit)
             }
-            leftUnit is JouleMultiple && rightUnit is Time -> {
+            leftUnit is Nanojoule && rightUnit is Time -> {
                 DefaultScientificValue(leftValue, leftUnit) / DefaultScientificValue(rightValue, rightUnit)
             }
-            leftUnit is Erg && rightUnit is Second -> {
+            leftUnit is Microjoule && rightUnit is Time -> {
                 DefaultScientificValue(leftValue, leftUnit) / DefaultScientificValue(rightValue, rightUnit)
             }
-            leftUnit is ErgMultiple && rightUnit is Second -> {
+            leftUnit is Millijoule && rightUnit is Time -> {
                 DefaultScientificValue(leftValue, leftUnit) / DefaultScientificValue(rightValue, rightUnit)
             }
-            leftUnit is FootPoundal && rightUnit is Second -> {
+            leftUnit is Centijoule && rightUnit is Time -> {
                 DefaultScientificValue(leftValue, leftUnit) / DefaultScientificValue(rightValue, rightUnit)
             }
-            leftUnit is FootPoundal && rightUnit is Minute -> {
+            leftUnit is Decijoule && rightUnit is Time -> {
                 DefaultScientificValue(leftValue, leftUnit) / DefaultScientificValue(rightValue, rightUnit)
             }
-            leftUnit is FootPoundForce && rightUnit is Second -> {
+            leftUnit is Decajoule && rightUnit is Time -> {
                 DefaultScientificValue(leftValue, leftUnit) / DefaultScientificValue(rightValue, rightUnit)
             }
-            leftUnit is FootPoundForce && rightUnit is Minute -> {
+            leftUnit is Hectojoule && rightUnit is Time -> {
                 DefaultScientificValue(leftValue, leftUnit) / DefaultScientificValue(rightValue, rightUnit)
             }
-            leftUnit is InchPoundForce && rightUnit is Second -> {
+            leftUnit is Kilojoule && rightUnit is Time -> {
                 DefaultScientificValue(leftValue, leftUnit) / DefaultScientificValue(rightValue, rightUnit)
             }
-            leftUnit is InchPoundForce && rightUnit is Minute -> {
+            leftUnit is Megajoule && rightUnit is Time -> {
                 DefaultScientificValue(leftValue, leftUnit) / DefaultScientificValue(rightValue, rightUnit)
             }
-            leftUnit is InchOunceForce && rightUnit is Second -> {
+            leftUnit is Gigajoule && rightUnit is Time -> {
                 DefaultScientificValue(leftValue, leftUnit) / DefaultScientificValue(rightValue, rightUnit)
             }
-            leftUnit is InchOunceForce && rightUnit is Minute -> {
+            leftUnit is MetricAndImperialNamedEnergyUnit && rightUnit is Time -> {
                 DefaultScientificValue(leftValue, leftUnit) / DefaultScientificValue(rightValue, rightUnit)
             }
-            leftUnit is BritishThermalUnit && rightUnit is Hour -> {
+            leftUnit is MetricNamedEnergyUnit && rightUnit is Time -> {
                 DefaultScientificValue(leftValue, leftUnit) / DefaultScientificValue(rightValue, rightUnit)
             }
-            leftUnit is BritishThermalUnit && rightUnit is Minute -> {
+            leftUnit is HorsepowerHour && rightUnit is Hour -> {
                 DefaultScientificValue(leftValue, leftUnit) / DefaultScientificValue(rightValue, rightUnit)
             }
-            leftUnit is BritishThermalUnit && rightUnit is Second -> {
+            leftUnit is ImperialNamedEnergyUnit && rightUnit is Time -> {
                 DefaultScientificValue(leftValue, leftUnit) / DefaultScientificValue(rightValue, rightUnit)
             }
             leftUnit is MetricEnergy && rightUnit is Time -> {
@@ -584,19 +614,16 @@ val PhysicalQuantity.Energy.converters get() = listOf<QuantityConverter<Physical
             leftUnit is WattHourMultiple && rightUnit is Watt -> {
                 DefaultScientificValue(leftValue, leftUnit) / DefaultScientificValue(rightValue, rightUnit)
             }
+            leftUnit is MetricAndImperialNamedEnergyUnit && rightUnit is MetricAndImperialCombinedPower -> {
+                DefaultScientificValue(leftValue, leftUnit) / DefaultScientificValue(rightValue, rightUnit)
+            }
+            leftUnit is MetricNamedEnergyUnit && rightUnit is MetricCombinedPower -> {
+                DefaultScientificValue(leftValue, leftUnit) / DefaultScientificValue(rightValue, rightUnit)
+            }
             leftUnit is HorsepowerHour && rightUnit is Horsepower -> {
                 DefaultScientificValue(leftValue, leftUnit) / DefaultScientificValue(rightValue, rightUnit)
             }
-            leftUnit is FootPoundForce && rightUnit is FootPoundForcePerMinute -> {
-                DefaultScientificValue(leftValue, leftUnit) / DefaultScientificValue(rightValue, rightUnit)
-            }
-            leftUnit is InchPoundForce && rightUnit is InchPoundForcePerMinute -> {
-                DefaultScientificValue(leftValue, leftUnit) / DefaultScientificValue(rightValue, rightUnit)
-            }
-            leftUnit is BritishThermalUnit && rightUnit is BritishThermalUnitPerHour -> {
-                DefaultScientificValue(leftValue, leftUnit) / DefaultScientificValue(rightValue, rightUnit)
-            }
-            leftUnit is BritishThermalUnit && rightUnit is BritishThermalUnitPerMinute -> {
+            leftUnit is ImperialNamedEnergyUnit && rightUnit is ImperialCombinedPower -> {
                 DefaultScientificValue(leftValue, leftUnit) / DefaultScientificValue(rightValue, rightUnit)
             }
             leftUnit is Energy && rightUnit is Power -> {

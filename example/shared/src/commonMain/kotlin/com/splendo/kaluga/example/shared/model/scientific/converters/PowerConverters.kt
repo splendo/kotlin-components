@@ -30,7 +30,7 @@ val PhysicalQuantity.Power.converters get() = listOf<QuantityConverter<PhysicalQ
         PhysicalQuantity.Voltage,
     ) { (leftValue, leftUnit), (rightValue, rightUnit) ->
         when {
-            leftUnit is ErgPerSecond && rightUnit is Abvolt -> {
+            leftUnit is MetricCombinedPower && rightUnit is Abvolt -> {
                 DefaultScientificValue(leftValue, leftUnit) / DefaultScientificValue(rightValue, rightUnit)
             }
             leftUnit is Power && rightUnit is Voltage -> {
@@ -78,28 +78,19 @@ val PhysicalQuantity.Power.converters get() = listOf<QuantityConverter<PhysicalQ
             leftUnit is Gigawatt && rightUnit is Hour -> {
                 DefaultScientificValue(leftValue, leftUnit) * DefaultScientificValue(rightValue, rightUnit)
             }
-            leftUnit is ErgPerSecond && rightUnit is Time -> {
+            leftUnit is MetricAndImperialCombinedPower && rightUnit is Time -> {
+                DefaultScientificValue(leftValue, leftUnit) * DefaultScientificValue(rightValue, rightUnit)
+            }
+            leftUnit is MetricCombinedPower && rightUnit is Time -> {
                 DefaultScientificValue(leftValue, leftUnit) * DefaultScientificValue(rightValue, rightUnit)
             }
             leftUnit is MetricPower && rightUnit is Time -> {
                 DefaultScientificValue(leftValue, leftUnit) * DefaultScientificValue(rightValue, rightUnit)
             }
-            leftUnit is InchPoundForcePerSecond && rightUnit is Time -> {
-                DefaultScientificValue(leftValue, leftUnit) * DefaultScientificValue(rightValue, rightUnit)
-            }
-            leftUnit is InchPoundForcePerMinute && rightUnit is Time -> {
+            leftUnit is ImperialCombinedPower && rightUnit is Time -> {
                 DefaultScientificValue(leftValue, leftUnit) * DefaultScientificValue(rightValue, rightUnit)
             }
             leftUnit is Horsepower && rightUnit is Hour -> {
-                DefaultScientificValue(leftValue, leftUnit) * DefaultScientificValue(rightValue, rightUnit)
-            }
-            leftUnit is BritishThermalUnitPerSecond && rightUnit is Time -> {
-                DefaultScientificValue(leftValue, leftUnit) * DefaultScientificValue(rightValue, rightUnit)
-            }
-            leftUnit is BritishThermalUnitPerMinute && rightUnit is Time -> {
-                DefaultScientificValue(leftValue, leftUnit) * DefaultScientificValue(rightValue, rightUnit)
-            }
-            leftUnit is BritishThermalUnitPerHour && rightUnit is Time -> {
                 DefaultScientificValue(leftValue, leftUnit) * DefaultScientificValue(rightValue, rightUnit)
             }
             leftUnit is ImperialPower && rightUnit is Time -> {
@@ -117,10 +108,16 @@ val PhysicalQuantity.Power.converters get() = listOf<QuantityConverter<PhysicalQ
         PhysicalQuantity.Speed,
     ) { (leftValue, leftUnit), (rightValue, rightUnit) ->
         when {
-            leftUnit is ErgPerSecond && rightUnit is MetricSpeed -> {
+            leftUnit is MetricAndImperialCombinedPower && rightUnit is MetricSpeed -> {
+                DefaultScientificValue(leftValue, leftUnit) / DefaultScientificValue(rightValue, rightUnit)
+            }
+            leftUnit is MetricCombinedPower && rightUnit is MetricSpeed -> {
                 DefaultScientificValue(leftValue, leftUnit) / DefaultScientificValue(rightValue, rightUnit)
             }
             leftUnit is MetricPower && rightUnit is MetricSpeed -> {
+                DefaultScientificValue(leftValue, leftUnit) / DefaultScientificValue(rightValue, rightUnit)
+            }
+            leftUnit is ImperialCombinedPower && rightUnit is MetricSpeed -> {
                 DefaultScientificValue(leftValue, leftUnit) / DefaultScientificValue(rightValue, rightUnit)
             }
             leftUnit is ImperialPower && rightUnit is ImperialSpeed -> {
@@ -141,34 +138,16 @@ val PhysicalQuantity.Power.converters get() = listOf<QuantityConverter<PhysicalQ
         PhysicalQuantity.Force,
     ) { (leftValue, leftUnit), (rightValue, rightUnit) ->
         when {
-            leftUnit is ErgPerSecond && rightUnit is Dyne -> {
+            leftUnit is MetricCombinedPower && rightUnit is Dyne -> {
                 DefaultScientificValue(leftValue, leftUnit) / DefaultScientificValue(rightValue, rightUnit)
             }
-            leftUnit is ErgPerSecond && rightUnit is DyneMultiple -> {
+            leftUnit is MetricCombinedPower && rightUnit is DyneMultiple -> {
                 DefaultScientificValue(leftValue, leftUnit) / DefaultScientificValue(rightValue, rightUnit)
             }
             leftUnit is MetricPower && rightUnit is MetricForce -> {
                 DefaultScientificValue(leftValue, leftUnit) / DefaultScientificValue(rightValue, rightUnit)
             }
-            leftUnit is FootPoundForcePerSecond && rightUnit is ImperialForce -> {
-                DefaultScientificValue(leftValue, leftUnit) / DefaultScientificValue(rightValue, rightUnit)
-            }
-            leftUnit is FootPoundForcePerMinute && rightUnit is ImperialForce -> {
-                DefaultScientificValue(leftValue, leftUnit) / DefaultScientificValue(rightValue, rightUnit)
-            }
-            leftUnit is InchPoundForcePerSecond && rightUnit is ImperialForce -> {
-                DefaultScientificValue(leftValue, leftUnit) / DefaultScientificValue(rightValue, rightUnit)
-            }
-            leftUnit is InchPoundForcePerMinute && rightUnit is ImperialForce -> {
-                DefaultScientificValue(leftValue, leftUnit) / DefaultScientificValue(rightValue, rightUnit)
-            }
-            leftUnit is BritishThermalUnitPerSecond && rightUnit is PoundForce -> {
-                DefaultScientificValue(leftValue, leftUnit) / DefaultScientificValue(rightValue, rightUnit)
-            }
-            leftUnit is BritishThermalUnitPerMinute && rightUnit is PoundForce -> {
-                DefaultScientificValue(leftValue, leftUnit) / DefaultScientificValue(rightValue, rightUnit)
-            }
-            leftUnit is BritishThermalUnitPerHour && rightUnit is PoundForce -> {
+            leftUnit is ImperialCombinedPower && rightUnit is ImperialForce -> {
                 DefaultScientificValue(leftValue, leftUnit) / DefaultScientificValue(rightValue, rightUnit)
             }
             leftUnit is ImperialPower && rightUnit is ImperialForce -> {
@@ -234,10 +213,10 @@ val PhysicalQuantity.Power.converters get() = listOf<QuantityConverter<PhysicalQ
         PhysicalQuantity.ElectricCurrent,
     ) { (leftValue, leftUnit), (rightValue, rightUnit) ->
         when {
-            leftUnit is ErgPerSecond && rightUnit is Abampere -> {
+            leftUnit is MetricCombinedPower && rightUnit is Abampere -> {
                 DefaultScientificValue(leftValue, leftUnit) / DefaultScientificValue(rightValue, rightUnit)
             }
-            leftUnit is ErgPerSecond && rightUnit is Biot -> {
+            leftUnit is MetricCombinedPower && rightUnit is Biot -> {
                 DefaultScientificValue(leftValue, leftUnit) / DefaultScientificValue(rightValue, rightUnit)
             }
             leftUnit is Power && rightUnit is ElectricCurrent -> {

@@ -24,6 +24,9 @@ import com.splendo.kaluga.base.utils.toDecimal
 import com.splendo.kaluga.scientific.PhysicalQuantity
 import kotlinx.serialization.Serializable
 
+/**
+ * Set of all [MetricNamedEnergyUnit]
+ */
 val NamedMetricEnergyUnits: Set<MetricNamedEnergyUnit> get() = setOf(
     Joule,
     Nanojoule,
@@ -65,6 +68,9 @@ val NamedMetricEnergyUnits: Set<MetricNamedEnergyUnit> get() = setOf(
  */
 val MetricEnergyUnits: Set<MetricEnergy> get() = NamedMetricEnergyUnits + MetricAndImperialEnergyUnits.map { it.metric }.toSet()
 
+/**
+ * Set of all [MetricAndImperialNamedEnergyUnit]
+ */
 val NamedMetricAndImperialEnergyUnits: Set<MetricAndImperialNamedEnergyUnit> get() = setOf(
     Calorie,
     Calorie.IT,
@@ -93,6 +99,9 @@ val MetricAndImperialEnergyUnits: Set<MetricAndImperialEnergy> get() = setOf(
     GigawattHour,
 ) + NamedMetricAndImperialEnergyUnits
 
+/**
+ * Set of all [ImperialNamedEnergyUnit]
+ */
 val NamedImperialEnergyUnits: Set<ImperialNamedEnergyUnit> get() = setOf(
     FootPoundal,
     FootPoundForce,
@@ -147,22 +156,34 @@ sealed class MetricAndImperialEnergy :
     Energy(),
     MetricAndImperialScientificUnit<PhysicalQuantity.Energy>
 
+/**
+ * A [SystemScientificUnit] for [PhysicalQuantity.Energy] that is named, i.e. its name is not derived from the unit of another physical quantity
+ */
 sealed interface NamedEnergyUnit<System : MeasurementSystem> : SystemScientificUnit<System, PhysicalQuantity.Energy>
 
+/**
+ * A [MetricAndImperialEnergy] [NamedEnergyUnit].
+ */
+@Serializable
+sealed class MetricAndImperialNamedEnergyUnit :
+    MetricAndImperialEnergy(),
+    NamedEnergyUnit<MeasurementSystem.MetricAndImperial>
+
+/**
+ * A [MetricEnergy] [NamedEnergyUnit].
+ */
 @Serializable
 sealed class MetricNamedEnergyUnit :
     MetricEnergy(),
     NamedEnergyUnit<MeasurementSystem.Metric>
 
+/**
+ * An [ImperialEnergy] [NamedEnergyUnit].
+ */
 @Serializable
 sealed class ImperialNamedEnergyUnit :
     ImperialEnergy(),
     NamedEnergyUnit<MeasurementSystem.Imperial>
-
-@Serializable
-sealed class MetricAndImperialNamedEnergyUnit :
-    MetricAndImperialEnergy(),
-    NamedEnergyUnit<MeasurementSystem.MetricAndImperial>
 
 @Serializable
 data object Joule : MetricNamedEnergyUnit(), MetricBaseUnit<MeasurementSystem.Metric, PhysicalQuantity.Energy> {

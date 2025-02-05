@@ -103,6 +103,9 @@ sealed class ImperialPower :
     Power(),
     ImperialScientificUnit<PhysicalQuantity.Power>
 
+/**
+ * A [SystemScientificUnit] for [PhysicalQuantity.Power] that is constructed from a [NamedEnergyUnit] and a [Time]
+ */
 sealed interface CombinedPower<System : MeasurementSystem> : SystemScientificUnit<System, PhysicalQuantity.Power> {
     val energy: NamedEnergyUnit<System>
     val per: Time
@@ -113,6 +116,9 @@ sealed interface CombinedPower<System : MeasurementSystem> : SystemScientificUni
     override fun toSIUnit(value: Decimal): Decimal = energy.toSIUnit(per.fromSIUnit(value))
 }
 
+/**
+ * A [MetricAndImperialPower] [CombinedPower]
+ */
 @Serializable
 data class MetricAndImperialCombinedPower(override val energy: MetricAndImperialNamedEnergyUnit, override val per: Time) :
     MetricAndImperialPower(),
@@ -120,6 +126,9 @@ data class MetricAndImperialCombinedPower(override val energy: MetricAndImperial
     override val system: MeasurementSystem.MetricAndImperial = MeasurementSystem.MetricAndImperial
 }
 
+/**
+ * A [MetricPower] [CombinedPower]
+ */
 @Serializable
 data class MetricCombinedPower(override val energy: MetricNamedEnergyUnit, override val per: Time) :
     MetricPower(),
@@ -127,6 +136,9 @@ data class MetricCombinedPower(override val energy: MetricNamedEnergyUnit, overr
     override val system: MeasurementSystem.Metric = MeasurementSystem.Metric
 }
 
+/**
+ * An [ImperialPower] [CombinedPower]
+ */
 @Serializable
 data class ImperialCombinedPower(override val energy: ImperialNamedEnergyUnit, override val per: Time) :
     ImperialPower(),
@@ -134,8 +146,25 @@ data class ImperialCombinedPower(override val energy: ImperialNamedEnergyUnit, o
     override val system: MeasurementSystem.Imperial = MeasurementSystem.Imperial
 }
 
+/**
+ * Gets a [MetricAndImperialCombinedPower] from a [MetricAndImperialNamedEnergyUnit] and a [Time]
+ * @param time the [Time] component
+ * @return the [MetricAndImperialCombinedPower] represented by the units
+ */
 infix fun MetricAndImperialNamedEnergyUnit.per(time: Time) = MetricAndImperialCombinedPower(this, time)
+
+/**
+ * Gets a [MetricCombinedPower] from a [MetricNamedEnergyUnit] and a [Time]
+ * @param time the [Time] component
+ * @return the [MetricCombinedPower] represented by the units
+ */
 infix fun MetricNamedEnergyUnit.per(time: Time) = MetricCombinedPower(this, time)
+
+/**
+ * Gets an [ImperialCombinedPower] from a [ImperialNamedEnergyUnit] and a [Time]
+ * @param time the [Time] component
+ * @return the [MetricAndImperialPower] represented by the units
+ */
 infix fun ImperialNamedEnergyUnit.per(time: Time) = ImperialCombinedPower(this, time)
 
 @Serializable

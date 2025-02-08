@@ -26,6 +26,7 @@ import com.splendo.kaluga.scientific.converter.kinematicViscosity.div
 import com.splendo.kaluga.scientific.converter.molality.times
 import com.splendo.kaluga.scientific.converter.molarEnergy.div
 import com.splendo.kaluga.scientific.converter.molarEnergy.times
+import com.splendo.kaluga.scientific.converter.power.div
 import com.splendo.kaluga.scientific.converter.specificHeatCapacity.times
 import com.splendo.kaluga.scientific.converter.temperature.deltaValue
 import com.splendo.kaluga.scientific.converter.temperature.times
@@ -139,6 +140,23 @@ class SpecificEnergyUnitTest {
             2(Joule per Decimole) / 2(Kilogram per Decimole).convert(Pound per Decimole),
             8,
         )
+    }
+
+    @Test
+    fun specificEnergyFromPowerAndMassFlowRateTest() {
+        assertEquals(1(Kilocalorie per Kilogram), 2(Kilocalorie per Minute) / 2(Kilogram per Minute))
+        assertEquals(1(Kilocalorie per Pound), 2(Kilocalorie per Minute) / 2(Pound per Minute))
+        assertEquals(1(Kilocalorie per Pound.ukImperial), 2(Kilocalorie per Minute) / 2(Pound.ukImperial per Minute))
+        assertEquals(1(Kilocalorie per Pound.usCustomary), 2(Kilocalorie per Minute) / 2(Pound.usCustomary per Minute))
+        assertEquals(1(Joule per Kilogram), 2(Joule per Minute) / 2(Kilogram per Minute))
+        assertEquals(1(FootPoundForce per Pound), 2(FootPoundForce per Minute) / 2(Pound per Minute))
+        assertEquals(1(FootPoundForce per Pound.ukImperial), 2(FootPoundForce per Minute) / 2(Pound.ukImperial per Minute))
+        assertEquals(1(FootPoundForce per Pound.usCustomary), 2(FootPoundForce per Minute) / 2(Pound.usCustomary per Minute))
+        assertEquals(1(Joule per Kilogram), 2(Watt) / 2(Kilogram per Second))
+        assertEquals(33000(FootPoundForce per Pound), 2(Horsepower) / 2(Pound per Minute))
+        assertEquals(33000(FootPoundForce per Pound.ukImperial), 2(Horsepower) / 2(Pound.ukImperial per Minute))
+        assertEquals(33000(FootPoundForce per Pound.usCustomary), 2(Horsepower) / 2(Pound.usCustomary per Minute))
+        assertEqualScientificValue(1(Joule per Kilogram), 2(Watt) / 2(Kilogram per Second).convert(Pound per Second), 8)
     }
 
     @Test

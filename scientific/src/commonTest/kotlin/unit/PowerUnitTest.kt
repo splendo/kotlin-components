@@ -22,7 +22,9 @@ import com.splendo.kaluga.scientific.convert
 import com.splendo.kaluga.scientific.converter.electricCurrent.times
 import com.splendo.kaluga.scientific.converter.energy.div
 import com.splendo.kaluga.scientific.converter.force.times
+import com.splendo.kaluga.scientific.converter.massFlowRate.times
 import com.splendo.kaluga.scientific.converter.pressure.times
+import com.splendo.kaluga.scientific.converter.specificEnergy.times
 import com.splendo.kaluga.scientific.converter.speed.times
 import com.splendo.kaluga.scientific.converter.temperature.deltaValue
 import com.splendo.kaluga.scientific.converter.temperature.div
@@ -161,6 +163,28 @@ class PowerUnitTest {
         assertEquals(4(FootPoundForce per Second), 2(Foot per Second) * 2(PoundForce.usCustomary))
         assertEqualScientificValue(4(Watt), 2(Newton).convert(PoundForce) * 2(Meter per Second))
         assertEqualScientificValue(4(Watt), 2(Meter per Second) * 2(Newton).convert(PoundForce))
+    }
+
+    @Test
+    fun powerFromMassFlowRateAndSpecificEnergy() {
+        assertEqualScientificValue(4(Joule per Minute), 2(Kilogram per Minute) * 2(Joule per Kilogram))
+        assertEqualScientificValue(4(Joule per Minute), 2(Joule per Kilogram) * 2(Kilogram per Minute))
+        assertEqualScientificValue(4(FootPoundForce per Minute), 2(Pound per Minute) * 2(FootPoundForce per Pound))
+        assertEqualScientificValue(4(FootPoundForce per Minute), 2(FootPoundForce per Pound) * 2(Pound per Minute))
+        assertEqualScientificValue(4(FootPoundForce per Minute), 2(Pound per Minute) * 2(FootPoundForce per Pound.ukImperial))
+        assertEqualScientificValue(4(FootPoundForce per Minute), 2(FootPoundForce per Pound.ukImperial) * 2(Pound per Minute))
+        assertEqualScientificValue(4(FootPoundForce per Minute), 2(Pound per Minute) * 2(FootPoundForce per Pound.usCustomary))
+        assertEqualScientificValue(4(FootPoundForce per Minute), 2(FootPoundForce per Pound.usCustomary) * 2(Pound per Minute))
+        assertEqualScientificValue(4(FootPoundForce per Minute), 2(Pound.ukImperial per Minute) * 2(FootPoundForce per Pound))
+        assertEqualScientificValue(4(FootPoundForce per Minute), 2(FootPoundForce per Pound) * 2(Pound.ukImperial per Minute))
+        assertEqualScientificValue(4(FootPoundForce per Minute), 2(Pound.ukImperial per Minute) * 2(FootPoundForce per Pound.ukImperial))
+        assertEqualScientificValue(4(FootPoundForce per Minute), 2(FootPoundForce per Pound.ukImperial) * 2(Pound.ukImperial per Minute))
+        assertEqualScientificValue(4(FootPoundForce per Minute), 2(Pound.usCustomary per Minute) * 2(FootPoundForce per Pound))
+        assertEqualScientificValue(4(FootPoundForce per Minute), 2(FootPoundForce per Pound) * 2(Pound.usCustomary per Minute))
+        assertEqualScientificValue(4(FootPoundForce per Minute), 2(Pound.usCustomary per Minute) * 2(FootPoundForce per Pound.usCustomary))
+        assertEqualScientificValue(4(FootPoundForce per Minute), 2(FootPoundForce per Pound.usCustomary) * 2(Pound.usCustomary per Minute))
+        assertEqualScientificValue(4(Watt), 2(Kilogram per Second) * 2(Joule per Kilogram).convert(FootPoundForce per Pound), 8)
+        assertEqualScientificValue(4(Watt), 2(Joule per Kilogram).convert(FootPoundForce per Pound) * 2(Kilogram per Second), 8)
     }
 
     @Test

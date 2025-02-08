@@ -1,5 +1,5 @@
 /*
- Copyright 2022 Splendo Consulting B.V. The Netherlands
+ Copyright 2025 Splendo Consulting B.V. The Netherlands
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -15,7 +15,7 @@
 
  */
 
-package com.splendo.kaluga.scientific.converter.massFlowRate
+package com.splendo.kaluga.scientific.converter.specificEnergy
 
 import com.splendo.kaluga.base.utils.Decimal
 import com.splendo.kaluga.scientific.DefaultScientificValue
@@ -27,24 +27,24 @@ import com.splendo.kaluga.scientific.unit.Power
 import com.splendo.kaluga.scientific.unit.SpecificEnergy
 import kotlin.jvm.JvmName
 
-@JvmName("massFlowRateFromPowerAndSpecificEnergyDefault")
+@JvmName("specificEnergyFromPowerAndMassFlowRateDefault")
 fun <
     PowerUnit : Power,
-    SpecificEnergyUnit : SpecificEnergy,
     MassFlowRateUnit : MassFlowRate,
-    > MassFlowRateUnit.massFlowRate(
+    SpecificEnergyUnit : SpecificEnergy,
+    > SpecificEnergyUnit.specificEnergy(
     power: ScientificValue<PhysicalQuantity.Power, PowerUnit>,
-    specificEnergy: ScientificValue<PhysicalQuantity.SpecificEnergy, SpecificEnergyUnit>,
-) = massFlowRate(power, specificEnergy, ::DefaultScientificValue)
+    massFlowRate: ScientificValue<PhysicalQuantity.MassFlowRate, MassFlowRateUnit>,
+) = specificEnergy(power, massFlowRate, ::DefaultScientificValue)
 
-@JvmName("massFlowRateFromPowerAndSpecificEnergy")
+@JvmName("specificEnergyFromPowerAndMassFlowRate")
 fun <
     PowerUnit : Power,
-    SpecificEnergyUnit : SpecificEnergy,
     MassFlowRateUnit : MassFlowRate,
-    Value : ScientificValue<PhysicalQuantity.MassFlowRate, MassFlowRateUnit>,
-    > MassFlowRateUnit.massFlowRate(
+    SpecificEnergyUnit : SpecificEnergy,
+    Value : ScientificValue<PhysicalQuantity.SpecificEnergy, SpecificEnergyUnit>,
+    > SpecificEnergyUnit.specificEnergy(
     power: ScientificValue<PhysicalQuantity.Power, PowerUnit>,
-    specificEnergy: ScientificValue<PhysicalQuantity.SpecificEnergy, SpecificEnergyUnit>,
-    factory: (Decimal, MassFlowRateUnit) -> Value,
-) = byDividing(power, specificEnergy, factory)
+    massFlowRate: ScientificValue<PhysicalQuantity.MassFlowRate, MassFlowRateUnit>,
+    factory: (Decimal, SpecificEnergyUnit) -> Value,
+) = byDividing(power, massFlowRate, factory)

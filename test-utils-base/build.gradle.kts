@@ -5,6 +5,10 @@ plugins {
 
 kaluga {
     moduleName = "test.base"
+
+    supportJVM = true
+    supportJS = true
+
     dependencies {
         android {
             main {
@@ -32,6 +36,7 @@ kaluga {
         js {
             main {
                 api(kotlin("test-js"))
+                api(libs.kotlinx.atomicfu)
             }
         }
         jvm {

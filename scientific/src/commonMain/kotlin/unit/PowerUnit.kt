@@ -39,14 +39,18 @@ val MetricAndImperialPowerUnits: Set<MetricAndImperialPower> get() = setOf(
     Kilowatt,
     Megawatt,
     Gigawatt,
-)
+) + NamedMetricAndImperialEnergyUnits.flatMap { energyUnit ->
+    TimeUnits.map { energyUnit per it }
+}
 
 /**
  * Set of all [MetricPower]
  */
 val MetricPowerUnits: Set<MetricPower> get() = MetricAndImperialPowerUnits.map { it.metric }.toSet() +
+    NamedMetricEnergyUnits.flatMap { energyUnit ->
+        TimeUnits.map { energyUnit per it }
+    } +
     setOf(
-        ErgPerSecond,
         MetricHorsepower,
     )
 
@@ -54,15 +58,11 @@ val MetricPowerUnits: Set<MetricPower> get() = MetricAndImperialPowerUnits.map {
  * Set of all [ImperialPower]
  */
 val ImperialPowerUnits: Set<ImperialPower> get() = MetricAndImperialPowerUnits.map { it.imperial }.toSet() +
+    NamedImperialEnergyUnits.flatMap { energyUnit ->
+        TimeUnits.map { energyUnit per it }
+    } +
     setOf(
-        FootPoundForcePerSecond,
-        FootPoundForcePerMinute,
-        InchPoundForcePerSecond,
-        InchPoundForcePerMinute,
         Horsepower,
-        BritishThermalUnitPerSecond,
-        BritishThermalUnitPerMinute,
-        BritishThermalUnitPerHour,
     )
 
 /**
@@ -83,19 +83,89 @@ sealed class Power : AbstractScientificUnit<PhysicalQuantity.Power>()
  * A [Power] for [MeasurementSystem.MetricAndImperial]
  */
 @Serializable
-sealed class MetricAndImperialPower : Power(), MetricAndImperialScientificUnit<PhysicalQuantity.Power>
+sealed class MetricAndImperialPower :
+    Power(),
+    MetricAndImperialScientificUnit<PhysicalQuantity.Power>
 
 /**
  * A [Power] for [MeasurementSystem.Metric]
  */
 @Serializable
-sealed class MetricPower : Power(), MetricScientificUnit<PhysicalQuantity.Power>
+sealed class MetricPower :
+    Power(),
+    MetricScientificUnit<PhysicalQuantity.Power>
 
 /**
  * A [Power] for [MeasurementSystem.Imperial]
  */
 @Serializable
-sealed class ImperialPower : Power(), ImperialScientificUnit<PhysicalQuantity.Power>
+sealed class ImperialPower :
+    Power(),
+    ImperialScientificUnit<PhysicalQuantity.Power>
+
+/**
+ * A [SystemScientificUnit] for [PhysicalQuantity.Power] that is constructed from a [NamedEnergyUnit] and a [Time]
+ */
+sealed interface CombinedPower<System : MeasurementSystem> : SystemScientificUnit<System, PhysicalQuantity.Power> {
+    val energy: NamedEnergyUnit<System>
+    val per: Time
+
+    override val symbol: String get() = "${energy.symbol}/${per.symbol}"
+    override val quantity get() = PhysicalQuantity.Power
+    override fun fromSIUnit(value: Decimal): Decimal = per.toSIUnit(energy.fromSIUnit(value))
+    override fun toSIUnit(value: Decimal): Decimal = energy.toSIUnit(per.fromSIUnit(value))
+}
+
+/**
+ * A [MetricAndImperialPower] [CombinedPower]
+ */
+@Serializable
+data class MetricAndImperialCombinedPower(override val energy: MetricAndImperialNamedEnergyUnit, override val per: Time) :
+    MetricAndImperialPower(),
+    CombinedPower<MeasurementSystem.MetricAndImperial> {
+    override val system: MeasurementSystem.MetricAndImperial = MeasurementSystem.MetricAndImperial
+}
+
+/**
+ * A [MetricPower] [CombinedPower]
+ */
+@Serializable
+data class MetricCombinedPower(override val energy: MetricNamedEnergyUnit, override val per: Time) :
+    MetricPower(),
+    CombinedPower<MeasurementSystem.Metric> {
+    override val system: MeasurementSystem.Metric = MeasurementSystem.Metric
+}
+
+/**
+ * An [ImperialPower] [CombinedPower]
+ */
+@Serializable
+data class ImperialCombinedPower(override val energy: ImperialNamedEnergyUnit, override val per: Time) :
+    ImperialPower(),
+    CombinedPower<MeasurementSystem.Imperial> {
+    override val system: MeasurementSystem.Imperial = MeasurementSystem.Imperial
+}
+
+/**
+ * Gets a [MetricAndImperialCombinedPower] from a [MetricAndImperialNamedEnergyUnit] and a [Time]
+ * @param time the [Time] component
+ * @return the [MetricAndImperialCombinedPower] represented by the units
+ */
+infix fun MetricAndImperialNamedEnergyUnit.per(time: Time) = MetricAndImperialCombinedPower(this, time)
+
+/**
+ * Gets a [MetricCombinedPower] from a [MetricNamedEnergyUnit] and a [Time]
+ * @param time the [Time] component
+ * @return the [MetricCombinedPower] represented by the units
+ */
+infix fun MetricNamedEnergyUnit.per(time: Time) = MetricCombinedPower(this, time)
+
+/**
+ * Gets an [ImperialCombinedPower] from a [ImperialNamedEnergyUnit] and a [Time]
+ * @param time the [Time] component
+ * @return the [MetricAndImperialPower] represented by the units
+ */
+infix fun ImperialNamedEnergyUnit.per(time: Time) = ImperialCombinedPower(this, time)
 
 @Serializable
 data object Watt : MetricAndImperialPower(), MetricBaseUnit<MeasurementSystem.MetricAndImperial, PhysicalQuantity.Power> {
@@ -107,7 +177,9 @@ data object Watt : MetricAndImperialPower(), MetricBaseUnit<MeasurementSystem.Me
 }
 
 @Serializable
-sealed class WattMultiple : MetricAndImperialPower(), MetricMultipleUnit<MeasurementSystem.MetricAndImperial, PhysicalQuantity.Power, Watt>
+sealed class WattMultiple :
+    MetricAndImperialPower(),
+    MetricMultipleUnit<MeasurementSystem.MetricAndImperial, PhysicalQuantity.Power, Watt>
 
 @Serializable
 data object Nanowatt : WattMultiple(), MetricMultipleUnit<MeasurementSystem.MetricAndImperial, PhysicalQuantity.Power, Watt> by Nano(Watt)
@@ -140,15 +212,6 @@ data object Megawatt : WattMultiple(), MetricMultipleUnit<MeasurementSystem.Metr
 data object Gigawatt : WattMultiple(), MetricMultipleUnit<MeasurementSystem.MetricAndImperial, PhysicalQuantity.Power, Watt> by Giga(Watt)
 
 @Serializable
-data object ErgPerSecond : MetricPower(), MetricBaseUnit<MeasurementSystem.Metric, PhysicalQuantity.Power> {
-    override val symbol: String = "erg/s"
-    override val system = MeasurementSystem.Metric
-    override val quantity = PhysicalQuantity.Power
-    override fun fromSIUnit(value: Decimal): Decimal = Erg.fromSIUnit(value)
-    override fun toSIUnit(value: Decimal): Decimal = Erg.toSIUnit(value)
-}
-
-@Serializable
 data object MetricHorsepower : MetricPower() {
     private const val KILOGRAM_FORCE_METER_SECOND_TO_WATT = 75.0
     override val symbol: String = "PS"
@@ -166,69 +229,6 @@ data object Horsepower : ImperialPower() {
     override val quantity = PhysicalQuantity.Power
     override fun fromSIUnit(value: Decimal): Decimal = FootPoundForce.fromSIUnit(Minute.toSIUnit(value)) / FOOTPOUND_PER_MINUTE.toDecimal()
     override fun toSIUnit(value: Decimal): Decimal = Minute.fromSIUnit(FootPoundForce.toSIUnit(value * FOOTPOUND_PER_MINUTE.toDecimal()))
-}
-
-@Serializable
-data object FootPoundForcePerSecond : ImperialPower() {
-    override val symbol: String = "${FootPoundForce.symbol} / ${Second.symbol}"
-    override val system = MeasurementSystem.Imperial
-    override val quantity = PhysicalQuantity.Power
-    override fun fromSIUnit(value: Decimal): Decimal = FootPoundForce.fromSIUnit(value)
-    override fun toSIUnit(value: Decimal): Decimal = FootPoundForce.toSIUnit(value)
-}
-
-@Serializable
-data object FootPoundForcePerMinute : ImperialPower() {
-    override val symbol: String = "${FootPoundForce.symbol} / ${Minute.symbol}"
-    override val system = MeasurementSystem.Imperial
-    override val quantity = PhysicalQuantity.Power
-    override fun fromSIUnit(value: Decimal): Decimal = Minute.toSIUnit(FootPoundForce.fromSIUnit(value))
-    override fun toSIUnit(value: Decimal): Decimal = FootPoundForce.toSIUnit(Minute.fromSIUnit(value))
-}
-
-@Serializable
-data object InchPoundForcePerSecond : ImperialPower() {
-    override val symbol: String = "${FootPoundForce.symbol} / ${Second.symbol}"
-    override val system = MeasurementSystem.Imperial
-    override val quantity = PhysicalQuantity.Power
-    override fun fromSIUnit(value: Decimal): Decimal = InchPoundForce.fromSIUnit(value)
-    override fun toSIUnit(value: Decimal): Decimal = InchPoundForce.toSIUnit(value)
-}
-
-@Serializable
-data object InchPoundForcePerMinute : ImperialPower() {
-    override val symbol: String = "${FootPoundForce.symbol} / ${Minute.symbol}"
-    override val system = MeasurementSystem.Imperial
-    override val quantity = PhysicalQuantity.Power
-    override fun fromSIUnit(value: Decimal): Decimal = Minute.toSIUnit(InchPoundForce.fromSIUnit(value))
-    override fun toSIUnit(value: Decimal): Decimal = InchPoundForce.toSIUnit(Minute.fromSIUnit(value))
-}
-
-@Serializable
-data object BritishThermalUnitPerSecond : ImperialPower() {
-    override val symbol: String = "${BritishThermalUnit.symbol} / ${Second.symbol}"
-    override val system = MeasurementSystem.Imperial
-    override val quantity = PhysicalQuantity.Power
-    override fun fromSIUnit(value: Decimal): Decimal = BritishThermalUnit.fromSIUnit(value)
-    override fun toSIUnit(value: Decimal): Decimal = BritishThermalUnit.toSIUnit(value)
-}
-
-@Serializable
-data object BritishThermalUnitPerMinute : ImperialPower() {
-    override val symbol: String = "${BritishThermalUnit.symbol} / ${Minute.symbol}"
-    override val system = MeasurementSystem.Imperial
-    override val quantity = PhysicalQuantity.Power
-    override fun fromSIUnit(value: Decimal): Decimal = Minute.toSIUnit(BritishThermalUnit.fromSIUnit(value))
-    override fun toSIUnit(value: Decimal): Decimal = BritishThermalUnit.toSIUnit(Minute.fromSIUnit(value))
-}
-
-@Serializable
-data object BritishThermalUnitPerHour : ImperialPower() {
-    override val symbol: String = "${BritishThermalUnit.symbol} / ${Hour.symbol}"
-    override val system = MeasurementSystem.Imperial
-    override val quantity = PhysicalQuantity.Power
-    override fun fromSIUnit(value: Decimal): Decimal = Hour.toSIUnit(BritishThermalUnit.fromSIUnit(value))
-    override fun toSIUnit(value: Decimal): Decimal = BritishThermalUnit.toSIUnit(Hour.fromSIUnit(value))
 }
 
 /**

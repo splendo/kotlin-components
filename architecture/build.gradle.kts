@@ -6,6 +6,10 @@ plugins {
 
 kaluga {
     moduleName = "architecture"
+
+    supportJVM = true
+    supportJS = true
+
     dependencies {
         android {
             main {
@@ -25,6 +29,11 @@ kaluga {
             }
             test {
                 api(project(":test-utils-architecture", ""))
+            }
+        }
+        js {
+            main {
+                api(libs.kotlinx.atomicfu)
             }
         }
     }

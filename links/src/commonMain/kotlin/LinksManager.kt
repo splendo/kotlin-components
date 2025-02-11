@@ -19,7 +19,7 @@ package com.splendo.kaluga.links
 
 import com.splendo.kaluga.links.handler.LinksHandler
 import com.splendo.kaluga.links.handler.PlatformLinksHandler
-import com.splendo.kaluga.links.utils.decodeFromList
+import com.splendo.kaluga.links.utils.decodeFromMap
 import kotlinx.serialization.KSerializer
 
 /**
@@ -61,37 +61,26 @@ interface LinksManager {
  * Default implementation of [LinksManager]
  * @param linksHandler the [LinksHandler] to handle processing the link
  */
-class DefaultLinksManager(
-    private val linksHandler: LinksHandler,
-) : LinksManager {
+class DefaultLinksManager(private val linksHandler: LinksHandler) : LinksManager {
 
     /**
      * Builder for creating a [DefaultLinksManager]
      * @param handler the [LinksHandler] to handle processing the link
      */
-    class Builder(
-        private val handler: LinksHandler,
-    ) : LinksManager.Builder {
+    class Builder(private val handler: LinksHandler) : LinksManager.Builder {
 
         constructor() : this(PlatformLinksHandler())
 
         override fun create(): LinksManager = DefaultLinksManager(handler)
     }
 
-    override fun <T> handleIncomingLink(url: String, serializer: KSerializer<T>): T? {
-        val list = linksHandler.extractQueryAsList(url)
-        if (list.isEmpty()) {
-            return null
-        }
+    override fun <T> handleIncomingLink(url: String, serializer: KSerializer<T>): T? = runCatching {
+        decodeFromMap(linksHandler.extractQueryAsMap(url), serializer)
+    }.getOrNull()
 
-        return decodeFromList(list, serializer)
-    }
-
-    override fun validateLink(url: String): String? {
-        return if (linksHandler.isValid(url)) {
-            url
-        } else {
-            null
-        }
+    override fun validateLink(url: String): String? = if (linksHandler.isValid(url)) {
+        url
+    } else {
+        null
     }
 }

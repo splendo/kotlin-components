@@ -17,14 +17,6 @@ pluginManagement {
     includeBuild("gradle-test-recorder/plugin-build/")
 }
 
-dependencyResolutionManagement {
-    versionCatalogs {
-        create("libs") {
-            from(files("libs.versions.toml"))
-        }
-    }
-}
-
 rootProject.name = "Kaluga"
 
 /* REMINDER (see header), files should be kept up to date with Gradle and the [.git/workflows] */
@@ -61,7 +53,7 @@ include(":review")
 include(":scientific")
 include(":service")
 include(":system")
-// // Test Utils
+// Test Utils
 include(":test-utils")
 include(":test-utils-base")
 include(":test-utils-alerts")

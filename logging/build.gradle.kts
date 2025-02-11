@@ -5,6 +5,10 @@ plugins {
 
 kaluga {
     moduleName = "logging"
+
+    supportJVM = true
+    supportJS = true
+
     dependencies {
         android {
             main {
@@ -19,6 +23,10 @@ kaluga {
                 api(project(":test-utils-base", ""))
             }
         }
-
+        js {
+            main {
+                api(libs.kotlinx.atomicfu)
+            }
+        }
     }
 }

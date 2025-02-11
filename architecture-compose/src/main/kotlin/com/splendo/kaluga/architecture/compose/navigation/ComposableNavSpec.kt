@@ -31,6 +31,7 @@ import androidx.compose.runtime.DisposableEffect
 import androidx.compose.ui.platform.LocalContext
 import androidx.fragment.app.DialogFragment
 import com.splendo.kaluga.architecture.compose.activity
+import com.splendo.kaluga.architecture.compose.appCompatActivity
 import com.splendo.kaluga.architecture.navigation.IntentFlag
 import com.splendo.kaluga.architecture.navigation.NavigationAction
 import com.splendo.kaluga.architecture.navigation.NavigationBundle
@@ -354,14 +355,11 @@ sealed class ComposableNavSpec {
      * @property tag Optional tag to add to the Dialog
      * @property createDialog Function to create the [DialogFragment] to display
      */
-    data class Dialog(
-        val tag: String? = null,
-        val createDialog: () -> DialogFragment,
-    ) : LaunchedNavigation() {
+    data class Dialog(val tag: String? = null, val createDialog: () -> DialogFragment) : LaunchedNavigation() {
 
         @Composable
         override fun createLauncher(viewModel: BaseLifecycleViewModel, onDispose: () -> Unit): () -> Unit {
-            val fragmentManager = LocalContext.current.activity?.supportFragmentManager
+            val fragmentManager = LocalContext.current.appCompatActivity?.supportFragmentManager
             return {
                 fragmentManager?.let {
                     createDialog().show(it, tag)

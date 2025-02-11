@@ -113,9 +113,7 @@ abstract class BaseLocale {
      */
     abstract val alternateQuotationEnd: String
 
-    override fun toString(): String {
-        return listOf(languageCode, countryCode, variantCode).filterNot { it.isEmpty() }.joinToString("_")
-    }
+    override fun toString(): String = listOf(languageCode, countryCode, variantCode).filterNot { it.isEmpty() }.joinToString("_")
 }
 
 /**
@@ -189,9 +187,3 @@ val KalugaLocale.uses24HourClock: Boolean get() {
     val formattedDate = formatter.format(DefaultKalugaDate.now())
     return !formattedDate.contains(formatter.amString) && !formattedDate.contains(formatter.pmString)
 }
-
-@Deprecated(
-    "Due to name clashes with platform classes and API changes this class has been renamed and changed to an interface. It will be removed in a future release.",
-    ReplaceWith("KalugaLocale"),
-)
-typealias Locale = KalugaLocale

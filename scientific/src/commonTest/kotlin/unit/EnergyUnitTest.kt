@@ -325,40 +325,57 @@ class EnergyUnitTest {
         assertEqualScientificValue(4(GigawattHour), 2(Gigawatt) * 2(Hour))
         assertEqualScientificValue(4(GigawattHour), 2(Hour) * 2(Gigawatt))
 
+        assertEqualScientificValue(4(Calorie), 2(Calorie per Hour) * 2(Hour))
+        assertEqualScientificValue(4(Calorie), 2(Hour) * 2(Calorie per Hour))
+        assertEqualScientificValue(4(Calorie.IT), 2(Calorie.IT per Hour) * 2(Hour))
+        assertEqualScientificValue(4(Calorie.IT), 2(Hour) * 2(Calorie.IT per Hour))
+        assertEqualScientificValue(4(Millicalorie), 2(Millicalorie per Hour) * 2(Hour))
+        assertEqualScientificValue(4(Millicalorie), 2(Hour) * 2(Millicalorie per Hour))
+        assertEqualScientificValue(4(Millicalorie.IT), 2(Millicalorie.IT per Hour) * 2(Hour))
+        assertEqualScientificValue(4(Millicalorie.IT), 2(Hour) * 2(Millicalorie.IT per Hour))
+        assertEqualScientificValue(4(Kilocalorie), 2(Kilocalorie per Hour) * 2(Hour))
+        assertEqualScientificValue(4(Kilocalorie), 2(Hour) * 2(Kilocalorie per Hour))
+        assertEqualScientificValue(4(Kilocalorie.IT), 2(Kilocalorie.IT per Hour) * 2(Hour))
+        assertEqualScientificValue(4(Kilocalorie.IT), 2(Hour) * 2(Kilocalorie.IT per Hour))
+        assertEqualScientificValue(4(Megacalorie), 2(Megacalorie per Hour) * 2(Hour))
+        assertEqualScientificValue(4(Megacalorie), 2(Hour) * 2(Megacalorie per Hour))
+        assertEqualScientificValue(4(Megacalorie.IT), 2(Megacalorie.IT per Hour) * 2(Hour))
+        assertEqualScientificValue(4(Megacalorie.IT), 2(Hour) * 2(Megacalorie.IT per Hour))
+
         assertEqualScientificValue(4(WattHour).convert(Joule), 2(Watt.metric) * 2(Hour))
         assertEqualScientificValue(4(WattHour).convert(Joule), 2(Hour) * 2(Watt.metric))
         assertEqualScientificValue(4(WattHour).convert(FootPoundForce), 2(Watt.imperial) * 2(Hour))
         assertEqualScientificValue(4(WattHour).convert(FootPoundForce), 2(Hour) * 2(Watt.imperial))
 
-        assertEqualScientificValue(4(Erg), 2(ErgPerSecond) * 2(Second))
-        assertEqualScientificValue(4(Erg), 2(Second) * 2(ErgPerSecond))
+        assertEqualScientificValue(4(Erg), 2(Erg per Second) * 2(Second))
+        assertEqualScientificValue(4(Erg), 2(Second) * 2(Erg per Second))
 
         assertEqualScientificValue(4(HorsepowerHour), 2(Horsepower) * 2(Hour))
         assertEqualScientificValue(4(HorsepowerHour), 2(Hour) * 2(Horsepower))
-        assertEqualScientificValue(4(FootPoundForce), 2(FootPoundForcePerSecond) * 2(Second))
-        assertEqualScientificValue(4(FootPoundForce), 2(Second) * 2(FootPoundForcePerSecond))
-        assertEqualScientificValue(4(InchPoundForce), 2(InchPoundForcePerSecond) * 2(Second))
-        assertEqualScientificValue(4(InchPoundForce), 2(Second) * 2(InchPoundForcePerSecond))
-        assertEqualScientificValue(4(InchPoundForce), 2(InchPoundForcePerMinute) * 2(Minute))
-        assertEqualScientificValue(4(InchPoundForce), 2(Minute) * 2(InchPoundForcePerMinute))
+        assertEqualScientificValue(4(FootPoundForce), 2(FootPoundForce per Second) * 2(Second))
+        assertEqualScientificValue(4(FootPoundForce), 2(Second) * 2(FootPoundForce per Second))
+        assertEqualScientificValue(4(InchPoundForce), 2(InchPoundForce per Second) * 2(Second))
+        assertEqualScientificValue(4(InchPoundForce), 2(Second) * 2(InchPoundForce per Second))
+        assertEqualScientificValue(4(InchPoundForce), 2(InchPoundForce per Minute) * 2(Minute))
+        assertEqualScientificValue(4(InchPoundForce), 2(Minute) * 2(InchPoundForce per Minute))
         assertEqualScientificValue(
             4(BritishThermalUnit),
-            2(BritishThermalUnitPerSecond) * 2(Second),
+            2(BritishThermalUnit per Second) * 2(Second),
         )
         assertEqualScientificValue(
             4(BritishThermalUnit),
-            2(Second) * 2(BritishThermalUnitPerSecond),
+            2(Second) * 2(BritishThermalUnit per Second),
         )
         assertEqualScientificValue(
             4(BritishThermalUnit),
-            2(BritishThermalUnitPerMinute) * 2(Minute),
+            2(BritishThermalUnit per Minute) * 2(Minute),
         )
         assertEqualScientificValue(
             4(BritishThermalUnit),
-            2(Minute) * 2(BritishThermalUnitPerMinute),
+            2(Minute) * 2(BritishThermalUnit per Minute),
         )
-        assertEqualScientificValue(4(BritishThermalUnit), 2(BritishThermalUnitPerHour) * 2(Hour))
-        assertEqualScientificValue(4(BritishThermalUnit), 2(Hour) * 2(BritishThermalUnitPerHour))
+        assertEqualScientificValue(4(BritishThermalUnit), 2(BritishThermalUnit per Hour) * 2(Hour))
+        assertEqualScientificValue(4(BritishThermalUnit), 2(Hour) * 2(BritishThermalUnit per Hour))
     }
 
     @Test

@@ -58,6 +58,9 @@ open class KalugaMultiplatformSubprojectExtension @Inject constructor(
         SimulatorArm64("iosSimulatorArm64"),
     }
 
+    var supportJVM: Boolean = false
+    var supportJS: Boolean = false
+
     private val multiplatformDependencies = objects.newInstance(MultiplatformDependencyContainer::class)
     private val appleInterop = objects.newInstance(AppleInteropContainer::class)
     private var frameworkConfig: (Framework.() -> Unit)? = null
@@ -75,6 +78,17 @@ open class KalugaMultiplatformSubprojectExtension @Inject constructor(
     }
 
     @OptIn(ExperimentalKotlinGradlePluginApi::class)
+    override fun Project.setupSubproject() {
+        // Android Target must be setup before project is evaluated as publishing will break otherwise
+        extensions.configure(KotlinMultiplatformExtension::class) {
+            androidTarget() {
+                instrumentedTestVariant.sourceSetTree.set(KotlinSourceSetTree.test)
+                unitTestVariant.sourceSetTree.set(KotlinSourceSetTree.test)
+                publishAllLibraryVariants()
+            }
+        }
+    }
+
     override fun Project.configureSubproject() {
         extensions.configure(KotlinMultiplatformExtension::class) {
             configureMultiplatform(this@configureSubproject)
@@ -124,7 +138,7 @@ open class KalugaMultiplatformSubprojectExtension @Inject constructor(
     @OptIn(ExperimentalKotlinGradlePluginApi::class)
     private fun KotlinMultiplatformExtension.configureMultiplatform(project: Project) {
         compilerOptions {
-            freeCompilerArgs.add("-Xexpect-actual-classes")
+            freeCompilerArgs.addAll("-Xexpect-actual-classes", "-Xconsistent-data-class-copy-visibility")
         }
         targets.configureEach {
             compilations.configureEach {
@@ -139,12 +153,6 @@ open class KalugaMultiplatformSubprojectExtension @Inject constructor(
             }
         }
 
-        androidTarget("androidLib") {
-            instrumentedTestVariant.sourceSetTree.set(KotlinSourceSetTree.test)
-            unitTestVariant.sourceSetTree.set(KotlinSourceSetTree.test)
-            publishAllLibraryVariants()
-        }
-
         val iosTargets = project.iosTargets.map { iosTarget ->
             when (iosTarget) {
                 IOSTarget.Arm64 -> iosArm64()
@@ -153,15 +161,19 @@ open class KalugaMultiplatformSubprojectExtension @Inject constructor(
             }
         }
 
-        jvm()
-        js(KotlinJsCompilerType.IR) {
-            nodejs()
-            browser()
-            compilations.configureEach {
-                compileTaskProvider.configure {
-                    compilerOptions {
-                        sourceMap.set(true)
-                        moduleKind.set(JsModuleKind.MODULE_UMD)
+        if (supportJVM) {
+            jvm()
+        }
+        if (supportJS) {
+            js(KotlinJsCompilerType.IR) {
+                nodejs()
+                browser()
+                compilations.configureEach {
+                    compileTaskProvider.configure {
+                        compilerOptions {
+                            sourceMap.set(true)
+                            moduleKind.set(JsModuleKind.MODULE_UMD)
+                        }
                     }
                 }
             }
@@ -170,99 +182,105 @@ open class KalugaMultiplatformSubprojectExtension @Inject constructor(
         applyDefaultHierarchyTemplate()
 
         project.afterEvaluate {
-            sourceSets.getByName("commonMain").apply {
-                dependencies {
-                    implementation("kotlinx-coroutines-core".asDependency())
-                    multiplatformDependencies.common.mainDependencies.forEach { it.execute(this) }
-                }
-            }
-
-            sourceSets.getByName("commonTest").apply {
-                dependencies {
-                    implementation(kotlin("test"))
-                    implementation(kotlin("test-common"))
-                    implementation(kotlin("test-annotations-common"))
-                    multiplatformDependencies.common.testDependencies.forEach { it.execute(this) }
-                }
-            }
-
-            sourceSets.getByName("androidLibMain").apply {
-                dependencies {
-                    androidMainDependencies.forEach { implementation(it) }
-                    multiplatformDependencies.android.mainDependencies.forEach { it.execute(this) }
-                }
-            }
-
-            sourceSets.getByName("androidLibUnitTest").apply {
-                dependencies {
-                    androidTestDependencies.forEach { implementation(it) }
-                    multiplatformDependencies.android.testDependencies.forEach { it.execute(this) }
-                }
-            }
-
-            sourceSets.getByName("androidLibInstrumentedTest").apply {
-                dependencies {
-                    androidInstrumentedTestDependencies.forEach { implementation(it) }
-                    multiplatformDependencies.android.instrumentedTestDependencies.forEach { it.execute(this) }
-                }
-            }
-
-            if (multiplatformDependencies.apple.mainDependencies.isNotEmpty()) {
-                sourceSets.getByName("appleMain").apply {
+            with(sourceSets) {
+                commonMain.configure {
                     dependencies {
-                        multiplatformDependencies.apple.mainDependencies.forEach { it.execute(this) }
+                        implementation("kotlinx-coroutines-core".asDependency())
+                        multiplatformDependencies.common.mainDependencies.forEach { it.execute(this) }
                     }
                 }
-            }
 
-            if (multiplatformDependencies.apple.testDependencies.isNotEmpty()) {
-                sourceSets.getByName("appleTest").apply {
+                commonTest.configure {
                     dependencies {
-                        multiplatformDependencies.apple.testDependencies.forEach { it.execute(this) }
+                        implementation(kotlin("test"))
+                        implementation(kotlin("test-common"))
+                        implementation(kotlin("test-annotations-common"))
+                        multiplatformDependencies.common.testDependencies.forEach { it.execute(this) }
                     }
                 }
-            }
 
-            sourceSets.getByName("iosMain").apply {
-                dependencies {
-                    multiplatformDependencies.ios.mainDependencies.forEach { it.execute(this) }
+                androidMain.configure {
+                    dependencies {
+                        androidMainDependencies.forEach { implementation(it) }
+                        multiplatformDependencies.android.mainDependencies.forEach { it.execute(this) }
+                    }
                 }
-            }
 
-            sourceSets.getByName("iosTest").apply {
-                dependencies {
-                    multiplatformDependencies.ios.testDependencies.forEach { it.execute(this) }
+                androidUnitTest.configure {
+                    dependencies {
+                        androidTestDependencies.forEach { implementation(it) }
+                        multiplatformDependencies.android.testDependencies.forEach { it.execute(this) }
+                    }
                 }
-            }
 
-            sourceSets.getByName("jvmMain").apply {
-                dependencies {
-                    implementation(kotlin("stdlib"))
-                    implementation("kotlinx-coroutines-swing".asDependency())
-                    multiplatformDependencies.jvm.mainDependencies.forEach { it.execute(this) }
+                androidInstrumentedTest.configure {
+                    dependencies {
+                        androidInstrumentedTestDependencies.forEach { implementation(it) }
+                        multiplatformDependencies.android.instrumentedTestDependencies.forEach { it.execute(this) }
+                    }
                 }
-            }
 
-            sourceSets.getByName("jvmTest").apply {
-                dependencies {
-                    implementation(kotlin("test"))
-                    implementation(kotlin("test-junit"))
-                    multiplatformDependencies.jvm.testDependencies.forEach { it.execute(this) }
+                if (multiplatformDependencies.apple.mainDependencies.isNotEmpty()) {
+                    appleMain.configure {
+                        dependencies {
+                            multiplatformDependencies.apple.mainDependencies.forEach { it.execute(this) }
+                        }
+                    }
                 }
-            }
 
-            sourceSets.getByName("jsMain").apply {
-                dependencies {
-                    implementation(kotlin("stdlib-js"))
-                    implementation("kotlinx-coroutines-js".asDependency())
-                    multiplatformDependencies.js.mainDependencies.forEach { it.execute(this) }
+                if (multiplatformDependencies.apple.testDependencies.isNotEmpty()) {
+                    appleTest.configure {
+                        dependencies {
+                            multiplatformDependencies.apple.testDependencies.forEach { it.execute(this) }
+                        }
+                    }
                 }
-            }
 
-            sourceSets.getByName("jsTest").apply {
-                dependencies {
-                    implementation(kotlin("test-js"))
-                    multiplatformDependencies.js.testDependencies.forEach { it.execute(this) }
+                iosMain.configure {
+                    dependencies {
+                        multiplatformDependencies.ios.mainDependencies.forEach { it.execute(this) }
+                    }
+                }
+
+                iosTest.configure {
+                    dependencies {
+                        multiplatformDependencies.ios.testDependencies.forEach { it.execute(this) }
+                    }
+                }
+
+                if (supportJVM) {
+                    jvmMain.configure {
+                        dependencies {
+                            implementation(kotlin("stdlib"))
+                            implementation("kotlinx-coroutines-swing".asDependency())
+                            multiplatformDependencies.jvm.mainDependencies.forEach { it.execute(this) }
+                        }
+                    }
+
+                    jvmTest.configure {
+                        dependencies {
+                            implementation(kotlin("test"))
+                            implementation(kotlin("test-junit"))
+                            multiplatformDependencies.jvm.testDependencies.forEach { it.execute(this) }
+                        }
+                    }
+                }
+
+                if (supportJS) {
+                    jsMain.configure {
+                        dependencies {
+                            implementation(kotlin("stdlib-js"))
+                            implementation("kotlinx-coroutines-js".asDependency())
+                            multiplatformDependencies.js.mainDependencies.forEach { it.execute(this) }
+                        }
+                    }
+
+                    jsTest.configure {
+                        dependencies {
+                            implementation(kotlin("test-js"))
+                            multiplatformDependencies.js.testDependencies.forEach { it.execute(this) }
+                        }
+                    }
                 }
             }
 

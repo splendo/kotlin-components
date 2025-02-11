@@ -5,6 +5,10 @@ plugins {
 
 kaluga {
     moduleName = "base"
+
+    supportJVM = true
+    supportJS = true
+
     appleInterop {
         main {
             create("objectObserver").apply {
@@ -34,6 +38,7 @@ kaluga {
         js {
             main {
                 implementation(npm("@splendo/bigdecimal", "1.0.26"))
+                api(libs.kotlinx.atomicfu)
             }
         }
     }

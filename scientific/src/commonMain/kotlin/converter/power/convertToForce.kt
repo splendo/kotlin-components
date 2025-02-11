@@ -21,10 +21,10 @@ import com.splendo.kaluga.scientific.PhysicalQuantity
 import com.splendo.kaluga.scientific.ScientificValue
 import com.splendo.kaluga.scientific.converter.force.force
 import com.splendo.kaluga.scientific.unit.Dyne
-import com.splendo.kaluga.scientific.unit.ErgPerSecond
 import com.splendo.kaluga.scientific.unit.ImperialPower
 import com.splendo.kaluga.scientific.unit.ImperialSpeed
 import com.splendo.kaluga.scientific.unit.MetricAndImperialPower
+import com.splendo.kaluga.scientific.unit.MetricCombinedPower
 import com.splendo.kaluga.scientific.unit.MetricPower
 import com.splendo.kaluga.scientific.unit.MetricSpeed
 import com.splendo.kaluga.scientific.unit.Newton
@@ -33,8 +33,8 @@ import com.splendo.kaluga.scientific.unit.Power
 import com.splendo.kaluga.scientific.unit.Speed
 import kotlin.jvm.JvmName
 
-@JvmName("ergPerSecondDivMetricSpeed")
-infix operator fun ScientificValue<PhysicalQuantity.Power, ErgPerSecond>.div(speed: ScientificValue<PhysicalQuantity.Speed, MetricSpeed>) = Dyne.force(this, speed)
+@JvmName("metricCombinedPowerDivMetricSpeed")
+infix operator fun ScientificValue<PhysicalQuantity.Power, MetricCombinedPower>.div(speed: ScientificValue<PhysicalQuantity.Speed, MetricSpeed>) = Dyne.force(this, speed)
 
 @JvmName("metricPowerDivMetricSpeed")
 infix operator fun <PowerUnit : MetricPower> ScientificValue<PhysicalQuantity.Power, PowerUnit>.div(speed: ScientificValue<PhysicalQuantity.Speed, MetricSpeed>) =

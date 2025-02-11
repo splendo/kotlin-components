@@ -32,7 +32,9 @@ import kotlinx.serialization.Serializable
  * @param Quantity the type of [PhysicalQuantity] of the unit
  * @param Unit the type of [ScientificUnit] this value represents
  */
-interface ScientificValue<Quantity : PhysicalQuantity, Unit : ScientificUnit<Quantity>> : Comparable<ScientificValue<Quantity, *>>, com.splendo.kaluga.base.utils.Serializable {
+interface ScientificValue<Quantity : PhysicalQuantity, Unit : ScientificUnit<Quantity>> :
+    Comparable<ScientificValue<Quantity, *>>,
+    com.splendo.kaluga.base.utils.Serializable {
 
     /**
      * The value component
@@ -60,10 +62,8 @@ interface ScientificValue<Quantity : PhysicalQuantity, Unit : ScientificUnit<Qua
  * @param unit the [Unit] component
  */
 @Serializable
-data class DefaultScientificValue<Quantity : PhysicalQuantity, Unit : AbstractScientificUnit<Quantity>>(
-    override val value: Double,
-    override val unit: Unit,
-) : ScientificValue<Quantity, Unit> {
+data class DefaultScientificValue<Quantity : PhysicalQuantity, Unit : AbstractScientificUnit<Quantity>>(override val value: Double, override val unit: Unit) :
+    ScientificValue<Quantity, Unit> {
 
     /**
      * Constructor

@@ -217,12 +217,6 @@ fun DefaultKalugaDate.Companion.now(offsetInMilliseconds: Long, timeZone: Kaluga
 fun DefaultKalugaDate.Companion.epoch(offsetInMilliseconds: Long, timeZone: KalugaTimeZone = KalugaTimeZone.current(), locale: KalugaLocale = defaultLocale): KalugaDate =
     epoch(offsetInMilliseconds.milliseconds, timeZone, locale)
 
-@Deprecated(
-    "Due to name clashes with platform classes and API changes this class has been renamed and changed to an interface. It will be removed in a future release.",
-    ReplaceWith("KalugaDate"),
-)
-typealias Date = KalugaDate
-
 /**
  * Gets the [Duration] between two [KalugaDate]
  * @param other the [KalugaDate] to subtract
@@ -307,33 +301,27 @@ fun DefaultKalugaDate.Companion.tomorrow(timeZone: KalugaTimeZone = KalugaTimeZo
  * @param date The [KalugaDate] to check
  * @return `true` if this [KalugaDate] is on the same day as [date]
  */
-fun KalugaDate.isOnSameDay(date: KalugaDate): Boolean {
-    return this.era == date.era &&
-        this.year == date.year &&
-        this.month == date.month &&
-        this.day == date.day
-}
+fun KalugaDate.isOnSameDay(date: KalugaDate): Boolean = this.era == date.era &&
+    this.year == date.year &&
+    this.month == date.month &&
+    this.day == date.day
 
 /**
  * Checks whether a [KalugaDate] is on the same month as a given Date.
  * @param date The [KalugaDate] to check
  * @return `true` if this [KalugaDate] is on the same month as [date]
  */
-fun KalugaDate.isOnSameMonth(date: KalugaDate): Boolean {
-    return this.era == date.era &&
-        this.year == date.year &&
-        this.month == date.month
-}
+fun KalugaDate.isOnSameMonth(date: KalugaDate): Boolean = this.era == date.era &&
+    this.year == date.year &&
+    this.month == date.month
 
 /**
  * Checks whether a [KalugaDate] is in the same year as a given Date.
  * @param date The [KalugaDate] to check
  * @return `true` if this [KalugaDate] is in the same year as [date]
  */
-fun KalugaDate.isInSameYear(date: KalugaDate): Boolean {
-    return this.era == date.era &&
-        this.year == date.year
-}
+fun KalugaDate.isInSameYear(date: KalugaDate): Boolean = this.era == date.era &&
+    this.year == date.year
 
 /**
  * True if this [KalugaDate] is today

@@ -5,11 +5,21 @@ plugins {
 
 kaluga {
     moduleName = "test.architecture"
+
+    supportJVM = true
+    supportJS = true
+
     dependencies {
         common {
             main {
                 api(project(":test-utils-base"))
                 api(project(":architecture"))
+                implementation(libs.kotlinx.atomicfu)
+            }
+        }
+        js {
+            main {
+                api(libs.kotlinx.atomicfu)
             }
         }
     }

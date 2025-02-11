@@ -1,18 +1,19 @@
 package com.splendo.kaluga.architecture.compose.viewModel
 
+import android.util.Log
+import androidx.activity.ComponentActivity
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.DisallowComposableCalls
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStore
 import androidx.lifecycle.ViewModelStoreOwner
+import androidx.lifecycle.compose.LocalLifecycleOwner
 import com.splendo.kaluga.architecture.compose.activity
 import com.splendo.kaluga.architecture.compose.lifecycle.ComposableLifecycleSubscribable
 import com.splendo.kaluga.architecture.compose.lifecycle.composableLifecycleSubscribable
@@ -30,7 +31,7 @@ import com.splendo.kaluga.architecture.viewmodel.LifecycleSubscribableManager
 @Composable
 fun <ViewModel : BaseLifecycleViewModel> ViewModelComposable(viewModel: ViewModel, content: @Composable (ViewModel.() -> Unit)? = null) {
     LocalContext.current.activity?.let {
-        ViewModelComposable(it, it.supportFragmentManager, viewModel, content)
+        ViewModelComposable(it, (it as? AppCompatActivity)?.supportFragmentManager, viewModel, content)
     }
 }
 
@@ -48,13 +49,17 @@ fun <ViewModel : BaseLifecycleViewModel> FragmentViewModelComposable(viewModel: 
 
 @Composable
 private fun <ViewModel : BaseLifecycleViewModel> ViewModelComposable(
-    activity: AppCompatActivity?,
-    fragmentManager: FragmentManager,
+    activity: ComponentActivity?,
+    fragmentManager: FragmentManager?,
     viewModel: ViewModel,
     content: @Composable (ViewModel.() -> Unit)? = null,
 ) {
     // Link the ViewModel to existing LifecycleSubscribable
-    viewModel.linkLifecycle(activity, fragmentManager)
+    if (fragmentManager != null) {
+        viewModel.linkLifecycle(activity as? AppCompatActivity, fragmentManager)
+    } else {
+        Log.w("ViewModelComposable", "ViewModel not linked to lifecycle due to missing FragmentManager")
+    }
 
     // Get a List of all ComposableLifecycleSubscribable of the viewModel.
     val composeLifecycleSubscribables = viewModel.composableLifecycleSubscribable()
@@ -74,47 +79,6 @@ private fun <ViewModel : BaseLifecycleViewModel> ViewModelComposable(
         }
         modifier.modifier(viewModel) { content?.invoke(viewModel) }
     }
-}
-
-/**
- * Stores a view model in the local [ViewModelStore]. Use if the view model
- * was created manually and is not located in Activity/Fragment [ViewModelStore].
- */
-@Composable
-@Deprecated(
-    "Does not work for configuration changes (e.g. rotation).",
-    replaceWith = ReplaceWith("viewModel()", "androidx.lifecycle.viewmodel.compose.viewModel"),
-)
-fun <ViewModel : BaseLifecycleViewModel> store(provider: @Composable () -> ViewModel): ViewModel = provider().also { handleLocalViewModelStore(it) }
-
-/**
- * Stores and remembers a view model in the local [ViewModelStore].
- * Use if the view model was created manually and is not located in Activity/Fragment [ViewModelStore].
- * provider will only be evaluated during the composition. Recomposition will always return the value produced by provider.
- */
-@Composable
-@Deprecated(
-    "Does not work for configuration changes (e.g. rotation).",
-    replaceWith = ReplaceWith("viewModel()", "androidx.lifecycle.viewmodel.compose.viewModel"),
-)
-@Suppress("Deprecation")
-fun <ViewModel : BaseLifecycleViewModel> storeAndRemember(provider: @DisallowComposableCalls () -> ViewModel): ViewModel = store {
-    remember(provider)
-}
-
-/**
- * Stores and remembers a view model in the local [ViewModelStore].
- * Use if the view model was created manually and is not located in Activity/Fragment [ViewModelStore].
- * provider will only be evaluated during the composition. Recomposition will always return the value produced by provider.
- */
-@Composable
-@Deprecated(
-    "Does not work for configuration changes (e.g. rotation).",
-    replaceWith = ReplaceWith("viewModel()", "androidx.lifecycle.viewmodel.compose.viewModel"),
-)
-@Suppress("Deprecation")
-fun <ViewModel : BaseLifecycleViewModel> storeAndRemember(key: Any?, provider: @DisallowComposableCalls () -> ViewModel): ViewModel = store {
-    remember(key, provider)
 }
 
 @Composable
@@ -169,11 +133,8 @@ private fun <ViewModel : BaseLifecycleViewModel> ViewModel.linkLifecycle(activit
     return this
 }
 
-private class VmObserver<ViewModel : BaseLifecycleViewModel>(
-    private val viewModel: ViewModel,
-    activity: AppCompatActivity?,
-    fragmentManager: FragmentManager,
-) : DefaultLifecycleObserver {
+private class VmObserver<ViewModel : BaseLifecycleViewModel>(private val viewModel: ViewModel, activity: AppCompatActivity?, fragmentManager: FragmentManager) :
+    DefaultLifecycleObserver {
 
     private val manager = LifecycleSubscribableManager(viewModel, activity, fragmentManager)
     private var resumed = false

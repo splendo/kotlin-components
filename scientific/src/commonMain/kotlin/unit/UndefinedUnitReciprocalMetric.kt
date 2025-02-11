@@ -29,8 +29,9 @@ fun <
     InverseQuantity : UndefinedQuantityType,
     InverseUnit,
     > InverseUnit.reciprocal() where
-      InverseUnit : UndefinedScientificUnit<InverseQuantity>,
-      InverseUnit : MeasurementUsage.UsedInMetric = UndefinedReciprocalUnit.Metric(this)
+                                     InverseUnit : UndefinedScientificUnit<InverseQuantity>,
+                                     InverseUnit : MeasurementUsage.UsedInMetric =
+    UndefinedReciprocalUnit.Metric(this)
 
 /**
  * [InverseUnit] -> [UndefinedReciprocalUnit.Metric] ([WrappedUndefinedExtendedUnit.Metric] ([InverseUnit]))
@@ -40,8 +41,9 @@ fun <
     InverseQuantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
     InverseUnit,
     > InverseUnit.reciprocal() where
-      InverseUnit : ScientificUnit<InverseQuantity>,
-      InverseUnit : MeasurementUsage.UsedInMetric = asUndefined().reciprocal()
+                                     InverseUnit : ScientificUnit<InverseQuantity>,
+                                     InverseUnit : MeasurementUsage.UsedInMetric =
+    asUndefined().reciprocal()
 
 /**
  * [ReciprocalUnit] -> [InverseUnit]
@@ -52,10 +54,10 @@ fun <
     InverseUnit,
     ReciprocalUnit,
     > ReciprocalUnit.reciprocal() where
-      InverseUnit : UndefinedScientificUnit<InverseQuantity>,
-      InverseUnit : MeasurementUsage.UsedInMetric,
-      ReciprocalUnit : UndefinedReciprocalUnit<InverseQuantity, InverseUnit>,
-      ReciprocalUnit : MeasurementUsage.UsedInMetric =
+                                        InverseUnit : UndefinedScientificUnit<InverseQuantity>,
+                                        InverseUnit : MeasurementUsage.UsedInMetric,
+                                        ReciprocalUnit : UndefinedReciprocalUnit<InverseQuantity, InverseUnit>,
+                                        ReciprocalUnit : MeasurementUsage.UsedInMetric =
     inverse
 
 /**
@@ -68,12 +70,12 @@ fun <
     InverseUnit,
     ReciprocalUnit,
     > ReciprocalUnit.reciprocal() where
-      WrappedUnit : ScientificUnit<WrappedQuantity>,
-      WrappedUnit : MeasurementUsage.UsedInMetric,
-      InverseUnit : WrappedUndefinedExtendedUnit<WrappedQuantity, WrappedUnit>,
-      InverseUnit : MeasurementUsage.UsedInMetric,
-      ReciprocalUnit : UndefinedReciprocalUnit<UndefinedQuantityType.Extended<WrappedQuantity>, InverseUnit>,
-      ReciprocalUnit : MeasurementUsage.UsedInMetric =
+                                        WrappedUnit : ScientificUnit<WrappedQuantity>,
+                                        WrappedUnit : MeasurementUsage.UsedInMetric,
+                                        InverseUnit : WrappedUndefinedExtendedUnit<WrappedQuantity, WrappedUnit>,
+                                        InverseUnit : MeasurementUsage.UsedInMetric,
+                                        ReciprocalUnit : UndefinedReciprocalUnit<UndefinedQuantityType.Extended<WrappedQuantity>, InverseUnit>,
+                                        ReciprocalUnit : MeasurementUsage.UsedInMetric =
     inverse.wrapped
 
 /**
@@ -87,9 +89,10 @@ fun <
     DenominatorUnit,
     DividerUnit,
     > DividerUnit.reciprocal() where
-      NumeratorUnit : UndefinedScientificUnit<NumeratorQuantity>,
-      NumeratorUnit : MeasurementUsage.UsedInMetric,
-      DenominatorUnit : UndefinedScientificUnit<DenominatorQuantity>,
-      DenominatorUnit : MeasurementUsage.UsedInMetric,
-      DividerUnit : UndefinedDividedUnit<NumeratorQuantity, NumeratorUnit, DenominatorQuantity, DenominatorUnit>,
-      DividerUnit : MeasurementUsage.UsedInMetric = denominator per numerator
+                                     NumeratorUnit : UndefinedScientificUnit<NumeratorQuantity>,
+                                     NumeratorUnit : MeasurementUsage.UsedInMetric,
+                                     DenominatorUnit : UndefinedScientificUnit<DenominatorQuantity>,
+                                     DenominatorUnit : MeasurementUsage.UsedInMetric,
+                                     DividerUnit : UndefinedDividedUnit<NumeratorQuantity, NumeratorUnit, DenominatorQuantity, DenominatorUnit>,
+                                     DividerUnit : MeasurementUsage.UsedInMetric =
+    denominator per numerator

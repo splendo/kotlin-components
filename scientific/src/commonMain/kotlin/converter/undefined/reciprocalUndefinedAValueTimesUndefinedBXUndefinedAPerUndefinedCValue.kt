@@ -32,337 +32,344 @@ import kotlin.jvm.JvmName
 
 @JvmName("reciprocalUndefinedAValueTimesUndefinedBXUndefinedAPerUndefinedCValue")
 fun <
-	LeftReciprocalAndRightNumeratorRightQuantity : UndefinedQuantityType,
-	LeftReciprocalAndRightNumeratorRightUnit : UndefinedScientificUnit<LeftReciprocalAndRightNumeratorRightQuantity>,
-	LeftUnit : UndefinedReciprocalUnit<LeftReciprocalAndRightNumeratorRightQuantity, LeftReciprocalAndRightNumeratorRightUnit>,
-	RightNumeratorLeftQuantity : UndefinedQuantityType,
-	RightNumeratorLeftUnit : UndefinedScientificUnit<RightNumeratorLeftQuantity>,
-	RightNumeratorUnit : UndefinedMultipliedUnit<RightNumeratorLeftQuantity, RightNumeratorLeftUnit, LeftReciprocalAndRightNumeratorRightQuantity, LeftReciprocalAndRightNumeratorRightUnit>,
-	RightDenominatorQuantity : UndefinedQuantityType,
-	RightDenominatorUnit : UndefinedScientificUnit<RightDenominatorQuantity>,
-	RightUnit : UndefinedDividedUnit<UndefinedQuantityType.Multiplying<RightNumeratorLeftQuantity, LeftReciprocalAndRightNumeratorRightQuantity>, RightNumeratorUnit, RightDenominatorQuantity, RightDenominatorUnit>,
-	TargetUnit : UndefinedDividedUnit<RightNumeratorLeftQuantity, RightNumeratorLeftUnit, RightDenominatorQuantity, RightDenominatorUnit>,
-	TargetValue : UndefinedScientificValue<UndefinedQuantityType.Dividing<RightNumeratorLeftQuantity, RightDenominatorQuantity>, TargetUnit>
-	> UndefinedScientificValue<UndefinedQuantityType.Reciprocal<LeftReciprocalAndRightNumeratorRightQuantity>, LeftUnit>.times(
-	right: UndefinedScientificValue<UndefinedQuantityType.Dividing<UndefinedQuantityType.Multiplying<RightNumeratorLeftQuantity, LeftReciprocalAndRightNumeratorRightQuantity>, RightDenominatorQuantity>, RightUnit>,
-	rightNumeratorLeftUnitPerRightDenominatorUnit: RightNumeratorLeftUnit.(RightDenominatorUnit) -> TargetUnit,
-	factory: (Decimal, TargetUnit) -> TargetValue
+    LeftReciprocalAndRightNumeratorRightQuantity : UndefinedQuantityType,
+    LeftReciprocalAndRightNumeratorRightUnit : UndefinedScientificUnit<LeftReciprocalAndRightNumeratorRightQuantity>,
+    LeftUnit : UndefinedReciprocalUnit<LeftReciprocalAndRightNumeratorRightQuantity, LeftReciprocalAndRightNumeratorRightUnit>,
+    RightNumeratorLeftQuantity : UndefinedQuantityType,
+    RightNumeratorLeftUnit : UndefinedScientificUnit<RightNumeratorLeftQuantity>,
+    RightNumeratorUnit : UndefinedMultipliedUnit<RightNumeratorLeftQuantity, RightNumeratorLeftUnit, LeftReciprocalAndRightNumeratorRightQuantity, LeftReciprocalAndRightNumeratorRightUnit>,
+    RightDenominatorQuantity : UndefinedQuantityType,
+    RightDenominatorUnit : UndefinedScientificUnit<RightDenominatorQuantity>,
+    RightUnit : UndefinedDividedUnit<UndefinedQuantityType.Multiplying<RightNumeratorLeftQuantity, LeftReciprocalAndRightNumeratorRightQuantity>, RightNumeratorUnit, RightDenominatorQuantity, RightDenominatorUnit>,
+    TargetUnit : UndefinedDividedUnit<RightNumeratorLeftQuantity, RightNumeratorLeftUnit, RightDenominatorQuantity, RightDenominatorUnit>,
+    TargetValue : UndefinedScientificValue<UndefinedQuantityType.Dividing<RightNumeratorLeftQuantity, RightDenominatorQuantity>, TargetUnit>,
+    > UndefinedScientificValue<UndefinedQuantityType.Reciprocal<LeftReciprocalAndRightNumeratorRightQuantity>, LeftUnit>.times(
+    right:
+    UndefinedScientificValue<UndefinedQuantityType.Dividing<UndefinedQuantityType.Multiplying<RightNumeratorLeftQuantity, LeftReciprocalAndRightNumeratorRightQuantity>, RightDenominatorQuantity>, RightUnit>,
+    rightNumeratorLeftUnitPerRightDenominatorUnit: RightNumeratorLeftUnit.(RightDenominatorUnit) -> TargetUnit,
+    factory: (Decimal, TargetUnit) -> TargetValue,
 ) = right.unit.numerator.left.rightNumeratorLeftUnitPerRightDenominatorUnit(right.unit.denominator).byMultiplying(this, right, factory)
 
 @JvmName("metricAndImperialReciprocalUndefinedAValueTimesMetricAndImperialUndefinedBXUndefinedAPerUndefinedCValue")
 infix operator fun <
-	LeftReciprocalAndRightNumeratorRightQuantity : UndefinedQuantityType,
-	LeftReciprocalAndRightNumeratorRightUnit,
-	LeftUnit,
-	RightNumeratorLeftQuantity : UndefinedQuantityType,
-	RightNumeratorLeftUnit,
-	RightNumeratorUnit,
-	RightDenominatorQuantity : UndefinedQuantityType,
-	RightDenominatorUnit,
-	RightUnit
-	> UndefinedScientificValue<UndefinedQuantityType.Reciprocal<LeftReciprocalAndRightNumeratorRightQuantity>, LeftUnit>.times(
-	right: UndefinedScientificValue<UndefinedQuantityType.Dividing<UndefinedQuantityType.Multiplying<RightNumeratorLeftQuantity, LeftReciprocalAndRightNumeratorRightQuantity>, RightDenominatorQuantity>, RightUnit>,
+    LeftReciprocalAndRightNumeratorRightQuantity : UndefinedQuantityType,
+    LeftReciprocalAndRightNumeratorRightUnit,
+    LeftUnit,
+    RightNumeratorLeftQuantity : UndefinedQuantityType,
+    RightNumeratorLeftUnit,
+    RightNumeratorUnit,
+    RightDenominatorQuantity : UndefinedQuantityType,
+    RightDenominatorUnit,
+    RightUnit,
+    > UndefinedScientificValue<UndefinedQuantityType.Reciprocal<LeftReciprocalAndRightNumeratorRightQuantity>, LeftUnit>.times(
+    right:
+    UndefinedScientificValue<UndefinedQuantityType.Dividing<UndefinedQuantityType.Multiplying<RightNumeratorLeftQuantity, LeftReciprocalAndRightNumeratorRightQuantity>, RightDenominatorQuantity>, RightUnit>,
 ) where
-	LeftReciprocalAndRightNumeratorRightUnit : UndefinedScientificUnit<LeftReciprocalAndRightNumeratorRightQuantity>,
-	LeftReciprocalAndRightNumeratorRightUnit : MeasurementUsage.UsedInMetric,
-	LeftReciprocalAndRightNumeratorRightUnit : MeasurementUsage.UsedInUKImperial,
-	LeftReciprocalAndRightNumeratorRightUnit : MeasurementUsage.UsedInUSCustomary,
-	LeftUnit : UndefinedReciprocalUnit<LeftReciprocalAndRightNumeratorRightQuantity, LeftReciprocalAndRightNumeratorRightUnit>,
-	LeftUnit : MeasurementUsage.UsedInMetric,
-	LeftUnit : MeasurementUsage.UsedInUKImperial,
-	LeftUnit : MeasurementUsage.UsedInUSCustomary,
-	RightNumeratorLeftUnit : UndefinedScientificUnit<RightNumeratorLeftQuantity>,
-	RightNumeratorLeftUnit : MeasurementUsage.UsedInMetric,
-	RightNumeratorLeftUnit : MeasurementUsage.UsedInUKImperial,
-	RightNumeratorLeftUnit : MeasurementUsage.UsedInUSCustomary,
-	RightNumeratorUnit : UndefinedMultipliedUnit<RightNumeratorLeftQuantity, RightNumeratorLeftUnit, LeftReciprocalAndRightNumeratorRightQuantity, LeftReciprocalAndRightNumeratorRightUnit>,
-	RightNumeratorUnit : MeasurementUsage.UsedInMetric,
-	RightNumeratorUnit : MeasurementUsage.UsedInUKImperial,
-	RightNumeratorUnit : MeasurementUsage.UsedInUSCustomary,
-	RightDenominatorUnit : UndefinedScientificUnit<RightDenominatorQuantity>,
-	RightDenominatorUnit : MeasurementUsage.UsedInMetric,
-	RightDenominatorUnit : MeasurementUsage.UsedInUKImperial,
-	RightDenominatorUnit : MeasurementUsage.UsedInUSCustomary,
-	RightUnit : UndefinedDividedUnit<UndefinedQuantityType.Multiplying<RightNumeratorLeftQuantity, LeftReciprocalAndRightNumeratorRightQuantity>, RightNumeratorUnit, RightDenominatorQuantity, RightDenominatorUnit>,
-	RightUnit : MeasurementUsage.UsedInMetric,
-	RightUnit : MeasurementUsage.UsedInUKImperial,
-	RightUnit : MeasurementUsage.UsedInUSCustomary =
-	times(
-		right,
-		rightNumeratorLeftUnitPerRightDenominatorUnit = { per(it) },
-	) {
-		value: Decimal,
-		unit: UndefinedDividedUnit.MetricAndImperial<
-				RightNumeratorLeftQuantity,
-				RightNumeratorLeftUnit,
-				RightDenominatorQuantity,
-				RightDenominatorUnit
-			>
-		->
-		DefaultUndefinedScientificValue(value, unit)
-	}
+        LeftReciprocalAndRightNumeratorRightUnit : UndefinedScientificUnit<LeftReciprocalAndRightNumeratorRightQuantity>,
+        LeftReciprocalAndRightNumeratorRightUnit : MeasurementUsage.UsedInMetric,
+        LeftReciprocalAndRightNumeratorRightUnit : MeasurementUsage.UsedInUKImperial,
+        LeftReciprocalAndRightNumeratorRightUnit : MeasurementUsage.UsedInUSCustomary,
+        LeftUnit : UndefinedReciprocalUnit<LeftReciprocalAndRightNumeratorRightQuantity, LeftReciprocalAndRightNumeratorRightUnit>,
+        LeftUnit : MeasurementUsage.UsedInMetric,
+        LeftUnit : MeasurementUsage.UsedInUKImperial,
+        LeftUnit : MeasurementUsage.UsedInUSCustomary,
+        RightNumeratorLeftUnit : UndefinedScientificUnit<RightNumeratorLeftQuantity>,
+        RightNumeratorLeftUnit : MeasurementUsage.UsedInMetric,
+        RightNumeratorLeftUnit : MeasurementUsage.UsedInUKImperial,
+        RightNumeratorLeftUnit : MeasurementUsage.UsedInUSCustomary,
+        RightNumeratorUnit : UndefinedMultipliedUnit<RightNumeratorLeftQuantity, RightNumeratorLeftUnit, LeftReciprocalAndRightNumeratorRightQuantity, LeftReciprocalAndRightNumeratorRightUnit>,
+        RightNumeratorUnit : MeasurementUsage.UsedInMetric,
+        RightNumeratorUnit : MeasurementUsage.UsedInUKImperial,
+        RightNumeratorUnit : MeasurementUsage.UsedInUSCustomary,
+        RightDenominatorUnit : UndefinedScientificUnit<RightDenominatorQuantity>,
+        RightDenominatorUnit : MeasurementUsage.UsedInMetric,
+        RightDenominatorUnit : MeasurementUsage.UsedInUKImperial,
+        RightDenominatorUnit : MeasurementUsage.UsedInUSCustomary,
+        RightUnit : UndefinedDividedUnit<UndefinedQuantityType.Multiplying<RightNumeratorLeftQuantity, LeftReciprocalAndRightNumeratorRightQuantity>, RightNumeratorUnit, RightDenominatorQuantity, RightDenominatorUnit>,
+        RightUnit : MeasurementUsage.UsedInMetric,
+        RightUnit : MeasurementUsage.UsedInUKImperial,
+        RightUnit : MeasurementUsage.UsedInUSCustomary =
+    times(
+        right,
+        rightNumeratorLeftUnitPerRightDenominatorUnit = { per(it) },
+    ) {
+            value: Decimal,
+            unit: UndefinedDividedUnit.MetricAndImperial<
+                RightNumeratorLeftQuantity,
+                RightNumeratorLeftUnit,
+                RightDenominatorQuantity,
+                RightDenominatorUnit,
+                >,
+        ->
+        DefaultUndefinedScientificValue(value, unit)
+    }
 
 @JvmName("metricReciprocalUndefinedAValueTimesMetricUndefinedBXUndefinedAPerUndefinedCValue")
 infix operator fun <
-	LeftReciprocalAndRightNumeratorRightQuantity : UndefinedQuantityType,
-	LeftReciprocalAndRightNumeratorRightUnit,
-	LeftUnit,
-	RightNumeratorLeftQuantity : UndefinedQuantityType,
-	RightNumeratorLeftUnit,
-	RightNumeratorUnit,
-	RightDenominatorQuantity : UndefinedQuantityType,
-	RightDenominatorUnit,
-	RightUnit
-	> UndefinedScientificValue<UndefinedQuantityType.Reciprocal<LeftReciprocalAndRightNumeratorRightQuantity>, LeftUnit>.times(
-	right: UndefinedScientificValue<UndefinedQuantityType.Dividing<UndefinedQuantityType.Multiplying<RightNumeratorLeftQuantity, LeftReciprocalAndRightNumeratorRightQuantity>, RightDenominatorQuantity>, RightUnit>,
+    LeftReciprocalAndRightNumeratorRightQuantity : UndefinedQuantityType,
+    LeftReciprocalAndRightNumeratorRightUnit,
+    LeftUnit,
+    RightNumeratorLeftQuantity : UndefinedQuantityType,
+    RightNumeratorLeftUnit,
+    RightNumeratorUnit,
+    RightDenominatorQuantity : UndefinedQuantityType,
+    RightDenominatorUnit,
+    RightUnit,
+    > UndefinedScientificValue<UndefinedQuantityType.Reciprocal<LeftReciprocalAndRightNumeratorRightQuantity>, LeftUnit>.times(
+    right:
+    UndefinedScientificValue<UndefinedQuantityType.Dividing<UndefinedQuantityType.Multiplying<RightNumeratorLeftQuantity, LeftReciprocalAndRightNumeratorRightQuantity>, RightDenominatorQuantity>, RightUnit>,
 ) where
-	LeftReciprocalAndRightNumeratorRightUnit : UndefinedScientificUnit<LeftReciprocalAndRightNumeratorRightQuantity>,
-	LeftReciprocalAndRightNumeratorRightUnit : MeasurementUsage.UsedInMetric,
-	LeftUnit : UndefinedReciprocalUnit<LeftReciprocalAndRightNumeratorRightQuantity, LeftReciprocalAndRightNumeratorRightUnit>,
-	LeftUnit : MeasurementUsage.UsedInMetric,
-	RightNumeratorLeftUnit : UndefinedScientificUnit<RightNumeratorLeftQuantity>,
-	RightNumeratorLeftUnit : MeasurementUsage.UsedInMetric,
-	RightNumeratorUnit : UndefinedMultipliedUnit<RightNumeratorLeftQuantity, RightNumeratorLeftUnit, LeftReciprocalAndRightNumeratorRightQuantity, LeftReciprocalAndRightNumeratorRightUnit>,
-	RightNumeratorUnit : MeasurementUsage.UsedInMetric,
-	RightDenominatorUnit : UndefinedScientificUnit<RightDenominatorQuantity>,
-	RightDenominatorUnit : MeasurementUsage.UsedInMetric,
-	RightUnit : UndefinedDividedUnit<UndefinedQuantityType.Multiplying<RightNumeratorLeftQuantity, LeftReciprocalAndRightNumeratorRightQuantity>, RightNumeratorUnit, RightDenominatorQuantity, RightDenominatorUnit>,
-	RightUnit : MeasurementUsage.UsedInMetric =
-	times(
-		right,
-		rightNumeratorLeftUnitPerRightDenominatorUnit = { per(it) },
-	) {
-		value: Decimal,
-		unit: UndefinedDividedUnit.Metric<
-				RightNumeratorLeftQuantity,
-				RightNumeratorLeftUnit,
-				RightDenominatorQuantity,
-				RightDenominatorUnit
-			>
-		->
-		DefaultUndefinedScientificValue(value, unit)
-	}
+        LeftReciprocalAndRightNumeratorRightUnit : UndefinedScientificUnit<LeftReciprocalAndRightNumeratorRightQuantity>,
+        LeftReciprocalAndRightNumeratorRightUnit : MeasurementUsage.UsedInMetric,
+        LeftUnit : UndefinedReciprocalUnit<LeftReciprocalAndRightNumeratorRightQuantity, LeftReciprocalAndRightNumeratorRightUnit>,
+        LeftUnit : MeasurementUsage.UsedInMetric,
+        RightNumeratorLeftUnit : UndefinedScientificUnit<RightNumeratorLeftQuantity>,
+        RightNumeratorLeftUnit : MeasurementUsage.UsedInMetric,
+        RightNumeratorUnit : UndefinedMultipliedUnit<RightNumeratorLeftQuantity, RightNumeratorLeftUnit, LeftReciprocalAndRightNumeratorRightQuantity, LeftReciprocalAndRightNumeratorRightUnit>,
+        RightNumeratorUnit : MeasurementUsage.UsedInMetric,
+        RightDenominatorUnit : UndefinedScientificUnit<RightDenominatorQuantity>,
+        RightDenominatorUnit : MeasurementUsage.UsedInMetric,
+        RightUnit : UndefinedDividedUnit<UndefinedQuantityType.Multiplying<RightNumeratorLeftQuantity, LeftReciprocalAndRightNumeratorRightQuantity>, RightNumeratorUnit, RightDenominatorQuantity, RightDenominatorUnit>,
+        RightUnit : MeasurementUsage.UsedInMetric =
+    times(
+        right,
+        rightNumeratorLeftUnitPerRightDenominatorUnit = { per(it) },
+    ) {
+            value: Decimal,
+            unit: UndefinedDividedUnit.Metric<
+                RightNumeratorLeftQuantity,
+                RightNumeratorLeftUnit,
+                RightDenominatorQuantity,
+                RightDenominatorUnit,
+                >,
+        ->
+        DefaultUndefinedScientificValue(value, unit)
+    }
 
 @JvmName("imperialReciprocalUndefinedAValueTimesImperialUndefinedBXUndefinedAPerUndefinedCValue")
 infix operator fun <
-	LeftReciprocalAndRightNumeratorRightQuantity : UndefinedQuantityType,
-	LeftReciprocalAndRightNumeratorRightUnit,
-	LeftUnit,
-	RightNumeratorLeftQuantity : UndefinedQuantityType,
-	RightNumeratorLeftUnit,
-	RightNumeratorUnit,
-	RightDenominatorQuantity : UndefinedQuantityType,
-	RightDenominatorUnit,
-	RightUnit
-	> UndefinedScientificValue<UndefinedQuantityType.Reciprocal<LeftReciprocalAndRightNumeratorRightQuantity>, LeftUnit>.times(
-	right: UndefinedScientificValue<UndefinedQuantityType.Dividing<UndefinedQuantityType.Multiplying<RightNumeratorLeftQuantity, LeftReciprocalAndRightNumeratorRightQuantity>, RightDenominatorQuantity>, RightUnit>,
+    LeftReciprocalAndRightNumeratorRightQuantity : UndefinedQuantityType,
+    LeftReciprocalAndRightNumeratorRightUnit,
+    LeftUnit,
+    RightNumeratorLeftQuantity : UndefinedQuantityType,
+    RightNumeratorLeftUnit,
+    RightNumeratorUnit,
+    RightDenominatorQuantity : UndefinedQuantityType,
+    RightDenominatorUnit,
+    RightUnit,
+    > UndefinedScientificValue<UndefinedQuantityType.Reciprocal<LeftReciprocalAndRightNumeratorRightQuantity>, LeftUnit>.times(
+    right:
+    UndefinedScientificValue<UndefinedQuantityType.Dividing<UndefinedQuantityType.Multiplying<RightNumeratorLeftQuantity, LeftReciprocalAndRightNumeratorRightQuantity>, RightDenominatorQuantity>, RightUnit>,
 ) where
-	LeftReciprocalAndRightNumeratorRightUnit : UndefinedScientificUnit<LeftReciprocalAndRightNumeratorRightQuantity>,
-	LeftReciprocalAndRightNumeratorRightUnit : MeasurementUsage.UsedInUKImperial,
-	LeftReciprocalAndRightNumeratorRightUnit : MeasurementUsage.UsedInUSCustomary,
-	LeftUnit : UndefinedReciprocalUnit<LeftReciprocalAndRightNumeratorRightQuantity, LeftReciprocalAndRightNumeratorRightUnit>,
-	LeftUnit : MeasurementUsage.UsedInUKImperial,
-	LeftUnit : MeasurementUsage.UsedInUSCustomary,
-	RightNumeratorLeftUnit : UndefinedScientificUnit<RightNumeratorLeftQuantity>,
-	RightNumeratorLeftUnit : MeasurementUsage.UsedInUKImperial,
-	RightNumeratorLeftUnit : MeasurementUsage.UsedInUSCustomary,
-	RightNumeratorUnit : UndefinedMultipliedUnit<RightNumeratorLeftQuantity, RightNumeratorLeftUnit, LeftReciprocalAndRightNumeratorRightQuantity, LeftReciprocalAndRightNumeratorRightUnit>,
-	RightNumeratorUnit : MeasurementUsage.UsedInUKImperial,
-	RightNumeratorUnit : MeasurementUsage.UsedInUSCustomary,
-	RightDenominatorUnit : UndefinedScientificUnit<RightDenominatorQuantity>,
-	RightDenominatorUnit : MeasurementUsage.UsedInUKImperial,
-	RightDenominatorUnit : MeasurementUsage.UsedInUSCustomary,
-	RightUnit : UndefinedDividedUnit<UndefinedQuantityType.Multiplying<RightNumeratorLeftQuantity, LeftReciprocalAndRightNumeratorRightQuantity>, RightNumeratorUnit, RightDenominatorQuantity, RightDenominatorUnit>,
-	RightUnit : MeasurementUsage.UsedInUKImperial,
-	RightUnit : MeasurementUsage.UsedInUSCustomary =
-	times(
-		right,
-		rightNumeratorLeftUnitPerRightDenominatorUnit = { per(it) },
-	) {
-		value: Decimal,
-		unit: UndefinedDividedUnit.Imperial<
-				RightNumeratorLeftQuantity,
-				RightNumeratorLeftUnit,
-				RightDenominatorQuantity,
-				RightDenominatorUnit
-			>
-		->
-		DefaultUndefinedScientificValue(value, unit)
-	}
+        LeftReciprocalAndRightNumeratorRightUnit : UndefinedScientificUnit<LeftReciprocalAndRightNumeratorRightQuantity>,
+        LeftReciprocalAndRightNumeratorRightUnit : MeasurementUsage.UsedInUKImperial,
+        LeftReciprocalAndRightNumeratorRightUnit : MeasurementUsage.UsedInUSCustomary,
+        LeftUnit : UndefinedReciprocalUnit<LeftReciprocalAndRightNumeratorRightQuantity, LeftReciprocalAndRightNumeratorRightUnit>,
+        LeftUnit : MeasurementUsage.UsedInUKImperial,
+        LeftUnit : MeasurementUsage.UsedInUSCustomary,
+        RightNumeratorLeftUnit : UndefinedScientificUnit<RightNumeratorLeftQuantity>,
+        RightNumeratorLeftUnit : MeasurementUsage.UsedInUKImperial,
+        RightNumeratorLeftUnit : MeasurementUsage.UsedInUSCustomary,
+        RightNumeratorUnit : UndefinedMultipliedUnit<RightNumeratorLeftQuantity, RightNumeratorLeftUnit, LeftReciprocalAndRightNumeratorRightQuantity, LeftReciprocalAndRightNumeratorRightUnit>,
+        RightNumeratorUnit : MeasurementUsage.UsedInUKImperial,
+        RightNumeratorUnit : MeasurementUsage.UsedInUSCustomary,
+        RightDenominatorUnit : UndefinedScientificUnit<RightDenominatorQuantity>,
+        RightDenominatorUnit : MeasurementUsage.UsedInUKImperial,
+        RightDenominatorUnit : MeasurementUsage.UsedInUSCustomary,
+        RightUnit : UndefinedDividedUnit<UndefinedQuantityType.Multiplying<RightNumeratorLeftQuantity, LeftReciprocalAndRightNumeratorRightQuantity>, RightNumeratorUnit, RightDenominatorQuantity, RightDenominatorUnit>,
+        RightUnit : MeasurementUsage.UsedInUKImperial,
+        RightUnit : MeasurementUsage.UsedInUSCustomary =
+    times(
+        right,
+        rightNumeratorLeftUnitPerRightDenominatorUnit = { per(it) },
+    ) {
+            value: Decimal,
+            unit: UndefinedDividedUnit.Imperial<
+                RightNumeratorLeftQuantity,
+                RightNumeratorLeftUnit,
+                RightDenominatorQuantity,
+                RightDenominatorUnit,
+                >,
+        ->
+        DefaultUndefinedScientificValue(value, unit)
+    }
 
 @JvmName("ukImperialReciprocalUndefinedAValueTimesUKImperialUndefinedBXUndefinedAPerUndefinedCValue")
 infix operator fun <
-	LeftReciprocalAndRightNumeratorRightQuantity : UndefinedQuantityType,
-	LeftReciprocalAndRightNumeratorRightUnit,
-	LeftUnit,
-	RightNumeratorLeftQuantity : UndefinedQuantityType,
-	RightNumeratorLeftUnit,
-	RightNumeratorUnit,
-	RightDenominatorQuantity : UndefinedQuantityType,
-	RightDenominatorUnit,
-	RightUnit
-	> UndefinedScientificValue<UndefinedQuantityType.Reciprocal<LeftReciprocalAndRightNumeratorRightQuantity>, LeftUnit>.times(
-	right: UndefinedScientificValue<UndefinedQuantityType.Dividing<UndefinedQuantityType.Multiplying<RightNumeratorLeftQuantity, LeftReciprocalAndRightNumeratorRightQuantity>, RightDenominatorQuantity>, RightUnit>,
+    LeftReciprocalAndRightNumeratorRightQuantity : UndefinedQuantityType,
+    LeftReciprocalAndRightNumeratorRightUnit,
+    LeftUnit,
+    RightNumeratorLeftQuantity : UndefinedQuantityType,
+    RightNumeratorLeftUnit,
+    RightNumeratorUnit,
+    RightDenominatorQuantity : UndefinedQuantityType,
+    RightDenominatorUnit,
+    RightUnit,
+    > UndefinedScientificValue<UndefinedQuantityType.Reciprocal<LeftReciprocalAndRightNumeratorRightQuantity>, LeftUnit>.times(
+    right:
+    UndefinedScientificValue<UndefinedQuantityType.Dividing<UndefinedQuantityType.Multiplying<RightNumeratorLeftQuantity, LeftReciprocalAndRightNumeratorRightQuantity>, RightDenominatorQuantity>, RightUnit>,
 ) where
-	LeftReciprocalAndRightNumeratorRightUnit : UndefinedScientificUnit<LeftReciprocalAndRightNumeratorRightQuantity>,
-	LeftReciprocalAndRightNumeratorRightUnit : MeasurementUsage.UsedInUKImperial,
-	LeftUnit : UndefinedReciprocalUnit<LeftReciprocalAndRightNumeratorRightQuantity, LeftReciprocalAndRightNumeratorRightUnit>,
-	LeftUnit : MeasurementUsage.UsedInUKImperial,
-	RightNumeratorLeftUnit : UndefinedScientificUnit<RightNumeratorLeftQuantity>,
-	RightNumeratorLeftUnit : MeasurementUsage.UsedInUKImperial,
-	RightNumeratorUnit : UndefinedMultipliedUnit<RightNumeratorLeftQuantity, RightNumeratorLeftUnit, LeftReciprocalAndRightNumeratorRightQuantity, LeftReciprocalAndRightNumeratorRightUnit>,
-	RightNumeratorUnit : MeasurementUsage.UsedInUKImperial,
-	RightDenominatorUnit : UndefinedScientificUnit<RightDenominatorQuantity>,
-	RightDenominatorUnit : MeasurementUsage.UsedInUKImperial,
-	RightUnit : UndefinedDividedUnit<UndefinedQuantityType.Multiplying<RightNumeratorLeftQuantity, LeftReciprocalAndRightNumeratorRightQuantity>, RightNumeratorUnit, RightDenominatorQuantity, RightDenominatorUnit>,
-	RightUnit : MeasurementUsage.UsedInUKImperial =
-	times(
-		right,
-		rightNumeratorLeftUnitPerRightDenominatorUnit = { per(it) },
-	) {
-		value: Decimal,
-		unit: UndefinedDividedUnit.UKImperial<
-				RightNumeratorLeftQuantity,
-				RightNumeratorLeftUnit,
-				RightDenominatorQuantity,
-				RightDenominatorUnit
-			>
-		->
-		DefaultUndefinedScientificValue(value, unit)
-	}
+        LeftReciprocalAndRightNumeratorRightUnit : UndefinedScientificUnit<LeftReciprocalAndRightNumeratorRightQuantity>,
+        LeftReciprocalAndRightNumeratorRightUnit : MeasurementUsage.UsedInUKImperial,
+        LeftUnit : UndefinedReciprocalUnit<LeftReciprocalAndRightNumeratorRightQuantity, LeftReciprocalAndRightNumeratorRightUnit>,
+        LeftUnit : MeasurementUsage.UsedInUKImperial,
+        RightNumeratorLeftUnit : UndefinedScientificUnit<RightNumeratorLeftQuantity>,
+        RightNumeratorLeftUnit : MeasurementUsage.UsedInUKImperial,
+        RightNumeratorUnit : UndefinedMultipliedUnit<RightNumeratorLeftQuantity, RightNumeratorLeftUnit, LeftReciprocalAndRightNumeratorRightQuantity, LeftReciprocalAndRightNumeratorRightUnit>,
+        RightNumeratorUnit : MeasurementUsage.UsedInUKImperial,
+        RightDenominatorUnit : UndefinedScientificUnit<RightDenominatorQuantity>,
+        RightDenominatorUnit : MeasurementUsage.UsedInUKImperial,
+        RightUnit : UndefinedDividedUnit<UndefinedQuantityType.Multiplying<RightNumeratorLeftQuantity, LeftReciprocalAndRightNumeratorRightQuantity>, RightNumeratorUnit, RightDenominatorQuantity, RightDenominatorUnit>,
+        RightUnit : MeasurementUsage.UsedInUKImperial =
+    times(
+        right,
+        rightNumeratorLeftUnitPerRightDenominatorUnit = { per(it) },
+    ) {
+            value: Decimal,
+            unit: UndefinedDividedUnit.UKImperial<
+                RightNumeratorLeftQuantity,
+                RightNumeratorLeftUnit,
+                RightDenominatorQuantity,
+                RightDenominatorUnit,
+                >,
+        ->
+        DefaultUndefinedScientificValue(value, unit)
+    }
 
 @JvmName("usCustomaryReciprocalUndefinedAValueTimesUSCustomaryUndefinedBXUndefinedAPerUndefinedCValue")
 infix operator fun <
-	LeftReciprocalAndRightNumeratorRightQuantity : UndefinedQuantityType,
-	LeftReciprocalAndRightNumeratorRightUnit,
-	LeftUnit,
-	RightNumeratorLeftQuantity : UndefinedQuantityType,
-	RightNumeratorLeftUnit,
-	RightNumeratorUnit,
-	RightDenominatorQuantity : UndefinedQuantityType,
-	RightDenominatorUnit,
-	RightUnit
-	> UndefinedScientificValue<UndefinedQuantityType.Reciprocal<LeftReciprocalAndRightNumeratorRightQuantity>, LeftUnit>.times(
-	right: UndefinedScientificValue<UndefinedQuantityType.Dividing<UndefinedQuantityType.Multiplying<RightNumeratorLeftQuantity, LeftReciprocalAndRightNumeratorRightQuantity>, RightDenominatorQuantity>, RightUnit>,
+    LeftReciprocalAndRightNumeratorRightQuantity : UndefinedQuantityType,
+    LeftReciprocalAndRightNumeratorRightUnit,
+    LeftUnit,
+    RightNumeratorLeftQuantity : UndefinedQuantityType,
+    RightNumeratorLeftUnit,
+    RightNumeratorUnit,
+    RightDenominatorQuantity : UndefinedQuantityType,
+    RightDenominatorUnit,
+    RightUnit,
+    > UndefinedScientificValue<UndefinedQuantityType.Reciprocal<LeftReciprocalAndRightNumeratorRightQuantity>, LeftUnit>.times(
+    right:
+    UndefinedScientificValue<UndefinedQuantityType.Dividing<UndefinedQuantityType.Multiplying<RightNumeratorLeftQuantity, LeftReciprocalAndRightNumeratorRightQuantity>, RightDenominatorQuantity>, RightUnit>,
 ) where
-	LeftReciprocalAndRightNumeratorRightUnit : UndefinedScientificUnit<LeftReciprocalAndRightNumeratorRightQuantity>,
-	LeftReciprocalAndRightNumeratorRightUnit : MeasurementUsage.UsedInUSCustomary,
-	LeftUnit : UndefinedReciprocalUnit<LeftReciprocalAndRightNumeratorRightQuantity, LeftReciprocalAndRightNumeratorRightUnit>,
-	LeftUnit : MeasurementUsage.UsedInUSCustomary,
-	RightNumeratorLeftUnit : UndefinedScientificUnit<RightNumeratorLeftQuantity>,
-	RightNumeratorLeftUnit : MeasurementUsage.UsedInUSCustomary,
-	RightNumeratorUnit : UndefinedMultipliedUnit<RightNumeratorLeftQuantity, RightNumeratorLeftUnit, LeftReciprocalAndRightNumeratorRightQuantity, LeftReciprocalAndRightNumeratorRightUnit>,
-	RightNumeratorUnit : MeasurementUsage.UsedInUSCustomary,
-	RightDenominatorUnit : UndefinedScientificUnit<RightDenominatorQuantity>,
-	RightDenominatorUnit : MeasurementUsage.UsedInUSCustomary,
-	RightUnit : UndefinedDividedUnit<UndefinedQuantityType.Multiplying<RightNumeratorLeftQuantity, LeftReciprocalAndRightNumeratorRightQuantity>, RightNumeratorUnit, RightDenominatorQuantity, RightDenominatorUnit>,
-	RightUnit : MeasurementUsage.UsedInUSCustomary =
-	times(
-		right,
-		rightNumeratorLeftUnitPerRightDenominatorUnit = { per(it) },
-	) {
-		value: Decimal,
-		unit: UndefinedDividedUnit.USCustomary<
-				RightNumeratorLeftQuantity,
-				RightNumeratorLeftUnit,
-				RightDenominatorQuantity,
-				RightDenominatorUnit
-			>
-		->
-		DefaultUndefinedScientificValue(value, unit)
-	}
+        LeftReciprocalAndRightNumeratorRightUnit : UndefinedScientificUnit<LeftReciprocalAndRightNumeratorRightQuantity>,
+        LeftReciprocalAndRightNumeratorRightUnit : MeasurementUsage.UsedInUSCustomary,
+        LeftUnit : UndefinedReciprocalUnit<LeftReciprocalAndRightNumeratorRightQuantity, LeftReciprocalAndRightNumeratorRightUnit>,
+        LeftUnit : MeasurementUsage.UsedInUSCustomary,
+        RightNumeratorLeftUnit : UndefinedScientificUnit<RightNumeratorLeftQuantity>,
+        RightNumeratorLeftUnit : MeasurementUsage.UsedInUSCustomary,
+        RightNumeratorUnit : UndefinedMultipliedUnit<RightNumeratorLeftQuantity, RightNumeratorLeftUnit, LeftReciprocalAndRightNumeratorRightQuantity, LeftReciprocalAndRightNumeratorRightUnit>,
+        RightNumeratorUnit : MeasurementUsage.UsedInUSCustomary,
+        RightDenominatorUnit : UndefinedScientificUnit<RightDenominatorQuantity>,
+        RightDenominatorUnit : MeasurementUsage.UsedInUSCustomary,
+        RightUnit : UndefinedDividedUnit<UndefinedQuantityType.Multiplying<RightNumeratorLeftQuantity, LeftReciprocalAndRightNumeratorRightQuantity>, RightNumeratorUnit, RightDenominatorQuantity, RightDenominatorUnit>,
+        RightUnit : MeasurementUsage.UsedInUSCustomary =
+    times(
+        right,
+        rightNumeratorLeftUnitPerRightDenominatorUnit = { per(it) },
+    ) {
+            value: Decimal,
+            unit: UndefinedDividedUnit.USCustomary<
+                RightNumeratorLeftQuantity,
+                RightNumeratorLeftUnit,
+                RightDenominatorQuantity,
+                RightDenominatorUnit,
+                >,
+        ->
+        DefaultUndefinedScientificValue(value, unit)
+    }
 
 @JvmName("metricAndUKImperialReciprocalUndefinedAValueTimesMetricAndUKImperialUndefinedBXUndefinedAPerUndefinedCValue")
 infix operator fun <
-	LeftReciprocalAndRightNumeratorRightQuantity : UndefinedQuantityType,
-	LeftReciprocalAndRightNumeratorRightUnit,
-	LeftUnit,
-	RightNumeratorLeftQuantity : UndefinedQuantityType,
-	RightNumeratorLeftUnit,
-	RightNumeratorUnit,
-	RightDenominatorQuantity : UndefinedQuantityType,
-	RightDenominatorUnit,
-	RightUnit
-	> UndefinedScientificValue<UndefinedQuantityType.Reciprocal<LeftReciprocalAndRightNumeratorRightQuantity>, LeftUnit>.times(
-	right: UndefinedScientificValue<UndefinedQuantityType.Dividing<UndefinedQuantityType.Multiplying<RightNumeratorLeftQuantity, LeftReciprocalAndRightNumeratorRightQuantity>, RightDenominatorQuantity>, RightUnit>,
+    LeftReciprocalAndRightNumeratorRightQuantity : UndefinedQuantityType,
+    LeftReciprocalAndRightNumeratorRightUnit,
+    LeftUnit,
+    RightNumeratorLeftQuantity : UndefinedQuantityType,
+    RightNumeratorLeftUnit,
+    RightNumeratorUnit,
+    RightDenominatorQuantity : UndefinedQuantityType,
+    RightDenominatorUnit,
+    RightUnit,
+    > UndefinedScientificValue<UndefinedQuantityType.Reciprocal<LeftReciprocalAndRightNumeratorRightQuantity>, LeftUnit>.times(
+    right:
+    UndefinedScientificValue<UndefinedQuantityType.Dividing<UndefinedQuantityType.Multiplying<RightNumeratorLeftQuantity, LeftReciprocalAndRightNumeratorRightQuantity>, RightDenominatorQuantity>, RightUnit>,
 ) where
-	LeftReciprocalAndRightNumeratorRightUnit : UndefinedScientificUnit<LeftReciprocalAndRightNumeratorRightQuantity>,
-	LeftReciprocalAndRightNumeratorRightUnit : MeasurementUsage.UsedInMetric,
-	LeftReciprocalAndRightNumeratorRightUnit : MeasurementUsage.UsedInUKImperial,
-	LeftUnit : UndefinedReciprocalUnit<LeftReciprocalAndRightNumeratorRightQuantity, LeftReciprocalAndRightNumeratorRightUnit>,
-	LeftUnit : MeasurementUsage.UsedInMetric,
-	LeftUnit : MeasurementUsage.UsedInUKImperial,
-	RightNumeratorLeftUnit : UndefinedScientificUnit<RightNumeratorLeftQuantity>,
-	RightNumeratorLeftUnit : MeasurementUsage.UsedInMetric,
-	RightNumeratorLeftUnit : MeasurementUsage.UsedInUKImperial,
-	RightNumeratorUnit : UndefinedMultipliedUnit<RightNumeratorLeftQuantity, RightNumeratorLeftUnit, LeftReciprocalAndRightNumeratorRightQuantity, LeftReciprocalAndRightNumeratorRightUnit>,
-	RightNumeratorUnit : MeasurementUsage.UsedInMetric,
-	RightNumeratorUnit : MeasurementUsage.UsedInUKImperial,
-	RightDenominatorUnit : UndefinedScientificUnit<RightDenominatorQuantity>,
-	RightDenominatorUnit : MeasurementUsage.UsedInMetric,
-	RightDenominatorUnit : MeasurementUsage.UsedInUKImperial,
-	RightUnit : UndefinedDividedUnit<UndefinedQuantityType.Multiplying<RightNumeratorLeftQuantity, LeftReciprocalAndRightNumeratorRightQuantity>, RightNumeratorUnit, RightDenominatorQuantity, RightDenominatorUnit>,
-	RightUnit : MeasurementUsage.UsedInMetric,
-	RightUnit : MeasurementUsage.UsedInUKImperial =
-	times(
-		right,
-		rightNumeratorLeftUnitPerRightDenominatorUnit = { per(it) },
-	) {
-		value: Decimal,
-		unit: UndefinedDividedUnit.MetricAndUKImperial<
-				RightNumeratorLeftQuantity,
-				RightNumeratorLeftUnit,
-				RightDenominatorQuantity,
-				RightDenominatorUnit
-			>
-		->
-		DefaultUndefinedScientificValue(value, unit)
-	}
+        LeftReciprocalAndRightNumeratorRightUnit : UndefinedScientificUnit<LeftReciprocalAndRightNumeratorRightQuantity>,
+        LeftReciprocalAndRightNumeratorRightUnit : MeasurementUsage.UsedInMetric,
+        LeftReciprocalAndRightNumeratorRightUnit : MeasurementUsage.UsedInUKImperial,
+        LeftUnit : UndefinedReciprocalUnit<LeftReciprocalAndRightNumeratorRightQuantity, LeftReciprocalAndRightNumeratorRightUnit>,
+        LeftUnit : MeasurementUsage.UsedInMetric,
+        LeftUnit : MeasurementUsage.UsedInUKImperial,
+        RightNumeratorLeftUnit : UndefinedScientificUnit<RightNumeratorLeftQuantity>,
+        RightNumeratorLeftUnit : MeasurementUsage.UsedInMetric,
+        RightNumeratorLeftUnit : MeasurementUsage.UsedInUKImperial,
+        RightNumeratorUnit : UndefinedMultipliedUnit<RightNumeratorLeftQuantity, RightNumeratorLeftUnit, LeftReciprocalAndRightNumeratorRightQuantity, LeftReciprocalAndRightNumeratorRightUnit>,
+        RightNumeratorUnit : MeasurementUsage.UsedInMetric,
+        RightNumeratorUnit : MeasurementUsage.UsedInUKImperial,
+        RightDenominatorUnit : UndefinedScientificUnit<RightDenominatorQuantity>,
+        RightDenominatorUnit : MeasurementUsage.UsedInMetric,
+        RightDenominatorUnit : MeasurementUsage.UsedInUKImperial,
+        RightUnit : UndefinedDividedUnit<UndefinedQuantityType.Multiplying<RightNumeratorLeftQuantity, LeftReciprocalAndRightNumeratorRightQuantity>, RightNumeratorUnit, RightDenominatorQuantity, RightDenominatorUnit>,
+        RightUnit : MeasurementUsage.UsedInMetric,
+        RightUnit : MeasurementUsage.UsedInUKImperial =
+    times(
+        right,
+        rightNumeratorLeftUnitPerRightDenominatorUnit = { per(it) },
+    ) {
+            value: Decimal,
+            unit: UndefinedDividedUnit.MetricAndUKImperial<
+                RightNumeratorLeftQuantity,
+                RightNumeratorLeftUnit,
+                RightDenominatorQuantity,
+                RightDenominatorUnit,
+                >,
+        ->
+        DefaultUndefinedScientificValue(value, unit)
+    }
 
 @JvmName("metricAndUSCustomaryReciprocalUndefinedAValueTimesMetricAndUSCustomaryUndefinedBXUndefinedAPerUndefinedCValue")
 infix operator fun <
-	LeftReciprocalAndRightNumeratorRightQuantity : UndefinedQuantityType,
-	LeftReciprocalAndRightNumeratorRightUnit,
-	LeftUnit,
-	RightNumeratorLeftQuantity : UndefinedQuantityType,
-	RightNumeratorLeftUnit,
-	RightNumeratorUnit,
-	RightDenominatorQuantity : UndefinedQuantityType,
-	RightDenominatorUnit,
-	RightUnit
-	> UndefinedScientificValue<UndefinedQuantityType.Reciprocal<LeftReciprocalAndRightNumeratorRightQuantity>, LeftUnit>.times(
-	right: UndefinedScientificValue<UndefinedQuantityType.Dividing<UndefinedQuantityType.Multiplying<RightNumeratorLeftQuantity, LeftReciprocalAndRightNumeratorRightQuantity>, RightDenominatorQuantity>, RightUnit>,
+    LeftReciprocalAndRightNumeratorRightQuantity : UndefinedQuantityType,
+    LeftReciprocalAndRightNumeratorRightUnit,
+    LeftUnit,
+    RightNumeratorLeftQuantity : UndefinedQuantityType,
+    RightNumeratorLeftUnit,
+    RightNumeratorUnit,
+    RightDenominatorQuantity : UndefinedQuantityType,
+    RightDenominatorUnit,
+    RightUnit,
+    > UndefinedScientificValue<UndefinedQuantityType.Reciprocal<LeftReciprocalAndRightNumeratorRightQuantity>, LeftUnit>.times(
+    right:
+    UndefinedScientificValue<UndefinedQuantityType.Dividing<UndefinedQuantityType.Multiplying<RightNumeratorLeftQuantity, LeftReciprocalAndRightNumeratorRightQuantity>, RightDenominatorQuantity>, RightUnit>,
 ) where
-	LeftReciprocalAndRightNumeratorRightUnit : UndefinedScientificUnit<LeftReciprocalAndRightNumeratorRightQuantity>,
-	LeftReciprocalAndRightNumeratorRightUnit : MeasurementUsage.UsedInMetric,
-	LeftReciprocalAndRightNumeratorRightUnit : MeasurementUsage.UsedInUSCustomary,
-	LeftUnit : UndefinedReciprocalUnit<LeftReciprocalAndRightNumeratorRightQuantity, LeftReciprocalAndRightNumeratorRightUnit>,
-	LeftUnit : MeasurementUsage.UsedInMetric,
-	LeftUnit : MeasurementUsage.UsedInUSCustomary,
-	RightNumeratorLeftUnit : UndefinedScientificUnit<RightNumeratorLeftQuantity>,
-	RightNumeratorLeftUnit : MeasurementUsage.UsedInMetric,
-	RightNumeratorLeftUnit : MeasurementUsage.UsedInUSCustomary,
-	RightNumeratorUnit : UndefinedMultipliedUnit<RightNumeratorLeftQuantity, RightNumeratorLeftUnit, LeftReciprocalAndRightNumeratorRightQuantity, LeftReciprocalAndRightNumeratorRightUnit>,
-	RightNumeratorUnit : MeasurementUsage.UsedInMetric,
-	RightNumeratorUnit : MeasurementUsage.UsedInUSCustomary,
-	RightDenominatorUnit : UndefinedScientificUnit<RightDenominatorQuantity>,
-	RightDenominatorUnit : MeasurementUsage.UsedInMetric,
-	RightDenominatorUnit : MeasurementUsage.UsedInUSCustomary,
-	RightUnit : UndefinedDividedUnit<UndefinedQuantityType.Multiplying<RightNumeratorLeftQuantity, LeftReciprocalAndRightNumeratorRightQuantity>, RightNumeratorUnit, RightDenominatorQuantity, RightDenominatorUnit>,
-	RightUnit : MeasurementUsage.UsedInMetric,
-	RightUnit : MeasurementUsage.UsedInUSCustomary =
-	times(
-		right,
-		rightNumeratorLeftUnitPerRightDenominatorUnit = { per(it) },
-	) {
-		value: Decimal,
-		unit: UndefinedDividedUnit.MetricAndUSCustomary<
-				RightNumeratorLeftQuantity,
-				RightNumeratorLeftUnit,
-				RightDenominatorQuantity,
-				RightDenominatorUnit
-			>
-		->
-		DefaultUndefinedScientificValue(value, unit)
-	}
-
+        LeftReciprocalAndRightNumeratorRightUnit : UndefinedScientificUnit<LeftReciprocalAndRightNumeratorRightQuantity>,
+        LeftReciprocalAndRightNumeratorRightUnit : MeasurementUsage.UsedInMetric,
+        LeftReciprocalAndRightNumeratorRightUnit : MeasurementUsage.UsedInUSCustomary,
+        LeftUnit : UndefinedReciprocalUnit<LeftReciprocalAndRightNumeratorRightQuantity, LeftReciprocalAndRightNumeratorRightUnit>,
+        LeftUnit : MeasurementUsage.UsedInMetric,
+        LeftUnit : MeasurementUsage.UsedInUSCustomary,
+        RightNumeratorLeftUnit : UndefinedScientificUnit<RightNumeratorLeftQuantity>,
+        RightNumeratorLeftUnit : MeasurementUsage.UsedInMetric,
+        RightNumeratorLeftUnit : MeasurementUsage.UsedInUSCustomary,
+        RightNumeratorUnit : UndefinedMultipliedUnit<RightNumeratorLeftQuantity, RightNumeratorLeftUnit, LeftReciprocalAndRightNumeratorRightQuantity, LeftReciprocalAndRightNumeratorRightUnit>,
+        RightNumeratorUnit : MeasurementUsage.UsedInMetric,
+        RightNumeratorUnit : MeasurementUsage.UsedInUSCustomary,
+        RightDenominatorUnit : UndefinedScientificUnit<RightDenominatorQuantity>,
+        RightDenominatorUnit : MeasurementUsage.UsedInMetric,
+        RightDenominatorUnit : MeasurementUsage.UsedInUSCustomary,
+        RightUnit : UndefinedDividedUnit<UndefinedQuantityType.Multiplying<RightNumeratorLeftQuantity, LeftReciprocalAndRightNumeratorRightQuantity>, RightNumeratorUnit, RightDenominatorQuantity, RightDenominatorUnit>,
+        RightUnit : MeasurementUsage.UsedInMetric,
+        RightUnit : MeasurementUsage.UsedInUSCustomary =
+    times(
+        right,
+        rightNumeratorLeftUnitPerRightDenominatorUnit = { per(it) },
+    ) {
+            value: Decimal,
+            unit: UndefinedDividedUnit.MetricAndUSCustomary<
+                RightNumeratorLeftQuantity,
+                RightNumeratorLeftUnit,
+                RightDenominatorQuantity,
+                RightDenominatorUnit,
+                >,
+        ->
+        DefaultUndefinedScientificValue(value, unit)
+    }

@@ -29,9 +29,10 @@ fun <
     InverseQuantity : UndefinedQuantityType,
     InverseUnit,
     > InverseUnit.reciprocal() where
-      InverseUnit : UndefinedScientificUnit<InverseQuantity>,
-      InverseUnit : MeasurementUsage.UsedInMetric,
-      InverseUnit : MeasurementUsage.UsedInUKImperial = UndefinedReciprocalUnit.MetricAndUKImperial(this)
+                                     InverseUnit : UndefinedScientificUnit<InverseQuantity>,
+                                     InverseUnit : MeasurementUsage.UsedInMetric,
+                                     InverseUnit : MeasurementUsage.UsedInUKImperial =
+    UndefinedReciprocalUnit.MetricAndUKImperial(this)
 
 /**
  * [InverseUnit] -> [UndefinedReciprocalUnit.MetricAndUKImperial] ([WrappedUndefinedExtendedUnit.MetricAndUKImperial] ([InverseUnit]))
@@ -41,9 +42,10 @@ fun <
     InverseQuantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
     InverseUnit,
     > InverseUnit.reciprocal() where
-      InverseUnit : ScientificUnit<InverseQuantity>,
-      InverseUnit : MeasurementUsage.UsedInMetric,
-      InverseUnit : MeasurementUsage.UsedInUKImperial = asUndefined().reciprocal()
+                                     InverseUnit : ScientificUnit<InverseQuantity>,
+                                     InverseUnit : MeasurementUsage.UsedInMetric,
+                                     InverseUnit : MeasurementUsage.UsedInUKImperial =
+    asUndefined().reciprocal()
 
 /**
  * [ReciprocalUnit] -> [InverseUnit]
@@ -54,12 +56,12 @@ fun <
     InverseUnit,
     ReciprocalUnit,
     > ReciprocalUnit.reciprocal() where
-      InverseUnit : UndefinedScientificUnit<InverseQuantity>,
-      InverseUnit : MeasurementUsage.UsedInMetric,
-      InverseUnit : MeasurementUsage.UsedInUKImperial,
-      ReciprocalUnit : UndefinedReciprocalUnit<InverseQuantity, InverseUnit>,
-      ReciprocalUnit : MeasurementUsage.UsedInMetric,
-      ReciprocalUnit : MeasurementUsage.UsedInUKImperial =
+                                        InverseUnit : UndefinedScientificUnit<InverseQuantity>,
+                                        InverseUnit : MeasurementUsage.UsedInMetric,
+                                        InverseUnit : MeasurementUsage.UsedInUKImperial,
+                                        ReciprocalUnit : UndefinedReciprocalUnit<InverseQuantity, InverseUnit>,
+                                        ReciprocalUnit : MeasurementUsage.UsedInMetric,
+                                        ReciprocalUnit : MeasurementUsage.UsedInUKImperial =
     inverse
 
 /**
@@ -72,15 +74,15 @@ fun <
     InverseUnit,
     ReciprocalUnit,
     > ReciprocalUnit.reciprocal() where
-      WrappedUnit : ScientificUnit<WrappedQuantity>,
-      WrappedUnit : MeasurementUsage.UsedInMetric,
-      WrappedUnit : MeasurementUsage.UsedInUKImperial,
-      InverseUnit : WrappedUndefinedExtendedUnit<WrappedQuantity, WrappedUnit>,
-      InverseUnit : MeasurementUsage.UsedInMetric,
-      InverseUnit : MeasurementUsage.UsedInUKImperial,
-      ReciprocalUnit : UndefinedReciprocalUnit<UndefinedQuantityType.Extended<WrappedQuantity>, InverseUnit>,
-      ReciprocalUnit : MeasurementUsage.UsedInMetric,
-      ReciprocalUnit : MeasurementUsage.UsedInUKImperial =
+                                        WrappedUnit : ScientificUnit<WrappedQuantity>,
+                                        WrappedUnit : MeasurementUsage.UsedInMetric,
+                                        WrappedUnit : MeasurementUsage.UsedInUKImperial,
+                                        InverseUnit : WrappedUndefinedExtendedUnit<WrappedQuantity, WrappedUnit>,
+                                        InverseUnit : MeasurementUsage.UsedInMetric,
+                                        InverseUnit : MeasurementUsage.UsedInUKImperial,
+                                        ReciprocalUnit : UndefinedReciprocalUnit<UndefinedQuantityType.Extended<WrappedQuantity>, InverseUnit>,
+                                        ReciprocalUnit : MeasurementUsage.UsedInMetric,
+                                        ReciprocalUnit : MeasurementUsage.UsedInUKImperial =
     inverse.wrapped
 
 /**
@@ -94,12 +96,13 @@ fun <
     DenominatorUnit,
     DividerUnit,
     > DividerUnit.reciprocal() where
-      NumeratorUnit : UndefinedScientificUnit<NumeratorQuantity>,
-      NumeratorUnit : MeasurementUsage.UsedInMetric,
-      NumeratorUnit : MeasurementUsage.UsedInUKImperial,
-      DenominatorUnit : UndefinedScientificUnit<DenominatorQuantity>,
-      DenominatorUnit : MeasurementUsage.UsedInMetric,
-      DenominatorUnit : MeasurementUsage.UsedInUKImperial,
-      DividerUnit : UndefinedDividedUnit<NumeratorQuantity, NumeratorUnit, DenominatorQuantity, DenominatorUnit>,
-      DividerUnit : MeasurementUsage.UsedInMetric,
-      DividerUnit : MeasurementUsage.UsedInUKImperial = denominator per numerator
+                                     NumeratorUnit : UndefinedScientificUnit<NumeratorQuantity>,
+                                     NumeratorUnit : MeasurementUsage.UsedInMetric,
+                                     NumeratorUnit : MeasurementUsage.UsedInUKImperial,
+                                     DenominatorUnit : UndefinedScientificUnit<DenominatorQuantity>,
+                                     DenominatorUnit : MeasurementUsage.UsedInMetric,
+                                     DenominatorUnit : MeasurementUsage.UsedInUKImperial,
+                                     DividerUnit : UndefinedDividedUnit<NumeratorQuantity, NumeratorUnit, DenominatorQuantity, DenominatorUnit>,
+                                     DividerUnit : MeasurementUsage.UsedInMetric,
+                                     DividerUnit : MeasurementUsage.UsedInUKImperial =
+    denominator per numerator

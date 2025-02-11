@@ -48,7 +48,8 @@ internal fun <
 infix operator fun <
     Quantity : PhysicalQuantity,
     Unit : AbstractScientificUnit<Quantity>,
-    > ScientificValue<Quantity, Unit>.times(value: Number) = this * value.toDecimal()
+    > ScientificValue<Quantity, Unit>.times(value: Number) =
+    this * value.toDecimal()
 
 /**
  * Creates a [DefaultScientificValue] equal to a [ScientificValue.value] multiplied by this [Number]
@@ -72,7 +73,8 @@ infix operator fun <
 infix operator fun <
     Quantity : PhysicalQuantity,
     Unit : AbstractScientificUnit<Quantity>,
-    > ScientificValue<Quantity, Unit>.times(value: Decimal) = times(value, ::DefaultScientificValue)
+    > ScientificValue<Quantity, Unit>.times(value: Decimal) =
+    times(value, ::DefaultScientificValue)
 
 /**
  * Creates a [DefaultScientificValue] equal to a [ScientificValue.value] multiplied by this [Decimal]
@@ -84,7 +86,8 @@ infix operator fun <
 infix operator fun <
     Quantity : PhysicalQuantity,
     Unit : AbstractScientificUnit<Quantity>,
-    > Decimal.times(value: ScientificValue<Quantity, Unit>) = times(value, ::DefaultScientificValue)
+    > Decimal.times(value: ScientificValue<Quantity, Unit>) =
+    times(value, ::DefaultScientificValue)
 
 /**
  * Creates a [DefaultUndefinedScientificValue] equal to the [UndefinedScientificValue.value] multiplied by [value]
@@ -96,7 +99,8 @@ infix operator fun <
 infix operator fun <
     Quantity : UndefinedQuantityType,
     Unit : UndefinedScientificUnit<Quantity>,
-    > UndefinedScientificValue<Quantity, Unit>.times(value: Decimal) = times(value, ::DefaultUndefinedScientificValue)
+    > UndefinedScientificValue<Quantity, Unit>.times(value: Decimal) =
+    times(value, ::DefaultUndefinedScientificValue)
 
 /**
  * Creates a [DefaultUndefinedScientificValue] equal to a [UndefinedScientificValue.value] multiplied by this [Decimal]
@@ -108,7 +112,8 @@ infix operator fun <
 infix operator fun <
     Quantity : UndefinedQuantityType,
     Unit : UndefinedScientificUnit<Quantity>,
-    > Decimal.times(value: UndefinedScientificValue<Quantity, Unit>) = times(value, ::DefaultUndefinedScientificValue)
+    > Decimal.times(value: UndefinedScientificValue<Quantity, Unit>) =
+    times(value, ::DefaultUndefinedScientificValue)
 
 /**
  * Creates a [Value] equal to the [ScientificValue.value] multiplied by [value]
@@ -158,7 +163,9 @@ infix operator fun <
     Quantity : PhysicalQuantity,
     LeftUnit : AbstractScientificUnit<Quantity>,
     RightUnit : ScientificUnit<Quantity>,
-    > ScientificValue<Quantity, LeftUnit>.times(right: ScientificValue<Quantity, RightUnit>) = unit.times(this, right, ::DefaultScientificValue)
+    > ScientificValue<Quantity, LeftUnit>.times(
+    right: ScientificValue<Quantity, RightUnit>,
+) = unit.times(this, right, ::DefaultScientificValue)
 
 /**
  * Multiplies the [ScientificValue.value] of two [ScientificValue] into a [Value] with [TargetUnit] as its unit

@@ -34,235 +34,233 @@ import kotlin.jvm.JvmName
 
 @JvmName("wrappedUndefinedAXUndefinedBValueDivUndefinedBValue")
 fun <
-	NumeratorLeftQuantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
-	NumeratorLeftUnit : ScientificUnit<NumeratorLeftQuantity>,
-	WrappedNumeratorLeftUnit : WrappedUndefinedExtendedUnit<NumeratorLeftQuantity, NumeratorLeftUnit>,
-	NumeratorRightAndDenominatorQuantity : UndefinedQuantityType,
-	NumeratorRightAndDenominatorUnit : UndefinedScientificUnit<NumeratorRightAndDenominatorQuantity>,
-	NumeratorUnit : UndefinedMultipliedUnit<UndefinedQuantityType.Extended<NumeratorLeftQuantity>, WrappedNumeratorLeftUnit, NumeratorRightAndDenominatorQuantity, NumeratorRightAndDenominatorUnit>,
-	NumeratorLeftValue : ScientificValue<NumeratorLeftQuantity, NumeratorLeftUnit>
-	> UndefinedScientificValue<UndefinedQuantityType.Multiplying<UndefinedQuantityType.Extended<NumeratorLeftQuantity>, NumeratorRightAndDenominatorQuantity>, NumeratorUnit>.div(
-	right: UndefinedScientificValue<NumeratorRightAndDenominatorQuantity, NumeratorRightAndDenominatorUnit>,
-	factory: (Decimal, NumeratorLeftUnit) -> NumeratorLeftValue
+    NumeratorLeftQuantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
+    NumeratorLeftUnit : ScientificUnit<NumeratorLeftQuantity>,
+    WrappedNumeratorLeftUnit : WrappedUndefinedExtendedUnit<NumeratorLeftQuantity, NumeratorLeftUnit>,
+    NumeratorRightAndDenominatorQuantity : UndefinedQuantityType,
+    NumeratorRightAndDenominatorUnit : UndefinedScientificUnit<NumeratorRightAndDenominatorQuantity>,
+    NumeratorUnit : UndefinedMultipliedUnit<UndefinedQuantityType.Extended<NumeratorLeftQuantity>, WrappedNumeratorLeftUnit, NumeratorRightAndDenominatorQuantity, NumeratorRightAndDenominatorUnit>,
+    NumeratorLeftValue : ScientificValue<NumeratorLeftQuantity, NumeratorLeftUnit>,
+    > UndefinedScientificValue<UndefinedQuantityType.Multiplying<UndefinedQuantityType.Extended<NumeratorLeftQuantity>, NumeratorRightAndDenominatorQuantity>, NumeratorUnit>.div(
+    right: UndefinedScientificValue<NumeratorRightAndDenominatorQuantity, NumeratorRightAndDenominatorUnit>,
+    factory: (Decimal, NumeratorLeftUnit) -> NumeratorLeftValue,
 ) = unit.left.wrapped.byDividing(this, right, factory)
 
 @JvmName("metricAndImperialWrappedUndefinedAXUndefinedBValueDivMetricAndImperialUndefinedBValue")
 infix operator fun <
-	NumeratorLeftQuantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
-	NumeratorLeftUnit,
-	WrappedNumeratorLeftUnit,
-	NumeratorRightAndDenominatorQuantity : UndefinedQuantityType,
-	NumeratorRightAndDenominatorUnit,
-	NumeratorUnit
-	> UndefinedScientificValue<UndefinedQuantityType.Multiplying<UndefinedQuantityType.Extended<NumeratorLeftQuantity>, NumeratorRightAndDenominatorQuantity>, NumeratorUnit>.div(
-	right: UndefinedScientificValue<NumeratorRightAndDenominatorQuantity, NumeratorRightAndDenominatorUnit>,
+    NumeratorLeftQuantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
+    NumeratorLeftUnit,
+    WrappedNumeratorLeftUnit,
+    NumeratorRightAndDenominatorQuantity : UndefinedQuantityType,
+    NumeratorRightAndDenominatorUnit,
+    NumeratorUnit,
+    > UndefinedScientificValue<UndefinedQuantityType.Multiplying<UndefinedQuantityType.Extended<NumeratorLeftQuantity>, NumeratorRightAndDenominatorQuantity>, NumeratorUnit>.div(
+    right: UndefinedScientificValue<NumeratorRightAndDenominatorQuantity, NumeratorRightAndDenominatorUnit>,
 ) where
-	NumeratorLeftUnit : AbstractScientificUnit<NumeratorLeftQuantity>,
-	NumeratorLeftUnit : MeasurementUsage.UsedInMetric,
-	NumeratorLeftUnit : MeasurementUsage.UsedInUKImperial,
-	NumeratorLeftUnit : MeasurementUsage.UsedInUSCustomary,
-	WrappedNumeratorLeftUnit : WrappedUndefinedExtendedUnit<NumeratorLeftQuantity, NumeratorLeftUnit>,
-	WrappedNumeratorLeftUnit : MeasurementUsage.UsedInMetric,
-	WrappedNumeratorLeftUnit : MeasurementUsage.UsedInUKImperial,
-	WrappedNumeratorLeftUnit : MeasurementUsage.UsedInUSCustomary,
-	NumeratorRightAndDenominatorUnit : UndefinedScientificUnit<NumeratorRightAndDenominatorQuantity>,
-	NumeratorRightAndDenominatorUnit : MeasurementUsage.UsedInMetric,
-	NumeratorRightAndDenominatorUnit : MeasurementUsage.UsedInUKImperial,
-	NumeratorRightAndDenominatorUnit : MeasurementUsage.UsedInUSCustomary,
-	NumeratorUnit : UndefinedMultipliedUnit<UndefinedQuantityType.Extended<NumeratorLeftQuantity>, WrappedNumeratorLeftUnit, NumeratorRightAndDenominatorQuantity, NumeratorRightAndDenominatorUnit>,
-	NumeratorUnit : MeasurementUsage.UsedInMetric,
-	NumeratorUnit : MeasurementUsage.UsedInUKImperial,
-	NumeratorUnit : MeasurementUsage.UsedInUSCustomary =
-	div(right) {
-		value: Decimal,
-		unit: NumeratorLeftUnit
-		->
-		DefaultScientificValue(value, unit)
-	}
+        NumeratorLeftUnit : AbstractScientificUnit<NumeratorLeftQuantity>,
+        NumeratorLeftUnit : MeasurementUsage.UsedInMetric,
+        NumeratorLeftUnit : MeasurementUsage.UsedInUKImperial,
+        NumeratorLeftUnit : MeasurementUsage.UsedInUSCustomary,
+        WrappedNumeratorLeftUnit : WrappedUndefinedExtendedUnit<NumeratorLeftQuantity, NumeratorLeftUnit>,
+        WrappedNumeratorLeftUnit : MeasurementUsage.UsedInMetric,
+        WrappedNumeratorLeftUnit : MeasurementUsage.UsedInUKImperial,
+        WrappedNumeratorLeftUnit : MeasurementUsage.UsedInUSCustomary,
+        NumeratorRightAndDenominatorUnit : UndefinedScientificUnit<NumeratorRightAndDenominatorQuantity>,
+        NumeratorRightAndDenominatorUnit : MeasurementUsage.UsedInMetric,
+        NumeratorRightAndDenominatorUnit : MeasurementUsage.UsedInUKImperial,
+        NumeratorRightAndDenominatorUnit : MeasurementUsage.UsedInUSCustomary,
+        NumeratorUnit : UndefinedMultipliedUnit<UndefinedQuantityType.Extended<NumeratorLeftQuantity>, WrappedNumeratorLeftUnit, NumeratorRightAndDenominatorQuantity, NumeratorRightAndDenominatorUnit>,
+        NumeratorUnit : MeasurementUsage.UsedInMetric,
+        NumeratorUnit : MeasurementUsage.UsedInUKImperial,
+        NumeratorUnit : MeasurementUsage.UsedInUSCustomary =
+    div(right) {
+            value: Decimal,
+            unit: NumeratorLeftUnit,
+        ->
+        DefaultScientificValue(value, unit)
+    }
 
 @JvmName("metricWrappedUndefinedAXUndefinedBValueDivMetricUndefinedBValue")
 infix operator fun <
-	NumeratorLeftQuantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
-	NumeratorLeftUnit,
-	WrappedNumeratorLeftUnit,
-	NumeratorRightAndDenominatorQuantity : UndefinedQuantityType,
-	NumeratorRightAndDenominatorUnit,
-	NumeratorUnit
-	> UndefinedScientificValue<UndefinedQuantityType.Multiplying<UndefinedQuantityType.Extended<NumeratorLeftQuantity>, NumeratorRightAndDenominatorQuantity>, NumeratorUnit>.div(
-	right: UndefinedScientificValue<NumeratorRightAndDenominatorQuantity, NumeratorRightAndDenominatorUnit>,
+    NumeratorLeftQuantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
+    NumeratorLeftUnit,
+    WrappedNumeratorLeftUnit,
+    NumeratorRightAndDenominatorQuantity : UndefinedQuantityType,
+    NumeratorRightAndDenominatorUnit,
+    NumeratorUnit,
+    > UndefinedScientificValue<UndefinedQuantityType.Multiplying<UndefinedQuantityType.Extended<NumeratorLeftQuantity>, NumeratorRightAndDenominatorQuantity>, NumeratorUnit>.div(
+    right: UndefinedScientificValue<NumeratorRightAndDenominatorQuantity, NumeratorRightAndDenominatorUnit>,
 ) where
-	NumeratorLeftUnit : AbstractScientificUnit<NumeratorLeftQuantity>,
-	NumeratorLeftUnit : MeasurementUsage.UsedInMetric,
-	WrappedNumeratorLeftUnit : WrappedUndefinedExtendedUnit<NumeratorLeftQuantity, NumeratorLeftUnit>,
-	WrappedNumeratorLeftUnit : MeasurementUsage.UsedInMetric,
-	NumeratorRightAndDenominatorUnit : UndefinedScientificUnit<NumeratorRightAndDenominatorQuantity>,
-	NumeratorRightAndDenominatorUnit : MeasurementUsage.UsedInMetric,
-	NumeratorUnit : UndefinedMultipliedUnit<UndefinedQuantityType.Extended<NumeratorLeftQuantity>, WrappedNumeratorLeftUnit, NumeratorRightAndDenominatorQuantity, NumeratorRightAndDenominatorUnit>,
-	NumeratorUnit : MeasurementUsage.UsedInMetric =
-	div(right) {
-		value: Decimal,
-		unit: NumeratorLeftUnit
-		->
-		DefaultScientificValue(value, unit)
-	}
+        NumeratorLeftUnit : AbstractScientificUnit<NumeratorLeftQuantity>,
+        NumeratorLeftUnit : MeasurementUsage.UsedInMetric,
+        WrappedNumeratorLeftUnit : WrappedUndefinedExtendedUnit<NumeratorLeftQuantity, NumeratorLeftUnit>,
+        WrappedNumeratorLeftUnit : MeasurementUsage.UsedInMetric,
+        NumeratorRightAndDenominatorUnit : UndefinedScientificUnit<NumeratorRightAndDenominatorQuantity>,
+        NumeratorRightAndDenominatorUnit : MeasurementUsage.UsedInMetric,
+        NumeratorUnit : UndefinedMultipliedUnit<UndefinedQuantityType.Extended<NumeratorLeftQuantity>, WrappedNumeratorLeftUnit, NumeratorRightAndDenominatorQuantity, NumeratorRightAndDenominatorUnit>,
+        NumeratorUnit : MeasurementUsage.UsedInMetric =
+    div(right) {
+            value: Decimal,
+            unit: NumeratorLeftUnit,
+        ->
+        DefaultScientificValue(value, unit)
+    }
 
 @JvmName("imperialWrappedUndefinedAXUndefinedBValueDivImperialUndefinedBValue")
 infix operator fun <
-	NumeratorLeftQuantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
-	NumeratorLeftUnit,
-	WrappedNumeratorLeftUnit,
-	NumeratorRightAndDenominatorQuantity : UndefinedQuantityType,
-	NumeratorRightAndDenominatorUnit,
-	NumeratorUnit
-	> UndefinedScientificValue<UndefinedQuantityType.Multiplying<UndefinedQuantityType.Extended<NumeratorLeftQuantity>, NumeratorRightAndDenominatorQuantity>, NumeratorUnit>.div(
-	right: UndefinedScientificValue<NumeratorRightAndDenominatorQuantity, NumeratorRightAndDenominatorUnit>,
+    NumeratorLeftQuantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
+    NumeratorLeftUnit,
+    WrappedNumeratorLeftUnit,
+    NumeratorRightAndDenominatorQuantity : UndefinedQuantityType,
+    NumeratorRightAndDenominatorUnit,
+    NumeratorUnit,
+    > UndefinedScientificValue<UndefinedQuantityType.Multiplying<UndefinedQuantityType.Extended<NumeratorLeftQuantity>, NumeratorRightAndDenominatorQuantity>, NumeratorUnit>.div(
+    right: UndefinedScientificValue<NumeratorRightAndDenominatorQuantity, NumeratorRightAndDenominatorUnit>,
 ) where
-	NumeratorLeftUnit : AbstractScientificUnit<NumeratorLeftQuantity>,
-	NumeratorLeftUnit : MeasurementUsage.UsedInUKImperial,
-	NumeratorLeftUnit : MeasurementUsage.UsedInUSCustomary,
-	WrappedNumeratorLeftUnit : WrappedUndefinedExtendedUnit<NumeratorLeftQuantity, NumeratorLeftUnit>,
-	WrappedNumeratorLeftUnit : MeasurementUsage.UsedInUKImperial,
-	WrappedNumeratorLeftUnit : MeasurementUsage.UsedInUSCustomary,
-	NumeratorRightAndDenominatorUnit : UndefinedScientificUnit<NumeratorRightAndDenominatorQuantity>,
-	NumeratorRightAndDenominatorUnit : MeasurementUsage.UsedInUKImperial,
-	NumeratorRightAndDenominatorUnit : MeasurementUsage.UsedInUSCustomary,
-	NumeratorUnit : UndefinedMultipliedUnit<UndefinedQuantityType.Extended<NumeratorLeftQuantity>, WrappedNumeratorLeftUnit, NumeratorRightAndDenominatorQuantity, NumeratorRightAndDenominatorUnit>,
-	NumeratorUnit : MeasurementUsage.UsedInUKImperial,
-	NumeratorUnit : MeasurementUsage.UsedInUSCustomary =
-	div(right) {
-		value: Decimal,
-		unit: NumeratorLeftUnit
-		->
-		DefaultScientificValue(value, unit)
-	}
+        NumeratorLeftUnit : AbstractScientificUnit<NumeratorLeftQuantity>,
+        NumeratorLeftUnit : MeasurementUsage.UsedInUKImperial,
+        NumeratorLeftUnit : MeasurementUsage.UsedInUSCustomary,
+        WrappedNumeratorLeftUnit : WrappedUndefinedExtendedUnit<NumeratorLeftQuantity, NumeratorLeftUnit>,
+        WrappedNumeratorLeftUnit : MeasurementUsage.UsedInUKImperial,
+        WrappedNumeratorLeftUnit : MeasurementUsage.UsedInUSCustomary,
+        NumeratorRightAndDenominatorUnit : UndefinedScientificUnit<NumeratorRightAndDenominatorQuantity>,
+        NumeratorRightAndDenominatorUnit : MeasurementUsage.UsedInUKImperial,
+        NumeratorRightAndDenominatorUnit : MeasurementUsage.UsedInUSCustomary,
+        NumeratorUnit : UndefinedMultipliedUnit<UndefinedQuantityType.Extended<NumeratorLeftQuantity>, WrappedNumeratorLeftUnit, NumeratorRightAndDenominatorQuantity, NumeratorRightAndDenominatorUnit>,
+        NumeratorUnit : MeasurementUsage.UsedInUKImperial,
+        NumeratorUnit : MeasurementUsage.UsedInUSCustomary =
+    div(right) {
+            value: Decimal,
+            unit: NumeratorLeftUnit,
+        ->
+        DefaultScientificValue(value, unit)
+    }
 
 @JvmName("ukImperialWrappedUndefinedAXUndefinedBValueDivUKImperialUndefinedBValue")
 infix operator fun <
-	NumeratorLeftQuantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
-	NumeratorLeftUnit,
-	WrappedNumeratorLeftUnit,
-	NumeratorRightAndDenominatorQuantity : UndefinedQuantityType,
-	NumeratorRightAndDenominatorUnit,
-	NumeratorUnit
-	> UndefinedScientificValue<UndefinedQuantityType.Multiplying<UndefinedQuantityType.Extended<NumeratorLeftQuantity>, NumeratorRightAndDenominatorQuantity>, NumeratorUnit>.div(
-	right: UndefinedScientificValue<NumeratorRightAndDenominatorQuantity, NumeratorRightAndDenominatorUnit>,
+    NumeratorLeftQuantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
+    NumeratorLeftUnit,
+    WrappedNumeratorLeftUnit,
+    NumeratorRightAndDenominatorQuantity : UndefinedQuantityType,
+    NumeratorRightAndDenominatorUnit,
+    NumeratorUnit,
+    > UndefinedScientificValue<UndefinedQuantityType.Multiplying<UndefinedQuantityType.Extended<NumeratorLeftQuantity>, NumeratorRightAndDenominatorQuantity>, NumeratorUnit>.div(
+    right: UndefinedScientificValue<NumeratorRightAndDenominatorQuantity, NumeratorRightAndDenominatorUnit>,
 ) where
-	NumeratorLeftUnit : AbstractScientificUnit<NumeratorLeftQuantity>,
-	NumeratorLeftUnit : MeasurementUsage.UsedInUKImperial,
-	WrappedNumeratorLeftUnit : WrappedUndefinedExtendedUnit<NumeratorLeftQuantity, NumeratorLeftUnit>,
-	WrappedNumeratorLeftUnit : MeasurementUsage.UsedInUKImperial,
-	NumeratorRightAndDenominatorUnit : UndefinedScientificUnit<NumeratorRightAndDenominatorQuantity>,
-	NumeratorRightAndDenominatorUnit : MeasurementUsage.UsedInUKImperial,
-	NumeratorUnit : UndefinedMultipliedUnit<UndefinedQuantityType.Extended<NumeratorLeftQuantity>, WrappedNumeratorLeftUnit, NumeratorRightAndDenominatorQuantity, NumeratorRightAndDenominatorUnit>,
-	NumeratorUnit : MeasurementUsage.UsedInUKImperial =
-	div(right) {
-		value: Decimal,
-		unit: NumeratorLeftUnit
-		->
-		DefaultScientificValue(value, unit)
-	}
+        NumeratorLeftUnit : AbstractScientificUnit<NumeratorLeftQuantity>,
+        NumeratorLeftUnit : MeasurementUsage.UsedInUKImperial,
+        WrappedNumeratorLeftUnit : WrappedUndefinedExtendedUnit<NumeratorLeftQuantity, NumeratorLeftUnit>,
+        WrappedNumeratorLeftUnit : MeasurementUsage.UsedInUKImperial,
+        NumeratorRightAndDenominatorUnit : UndefinedScientificUnit<NumeratorRightAndDenominatorQuantity>,
+        NumeratorRightAndDenominatorUnit : MeasurementUsage.UsedInUKImperial,
+        NumeratorUnit : UndefinedMultipliedUnit<UndefinedQuantityType.Extended<NumeratorLeftQuantity>, WrappedNumeratorLeftUnit, NumeratorRightAndDenominatorQuantity, NumeratorRightAndDenominatorUnit>,
+        NumeratorUnit : MeasurementUsage.UsedInUKImperial =
+    div(right) {
+            value: Decimal,
+            unit: NumeratorLeftUnit,
+        ->
+        DefaultScientificValue(value, unit)
+    }
 
 @JvmName("usCustomaryWrappedUndefinedAXUndefinedBValueDivUSCustomaryUndefinedBValue")
 infix operator fun <
-	NumeratorLeftQuantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
-	NumeratorLeftUnit,
-	WrappedNumeratorLeftUnit,
-	NumeratorRightAndDenominatorQuantity : UndefinedQuantityType,
-	NumeratorRightAndDenominatorUnit,
-	NumeratorUnit
-	> UndefinedScientificValue<UndefinedQuantityType.Multiplying<UndefinedQuantityType.Extended<NumeratorLeftQuantity>, NumeratorRightAndDenominatorQuantity>, NumeratorUnit>.div(
-	right: UndefinedScientificValue<NumeratorRightAndDenominatorQuantity, NumeratorRightAndDenominatorUnit>,
+    NumeratorLeftQuantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
+    NumeratorLeftUnit,
+    WrappedNumeratorLeftUnit,
+    NumeratorRightAndDenominatorQuantity : UndefinedQuantityType,
+    NumeratorRightAndDenominatorUnit,
+    NumeratorUnit,
+    > UndefinedScientificValue<UndefinedQuantityType.Multiplying<UndefinedQuantityType.Extended<NumeratorLeftQuantity>, NumeratorRightAndDenominatorQuantity>, NumeratorUnit>.div(
+    right: UndefinedScientificValue<NumeratorRightAndDenominatorQuantity, NumeratorRightAndDenominatorUnit>,
 ) where
-	NumeratorLeftUnit : AbstractScientificUnit<NumeratorLeftQuantity>,
-	NumeratorLeftUnit : MeasurementUsage.UsedInUSCustomary,
-	WrappedNumeratorLeftUnit : WrappedUndefinedExtendedUnit<NumeratorLeftQuantity, NumeratorLeftUnit>,
-	WrappedNumeratorLeftUnit : MeasurementUsage.UsedInUSCustomary,
-	NumeratorRightAndDenominatorUnit : UndefinedScientificUnit<NumeratorRightAndDenominatorQuantity>,
-	NumeratorRightAndDenominatorUnit : MeasurementUsage.UsedInUSCustomary,
-	NumeratorUnit : UndefinedMultipliedUnit<UndefinedQuantityType.Extended<NumeratorLeftQuantity>, WrappedNumeratorLeftUnit, NumeratorRightAndDenominatorQuantity, NumeratorRightAndDenominatorUnit>,
-	NumeratorUnit : MeasurementUsage.UsedInUSCustomary =
-	div(right) {
-		value: Decimal,
-		unit: NumeratorLeftUnit
-		->
-		DefaultScientificValue(value, unit)
-	}
+        NumeratorLeftUnit : AbstractScientificUnit<NumeratorLeftQuantity>,
+        NumeratorLeftUnit : MeasurementUsage.UsedInUSCustomary,
+        WrappedNumeratorLeftUnit : WrappedUndefinedExtendedUnit<NumeratorLeftQuantity, NumeratorLeftUnit>,
+        WrappedNumeratorLeftUnit : MeasurementUsage.UsedInUSCustomary,
+        NumeratorRightAndDenominatorUnit : UndefinedScientificUnit<NumeratorRightAndDenominatorQuantity>,
+        NumeratorRightAndDenominatorUnit : MeasurementUsage.UsedInUSCustomary,
+        NumeratorUnit : UndefinedMultipliedUnit<UndefinedQuantityType.Extended<NumeratorLeftQuantity>, WrappedNumeratorLeftUnit, NumeratorRightAndDenominatorQuantity, NumeratorRightAndDenominatorUnit>,
+        NumeratorUnit : MeasurementUsage.UsedInUSCustomary =
+    div(right) {
+            value: Decimal,
+            unit: NumeratorLeftUnit,
+        ->
+        DefaultScientificValue(value, unit)
+    }
 
 @JvmName("metricAndUKImperialWrappedUndefinedAXUndefinedBValueDivMetricAndUKImperialUndefinedBValue")
 infix operator fun <
-	NumeratorLeftQuantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
-	NumeratorLeftUnit,
-	WrappedNumeratorLeftUnit,
-	NumeratorRightAndDenominatorQuantity : UndefinedQuantityType,
-	NumeratorRightAndDenominatorUnit,
-	NumeratorUnit
-	> UndefinedScientificValue<UndefinedQuantityType.Multiplying<UndefinedQuantityType.Extended<NumeratorLeftQuantity>, NumeratorRightAndDenominatorQuantity>, NumeratorUnit>.div(
-	right: UndefinedScientificValue<NumeratorRightAndDenominatorQuantity, NumeratorRightAndDenominatorUnit>,
+    NumeratorLeftQuantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
+    NumeratorLeftUnit,
+    WrappedNumeratorLeftUnit,
+    NumeratorRightAndDenominatorQuantity : UndefinedQuantityType,
+    NumeratorRightAndDenominatorUnit,
+    NumeratorUnit,
+    > UndefinedScientificValue<UndefinedQuantityType.Multiplying<UndefinedQuantityType.Extended<NumeratorLeftQuantity>, NumeratorRightAndDenominatorQuantity>, NumeratorUnit>.div(
+    right: UndefinedScientificValue<NumeratorRightAndDenominatorQuantity, NumeratorRightAndDenominatorUnit>,
 ) where
-	NumeratorLeftUnit : AbstractScientificUnit<NumeratorLeftQuantity>,
-	NumeratorLeftUnit : MeasurementUsage.UsedInMetric,
-	NumeratorLeftUnit : MeasurementUsage.UsedInUKImperial,
-	WrappedNumeratorLeftUnit : WrappedUndefinedExtendedUnit<NumeratorLeftQuantity, NumeratorLeftUnit>,
-	WrappedNumeratorLeftUnit : MeasurementUsage.UsedInMetric,
-	WrappedNumeratorLeftUnit : MeasurementUsage.UsedInUKImperial,
-	NumeratorRightAndDenominatorUnit : UndefinedScientificUnit<NumeratorRightAndDenominatorQuantity>,
-	NumeratorRightAndDenominatorUnit : MeasurementUsage.UsedInMetric,
-	NumeratorRightAndDenominatorUnit : MeasurementUsage.UsedInUKImperial,
-	NumeratorUnit : UndefinedMultipliedUnit<UndefinedQuantityType.Extended<NumeratorLeftQuantity>, WrappedNumeratorLeftUnit, NumeratorRightAndDenominatorQuantity, NumeratorRightAndDenominatorUnit>,
-	NumeratorUnit : MeasurementUsage.UsedInMetric,
-	NumeratorUnit : MeasurementUsage.UsedInUKImperial =
-	div(right) {
-		value: Decimal,
-		unit: NumeratorLeftUnit
-		->
-		DefaultScientificValue(value, unit)
-	}
+        NumeratorLeftUnit : AbstractScientificUnit<NumeratorLeftQuantity>,
+        NumeratorLeftUnit : MeasurementUsage.UsedInMetric,
+        NumeratorLeftUnit : MeasurementUsage.UsedInUKImperial,
+        WrappedNumeratorLeftUnit : WrappedUndefinedExtendedUnit<NumeratorLeftQuantity, NumeratorLeftUnit>,
+        WrappedNumeratorLeftUnit : MeasurementUsage.UsedInMetric,
+        WrappedNumeratorLeftUnit : MeasurementUsage.UsedInUKImperial,
+        NumeratorRightAndDenominatorUnit : UndefinedScientificUnit<NumeratorRightAndDenominatorQuantity>,
+        NumeratorRightAndDenominatorUnit : MeasurementUsage.UsedInMetric,
+        NumeratorRightAndDenominatorUnit : MeasurementUsage.UsedInUKImperial,
+        NumeratorUnit : UndefinedMultipliedUnit<UndefinedQuantityType.Extended<NumeratorLeftQuantity>, WrappedNumeratorLeftUnit, NumeratorRightAndDenominatorQuantity, NumeratorRightAndDenominatorUnit>,
+        NumeratorUnit : MeasurementUsage.UsedInMetric,
+        NumeratorUnit : MeasurementUsage.UsedInUKImperial =
+    div(right) {
+            value: Decimal,
+            unit: NumeratorLeftUnit,
+        ->
+        DefaultScientificValue(value, unit)
+    }
 
 @JvmName("metricAndUSCustomaryWrappedUndefinedAXUndefinedBValueDivMetricAndUSCustomaryUndefinedBValue")
 infix operator fun <
-	NumeratorLeftQuantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
-	NumeratorLeftUnit,
-	WrappedNumeratorLeftUnit,
-	NumeratorRightAndDenominatorQuantity : UndefinedQuantityType,
-	NumeratorRightAndDenominatorUnit,
-	NumeratorUnit
-	> UndefinedScientificValue<UndefinedQuantityType.Multiplying<UndefinedQuantityType.Extended<NumeratorLeftQuantity>, NumeratorRightAndDenominatorQuantity>, NumeratorUnit>.div(
-	right: UndefinedScientificValue<NumeratorRightAndDenominatorQuantity, NumeratorRightAndDenominatorUnit>,
+    NumeratorLeftQuantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
+    NumeratorLeftUnit,
+    WrappedNumeratorLeftUnit,
+    NumeratorRightAndDenominatorQuantity : UndefinedQuantityType,
+    NumeratorRightAndDenominatorUnit,
+    NumeratorUnit,
+    > UndefinedScientificValue<UndefinedQuantityType.Multiplying<UndefinedQuantityType.Extended<NumeratorLeftQuantity>, NumeratorRightAndDenominatorQuantity>, NumeratorUnit>.div(
+    right: UndefinedScientificValue<NumeratorRightAndDenominatorQuantity, NumeratorRightAndDenominatorUnit>,
 ) where
-	NumeratorLeftUnit : AbstractScientificUnit<NumeratorLeftQuantity>,
-	NumeratorLeftUnit : MeasurementUsage.UsedInMetric,
-	NumeratorLeftUnit : MeasurementUsage.UsedInUSCustomary,
-	WrappedNumeratorLeftUnit : WrappedUndefinedExtendedUnit<NumeratorLeftQuantity, NumeratorLeftUnit>,
-	WrappedNumeratorLeftUnit : MeasurementUsage.UsedInMetric,
-	WrappedNumeratorLeftUnit : MeasurementUsage.UsedInUSCustomary,
-	NumeratorRightAndDenominatorUnit : UndefinedScientificUnit<NumeratorRightAndDenominatorQuantity>,
-	NumeratorRightAndDenominatorUnit : MeasurementUsage.UsedInMetric,
-	NumeratorRightAndDenominatorUnit : MeasurementUsage.UsedInUSCustomary,
-	NumeratorUnit : UndefinedMultipliedUnit<UndefinedQuantityType.Extended<NumeratorLeftQuantity>, WrappedNumeratorLeftUnit, NumeratorRightAndDenominatorQuantity, NumeratorRightAndDenominatorUnit>,
-	NumeratorUnit : MeasurementUsage.UsedInMetric,
-	NumeratorUnit : MeasurementUsage.UsedInUSCustomary =
-	div(right) {
-		value: Decimal,
-		unit: NumeratorLeftUnit
-		->
-		DefaultScientificValue(value, unit)
-	}
+        NumeratorLeftUnit : AbstractScientificUnit<NumeratorLeftQuantity>,
+        NumeratorLeftUnit : MeasurementUsage.UsedInMetric,
+        NumeratorLeftUnit : MeasurementUsage.UsedInUSCustomary,
+        WrappedNumeratorLeftUnit : WrappedUndefinedExtendedUnit<NumeratorLeftQuantity, NumeratorLeftUnit>,
+        WrappedNumeratorLeftUnit : MeasurementUsage.UsedInMetric,
+        WrappedNumeratorLeftUnit : MeasurementUsage.UsedInUSCustomary,
+        NumeratorRightAndDenominatorUnit : UndefinedScientificUnit<NumeratorRightAndDenominatorQuantity>,
+        NumeratorRightAndDenominatorUnit : MeasurementUsage.UsedInMetric,
+        NumeratorRightAndDenominatorUnit : MeasurementUsage.UsedInUSCustomary,
+        NumeratorUnit : UndefinedMultipliedUnit<UndefinedQuantityType.Extended<NumeratorLeftQuantity>, WrappedNumeratorLeftUnit, NumeratorRightAndDenominatorQuantity, NumeratorRightAndDenominatorUnit>,
+        NumeratorUnit : MeasurementUsage.UsedInMetric,
+        NumeratorUnit : MeasurementUsage.UsedInUSCustomary =
+    div(right) {
+            value: Decimal,
+            unit: NumeratorLeftUnit,
+        ->
+        DefaultScientificValue(value, unit)
+    }
 
 @JvmName("genericWrappedUndefinedAXUndefinedBValueDivGenericUndefinedBValue")
 infix operator fun <
-	NumeratorLeftQuantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
-	NumeratorLeftUnit : AbstractScientificUnit<NumeratorLeftQuantity>,
-	WrappedNumeratorLeftUnit : WrappedUndefinedExtendedUnit<NumeratorLeftQuantity, NumeratorLeftUnit>,
-	NumeratorRightAndDenominatorQuantity : UndefinedQuantityType,
-	NumeratorRightAndDenominatorUnit : UndefinedScientificUnit<NumeratorRightAndDenominatorQuantity>,
-	NumeratorUnit : UndefinedMultipliedUnit<UndefinedQuantityType.Extended<NumeratorLeftQuantity>, WrappedNumeratorLeftUnit, NumeratorRightAndDenominatorQuantity, NumeratorRightAndDenominatorUnit>
-	> UndefinedScientificValue<UndefinedQuantityType.Multiplying<UndefinedQuantityType.Extended<NumeratorLeftQuantity>, NumeratorRightAndDenominatorQuantity>, NumeratorUnit>.div(
-	right: UndefinedScientificValue<NumeratorRightAndDenominatorQuantity, NumeratorRightAndDenominatorUnit>,
-) =
-	div(right) {
-		value: Decimal,
-		unit: NumeratorLeftUnit
-		->
-		DefaultScientificValue(value, unit)
-	}
-
+    NumeratorLeftQuantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
+    NumeratorLeftUnit : AbstractScientificUnit<NumeratorLeftQuantity>,
+    WrappedNumeratorLeftUnit : WrappedUndefinedExtendedUnit<NumeratorLeftQuantity, NumeratorLeftUnit>,
+    NumeratorRightAndDenominatorQuantity : UndefinedQuantityType,
+    NumeratorRightAndDenominatorUnit : UndefinedScientificUnit<NumeratorRightAndDenominatorQuantity>,
+    NumeratorUnit : UndefinedMultipliedUnit<UndefinedQuantityType.Extended<NumeratorLeftQuantity>, WrappedNumeratorLeftUnit, NumeratorRightAndDenominatorQuantity, NumeratorRightAndDenominatorUnit>,
+    > UndefinedScientificValue<UndefinedQuantityType.Multiplying<UndefinedQuantityType.Extended<NumeratorLeftQuantity>, NumeratorRightAndDenominatorQuantity>, NumeratorUnit>.div(
+    right: UndefinedScientificValue<NumeratorRightAndDenominatorQuantity, NumeratorRightAndDenominatorUnit>,
+) = div(right) {
+        value: Decimal,
+        unit: NumeratorLeftUnit,
+    ->
+    DefaultScientificValue(value, unit)
+}

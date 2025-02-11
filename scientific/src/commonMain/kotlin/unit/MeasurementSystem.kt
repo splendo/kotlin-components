@@ -61,7 +61,9 @@ sealed interface MeasurementUsage {
     /**
      * A measurement that is used in both Metric and US Customary systems
      */
-    interface UsedInMetricAndUSCustomary : UsedInMetric, UsedInUSCustomary
+    interface UsedInMetricAndUSCustomary :
+        UsedInMetric,
+        UsedInUSCustomary
 
     /**
      * A measurement that is used in Metric, UK Imperial and US Customary systems

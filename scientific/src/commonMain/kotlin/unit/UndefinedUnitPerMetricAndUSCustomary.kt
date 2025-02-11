@@ -34,15 +34,18 @@ infix fun <
     NumeratorUnit,
     DenominatorQuantity : UndefinedQuantityType,
     DenominatorUnit,
-    > NumeratorUnit.per(denominator: DenominatorUnit) where
-      NumeratorUnit : UndefinedScientificUnit<NumeratorQuantity>,
-      NumeratorUnit : MeasurementUsage.UsedInMetric,
+    > NumeratorUnit.per(
+    denominator: DenominatorUnit,
+) where
+        NumeratorUnit : UndefinedScientificUnit<NumeratorQuantity>,
+        NumeratorUnit : MeasurementUsage.UsedInMetric,
 
-      NumeratorUnit : MeasurementUsage.UsedInUSCustomary,
-      DenominatorUnit : UndefinedScientificUnit<DenominatorQuantity>,
-      DenominatorUnit : MeasurementUsage.UsedInMetric,
+        NumeratorUnit : MeasurementUsage.UsedInUSCustomary,
+        DenominatorUnit : UndefinedScientificUnit<DenominatorQuantity>,
+        DenominatorUnit : MeasurementUsage.UsedInMetric,
 
-      DenominatorUnit : MeasurementUsage.UsedInUSCustomary = UndefinedDividedUnit.MetricAndUSCustomary(this, denominator)
+        DenominatorUnit : MeasurementUsage.UsedInUSCustomary =
+    UndefinedDividedUnit.MetricAndUSCustomary(this, denominator)
 
 /**
  * [NumeratorUnit] per [DenominatorUnit] ->
@@ -57,15 +60,18 @@ infix fun <
     NumeratorUnit,
     DenominatorQuantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
     DenominatorUnit,
-    > NumeratorUnit.per(denominator: DenominatorUnit) where
-      NumeratorUnit : UndefinedScientificUnit<NumeratorQuantity>,
-      NumeratorUnit : MeasurementUsage.UsedInMetric,
+    > NumeratorUnit.per(
+    denominator: DenominatorUnit,
+) where
+        NumeratorUnit : UndefinedScientificUnit<NumeratorQuantity>,
+        NumeratorUnit : MeasurementUsage.UsedInMetric,
 
-      NumeratorUnit : MeasurementUsage.UsedInUSCustomary,
-      DenominatorUnit : ScientificUnit<DenominatorQuantity>,
-      DenominatorUnit : MeasurementUsage.UsedInMetric,
+        NumeratorUnit : MeasurementUsage.UsedInUSCustomary,
+        DenominatorUnit : ScientificUnit<DenominatorQuantity>,
+        DenominatorUnit : MeasurementUsage.UsedInMetric,
 
-      DenominatorUnit : MeasurementUsage.UsedInUSCustomary = this.per(denominator.asUndefined())
+        DenominatorUnit : MeasurementUsage.UsedInUSCustomary =
+    this.per(denominator.asUndefined())
 
 /**
  * [NumeratorUnit] per [DenominatorUnit] ->
@@ -80,15 +86,18 @@ infix fun <
     NumeratorUnit,
     DenominatorQuantity : UndefinedQuantityType,
     DenominatorUnit,
-    > NumeratorUnit.per(denominator: DenominatorUnit) where
-      NumeratorUnit : ScientificUnit<NumeratorQuantity>,
-      NumeratorUnit : MeasurementUsage.UsedInMetric,
+    > NumeratorUnit.per(
+    denominator: DenominatorUnit,
+) where
+        NumeratorUnit : ScientificUnit<NumeratorQuantity>,
+        NumeratorUnit : MeasurementUsage.UsedInMetric,
 
-      NumeratorUnit : MeasurementUsage.UsedInUSCustomary,
-      DenominatorUnit : UndefinedScientificUnit<DenominatorQuantity>,
-      DenominatorUnit : MeasurementUsage.UsedInMetric,
+        NumeratorUnit : MeasurementUsage.UsedInUSCustomary,
+        DenominatorUnit : UndefinedScientificUnit<DenominatorQuantity>,
+        DenominatorUnit : MeasurementUsage.UsedInMetric,
 
-      DenominatorUnit : MeasurementUsage.UsedInUSCustomary = asUndefined().per(denominator)
+        DenominatorUnit : MeasurementUsage.UsedInUSCustomary =
+    asUndefined().per(denominator)
 
 /**
  * [NumeratorUnit] per [DenominatorUnit] ->
@@ -103,15 +112,18 @@ infix fun <
     NumeratorUnit,
     DenominatorQuantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
     DenominatorUnit,
-    > NumeratorUnit.per(denominator: DenominatorUnit) where
-      NumeratorUnit : ScientificUnit<NumeratorQuantity>,
-      NumeratorUnit : MeasurementUsage.UsedInMetric,
+    > NumeratorUnit.per(
+    denominator: DenominatorUnit,
+) where
+        NumeratorUnit : ScientificUnit<NumeratorQuantity>,
+        NumeratorUnit : MeasurementUsage.UsedInMetric,
 
-      NumeratorUnit : MeasurementUsage.UsedInUSCustomary,
-      DenominatorUnit : ScientificUnit<DenominatorQuantity>,
-      DenominatorUnit : MeasurementUsage.UsedInMetric,
+        NumeratorUnit : MeasurementUsage.UsedInUSCustomary,
+        DenominatorUnit : ScientificUnit<DenominatorQuantity>,
+        DenominatorUnit : MeasurementUsage.UsedInMetric,
 
-      DenominatorUnit : MeasurementUsage.UsedInUSCustomary = this.per(denominator.asUndefined())
+        DenominatorUnit : MeasurementUsage.UsedInUSCustomary =
+    this.per(denominator.asUndefined())
 
 /**
  * [NumeratorUnit] per [DenominatorUnit] ->
@@ -123,25 +135,28 @@ infix fun <
  * )
  */
 @JvmName("metricAndUSCustomaryReciprocalPerMetricAndUSCustomaryUndefined")
-infix fun<
+infix fun <
     ReciprocalQuantity : UndefinedQuantityType,
     ReciprocalUnit,
     NumeratorUnit,
     DenominatorQuantity : UndefinedQuantityType,
     DenominatorUnit,
-    > NumeratorUnit.per(denominator: DenominatorUnit) where
-      ReciprocalUnit : UndefinedScientificUnit<ReciprocalQuantity>,
-      ReciprocalUnit : MeasurementUsage.UsedInMetric,
+    > NumeratorUnit.per(
+    denominator: DenominatorUnit,
+) where
+        ReciprocalUnit : UndefinedScientificUnit<ReciprocalQuantity>,
+        ReciprocalUnit : MeasurementUsage.UsedInMetric,
 
-      ReciprocalUnit : MeasurementUsage.UsedInUSCustomary,
-      NumeratorUnit : UndefinedReciprocalUnit<ReciprocalQuantity, ReciprocalUnit>,
-      NumeratorUnit : MeasurementUsage.UsedInMetric,
+        ReciprocalUnit : MeasurementUsage.UsedInUSCustomary,
+        NumeratorUnit : UndefinedReciprocalUnit<ReciprocalQuantity, ReciprocalUnit>,
+        NumeratorUnit : MeasurementUsage.UsedInMetric,
 
-      NumeratorUnit : MeasurementUsage.UsedInUSCustomary,
-      DenominatorUnit : UndefinedScientificUnit<DenominatorQuantity>,
-      DenominatorUnit : MeasurementUsage.UsedInMetric,
+        NumeratorUnit : MeasurementUsage.UsedInUSCustomary,
+        DenominatorUnit : UndefinedScientificUnit<DenominatorQuantity>,
+        DenominatorUnit : MeasurementUsage.UsedInMetric,
 
-      DenominatorUnit : MeasurementUsage.UsedInUSCustomary = (inverse x denominator).reciprocal()
+        DenominatorUnit : MeasurementUsage.UsedInUSCustomary =
+    (inverse x denominator).reciprocal()
 
 /**
  * [NumeratorUnit] per [DenominatorUnit] ->
@@ -153,25 +168,28 @@ infix fun<
  * )
  */
 @JvmName("metricAndUSCustomaryReciprocalPerMetricAndUSCustomaryDefined")
-infix fun<
+infix fun <
     ReciprocalQuantity : UndefinedQuantityType,
     ReciprocalUnit,
     NumeratorUnit,
     DenominatorQuantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
     DenominatorUnit,
-    > NumeratorUnit.per(denominator: DenominatorUnit) where
-      ReciprocalUnit : UndefinedScientificUnit<ReciprocalQuantity>,
-      ReciprocalUnit : MeasurementUsage.UsedInMetric,
+    > NumeratorUnit.per(
+    denominator: DenominatorUnit,
+) where
+        ReciprocalUnit : UndefinedScientificUnit<ReciprocalQuantity>,
+        ReciprocalUnit : MeasurementUsage.UsedInMetric,
 
-      ReciprocalUnit : MeasurementUsage.UsedInUSCustomary,
-      NumeratorUnit : UndefinedReciprocalUnit<ReciprocalQuantity, ReciprocalUnit>,
-      NumeratorUnit : MeasurementUsage.UsedInMetric,
+        ReciprocalUnit : MeasurementUsage.UsedInUSCustomary,
+        NumeratorUnit : UndefinedReciprocalUnit<ReciprocalQuantity, ReciprocalUnit>,
+        NumeratorUnit : MeasurementUsage.UsedInMetric,
 
-      NumeratorUnit : MeasurementUsage.UsedInUSCustomary,
-      DenominatorUnit : ScientificUnit<DenominatorQuantity>,
-      DenominatorUnit : MeasurementUsage.UsedInMetric,
+        NumeratorUnit : MeasurementUsage.UsedInUSCustomary,
+        DenominatorUnit : ScientificUnit<DenominatorQuantity>,
+        DenominatorUnit : MeasurementUsage.UsedInMetric,
 
-      DenominatorUnit : MeasurementUsage.UsedInUSCustomary = this.per(denominator.asUndefined())
+        DenominatorUnit : MeasurementUsage.UsedInUSCustomary =
+    this.per(denominator.asUndefined())
 
 /**
  * [NumeratorUnit] per [DenominatorUnit] ->
@@ -181,25 +199,28 @@ infix fun<
  * )
  */
 @JvmName("metricAndUSCustomaryUndefinedPerMetricAndUSCustomaryReciprocal")
-infix fun<
+infix fun <
     NumeratorQuantity : UndefinedQuantityType,
     NumeratorUnit,
     ReciprocalQuantity : UndefinedQuantityType,
     ReciprocalUnit,
     DenominatorUnit,
-    > NumeratorUnit.per(denominator: DenominatorUnit) where
-      NumeratorUnit : UndefinedScientificUnit<NumeratorQuantity>,
-      NumeratorUnit : MeasurementUsage.UsedInMetric,
+    > NumeratorUnit.per(
+    denominator: DenominatorUnit,
+) where
+        NumeratorUnit : UndefinedScientificUnit<NumeratorQuantity>,
+        NumeratorUnit : MeasurementUsage.UsedInMetric,
 
-      NumeratorUnit : MeasurementUsage.UsedInUSCustomary,
-      ReciprocalUnit : UndefinedScientificUnit<ReciprocalQuantity>,
-      ReciprocalUnit : MeasurementUsage.UsedInMetric,
+        NumeratorUnit : MeasurementUsage.UsedInUSCustomary,
+        ReciprocalUnit : UndefinedScientificUnit<ReciprocalQuantity>,
+        ReciprocalUnit : MeasurementUsage.UsedInMetric,
 
-      ReciprocalUnit : MeasurementUsage.UsedInUSCustomary,
-      DenominatorUnit : UndefinedReciprocalUnit<ReciprocalQuantity, ReciprocalUnit>,
-      DenominatorUnit : MeasurementUsage.UsedInMetric,
+        ReciprocalUnit : MeasurementUsage.UsedInUSCustomary,
+        DenominatorUnit : UndefinedReciprocalUnit<ReciprocalQuantity, ReciprocalUnit>,
+        DenominatorUnit : MeasurementUsage.UsedInMetric,
 
-      DenominatorUnit : MeasurementUsage.UsedInUSCustomary = this x denominator.inverse
+        DenominatorUnit : MeasurementUsage.UsedInUSCustomary =
+    this x denominator.inverse
 
 /**
  * [NumeratorUnit] per [DenominatorUnit] ->
@@ -210,25 +231,28 @@ infix fun<
  *  )
  */
 @JvmName("metricAndUSCustomaryDefinedPerMetricAndUSCustomaryReciprocal")
-infix fun<
+infix fun <
     NumeratorQuantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
     NumeratorUnit,
     ReciprocalQuantity : UndefinedQuantityType,
     ReciprocalUnit,
     DenominatorUnit,
-    > NumeratorUnit.per(denominator: DenominatorUnit) where
-      NumeratorUnit : ScientificUnit<NumeratorQuantity>,
-      NumeratorUnit : MeasurementUsage.UsedInMetric,
+    > NumeratorUnit.per(
+    denominator: DenominatorUnit,
+) where
+        NumeratorUnit : ScientificUnit<NumeratorQuantity>,
+        NumeratorUnit : MeasurementUsage.UsedInMetric,
 
-      NumeratorUnit : MeasurementUsage.UsedInUSCustomary,
-      ReciprocalUnit : UndefinedScientificUnit<ReciprocalQuantity>,
-      ReciprocalUnit : MeasurementUsage.UsedInMetric,
+        NumeratorUnit : MeasurementUsage.UsedInUSCustomary,
+        ReciprocalUnit : UndefinedScientificUnit<ReciprocalQuantity>,
+        ReciprocalUnit : MeasurementUsage.UsedInMetric,
 
-      ReciprocalUnit : MeasurementUsage.UsedInUSCustomary,
-      DenominatorUnit : UndefinedReciprocalUnit<ReciprocalQuantity, ReciprocalUnit>,
-      DenominatorUnit : MeasurementUsage.UsedInMetric,
+        ReciprocalUnit : MeasurementUsage.UsedInUSCustomary,
+        DenominatorUnit : UndefinedReciprocalUnit<ReciprocalQuantity, ReciprocalUnit>,
+        DenominatorUnit : MeasurementUsage.UsedInMetric,
 
-      DenominatorUnit : MeasurementUsage.UsedInUSCustomary = asUndefined().per(denominator)
+        DenominatorUnit : MeasurementUsage.UsedInUSCustomary =
+    asUndefined().per(denominator)
 
 /**
  * [NumeratorUnit] per [DenominatorUnit] ->
@@ -238,30 +262,33 @@ infix fun<
  *  )
  */
 @JvmName("metricAndUSCustomaryReciprocalPerMetricAndUSCustomaryReciprocal")
-infix fun<
+infix fun <
     NumeratorReciprocalQuantity : UndefinedQuantityType,
     NumeratorReciprocalUnit,
     NumeratorUnit,
     DenominatorReciprocalQuantity : UndefinedQuantityType,
     DenominatorReciprocalUnit,
     DenominatorUnit,
-    > NumeratorUnit.per(denominator: DenominatorUnit) where
-      NumeratorReciprocalUnit : UndefinedScientificUnit<NumeratorReciprocalQuantity>,
-      NumeratorReciprocalUnit : MeasurementUsage.UsedInMetric,
+    > NumeratorUnit.per(
+    denominator: DenominatorUnit,
+) where
+        NumeratorReciprocalUnit : UndefinedScientificUnit<NumeratorReciprocalQuantity>,
+        NumeratorReciprocalUnit : MeasurementUsage.UsedInMetric,
 
-      NumeratorReciprocalUnit : MeasurementUsage.UsedInUSCustomary,
-      NumeratorUnit : UndefinedReciprocalUnit<NumeratorReciprocalQuantity, NumeratorReciprocalUnit>,
-      NumeratorUnit : MeasurementUsage.UsedInMetric,
+        NumeratorReciprocalUnit : MeasurementUsage.UsedInUSCustomary,
+        NumeratorUnit : UndefinedReciprocalUnit<NumeratorReciprocalQuantity, NumeratorReciprocalUnit>,
+        NumeratorUnit : MeasurementUsage.UsedInMetric,
 
-      NumeratorUnit : MeasurementUsage.UsedInUSCustomary,
-      DenominatorReciprocalUnit : UndefinedScientificUnit<DenominatorReciprocalQuantity>,
-      DenominatorReciprocalUnit : MeasurementUsage.UsedInMetric,
+        NumeratorUnit : MeasurementUsage.UsedInUSCustomary,
+        DenominatorReciprocalUnit : UndefinedScientificUnit<DenominatorReciprocalQuantity>,
+        DenominatorReciprocalUnit : MeasurementUsage.UsedInMetric,
 
-      DenominatorReciprocalUnit : MeasurementUsage.UsedInUSCustomary,
-      DenominatorUnit : UndefinedReciprocalUnit<DenominatorReciprocalQuantity, DenominatorReciprocalUnit>,
-      DenominatorUnit : MeasurementUsage.UsedInMetric,
+        DenominatorReciprocalUnit : MeasurementUsage.UsedInUSCustomary,
+        DenominatorUnit : UndefinedReciprocalUnit<DenominatorReciprocalQuantity, DenominatorReciprocalUnit>,
+        DenominatorUnit : MeasurementUsage.UsedInMetric,
 
-      DenominatorUnit : MeasurementUsage.UsedInUSCustomary = denominator.inverse per inverse
+        DenominatorUnit : MeasurementUsage.UsedInUSCustomary =
+    denominator.inverse per inverse
 
 /**
  * [NumeratorUnit] per [DenominatorUnit] ->
@@ -274,7 +301,7 @@ infix fun<
  *  )
  */
 @JvmName("metricAndUSCustomaryReciprocalPerMetricAndUSCustomaryDivided")
-infix fun<
+infix fun <
     NumeratorReciprocalQuantity : UndefinedQuantityType,
     NumeratorReciprocalUnit,
     NumeratorUnit,
@@ -283,27 +310,30 @@ infix fun<
     DenominatorDenominatorQuantity : UndefinedQuantityType,
     DenominatorDenominatorUnit,
     DenominatorUnit,
-    > NumeratorUnit.per(denominator: DenominatorUnit) where
-      NumeratorReciprocalUnit : UndefinedScientificUnit<NumeratorReciprocalQuantity>,
-      NumeratorReciprocalUnit : MeasurementUsage.UsedInMetric,
+    > NumeratorUnit.per(
+    denominator: DenominatorUnit,
+) where
+        NumeratorReciprocalUnit : UndefinedScientificUnit<NumeratorReciprocalQuantity>,
+        NumeratorReciprocalUnit : MeasurementUsage.UsedInMetric,
 
-      NumeratorReciprocalUnit : MeasurementUsage.UsedInUSCustomary,
-      NumeratorUnit : UndefinedReciprocalUnit<NumeratorReciprocalQuantity, NumeratorReciprocalUnit>,
-      NumeratorUnit : MeasurementUsage.UsedInMetric,
+        NumeratorReciprocalUnit : MeasurementUsage.UsedInUSCustomary,
+        NumeratorUnit : UndefinedReciprocalUnit<NumeratorReciprocalQuantity, NumeratorReciprocalUnit>,
+        NumeratorUnit : MeasurementUsage.UsedInMetric,
 
-      NumeratorUnit : MeasurementUsage.UsedInUSCustomary,
-      DenominatorNumeratorUnit : UndefinedScientificUnit<DenominatorNumeratorQuantity>,
-      DenominatorNumeratorUnit : MeasurementUsage.UsedInMetric,
+        NumeratorUnit : MeasurementUsage.UsedInUSCustomary,
+        DenominatorNumeratorUnit : UndefinedScientificUnit<DenominatorNumeratorQuantity>,
+        DenominatorNumeratorUnit : MeasurementUsage.UsedInMetric,
 
-      DenominatorNumeratorUnit : MeasurementUsage.UsedInUSCustomary,
-      DenominatorDenominatorUnit : UndefinedScientificUnit<DenominatorDenominatorQuantity>,
-      DenominatorDenominatorUnit : MeasurementUsage.UsedInMetric,
+        DenominatorNumeratorUnit : MeasurementUsage.UsedInUSCustomary,
+        DenominatorDenominatorUnit : UndefinedScientificUnit<DenominatorDenominatorQuantity>,
+        DenominatorDenominatorUnit : MeasurementUsage.UsedInMetric,
 
-      DenominatorDenominatorUnit : MeasurementUsage.UsedInUSCustomary,
-      DenominatorUnit : UndefinedDividedUnit<DenominatorNumeratorQuantity, DenominatorNumeratorUnit, DenominatorDenominatorQuantity, DenominatorDenominatorUnit>,
-      DenominatorUnit : MeasurementUsage.UsedInMetric,
+        DenominatorDenominatorUnit : MeasurementUsage.UsedInUSCustomary,
+        DenominatorUnit : UndefinedDividedUnit<DenominatorNumeratorQuantity, DenominatorNumeratorUnit, DenominatorDenominatorQuantity, DenominatorDenominatorUnit>,
+        DenominatorUnit : MeasurementUsage.UsedInMetric,
 
-      DenominatorUnit : MeasurementUsage.UsedInUSCustomary = denominator.denominator per (inverse x denominator.numerator)
+        DenominatorUnit : MeasurementUsage.UsedInUSCustomary =
+    denominator.denominator per (inverse x denominator.numerator)
 
 /**
  * [NumeratorUnit] per [DenominatorUnit] ->
@@ -313,7 +343,7 @@ infix fun<
  *  )
  */
 @JvmName("metricAndUSCustomaryDividedPerMetricAndUSCustomaryReciprocal")
-infix fun<
+infix fun <
     NumeratorNumeratorQuantity : UndefinedQuantityType,
     NumeratorNumeratorUnit,
     NumeratorDenominatorQuantity : UndefinedQuantityType,
@@ -322,27 +352,30 @@ infix fun<
     DenominatorReciprocalQuantity : UndefinedQuantityType,
     DenominatorReciprocalUnit,
     DenominatorUnit,
-    > NumeratorUnit.per(denominator: DenominatorUnit) where
-      NumeratorNumeratorUnit : UndefinedScientificUnit<NumeratorNumeratorQuantity>,
-      NumeratorNumeratorUnit : MeasurementUsage.UsedInMetric,
+    > NumeratorUnit.per(
+    denominator: DenominatorUnit,
+) where
+        NumeratorNumeratorUnit : UndefinedScientificUnit<NumeratorNumeratorQuantity>,
+        NumeratorNumeratorUnit : MeasurementUsage.UsedInMetric,
 
-      NumeratorNumeratorUnit : MeasurementUsage.UsedInUSCustomary,
-      NumeratorDenominatorUnit : UndefinedScientificUnit<NumeratorDenominatorQuantity>,
-      NumeratorDenominatorUnit : MeasurementUsage.UsedInMetric,
+        NumeratorNumeratorUnit : MeasurementUsage.UsedInUSCustomary,
+        NumeratorDenominatorUnit : UndefinedScientificUnit<NumeratorDenominatorQuantity>,
+        NumeratorDenominatorUnit : MeasurementUsage.UsedInMetric,
 
-      NumeratorDenominatorUnit : MeasurementUsage.UsedInUSCustomary,
-      NumeratorUnit : UndefinedDividedUnit<NumeratorNumeratorQuantity, NumeratorNumeratorUnit, NumeratorDenominatorQuantity, NumeratorDenominatorUnit>,
-      NumeratorUnit : MeasurementUsage.UsedInMetric,
+        NumeratorDenominatorUnit : MeasurementUsage.UsedInUSCustomary,
+        NumeratorUnit : UndefinedDividedUnit<NumeratorNumeratorQuantity, NumeratorNumeratorUnit, NumeratorDenominatorQuantity, NumeratorDenominatorUnit>,
+        NumeratorUnit : MeasurementUsage.UsedInMetric,
 
-      NumeratorUnit : MeasurementUsage.UsedInUSCustomary,
-      DenominatorReciprocalUnit : UndefinedScientificUnit<DenominatorReciprocalQuantity>,
-      DenominatorReciprocalUnit : MeasurementUsage.UsedInMetric,
+        NumeratorUnit : MeasurementUsage.UsedInUSCustomary,
+        DenominatorReciprocalUnit : UndefinedScientificUnit<DenominatorReciprocalQuantity>,
+        DenominatorReciprocalUnit : MeasurementUsage.UsedInMetric,
 
-      DenominatorReciprocalUnit : MeasurementUsage.UsedInUSCustomary,
-      DenominatorUnit : UndefinedReciprocalUnit<DenominatorReciprocalQuantity, DenominatorReciprocalUnit>,
-      DenominatorUnit : MeasurementUsage.UsedInMetric,
+        DenominatorReciprocalUnit : MeasurementUsage.UsedInUSCustomary,
+        DenominatorUnit : UndefinedReciprocalUnit<DenominatorReciprocalQuantity, DenominatorReciprocalUnit>,
+        DenominatorUnit : MeasurementUsage.UsedInMetric,
 
-      DenominatorUnit : MeasurementUsage.UsedInUSCustomary = (numerator x denominator.inverse) per this.denominator
+        DenominatorUnit : MeasurementUsage.UsedInUSCustomary =
+    (numerator x denominator.inverse) per this.denominator
 
 /**
  * [NumeratorUnit] per [DenominatorUnit] ->
@@ -352,7 +385,7 @@ infix fun<
  *  )
  */
 @JvmName("metricAndUSCustomaryDividedPerMetricAndUSCustomaryUndefined")
-infix fun<
+infix fun <
     NumeratorNumeratorQuantity : UndefinedQuantityType,
     NumeratorNumeratorUnit,
     NumeratorDenominatorQuantity : UndefinedQuantityType,
@@ -360,23 +393,26 @@ infix fun<
     NumeratorUnit,
     DenominatorQuantity : UndefinedQuantityType,
     DenominatorUnit,
-    > NumeratorUnit.per(denominator: DenominatorUnit) where
-      NumeratorNumeratorUnit : UndefinedScientificUnit<NumeratorNumeratorQuantity>,
-      NumeratorNumeratorUnit : MeasurementUsage.UsedInMetric,
+    > NumeratorUnit.per(
+    denominator: DenominatorUnit,
+) where
+        NumeratorNumeratorUnit : UndefinedScientificUnit<NumeratorNumeratorQuantity>,
+        NumeratorNumeratorUnit : MeasurementUsage.UsedInMetric,
 
-      NumeratorNumeratorUnit : MeasurementUsage.UsedInUSCustomary,
-      NumeratorDenominatorUnit : UndefinedScientificUnit<NumeratorDenominatorQuantity>,
-      NumeratorDenominatorUnit : MeasurementUsage.UsedInMetric,
+        NumeratorNumeratorUnit : MeasurementUsage.UsedInUSCustomary,
+        NumeratorDenominatorUnit : UndefinedScientificUnit<NumeratorDenominatorQuantity>,
+        NumeratorDenominatorUnit : MeasurementUsage.UsedInMetric,
 
-      NumeratorDenominatorUnit : MeasurementUsage.UsedInUSCustomary,
-      NumeratorUnit : UndefinedDividedUnit<NumeratorNumeratorQuantity, NumeratorNumeratorUnit, NumeratorDenominatorQuantity, NumeratorDenominatorUnit>,
-      NumeratorUnit : MeasurementUsage.UsedInMetric,
+        NumeratorDenominatorUnit : MeasurementUsage.UsedInUSCustomary,
+        NumeratorUnit : UndefinedDividedUnit<NumeratorNumeratorQuantity, NumeratorNumeratorUnit, NumeratorDenominatorQuantity, NumeratorDenominatorUnit>,
+        NumeratorUnit : MeasurementUsage.UsedInMetric,
 
-      NumeratorUnit : MeasurementUsage.UsedInUSCustomary,
-      DenominatorUnit : UndefinedScientificUnit<DenominatorQuantity>,
-      DenominatorUnit : MeasurementUsage.UsedInMetric,
+        NumeratorUnit : MeasurementUsage.UsedInUSCustomary,
+        DenominatorUnit : UndefinedScientificUnit<DenominatorQuantity>,
+        DenominatorUnit : MeasurementUsage.UsedInMetric,
 
-      DenominatorUnit : MeasurementUsage.UsedInUSCustomary = numerator per (this.denominator x denominator)
+        DenominatorUnit : MeasurementUsage.UsedInUSCustomary =
+    numerator per (this.denominator x denominator)
 
 /**
  * [NumeratorUnit] per [DenominatorUnit] ->
@@ -389,7 +425,7 @@ infix fun<
  *  )
  */
 @JvmName("metricAndUSCustomaryDividedPerMetricAndUSCustomaryDefined")
-infix fun<
+infix fun <
     NumeratorNumeratorQuantity : UndefinedQuantityType,
     NumeratorNumeratorUnit,
     NumeratorDenominatorQuantity : UndefinedQuantityType,
@@ -397,23 +433,26 @@ infix fun<
     NumeratorUnit,
     DenominatorQuantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
     DenominatorUnit,
-    > NumeratorUnit.per(denominator: DenominatorUnit) where
-      NumeratorNumeratorUnit : UndefinedScientificUnit<NumeratorNumeratorQuantity>,
-      NumeratorNumeratorUnit : MeasurementUsage.UsedInMetric,
+    > NumeratorUnit.per(
+    denominator: DenominatorUnit,
+) where
+        NumeratorNumeratorUnit : UndefinedScientificUnit<NumeratorNumeratorQuantity>,
+        NumeratorNumeratorUnit : MeasurementUsage.UsedInMetric,
 
-      NumeratorNumeratorUnit : MeasurementUsage.UsedInUSCustomary,
-      NumeratorDenominatorUnit : UndefinedScientificUnit<NumeratorDenominatorQuantity>,
-      NumeratorDenominatorUnit : MeasurementUsage.UsedInMetric,
+        NumeratorNumeratorUnit : MeasurementUsage.UsedInUSCustomary,
+        NumeratorDenominatorUnit : UndefinedScientificUnit<NumeratorDenominatorQuantity>,
+        NumeratorDenominatorUnit : MeasurementUsage.UsedInMetric,
 
-      NumeratorDenominatorUnit : MeasurementUsage.UsedInUSCustomary,
-      NumeratorUnit : UndefinedDividedUnit<NumeratorNumeratorQuantity, NumeratorNumeratorUnit, NumeratorDenominatorQuantity, NumeratorDenominatorUnit>,
-      NumeratorUnit : MeasurementUsage.UsedInMetric,
+        NumeratorDenominatorUnit : MeasurementUsage.UsedInUSCustomary,
+        NumeratorUnit : UndefinedDividedUnit<NumeratorNumeratorQuantity, NumeratorNumeratorUnit, NumeratorDenominatorQuantity, NumeratorDenominatorUnit>,
+        NumeratorUnit : MeasurementUsage.UsedInMetric,
 
-      NumeratorUnit : MeasurementUsage.UsedInUSCustomary,
-      DenominatorUnit : ScientificUnit<DenominatorQuantity>,
-      DenominatorUnit : MeasurementUsage.UsedInMetric,
+        NumeratorUnit : MeasurementUsage.UsedInUSCustomary,
+        DenominatorUnit : ScientificUnit<DenominatorQuantity>,
+        DenominatorUnit : MeasurementUsage.UsedInMetric,
 
-      DenominatorUnit : MeasurementUsage.UsedInUSCustomary = this.per(denominator.asUndefined())
+        DenominatorUnit : MeasurementUsage.UsedInUSCustomary =
+    this.per(denominator.asUndefined())
 
 /**
  * [NumeratorUnit] per [DenominatorUnit] ->
@@ -426,7 +465,7 @@ infix fun<
  *  )
  */
 @JvmName("metricAndUSCustomaryUndefinedPerMetricAndUSCustomaryDivided")
-infix fun<
+infix fun <
     NumeratorQuantity : UndefinedQuantityType,
     NumeratorUnit,
     DenominatorNumeratorQuantity : UndefinedQuantityType,
@@ -434,23 +473,26 @@ infix fun<
     DenominatorDenominatorQuantity : UndefinedQuantityType,
     DenominatorDenominatorUnit,
     DenominatorUnit,
-    > NumeratorUnit.per(denominator: DenominatorUnit) where
-      NumeratorUnit : UndefinedScientificUnit<NumeratorQuantity>,
-      NumeratorUnit : MeasurementUsage.UsedInMetric,
+    > NumeratorUnit.per(
+    denominator: DenominatorUnit,
+) where
+        NumeratorUnit : UndefinedScientificUnit<NumeratorQuantity>,
+        NumeratorUnit : MeasurementUsage.UsedInMetric,
 
-      NumeratorUnit : MeasurementUsage.UsedInUSCustomary,
-      DenominatorNumeratorUnit : UndefinedScientificUnit<DenominatorNumeratorQuantity>,
-      DenominatorNumeratorUnit : MeasurementUsage.UsedInMetric,
+        NumeratorUnit : MeasurementUsage.UsedInUSCustomary,
+        DenominatorNumeratorUnit : UndefinedScientificUnit<DenominatorNumeratorQuantity>,
+        DenominatorNumeratorUnit : MeasurementUsage.UsedInMetric,
 
-      DenominatorNumeratorUnit : MeasurementUsage.UsedInUSCustomary,
-      DenominatorDenominatorUnit : UndefinedScientificUnit<DenominatorDenominatorQuantity>,
-      DenominatorDenominatorUnit : MeasurementUsage.UsedInMetric,
+        DenominatorNumeratorUnit : MeasurementUsage.UsedInUSCustomary,
+        DenominatorDenominatorUnit : UndefinedScientificUnit<DenominatorDenominatorQuantity>,
+        DenominatorDenominatorUnit : MeasurementUsage.UsedInMetric,
 
-      DenominatorDenominatorUnit : MeasurementUsage.UsedInUSCustomary,
-      DenominatorUnit : UndefinedDividedUnit<DenominatorNumeratorQuantity, DenominatorNumeratorUnit, DenominatorDenominatorQuantity, DenominatorDenominatorUnit>,
-      DenominatorUnit : MeasurementUsage.UsedInMetric,
+        DenominatorDenominatorUnit : MeasurementUsage.UsedInUSCustomary,
+        DenominatorUnit : UndefinedDividedUnit<DenominatorNumeratorQuantity, DenominatorNumeratorUnit, DenominatorDenominatorQuantity, DenominatorDenominatorUnit>,
+        DenominatorUnit : MeasurementUsage.UsedInMetric,
 
-      DenominatorUnit : MeasurementUsage.UsedInUSCustomary = (this x denominator.denominator) per denominator.numerator
+        DenominatorUnit : MeasurementUsage.UsedInUSCustomary =
+    (this x denominator.denominator) per denominator.numerator
 
 /**
  * [NumeratorUnit] per [DenominatorUnit] ->
@@ -463,7 +505,7 @@ infix fun<
  *  )
  */
 @JvmName("metricAndUSCustomaryDefinedPerMetricAndUSCustomaryDivided")
-infix fun<
+infix fun <
     NumeratorQuantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
     NumeratorUnit,
     DenominatorNumeratorQuantity : UndefinedQuantityType,
@@ -471,23 +513,26 @@ infix fun<
     DenominatorDenominatorQuantity : UndefinedQuantityType,
     DenominatorDenominatorUnit,
     DenominatorUnit,
-    > NumeratorUnit.per(denominator: DenominatorUnit) where
-      NumeratorUnit : ScientificUnit<NumeratorQuantity>,
-      NumeratorUnit : MeasurementUsage.UsedInMetric,
+    > NumeratorUnit.per(
+    denominator: DenominatorUnit,
+) where
+        NumeratorUnit : ScientificUnit<NumeratorQuantity>,
+        NumeratorUnit : MeasurementUsage.UsedInMetric,
 
-      NumeratorUnit : MeasurementUsage.UsedInUSCustomary,
-      DenominatorNumeratorUnit : UndefinedScientificUnit<DenominatorNumeratorQuantity>,
-      DenominatorNumeratorUnit : MeasurementUsage.UsedInMetric,
+        NumeratorUnit : MeasurementUsage.UsedInUSCustomary,
+        DenominatorNumeratorUnit : UndefinedScientificUnit<DenominatorNumeratorQuantity>,
+        DenominatorNumeratorUnit : MeasurementUsage.UsedInMetric,
 
-      DenominatorNumeratorUnit : MeasurementUsage.UsedInUSCustomary,
-      DenominatorDenominatorUnit : UndefinedScientificUnit<DenominatorDenominatorQuantity>,
-      DenominatorDenominatorUnit : MeasurementUsage.UsedInMetric,
+        DenominatorNumeratorUnit : MeasurementUsage.UsedInUSCustomary,
+        DenominatorDenominatorUnit : UndefinedScientificUnit<DenominatorDenominatorQuantity>,
+        DenominatorDenominatorUnit : MeasurementUsage.UsedInMetric,
 
-      DenominatorDenominatorUnit : MeasurementUsage.UsedInUSCustomary,
-      DenominatorUnit : UndefinedDividedUnit<DenominatorNumeratorQuantity, DenominatorNumeratorUnit, DenominatorDenominatorQuantity, DenominatorDenominatorUnit>,
-      DenominatorUnit : MeasurementUsage.UsedInMetric,
+        DenominatorDenominatorUnit : MeasurementUsage.UsedInUSCustomary,
+        DenominatorUnit : UndefinedDividedUnit<DenominatorNumeratorQuantity, DenominatorNumeratorUnit, DenominatorDenominatorQuantity, DenominatorDenominatorUnit>,
+        DenominatorUnit : MeasurementUsage.UsedInMetric,
 
-      DenominatorUnit : MeasurementUsage.UsedInUSCustomary = asUndefined().per(denominator)
+        DenominatorUnit : MeasurementUsage.UsedInUSCustomary =
+    asUndefined().per(denominator)
 
 /**
  * [NumeratorUnit] per [DenominatorUnit] ->
@@ -503,7 +548,7 @@ infix fun<
  *  )
  */
 @JvmName("metricAndUSCustomaryDividedPerMetricAndUSCustomaryDivided")
-infix fun<
+infix fun <
     NumeratorNumeratorQuantity : UndefinedQuantityType,
     NumeratorNumeratorUnit,
     NumeratorDenominatorQuantity : UndefinedQuantityType,
@@ -514,28 +559,31 @@ infix fun<
     DenominatorDenominatorQuantity : UndefinedQuantityType,
     DenominatorDenominatorUnit,
     DenominatorUnit,
-    > NumeratorUnit.per(denominator: DenominatorUnit) where
-      NumeratorNumeratorUnit : UndefinedScientificUnit<NumeratorNumeratorQuantity>,
-      NumeratorNumeratorUnit : MeasurementUsage.UsedInMetric,
+    > NumeratorUnit.per(
+    denominator: DenominatorUnit,
+) where
+        NumeratorNumeratorUnit : UndefinedScientificUnit<NumeratorNumeratorQuantity>,
+        NumeratorNumeratorUnit : MeasurementUsage.UsedInMetric,
 
-      NumeratorNumeratorUnit : MeasurementUsage.UsedInUSCustomary,
-      NumeratorDenominatorUnit : UndefinedScientificUnit<NumeratorDenominatorQuantity>,
-      NumeratorDenominatorUnit : MeasurementUsage.UsedInMetric,
+        NumeratorNumeratorUnit : MeasurementUsage.UsedInUSCustomary,
+        NumeratorDenominatorUnit : UndefinedScientificUnit<NumeratorDenominatorQuantity>,
+        NumeratorDenominatorUnit : MeasurementUsage.UsedInMetric,
 
-      NumeratorDenominatorUnit : MeasurementUsage.UsedInUSCustomary,
-      NumeratorUnit : UndefinedDividedUnit<NumeratorNumeratorQuantity, NumeratorNumeratorUnit, NumeratorDenominatorQuantity, NumeratorDenominatorUnit>,
-      NumeratorUnit : MeasurementUsage.UsedInMetric,
+        NumeratorDenominatorUnit : MeasurementUsage.UsedInUSCustomary,
+        NumeratorUnit : UndefinedDividedUnit<NumeratorNumeratorQuantity, NumeratorNumeratorUnit, NumeratorDenominatorQuantity, NumeratorDenominatorUnit>,
+        NumeratorUnit : MeasurementUsage.UsedInMetric,
 
-      NumeratorUnit : MeasurementUsage.UsedInUSCustomary,
-      DenominatorNumeratorUnit : UndefinedScientificUnit<DenominatorNumeratorQuantity>,
-      DenominatorNumeratorUnit : MeasurementUsage.UsedInMetric,
+        NumeratorUnit : MeasurementUsage.UsedInUSCustomary,
+        DenominatorNumeratorUnit : UndefinedScientificUnit<DenominatorNumeratorQuantity>,
+        DenominatorNumeratorUnit : MeasurementUsage.UsedInMetric,
 
-      DenominatorNumeratorUnit : MeasurementUsage.UsedInUSCustomary,
-      DenominatorDenominatorUnit : UndefinedScientificUnit<DenominatorDenominatorQuantity>,
-      DenominatorDenominatorUnit : MeasurementUsage.UsedInMetric,
+        DenominatorNumeratorUnit : MeasurementUsage.UsedInUSCustomary,
+        DenominatorDenominatorUnit : UndefinedScientificUnit<DenominatorDenominatorQuantity>,
+        DenominatorDenominatorUnit : MeasurementUsage.UsedInMetric,
 
-      DenominatorDenominatorUnit : MeasurementUsage.UsedInUSCustomary,
-      DenominatorUnit : UndefinedDividedUnit<DenominatorNumeratorQuantity, DenominatorNumeratorUnit, DenominatorDenominatorQuantity, DenominatorDenominatorUnit>,
-      DenominatorUnit : MeasurementUsage.UsedInMetric,
+        DenominatorDenominatorUnit : MeasurementUsage.UsedInUSCustomary,
+        DenominatorUnit : UndefinedDividedUnit<DenominatorNumeratorQuantity, DenominatorNumeratorUnit, DenominatorDenominatorQuantity, DenominatorDenominatorUnit>,
+        DenominatorUnit : MeasurementUsage.UsedInMetric,
 
-      DenominatorUnit : MeasurementUsage.UsedInUSCustomary = (numerator x denominator.denominator) per (this.denominator x denominator.numerator)
+        DenominatorUnit : MeasurementUsage.UsedInUSCustomary =
+    (numerator x denominator.denominator) per (this.denominator x denominator.numerator)

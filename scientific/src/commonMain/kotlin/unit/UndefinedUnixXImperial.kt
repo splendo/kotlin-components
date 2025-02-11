@@ -34,13 +34,16 @@ infix fun <
     LeftUnit,
     RightQuantity : UndefinedQuantityType,
     RightUnit,
-    > LeftUnit.x(right: RightUnit) where
-      LeftUnit : UndefinedScientificUnit<LeftQuantity>,
-      LeftUnit : MeasurementUsage.UsedInUKImperial,
-      LeftUnit : MeasurementUsage.UsedInUSCustomary,
-      RightUnit : UndefinedScientificUnit<RightQuantity>,
-      RightUnit : MeasurementUsage.UsedInUKImperial,
-      RightUnit : MeasurementUsage.UsedInUSCustomary = UndefinedMultipliedUnit.Imperial(this, right)
+    > LeftUnit.x(
+    right: RightUnit,
+) where
+        LeftUnit : UndefinedScientificUnit<LeftQuantity>,
+        LeftUnit : MeasurementUsage.UsedInUKImperial,
+        LeftUnit : MeasurementUsage.UsedInUSCustomary,
+        RightUnit : UndefinedScientificUnit<RightQuantity>,
+        RightUnit : MeasurementUsage.UsedInUKImperial,
+        RightUnit : MeasurementUsage.UsedInUSCustomary =
+    UndefinedMultipliedUnit.Imperial(this, right)
 
 /**
  * [LeftUnit] x [RightUnit] ->
@@ -55,13 +58,16 @@ infix fun <
     LeftUnit,
     RightQuantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
     RightUnit,
-    > LeftUnit.x(right: RightUnit) where
-      LeftUnit : UndefinedScientificUnit<LeftQuantity>,
-      LeftUnit : MeasurementUsage.UsedInUKImperial,
-      LeftUnit : MeasurementUsage.UsedInUSCustomary,
-      RightUnit : ScientificUnit<RightQuantity>,
-      RightUnit : MeasurementUsage.UsedInUKImperial,
-      RightUnit : MeasurementUsage.UsedInUSCustomary = x(right.asUndefined())
+    > LeftUnit.x(
+    right: RightUnit,
+) where
+        LeftUnit : UndefinedScientificUnit<LeftQuantity>,
+        LeftUnit : MeasurementUsage.UsedInUKImperial,
+        LeftUnit : MeasurementUsage.UsedInUSCustomary,
+        RightUnit : ScientificUnit<RightQuantity>,
+        RightUnit : MeasurementUsage.UsedInUKImperial,
+        RightUnit : MeasurementUsage.UsedInUSCustomary =
+    x(right.asUndefined())
 
 /**
  * [LeftUnit] x [RightUnit] ->
@@ -76,13 +82,16 @@ infix fun <
     LeftUnit,
     RightQuantity : UndefinedQuantityType,
     RightUnit,
-    > LeftUnit.x(right: RightUnit) where
-      LeftUnit : ScientificUnit<LeftQuantity>,
-      LeftUnit : MeasurementUsage.UsedInUKImperial,
-      LeftUnit : MeasurementUsage.UsedInUSCustomary,
-      RightUnit : UndefinedScientificUnit<RightQuantity>,
-      RightUnit : MeasurementUsage.UsedInUKImperial,
-      RightUnit : MeasurementUsage.UsedInUSCustomary = asUndefined().x(right)
+    > LeftUnit.x(
+    right: RightUnit,
+) where
+        LeftUnit : ScientificUnit<LeftQuantity>,
+        LeftUnit : MeasurementUsage.UsedInUKImperial,
+        LeftUnit : MeasurementUsage.UsedInUSCustomary,
+        RightUnit : UndefinedScientificUnit<RightQuantity>,
+        RightUnit : MeasurementUsage.UsedInUKImperial,
+        RightUnit : MeasurementUsage.UsedInUSCustomary =
+    asUndefined().x(right)
 
 /**
  * [LeftUnit] x [RightUnit] ->
@@ -97,13 +106,16 @@ infix fun <
     LeftUnit,
     RightQuantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
     RightUnit,
-    > LeftUnit.x(right: RightUnit) where
-      LeftUnit : ScientificUnit<LeftQuantity>,
-      LeftUnit : MeasurementUsage.UsedInUKImperial,
-      LeftUnit : MeasurementUsage.UsedInUSCustomary,
-      RightUnit : ScientificUnit<RightQuantity>,
-      RightUnit : MeasurementUsage.UsedInUKImperial,
-      RightUnit : MeasurementUsage.UsedInUSCustomary = x(right.asUndefined())
+    > LeftUnit.x(
+    right: RightUnit,
+) where
+        LeftUnit : ScientificUnit<LeftQuantity>,
+        LeftUnit : MeasurementUsage.UsedInUKImperial,
+        LeftUnit : MeasurementUsage.UsedInUSCustomary,
+        RightUnit : ScientificUnit<RightQuantity>,
+        RightUnit : MeasurementUsage.UsedInUKImperial,
+        RightUnit : MeasurementUsage.UsedInUSCustomary =
+    x(right.asUndefined())
 
 /**
  * [LeftUnit] x [RightUnit] ->
@@ -119,16 +131,19 @@ infix fun <
     LeftUnit,
     RightQuantity : UndefinedQuantityType,
     RightUnit,
-    > LeftUnit.x(right: RightUnit) where
-      LeftReciprocalUnit : UndefinedScientificUnit<LeftReciprocalQuantity>,
-      LeftReciprocalUnit : MeasurementUsage.UsedInUKImperial,
-      LeftReciprocalUnit : MeasurementUsage.UsedInUSCustomary,
-      LeftUnit : UndefinedReciprocalUnit<LeftReciprocalQuantity, LeftReciprocalUnit>,
-      LeftUnit : MeasurementUsage.UsedInUKImperial,
-      LeftUnit : MeasurementUsage.UsedInUSCustomary,
-      RightUnit : UndefinedScientificUnit<RightQuantity>,
-      RightUnit : MeasurementUsage.UsedInUKImperial,
-      RightUnit : MeasurementUsage.UsedInUSCustomary = right per inverse
+    > LeftUnit.x(
+    right: RightUnit,
+) where
+        LeftReciprocalUnit : UndefinedScientificUnit<LeftReciprocalQuantity>,
+        LeftReciprocalUnit : MeasurementUsage.UsedInUKImperial,
+        LeftReciprocalUnit : MeasurementUsage.UsedInUSCustomary,
+        LeftUnit : UndefinedReciprocalUnit<LeftReciprocalQuantity, LeftReciprocalUnit>,
+        LeftUnit : MeasurementUsage.UsedInUKImperial,
+        LeftUnit : MeasurementUsage.UsedInUSCustomary,
+        RightUnit : UndefinedScientificUnit<RightQuantity>,
+        RightUnit : MeasurementUsage.UsedInUKImperial,
+        RightUnit : MeasurementUsage.UsedInUSCustomary =
+    right per inverse
 
 /**
  * [LeftUnit] x [RightUnit] ->
@@ -144,16 +159,19 @@ infix fun <
     LeftUnit,
     RightQuantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
     RightUnit,
-    > LeftUnit.x(right: RightUnit) where
-      LeftReciprocalUnit : UndefinedScientificUnit<LeftReciprocalQuantity>,
-      LeftReciprocalUnit : MeasurementUsage.UsedInUKImperial,
-      LeftReciprocalUnit : MeasurementUsage.UsedInUSCustomary,
-      LeftUnit : UndefinedReciprocalUnit<LeftReciprocalQuantity, LeftReciprocalUnit>,
-      LeftUnit : MeasurementUsage.UsedInUKImperial,
-      LeftUnit : MeasurementUsage.UsedInUSCustomary,
-      RightUnit : ScientificUnit<RightQuantity>,
-      RightUnit : MeasurementUsage.UsedInUKImperial,
-      RightUnit : MeasurementUsage.UsedInUSCustomary = x(right.asUndefined())
+    > LeftUnit.x(
+    right: RightUnit,
+) where
+        LeftReciprocalUnit : UndefinedScientificUnit<LeftReciprocalQuantity>,
+        LeftReciprocalUnit : MeasurementUsage.UsedInUKImperial,
+        LeftReciprocalUnit : MeasurementUsage.UsedInUSCustomary,
+        LeftUnit : UndefinedReciprocalUnit<LeftReciprocalQuantity, LeftReciprocalUnit>,
+        LeftUnit : MeasurementUsage.UsedInUKImperial,
+        LeftUnit : MeasurementUsage.UsedInUSCustomary,
+        RightUnit : ScientificUnit<RightQuantity>,
+        RightUnit : MeasurementUsage.UsedInUKImperial,
+        RightUnit : MeasurementUsage.UsedInUSCustomary =
+    x(right.asUndefined())
 
 /**
  * [LeftUnit] x [RightUnit] ->
@@ -169,16 +187,19 @@ infix fun <
     RightQuantity : UndefinedQuantityType,
     RightReciprocalUnit,
     RightUnit,
-    > LeftUnit.x(right: RightUnit) where
-      LeftUnit : UndefinedScientificUnit<LeftQuantity>,
-      LeftUnit : MeasurementUsage.UsedInUKImperial,
-      LeftUnit : MeasurementUsage.UsedInUSCustomary,
-      RightReciprocalUnit : UndefinedScientificUnit<RightQuantity>,
-      RightReciprocalUnit : MeasurementUsage.UsedInUKImperial,
-      RightReciprocalUnit : MeasurementUsage.UsedInUSCustomary,
-      RightUnit : UndefinedReciprocalUnit<RightQuantity, RightReciprocalUnit>,
-      RightUnit : MeasurementUsage.UsedInUKImperial,
-      RightUnit : MeasurementUsage.UsedInUSCustomary = right x this
+    > LeftUnit.x(
+    right: RightUnit,
+) where
+        LeftUnit : UndefinedScientificUnit<LeftQuantity>,
+        LeftUnit : MeasurementUsage.UsedInUKImperial,
+        LeftUnit : MeasurementUsage.UsedInUSCustomary,
+        RightReciprocalUnit : UndefinedScientificUnit<RightQuantity>,
+        RightReciprocalUnit : MeasurementUsage.UsedInUKImperial,
+        RightReciprocalUnit : MeasurementUsage.UsedInUSCustomary,
+        RightUnit : UndefinedReciprocalUnit<RightQuantity, RightReciprocalUnit>,
+        RightUnit : MeasurementUsage.UsedInUKImperial,
+        RightUnit : MeasurementUsage.UsedInUSCustomary =
+    right x this
 
 /**
  * [LeftUnit] x [RightUnit] ->
@@ -194,16 +215,19 @@ infix fun <
     RightQuantity : UndefinedQuantityType,
     RightReciprocalUnit,
     RightUnit,
-    > LeftUnit.x(right: RightUnit) where
-      LeftUnit : ScientificUnit<LeftQuantity>,
-      LeftUnit : MeasurementUsage.UsedInUKImperial,
-      LeftUnit : MeasurementUsage.UsedInUSCustomary,
-      RightReciprocalUnit : UndefinedScientificUnit<RightQuantity>,
-      RightReciprocalUnit : MeasurementUsage.UsedInUKImperial,
-      RightReciprocalUnit : MeasurementUsage.UsedInUSCustomary,
-      RightUnit : UndefinedReciprocalUnit<RightQuantity, RightReciprocalUnit>,
-      RightUnit : MeasurementUsage.UsedInUKImperial,
-      RightUnit : MeasurementUsage.UsedInUSCustomary = right x this
+    > LeftUnit.x(
+    right: RightUnit,
+) where
+        LeftUnit : ScientificUnit<LeftQuantity>,
+        LeftUnit : MeasurementUsage.UsedInUKImperial,
+        LeftUnit : MeasurementUsage.UsedInUSCustomary,
+        RightReciprocalUnit : UndefinedScientificUnit<RightQuantity>,
+        RightReciprocalUnit : MeasurementUsage.UsedInUKImperial,
+        RightReciprocalUnit : MeasurementUsage.UsedInUSCustomary,
+        RightUnit : UndefinedReciprocalUnit<RightQuantity, RightReciprocalUnit>,
+        RightUnit : MeasurementUsage.UsedInUKImperial,
+        RightUnit : MeasurementUsage.UsedInUSCustomary =
+    right x this
 
 /**
  * [LeftUnit] x [RightUnit] ->
@@ -222,19 +246,22 @@ infix fun <
     RightQuantity : UndefinedQuantityType,
     RightReciprocalUnit,
     RightUnit,
-    > LeftUnit.x(right: RightUnit) where
-      LeftReciprocalUnit : UndefinedScientificUnit<LeftReciprocalQuantity>,
-      LeftReciprocalUnit : MeasurementUsage.UsedInUKImperial,
-      LeftReciprocalUnit : MeasurementUsage.UsedInUSCustomary,
-      LeftUnit : UndefinedReciprocalUnit<LeftReciprocalQuantity, LeftReciprocalUnit>,
-      LeftUnit : MeasurementUsage.UsedInUKImperial,
-      LeftUnit : MeasurementUsage.UsedInUSCustomary,
-      RightReciprocalUnit : UndefinedScientificUnit<RightQuantity>,
-      RightReciprocalUnit : MeasurementUsage.UsedInUKImperial,
-      RightReciprocalUnit : MeasurementUsage.UsedInUSCustomary,
-      RightUnit : UndefinedReciprocalUnit<RightQuantity, RightReciprocalUnit>,
-      RightUnit : MeasurementUsage.UsedInUKImperial,
-      RightUnit : MeasurementUsage.UsedInUSCustomary = (inverse x right.inverse).reciprocal()
+    > LeftUnit.x(
+    right: RightUnit,
+) where
+        LeftReciprocalUnit : UndefinedScientificUnit<LeftReciprocalQuantity>,
+        LeftReciprocalUnit : MeasurementUsage.UsedInUKImperial,
+        LeftReciprocalUnit : MeasurementUsage.UsedInUSCustomary,
+        LeftUnit : UndefinedReciprocalUnit<LeftReciprocalQuantity, LeftReciprocalUnit>,
+        LeftUnit : MeasurementUsage.UsedInUKImperial,
+        LeftUnit : MeasurementUsage.UsedInUSCustomary,
+        RightReciprocalUnit : UndefinedScientificUnit<RightQuantity>,
+        RightReciprocalUnit : MeasurementUsage.UsedInUKImperial,
+        RightReciprocalUnit : MeasurementUsage.UsedInUSCustomary,
+        RightUnit : UndefinedReciprocalUnit<RightQuantity, RightReciprocalUnit>,
+        RightUnit : MeasurementUsage.UsedInUKImperial,
+        RightUnit : MeasurementUsage.UsedInUSCustomary =
+    (inverse x right.inverse).reciprocal()
 
 /**
  * [LeftUnit] x [RightUnit] ->
@@ -256,22 +283,25 @@ infix fun <
     RightDenominatorQuantity : UndefinedQuantityType,
     RightDenominatorUnit,
     RightUnit,
-    > LeftUnit.x(right: RightUnit) where
-      LeftReciprocalUnit : UndefinedScientificUnit<LeftReciprocalQuantity>,
-      LeftReciprocalUnit : MeasurementUsage.UsedInUKImperial,
-      LeftReciprocalUnit : MeasurementUsage.UsedInUSCustomary,
-      LeftUnit : UndefinedReciprocalUnit<LeftReciprocalQuantity, LeftReciprocalUnit>,
-      LeftUnit : MeasurementUsage.UsedInUKImperial,
-      LeftUnit : MeasurementUsage.UsedInUSCustomary,
-      RightNumeratorUnit : UndefinedScientificUnit<RightNumeratorQuantity>,
-      RightNumeratorUnit : MeasurementUsage.UsedInUKImperial,
-      RightNumeratorUnit : MeasurementUsage.UsedInUSCustomary,
-      RightDenominatorUnit : UndefinedScientificUnit<RightDenominatorQuantity>,
-      RightDenominatorUnit : MeasurementUsage.UsedInUKImperial,
-      RightDenominatorUnit : MeasurementUsage.UsedInUSCustomary,
-      RightUnit : UndefinedDividedUnit<RightNumeratorQuantity, RightNumeratorUnit, RightDenominatorQuantity, RightDenominatorUnit>,
-      RightUnit : MeasurementUsage.UsedInUKImperial,
-      RightUnit : MeasurementUsage.UsedInUSCustomary = right.numerator per (inverse x right.denominator)
+    > LeftUnit.x(
+    right: RightUnit,
+) where
+        LeftReciprocalUnit : UndefinedScientificUnit<LeftReciprocalQuantity>,
+        LeftReciprocalUnit : MeasurementUsage.UsedInUKImperial,
+        LeftReciprocalUnit : MeasurementUsage.UsedInUSCustomary,
+        LeftUnit : UndefinedReciprocalUnit<LeftReciprocalQuantity, LeftReciprocalUnit>,
+        LeftUnit : MeasurementUsage.UsedInUKImperial,
+        LeftUnit : MeasurementUsage.UsedInUSCustomary,
+        RightNumeratorUnit : UndefinedScientificUnit<RightNumeratorQuantity>,
+        RightNumeratorUnit : MeasurementUsage.UsedInUKImperial,
+        RightNumeratorUnit : MeasurementUsage.UsedInUSCustomary,
+        RightDenominatorUnit : UndefinedScientificUnit<RightDenominatorQuantity>,
+        RightDenominatorUnit : MeasurementUsage.UsedInUKImperial,
+        RightDenominatorUnit : MeasurementUsage.UsedInUSCustomary,
+        RightUnit : UndefinedDividedUnit<RightNumeratorQuantity, RightNumeratorUnit, RightDenominatorQuantity, RightDenominatorUnit>,
+        RightUnit : MeasurementUsage.UsedInUKImperial,
+        RightUnit : MeasurementUsage.UsedInUSCustomary =
+    right.numerator per (inverse x right.denominator)
 
 /**
  * [LeftUnit] x [RightUnit] ->
@@ -293,22 +323,25 @@ infix fun <
     RightReciprocalQuantity : UndefinedQuantityType,
     RightReciprocalUnit,
     RightUnit,
-    > LeftUnit.x(right: RightUnit) where
-      LeftNumeratorUnit : UndefinedScientificUnit<LeftNumeratorQuantity>,
-      LeftNumeratorUnit : MeasurementUsage.UsedInUKImperial,
-      LeftNumeratorUnit : MeasurementUsage.UsedInUSCustomary,
-      LeftDenominatorUnit : UndefinedScientificUnit<LeftDenominatorQuantity>,
-      LeftDenominatorUnit : MeasurementUsage.UsedInUKImperial,
-      LeftDenominatorUnit : MeasurementUsage.UsedInUSCustomary,
-      LeftUnit : UndefinedDividedUnit<LeftNumeratorQuantity, LeftNumeratorUnit, LeftDenominatorQuantity, LeftDenominatorUnit>,
-      LeftUnit : MeasurementUsage.UsedInUKImperial,
-      LeftUnit : MeasurementUsage.UsedInUSCustomary,
-      RightReciprocalUnit : UndefinedScientificUnit<RightReciprocalQuantity>,
-      RightReciprocalUnit : MeasurementUsage.UsedInUKImperial,
-      RightReciprocalUnit : MeasurementUsage.UsedInUSCustomary,
-      RightUnit : UndefinedReciprocalUnit<RightReciprocalQuantity, RightReciprocalUnit>,
-      RightUnit : MeasurementUsage.UsedInUKImperial,
-      RightUnit : MeasurementUsage.UsedInUSCustomary = numerator per (denominator x right.inverse)
+    > LeftUnit.x(
+    right: RightUnit,
+) where
+        LeftNumeratorUnit : UndefinedScientificUnit<LeftNumeratorQuantity>,
+        LeftNumeratorUnit : MeasurementUsage.UsedInUKImperial,
+        LeftNumeratorUnit : MeasurementUsage.UsedInUSCustomary,
+        LeftDenominatorUnit : UndefinedScientificUnit<LeftDenominatorQuantity>,
+        LeftDenominatorUnit : MeasurementUsage.UsedInUKImperial,
+        LeftDenominatorUnit : MeasurementUsage.UsedInUSCustomary,
+        LeftUnit : UndefinedDividedUnit<LeftNumeratorQuantity, LeftNumeratorUnit, LeftDenominatorQuantity, LeftDenominatorUnit>,
+        LeftUnit : MeasurementUsage.UsedInUKImperial,
+        LeftUnit : MeasurementUsage.UsedInUSCustomary,
+        RightReciprocalUnit : UndefinedScientificUnit<RightReciprocalQuantity>,
+        RightReciprocalUnit : MeasurementUsage.UsedInUKImperial,
+        RightReciprocalUnit : MeasurementUsage.UsedInUSCustomary,
+        RightUnit : UndefinedReciprocalUnit<RightReciprocalQuantity, RightReciprocalUnit>,
+        RightUnit : MeasurementUsage.UsedInUKImperial,
+        RightUnit : MeasurementUsage.UsedInUSCustomary =
+    numerator per (denominator x right.inverse)
 
 /**
  * [LeftUnit] x [RightUnit] ->
@@ -329,19 +362,22 @@ infix fun <
     LeftUnit,
     RightQuantity : UndefinedQuantityType,
     RightUnit,
-    > LeftUnit.x(right: RightUnit) where
-      LeftNumeratorUnit : UndefinedScientificUnit<LeftNumeratorQuantity>,
-      LeftNumeratorUnit : MeasurementUsage.UsedInUKImperial,
-      LeftNumeratorUnit : MeasurementUsage.UsedInUSCustomary,
-      LeftDenominatorUnit : UndefinedScientificUnit<LeftDenominatorQuantity>,
-      LeftDenominatorUnit : MeasurementUsage.UsedInUKImperial,
-      LeftDenominatorUnit : MeasurementUsage.UsedInUSCustomary,
-      LeftUnit : UndefinedDividedUnit<LeftNumeratorQuantity, LeftNumeratorUnit, LeftDenominatorQuantity, LeftDenominatorUnit>,
-      LeftUnit : MeasurementUsage.UsedInUKImperial,
-      LeftUnit : MeasurementUsage.UsedInUSCustomary,
-      RightUnit : UndefinedScientificUnit<RightQuantity>,
-      RightUnit : MeasurementUsage.UsedInUKImperial,
-      RightUnit : MeasurementUsage.UsedInUSCustomary = (numerator x right) per denominator
+    > LeftUnit.x(
+    right: RightUnit,
+) where
+        LeftNumeratorUnit : UndefinedScientificUnit<LeftNumeratorQuantity>,
+        LeftNumeratorUnit : MeasurementUsage.UsedInUKImperial,
+        LeftNumeratorUnit : MeasurementUsage.UsedInUSCustomary,
+        LeftDenominatorUnit : UndefinedScientificUnit<LeftDenominatorQuantity>,
+        LeftDenominatorUnit : MeasurementUsage.UsedInUKImperial,
+        LeftDenominatorUnit : MeasurementUsage.UsedInUSCustomary,
+        LeftUnit : UndefinedDividedUnit<LeftNumeratorQuantity, LeftNumeratorUnit, LeftDenominatorQuantity, LeftDenominatorUnit>,
+        LeftUnit : MeasurementUsage.UsedInUKImperial,
+        LeftUnit : MeasurementUsage.UsedInUSCustomary,
+        RightUnit : UndefinedScientificUnit<RightQuantity>,
+        RightUnit : MeasurementUsage.UsedInUKImperial,
+        RightUnit : MeasurementUsage.UsedInUSCustomary =
+    (numerator x right) per denominator
 
 /**
  * [LeftUnit] x [RightUnit] ->
@@ -362,19 +398,22 @@ infix fun <
     LeftUnit,
     RightQuantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
     RightUnit,
-    > LeftUnit.x(right: RightUnit) where
-      LeftNumeratorUnit : UndefinedScientificUnit<LeftNumeratorQuantity>,
-      LeftNumeratorUnit : MeasurementUsage.UsedInUKImperial,
-      LeftNumeratorUnit : MeasurementUsage.UsedInUSCustomary,
-      LeftDenominatorUnit : UndefinedScientificUnit<LeftDenominatorQuantity>,
-      LeftDenominatorUnit : MeasurementUsage.UsedInUKImperial,
-      LeftDenominatorUnit : MeasurementUsage.UsedInUSCustomary,
-      LeftUnit : UndefinedDividedUnit<LeftNumeratorQuantity, LeftNumeratorUnit, LeftDenominatorQuantity, LeftDenominatorUnit>,
-      LeftUnit : MeasurementUsage.UsedInUKImperial,
-      LeftUnit : MeasurementUsage.UsedInUSCustomary,
-      RightUnit : ScientificUnit<RightQuantity>,
-      RightUnit : MeasurementUsage.UsedInUKImperial,
-      RightUnit : MeasurementUsage.UsedInUSCustomary = x(right.asUndefined())
+    > LeftUnit.x(
+    right: RightUnit,
+) where
+        LeftNumeratorUnit : UndefinedScientificUnit<LeftNumeratorQuantity>,
+        LeftNumeratorUnit : MeasurementUsage.UsedInUKImperial,
+        LeftNumeratorUnit : MeasurementUsage.UsedInUSCustomary,
+        LeftDenominatorUnit : UndefinedScientificUnit<LeftDenominatorQuantity>,
+        LeftDenominatorUnit : MeasurementUsage.UsedInUKImperial,
+        LeftDenominatorUnit : MeasurementUsage.UsedInUSCustomary,
+        LeftUnit : UndefinedDividedUnit<LeftNumeratorQuantity, LeftNumeratorUnit, LeftDenominatorQuantity, LeftDenominatorUnit>,
+        LeftUnit : MeasurementUsage.UsedInUKImperial,
+        LeftUnit : MeasurementUsage.UsedInUSCustomary,
+        RightUnit : ScientificUnit<RightQuantity>,
+        RightUnit : MeasurementUsage.UsedInUKImperial,
+        RightUnit : MeasurementUsage.UsedInUSCustomary =
+    x(right.asUndefined())
 
 /**
  * [LeftUnit] x [RightUnit] ->
@@ -395,19 +434,22 @@ infix fun <
     RightDenominatorQuantity : UndefinedQuantityType,
     RightDenominatorUnit,
     RightUnit,
-    > LeftUnit.x(right: RightUnit) where
-      LeftUnit : UndefinedScientificUnit<LeftQuantity>,
-      LeftUnit : MeasurementUsage.UsedInUKImperial,
-      LeftUnit : MeasurementUsage.UsedInUSCustomary,
-      RightNumeratorUnit : UndefinedScientificUnit<RightNumeratorQuantity>,
-      RightNumeratorUnit : MeasurementUsage.UsedInUKImperial,
-      RightNumeratorUnit : MeasurementUsage.UsedInUSCustomary,
-      RightDenominatorUnit : UndefinedScientificUnit<RightDenominatorQuantity>,
-      RightDenominatorUnit : MeasurementUsage.UsedInUKImperial,
-      RightDenominatorUnit : MeasurementUsage.UsedInUSCustomary,
-      RightUnit : UndefinedDividedUnit<RightNumeratorQuantity, RightNumeratorUnit, RightDenominatorQuantity, RightDenominatorUnit>,
-      RightUnit : MeasurementUsage.UsedInUKImperial,
-      RightUnit : MeasurementUsage.UsedInUSCustomary = (this x right.numerator) per right.denominator
+    > LeftUnit.x(
+    right: RightUnit,
+) where
+        LeftUnit : UndefinedScientificUnit<LeftQuantity>,
+        LeftUnit : MeasurementUsage.UsedInUKImperial,
+        LeftUnit : MeasurementUsage.UsedInUSCustomary,
+        RightNumeratorUnit : UndefinedScientificUnit<RightNumeratorQuantity>,
+        RightNumeratorUnit : MeasurementUsage.UsedInUKImperial,
+        RightNumeratorUnit : MeasurementUsage.UsedInUSCustomary,
+        RightDenominatorUnit : UndefinedScientificUnit<RightDenominatorQuantity>,
+        RightDenominatorUnit : MeasurementUsage.UsedInUKImperial,
+        RightDenominatorUnit : MeasurementUsage.UsedInUSCustomary,
+        RightUnit : UndefinedDividedUnit<RightNumeratorQuantity, RightNumeratorUnit, RightDenominatorQuantity, RightDenominatorUnit>,
+        RightUnit : MeasurementUsage.UsedInUKImperial,
+        RightUnit : MeasurementUsage.UsedInUSCustomary =
+    (this x right.numerator) per right.denominator
 
 /**
  * [LeftUnit] x [RightUnit] ->
@@ -428,19 +470,22 @@ infix fun <
     RightDenominatorQuantity : UndefinedQuantityType,
     RightDenominatorUnit,
     RightUnit,
-    > LeftUnit.x(right: RightUnit) where
-      LeftUnit : ScientificUnit<LeftQuantity>,
-      LeftUnit : MeasurementUsage.UsedInUKImperial,
-      LeftUnit : MeasurementUsage.UsedInUSCustomary,
-      RightNumeratorUnit : UndefinedScientificUnit<RightNumeratorQuantity>,
-      RightNumeratorUnit : MeasurementUsage.UsedInUKImperial,
-      RightNumeratorUnit : MeasurementUsage.UsedInUSCustomary,
-      RightDenominatorUnit : UndefinedScientificUnit<RightDenominatorQuantity>,
-      RightDenominatorUnit : MeasurementUsage.UsedInUKImperial,
-      RightDenominatorUnit : MeasurementUsage.UsedInUSCustomary,
-      RightUnit : UndefinedDividedUnit<RightNumeratorQuantity, RightNumeratorUnit, RightDenominatorQuantity, RightDenominatorUnit>,
-      RightUnit : MeasurementUsage.UsedInUKImperial,
-      RightUnit : MeasurementUsage.UsedInUSCustomary = asUndefined() x right
+    > LeftUnit.x(
+    right: RightUnit,
+) where
+        LeftUnit : ScientificUnit<LeftQuantity>,
+        LeftUnit : MeasurementUsage.UsedInUKImperial,
+        LeftUnit : MeasurementUsage.UsedInUSCustomary,
+        RightNumeratorUnit : UndefinedScientificUnit<RightNumeratorQuantity>,
+        RightNumeratorUnit : MeasurementUsage.UsedInUKImperial,
+        RightNumeratorUnit : MeasurementUsage.UsedInUSCustomary,
+        RightDenominatorUnit : UndefinedScientificUnit<RightDenominatorQuantity>,
+        RightDenominatorUnit : MeasurementUsage.UsedInUKImperial,
+        RightDenominatorUnit : MeasurementUsage.UsedInUSCustomary,
+        RightUnit : UndefinedDividedUnit<RightNumeratorQuantity, RightNumeratorUnit, RightDenominatorQuantity, RightDenominatorUnit>,
+        RightUnit : MeasurementUsage.UsedInUKImperial,
+        RightUnit : MeasurementUsage.UsedInUSCustomary =
+    asUndefined() x right
 
 /**
  * [LeftUnit] x [RightUnit] ->
@@ -467,22 +512,25 @@ infix fun <
     RightDenominatorQuantity : UndefinedQuantityType,
     RightDenominatorUnit,
     RightUnit,
-    > LeftUnit.x(right: RightUnit) where
-      LeftNumeratorUnit : UndefinedScientificUnit<LeftNumeratorQuantity>,
-      LeftNumeratorUnit : MeasurementUsage.UsedInUKImperial,
-      LeftNumeratorUnit : MeasurementUsage.UsedInUSCustomary,
-      LeftDenominatorUnit : UndefinedScientificUnit<LeftDenominatorQuantity>,
-      LeftDenominatorUnit : MeasurementUsage.UsedInUKImperial,
-      LeftDenominatorUnit : MeasurementUsage.UsedInUSCustomary,
-      LeftUnit : UndefinedDividedUnit<LeftNumeratorQuantity, LeftNumeratorUnit, LeftDenominatorQuantity, LeftDenominatorUnit>,
-      LeftUnit : MeasurementUsage.UsedInUKImperial,
-      LeftUnit : MeasurementUsage.UsedInUSCustomary,
-      RightNumeratorUnit : UndefinedScientificUnit<RightNumeratorQuantity>,
-      RightNumeratorUnit : MeasurementUsage.UsedInUKImperial,
-      RightNumeratorUnit : MeasurementUsage.UsedInUSCustomary,
-      RightDenominatorUnit : UndefinedScientificUnit<RightDenominatorQuantity>,
-      RightDenominatorUnit : MeasurementUsage.UsedInUKImperial,
-      RightDenominatorUnit : MeasurementUsage.UsedInUSCustomary,
-      RightUnit : UndefinedDividedUnit<RightNumeratorQuantity, RightNumeratorUnit, RightDenominatorQuantity, RightDenominatorUnit>,
-      RightUnit : MeasurementUsage.UsedInUKImperial,
-      RightUnit : MeasurementUsage.UsedInUSCustomary = (numerator x right.numerator) per (denominator x right.denominator)
+    > LeftUnit.x(
+    right: RightUnit,
+) where
+        LeftNumeratorUnit : UndefinedScientificUnit<LeftNumeratorQuantity>,
+        LeftNumeratorUnit : MeasurementUsage.UsedInUKImperial,
+        LeftNumeratorUnit : MeasurementUsage.UsedInUSCustomary,
+        LeftDenominatorUnit : UndefinedScientificUnit<LeftDenominatorQuantity>,
+        LeftDenominatorUnit : MeasurementUsage.UsedInUKImperial,
+        LeftDenominatorUnit : MeasurementUsage.UsedInUSCustomary,
+        LeftUnit : UndefinedDividedUnit<LeftNumeratorQuantity, LeftNumeratorUnit, LeftDenominatorQuantity, LeftDenominatorUnit>,
+        LeftUnit : MeasurementUsage.UsedInUKImperial,
+        LeftUnit : MeasurementUsage.UsedInUSCustomary,
+        RightNumeratorUnit : UndefinedScientificUnit<RightNumeratorQuantity>,
+        RightNumeratorUnit : MeasurementUsage.UsedInUKImperial,
+        RightNumeratorUnit : MeasurementUsage.UsedInUSCustomary,
+        RightDenominatorUnit : UndefinedScientificUnit<RightDenominatorQuantity>,
+        RightDenominatorUnit : MeasurementUsage.UsedInUKImperial,
+        RightDenominatorUnit : MeasurementUsage.UsedInUSCustomary,
+        RightUnit : UndefinedDividedUnit<RightNumeratorQuantity, RightNumeratorUnit, RightDenominatorQuantity, RightDenominatorUnit>,
+        RightUnit : MeasurementUsage.UsedInUKImperial,
+        RightUnit : MeasurementUsage.UsedInUSCustomary =
+    (numerator x right.numerator) per (denominator x right.denominator)

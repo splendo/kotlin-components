@@ -48,7 +48,10 @@ operator fun <
     Quantity : PhysicalQuantity,
     Unit : ScientificUnit<Quantity>,
     Value : ScientificValue<Quantity, Unit>,
-    > Number.invoke(unit: Unit, factory: (Decimal, Unit) -> Value) = this.toDecimal()(unit, factory)
+    > Number.invoke(
+    unit: Unit,
+    factory: (Decimal, Unit) -> Value,
+) = this.toDecimal()(unit, factory)
 
 /**
  * Creates a [DefaultScientificValue] of this [Decimal] using a given [AbstractScientificUnit]
@@ -75,7 +78,10 @@ operator fun <
     Quantity : PhysicalQuantity,
     Unit : ScientificUnit<Quantity>,
     Value : ScientificValue<Quantity, Unit>,
-    > Decimal.invoke(unit: Unit, factory: (Decimal, Unit) -> Value) = factory(this, unit)
+    > Decimal.invoke(
+    unit: Unit,
+    factory: (Decimal, Unit) -> Value,
+) = factory(this, unit)
 
 operator fun <
     Quantity : UndefinedQuantityType,
@@ -86,7 +92,10 @@ operator fun <
     Quantity : UndefinedQuantityType,
     Unit : UndefinedScientificUnit<Quantity>,
     Value : UndefinedScientificValue<Quantity, Unit>,
-    > Number.invoke(unit: Unit, factory: (Decimal, Unit) -> Value) = this.toDecimal()(unit, factory)
+    > Number.invoke(
+    unit: Unit,
+    factory: (Decimal, Unit) -> Value,
+) = this.toDecimal()(unit, factory)
 
 operator fun <
     Quantity : UndefinedQuantityType,

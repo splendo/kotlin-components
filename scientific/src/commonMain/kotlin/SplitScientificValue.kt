@@ -90,10 +90,10 @@ fun <
     scale: UInt = 0U,
     roundingThreshold: Decimal = 0.0000001.toDecimal(),
 ) where
-    ValueUnit : AbstractScientificUnit<Quantity>,
-    ValueUnit : SystemScientificUnit<System, Quantity>,
-    RightUnit : AbstractScientificUnit<Quantity>,
-    RightUnit : SystemScientificUnit<System, Quantity> =
+        ValueUnit : AbstractScientificUnit<Quantity>,
+        ValueUnit : SystemScientificUnit<System, Quantity>,
+        RightUnit : AbstractScientificUnit<Quantity>,
+        RightUnit : SystemScientificUnit<System, Quantity> =
     split(unit, rightUnit, scale, roundingThreshold, ::DefaultScientificValue, ::DefaultScientificValue)
 
 /**
@@ -175,10 +175,10 @@ fun <
     scale: UInt = 0U,
     roundingThreshold: Decimal = 0.0000001.toDecimal(),
 ) where
-    LeftUnit : AbstractScientificUnit<Quantity>,
-    LeftUnit : SystemScientificUnit<System, Quantity>,
-    RightUnit : AbstractScientificUnit<Quantity>,
-    RightUnit : SystemScientificUnit<System, Quantity> =
+        LeftUnit : AbstractScientificUnit<Quantity>,
+        LeftUnit : SystemScientificUnit<System, Quantity>,
+        RightUnit : AbstractScientificUnit<Quantity>,
+        RightUnit : SystemScientificUnit<System, Quantity> =
     split(leftUnit, rightUnit, scale, roundingThreshold, ::DefaultScientificValue, ::DefaultScientificValue)
 
 /**
@@ -215,10 +215,10 @@ fun <
     roundingThreshold: Decimal = 0.0000001.toDecimal(),
     action: (DefaultScientificValue<Quantity, UnitOne>, DefaultScientificValue<Quantity, UnitTwo>) -> Result,
 ): Result where
-    UnitOne : AbstractScientificUnit<Quantity>,
-    UnitOne : SystemScientificUnit<System, Quantity>,
-    UnitTwo : AbstractScientificUnit<Quantity>,
-    UnitTwo : SystemScientificUnit<System, Quantity> {
+                UnitOne : AbstractScientificUnit<Quantity>,
+                UnitOne : SystemScientificUnit<System, Quantity>,
+                UnitTwo : AbstractScientificUnit<Quantity>,
+                UnitTwo : SystemScientificUnit<System, Quantity> {
     val (valueOne, valueTwo) = this.split(one, two, scale, roundingThreshold)
     return action(valueOne, valueTwo)
 }
@@ -261,12 +261,12 @@ fun <
     roundingThreshold: Decimal = 0.0000001.toDecimal(),
     action: (DefaultScientificValue<Quantity, UnitOne>, DefaultScientificValue<Quantity, UnitTwo>, DefaultScientificValue<Quantity, UnitThree>) -> Result,
 ): Result where
-    UnitOne : AbstractScientificUnit<Quantity>,
-    UnitOne : SystemScientificUnit<System, Quantity>,
-    UnitTwo : AbstractScientificUnit<Quantity>,
-    UnitTwo : SystemScientificUnit<System, Quantity>,
-    UnitThree : AbstractScientificUnit<Quantity>,
-    UnitThree : SystemScientificUnit<System, Quantity> {
+                UnitOne : AbstractScientificUnit<Quantity>,
+                UnitOne : SystemScientificUnit<System, Quantity>,
+                UnitTwo : AbstractScientificUnit<Quantity>,
+                UnitTwo : SystemScientificUnit<System, Quantity>,
+                UnitThree : AbstractScientificUnit<Quantity>,
+                UnitThree : SystemScientificUnit<System, Quantity> {
     val (valueOne, oneRemainder) = this.split(one, two, scale, roundingThreshold)
     val (valueTwo, valueThree) = oneRemainder.split(three, scale, roundingThreshold)
     return action(valueOne, valueTwo, valueThree)
@@ -319,14 +319,14 @@ fun <
         DefaultScientificValue<Quantity, UnitFour>,
     ) -> Result,
 ): Result where
-    UnitOne : AbstractScientificUnit<Quantity>,
-    UnitOne : SystemScientificUnit<System, Quantity>,
-    UnitTwo : AbstractScientificUnit<Quantity>,
-    UnitTwo : SystemScientificUnit<System, Quantity>,
-    UnitThree : AbstractScientificUnit<Quantity>,
-    UnitThree : SystemScientificUnit<System, Quantity>,
-    UnitFour : AbstractScientificUnit<Quantity>,
-    UnitFour : SystemScientificUnit<System, Quantity> {
+                UnitOne : AbstractScientificUnit<Quantity>,
+                UnitOne : SystemScientificUnit<System, Quantity>,
+                UnitTwo : AbstractScientificUnit<Quantity>,
+                UnitTwo : SystemScientificUnit<System, Quantity>,
+                UnitThree : AbstractScientificUnit<Quantity>,
+                UnitThree : SystemScientificUnit<System, Quantity>,
+                UnitFour : AbstractScientificUnit<Quantity>,
+                UnitFour : SystemScientificUnit<System, Quantity> {
     val (valueOne, oneRemainder) = this.split(one, two, scale, roundingThreshold)
     val (valueTwo, twoRemainder) = oneRemainder.split(three, scale, roundingThreshold)
     val (valueThree, valueFour) = twoRemainder.split(four, scale, roundingThreshold)
@@ -385,16 +385,16 @@ fun <
         DefaultScientificValue<Quantity, UnitFive>,
     ) -> Result,
 ): Result where
-    UnitOne : AbstractScientificUnit<Quantity>,
-    UnitOne : SystemScientificUnit<System, Quantity>,
-    UnitTwo : AbstractScientificUnit<Quantity>,
-    UnitTwo : SystemScientificUnit<System, Quantity>,
-    UnitThree : AbstractScientificUnit<Quantity>,
-    UnitThree : SystemScientificUnit<System, Quantity>,
-    UnitFour : AbstractScientificUnit<Quantity>,
-    UnitFour : SystemScientificUnit<System, Quantity>,
-    UnitFive : AbstractScientificUnit<Quantity>,
-    UnitFive : SystemScientificUnit<System, Quantity> {
+                UnitOne : AbstractScientificUnit<Quantity>,
+                UnitOne : SystemScientificUnit<System, Quantity>,
+                UnitTwo : AbstractScientificUnit<Quantity>,
+                UnitTwo : SystemScientificUnit<System, Quantity>,
+                UnitThree : AbstractScientificUnit<Quantity>,
+                UnitThree : SystemScientificUnit<System, Quantity>,
+                UnitFour : AbstractScientificUnit<Quantity>,
+                UnitFour : SystemScientificUnit<System, Quantity>,
+                UnitFive : AbstractScientificUnit<Quantity>,
+                UnitFive : SystemScientificUnit<System, Quantity> {
     val (valueOne, oneRemainder) = this.split(one, two, scale, roundingThreshold)
     val (valueTwo, twoRemainder) = oneRemainder.split(three, scale, roundingThreshold)
     val (valueThree, threeRemainder) = twoRemainder.split(four, scale, roundingThreshold)

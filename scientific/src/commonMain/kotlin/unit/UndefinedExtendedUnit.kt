@@ -23,7 +23,8 @@ import com.splendo.kaluga.scientific.UndefinedQuantityType
 
 sealed class UndefinedExtendedUnit<
     ExtendedQuantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
-    > : AbstractUndefinedScientificUnit<UndefinedQuantityType.Extended<ExtendedQuantity>>() {
+    > :
+    AbstractUndefinedScientificUnit<UndefinedQuantityType.Extended<ExtendedQuantity>>() {
     abstract val extendedQuantity: ExtendedQuantity
     override val quantityType by lazy { UndefinedQuantityType.Extended(extendedQuantity) }
 
@@ -164,7 +165,8 @@ sealed class UndefinedExtendedUnit<
 sealed class WrappedUndefinedExtendedUnit<
     WrappedQuantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
     WrappedUnit : ScientificUnit<WrappedQuantity>,
-    > : UndefinedExtendedUnit<WrappedQuantity>() {
+    > :
+    UndefinedExtendedUnit<WrappedQuantity>() {
     abstract val wrapped: WrappedUnit
     override val extendedQuantity: WrappedQuantity by lazy { wrapped.quantity }
 
@@ -178,13 +180,14 @@ sealed class WrappedUndefinedExtendedUnit<
     data class MetricAndImperial<
         WrappedQuantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
         WrappedUnit,
-        > internal constructor(override val wrapped: WrappedUnit) :
-        WrappedUndefinedExtendedUnit<WrappedQuantity, WrappedUnit>(),
+        > internal constructor(
+        override val wrapped: WrappedUnit,
+    ) : WrappedUndefinedExtendedUnit<WrappedQuantity, WrappedUnit>(),
         UndefinedScientificUnit.MetricAndImperial<UndefinedQuantityType.Extended<WrappedQuantity>> where
-          WrappedUnit : ScientificUnit<WrappedQuantity>,
-          WrappedUnit : MeasurementUsage.UsedInMetric,
-          WrappedUnit : MeasurementUsage.UsedInUKImperial,
-          WrappedUnit : MeasurementUsage.UsedInUSCustomary {
+              WrappedUnit : ScientificUnit<WrappedQuantity>,
+              WrappedUnit : MeasurementUsage.UsedInMetric,
+              WrappedUnit : MeasurementUsage.UsedInUKImperial,
+              WrappedUnit : MeasurementUsage.UsedInUSCustomary {
         override val system = MeasurementSystem.MetricAndImperial
         override val metric: Metric<WrappedQuantity, WrappedUnit> by lazy { Metric(wrapped) }
         override val imperial: Imperial<WrappedQuantity, WrappedUnit> by lazy { Imperial(wrapped) }
@@ -197,23 +200,25 @@ sealed class WrappedUndefinedExtendedUnit<
     data class Metric<
         WrappedQuantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
         WrappedUnit,
-        > internal constructor(override val wrapped: WrappedUnit) :
-        WrappedUndefinedExtendedUnit<WrappedQuantity, WrappedUnit>(),
+        > internal constructor(
+        override val wrapped: WrappedUnit,
+    ) : WrappedUndefinedExtendedUnit<WrappedQuantity, WrappedUnit>(),
         UndefinedScientificUnit.Metric<UndefinedQuantityType.Extended<WrappedQuantity>> where
-          WrappedUnit : ScientificUnit<WrappedQuantity>,
-          WrappedUnit : MeasurementUsage.UsedInMetric {
+              WrappedUnit : ScientificUnit<WrappedQuantity>,
+              WrappedUnit : MeasurementUsage.UsedInMetric {
         override val system = MeasurementSystem.Metric
     }
 
     data class Imperial<
         WrappedQuantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
         WrappedUnit,
-        > internal constructor(override val wrapped: WrappedUnit) :
-        WrappedUndefinedExtendedUnit<WrappedQuantity, WrappedUnit>(),
+        > internal constructor(
+        override val wrapped: WrappedUnit,
+    ) : WrappedUndefinedExtendedUnit<WrappedQuantity, WrappedUnit>(),
         UndefinedScientificUnit.Imperial<UndefinedQuantityType.Extended<WrappedQuantity>> where
-          WrappedUnit : ScientificUnit<WrappedQuantity>,
-          WrappedUnit : MeasurementUsage.UsedInUKImperial,
-          WrappedUnit : MeasurementUsage.UsedInUSCustomary {
+              WrappedUnit : ScientificUnit<WrappedQuantity>,
+              WrappedUnit : MeasurementUsage.UsedInUKImperial,
+              WrappedUnit : MeasurementUsage.UsedInUSCustomary {
         override val system = MeasurementSystem.Imperial
         override val ukImperial: UKImperial<WrappedQuantity, WrappedUnit> by lazy { UKImperial(wrapped) }
         override val usCustomary: USCustomary<WrappedQuantity, WrappedUnit> by lazy { USCustomary(wrapped) }
@@ -222,34 +227,37 @@ sealed class WrappedUndefinedExtendedUnit<
     data class UKImperial<
         WrappedQuantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
         WrappedUnit,
-        > internal constructor(override val wrapped: WrappedUnit) :
-        WrappedUndefinedExtendedUnit<WrappedQuantity, WrappedUnit>(),
+        > internal constructor(
+        override val wrapped: WrappedUnit,
+    ) : WrappedUndefinedExtendedUnit<WrappedQuantity, WrappedUnit>(),
         UndefinedScientificUnit.UKImperial<UndefinedQuantityType.Extended<WrappedQuantity>> where
-          WrappedUnit : ScientificUnit<WrappedQuantity>,
-          WrappedUnit : MeasurementUsage.UsedInUKImperial {
+              WrappedUnit : ScientificUnit<WrappedQuantity>,
+              WrappedUnit : MeasurementUsage.UsedInUKImperial {
         override val system = MeasurementSystem.UKImperial
     }
 
     data class USCustomary<
         WrappedQuantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
         WrappedUnit,
-        > internal constructor(override val wrapped: WrappedUnit) :
-        WrappedUndefinedExtendedUnit<WrappedQuantity, WrappedUnit>(),
+        > internal constructor(
+        override val wrapped: WrappedUnit,
+    ) : WrappedUndefinedExtendedUnit<WrappedQuantity, WrappedUnit>(),
         UndefinedScientificUnit.USCustomary<UndefinedQuantityType.Extended<WrappedQuantity>> where
-          WrappedUnit : ScientificUnit<WrappedQuantity>,
-          WrappedUnit : MeasurementUsage.UsedInUSCustomary {
+              WrappedUnit : ScientificUnit<WrappedQuantity>,
+              WrappedUnit : MeasurementUsage.UsedInUSCustomary {
         override val system = MeasurementSystem.USCustomary
     }
 
     data class MetricAndUKImperial<
         WrappedQuantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
         WrappedUnit,
-        > internal constructor(override val wrapped: WrappedUnit) :
-        WrappedUndefinedExtendedUnit<WrappedQuantity, WrappedUnit>(),
+        > internal constructor(
+        override val wrapped: WrappedUnit,
+    ) : WrappedUndefinedExtendedUnit<WrappedQuantity, WrappedUnit>(),
         UndefinedScientificUnit.MetricAndUKImperial<UndefinedQuantityType.Extended<WrappedQuantity>> where
-          WrappedUnit : ScientificUnit<WrappedQuantity>,
-          WrappedUnit : MeasurementUsage.UsedInMetric,
-          WrappedUnit : MeasurementUsage.UsedInUKImperial {
+              WrappedUnit : ScientificUnit<WrappedQuantity>,
+              WrappedUnit : MeasurementUsage.UsedInMetric,
+              WrappedUnit : MeasurementUsage.UsedInUKImperial {
         override val system = MeasurementSystem.MetricAndUKImperial
         override val metric: Metric<WrappedQuantity, WrappedUnit> by lazy { Metric(wrapped) }
         override val ukImperial: UKImperial<WrappedQuantity, WrappedUnit> by lazy { UKImperial(wrapped) }
@@ -258,12 +266,13 @@ sealed class WrappedUndefinedExtendedUnit<
     data class MetricAndUSCustomary<
         WrappedQuantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
         WrappedUnit,
-        > internal constructor(override val wrapped: WrappedUnit) :
-        WrappedUndefinedExtendedUnit<WrappedQuantity, WrappedUnit>(),
+        > internal constructor(
+        override val wrapped: WrappedUnit,
+    ) : WrappedUndefinedExtendedUnit<WrappedQuantity, WrappedUnit>(),
         UndefinedScientificUnit.MetricAndUSCustomary<UndefinedQuantityType.Extended<WrappedQuantity>> where
-          WrappedUnit : ScientificUnit<WrappedQuantity>,
-          WrappedUnit : MeasurementUsage.UsedInMetric,
-          WrappedUnit : MeasurementUsage.UsedInUSCustomary {
+              WrappedUnit : ScientificUnit<WrappedQuantity>,
+              WrappedUnit : MeasurementUsage.UsedInMetric,
+              WrappedUnit : MeasurementUsage.UsedInUSCustomary {
         override val system = MeasurementSystem.MetricAndUSCustomary
         override val metric: Metric<WrappedQuantity, WrappedUnit> by lazy { Metric(wrapped) }
         override val usCustomary: USCustomary<WrappedQuantity, WrappedUnit> by lazy { USCustomary(wrapped) }
@@ -274,54 +283,61 @@ fun <
     Quantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
     Unit,
     > Unit.asUndefined() where
-      Unit : ScientificUnit<Quantity>,
-      Unit : MeasurementUsage.UsedInMetric,
-      Unit : MeasurementUsage.UsedInUKImperial,
-      Unit : MeasurementUsage.UsedInUSCustomary = WrappedUndefinedExtendedUnit.MetricAndImperial(
-    this,
-)
+                               Unit : ScientificUnit<Quantity>,
+                               Unit : MeasurementUsage.UsedInMetric,
+                               Unit : MeasurementUsage.UsedInUKImperial,
+                               Unit : MeasurementUsage.UsedInUSCustomary =
+    WrappedUndefinedExtendedUnit.MetricAndImperial(
+        this,
+    )
 fun <
     Quantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
     Unit,
     > Unit.asUndefined() where
-      Unit : ScientificUnit<Quantity>,
-      Unit : MeasurementUsage.UsedInMetric = WrappedUndefinedExtendedUnit.Metric(this)
+                               Unit : ScientificUnit<Quantity>,
+                               Unit : MeasurementUsage.UsedInMetric =
+    WrappedUndefinedExtendedUnit.Metric(this)
 fun <
     Quantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
     Unit,
     > Unit.asUndefined() where
-      Unit : ScientificUnit<Quantity>,
-      Unit : MeasurementUsage.UsedInUKImperial,
-      Unit : MeasurementUsage.UsedInUSCustomary = WrappedUndefinedExtendedUnit.Imperial(
-    this,
-)
+                               Unit : ScientificUnit<Quantity>,
+                               Unit : MeasurementUsage.UsedInUKImperial,
+                               Unit : MeasurementUsage.UsedInUSCustomary =
+    WrappedUndefinedExtendedUnit.Imperial(
+        this,
+    )
 fun <
     Quantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
     Unit,
     > Unit.asUndefined() where
-      Unit : ScientificUnit<Quantity>,
-      Unit : MeasurementUsage.UsedInUKImperial = WrappedUndefinedExtendedUnit.UKImperial(this)
+                               Unit : ScientificUnit<Quantity>,
+                               Unit : MeasurementUsage.UsedInUKImperial =
+    WrappedUndefinedExtendedUnit.UKImperial(this)
 fun <
     Quantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
     Unit,
     > Unit.asUndefined() where
-      Unit : ScientificUnit<Quantity>,
-      Unit : MeasurementUsage.UsedInUSCustomary = WrappedUndefinedExtendedUnit.USCustomary(this)
+                               Unit : ScientificUnit<Quantity>,
+                               Unit : MeasurementUsage.UsedInUSCustomary =
+    WrappedUndefinedExtendedUnit.USCustomary(this)
 fun <
     Quantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
     Unit,
     > Unit.asUndefined() where
-      Unit : ScientificUnit<Quantity>,
-      Unit : MeasurementUsage.UsedInMetric,
-      Unit : MeasurementUsage.UsedInUKImperial = WrappedUndefinedExtendedUnit.MetricAndUKImperial(
-    this,
-)
+                               Unit : ScientificUnit<Quantity>,
+                               Unit : MeasurementUsage.UsedInMetric,
+                               Unit : MeasurementUsage.UsedInUKImperial =
+    WrappedUndefinedExtendedUnit.MetricAndUKImperial(
+        this,
+    )
 fun <
     Quantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
     Unit,
     > Unit.asUndefined() where
-      Unit : ScientificUnit<Quantity>,
-      Unit : MeasurementUsage.UsedInMetric,
-      Unit : MeasurementUsage.UsedInUSCustomary = WrappedUndefinedExtendedUnit.MetricAndUSCustomary(
-    this,
-)
+                               Unit : ScientificUnit<Quantity>,
+                               Unit : MeasurementUsage.UsedInMetric,
+                               Unit : MeasurementUsage.UsedInUSCustomary =
+    WrappedUndefinedExtendedUnit.MetricAndUSCustomary(
+        this,
+    )

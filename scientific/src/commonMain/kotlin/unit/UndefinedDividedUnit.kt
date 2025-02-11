@@ -53,14 +53,14 @@ sealed class UndefinedDividedUnit<
         override val denominator: DenominatorUnit,
     ) : UndefinedDividedUnit<NumeratorQuantity, NumeratorUnit, DenominatorQuantity, DenominatorUnit>(),
         UndefinedScientificUnit.MetricAndImperial<UndefinedQuantityType.Dividing<NumeratorQuantity, DenominatorQuantity>> where
-          NumeratorUnit : UndefinedScientificUnit<NumeratorQuantity>,
-          NumeratorUnit : MeasurementUsage.UsedInMetric,
-          NumeratorUnit : MeasurementUsage.UsedInUKImperial,
-          NumeratorUnit : MeasurementUsage.UsedInUSCustomary,
-          DenominatorUnit : UndefinedScientificUnit<DenominatorQuantity>,
-          DenominatorUnit : MeasurementUsage.UsedInMetric,
-          DenominatorUnit : MeasurementUsage.UsedInUKImperial,
-          DenominatorUnit : MeasurementUsage.UsedInUSCustomary {
+              NumeratorUnit : UndefinedScientificUnit<NumeratorQuantity>,
+              NumeratorUnit : MeasurementUsage.UsedInMetric,
+              NumeratorUnit : MeasurementUsage.UsedInUKImperial,
+              NumeratorUnit : MeasurementUsage.UsedInUSCustomary,
+              DenominatorUnit : UndefinedScientificUnit<DenominatorQuantity>,
+              DenominatorUnit : MeasurementUsage.UsedInMetric,
+              DenominatorUnit : MeasurementUsage.UsedInUKImperial,
+              DenominatorUnit : MeasurementUsage.UsedInUSCustomary {
         override val system = MeasurementSystem.MetricAndImperial
 
         override val metric: UndefinedScientificUnit.Metric<UndefinedQuantityType.Dividing<NumeratorQuantity, DenominatorQuantity>> by lazy { Metric(numerator, denominator) }
@@ -85,10 +85,10 @@ sealed class UndefinedDividedUnit<
         override val denominator: DenominatorUnit,
     ) : UndefinedDividedUnit<NumeratorQuantity, NumeratorUnit, DenominatorQuantity, DenominatorUnit>(),
         UndefinedScientificUnit.Metric<UndefinedQuantityType.Dividing<NumeratorQuantity, DenominatorQuantity>> where
-          NumeratorUnit : UndefinedScientificUnit<NumeratorQuantity>,
-          NumeratorUnit : MeasurementUsage.UsedInMetric,
-          DenominatorUnit : UndefinedScientificUnit<DenominatorQuantity>,
-          DenominatorUnit : MeasurementUsage.UsedInMetric {
+              NumeratorUnit : UndefinedScientificUnit<NumeratorQuantity>,
+              NumeratorUnit : MeasurementUsage.UsedInMetric,
+              DenominatorUnit : UndefinedScientificUnit<DenominatorQuantity>,
+              DenominatorUnit : MeasurementUsage.UsedInMetric {
         override val system = MeasurementSystem.Metric
     }
 
@@ -102,12 +102,12 @@ sealed class UndefinedDividedUnit<
         override val denominator: DenominatorUnit,
     ) : UndefinedDividedUnit<NumeratorQuantity, NumeratorUnit, DenominatorQuantity, DenominatorUnit>(),
         UndefinedScientificUnit.Imperial<UndefinedQuantityType.Dividing<NumeratorQuantity, DenominatorQuantity>> where
-          NumeratorUnit : UndefinedScientificUnit<NumeratorQuantity>,
-          NumeratorUnit : MeasurementUsage.UsedInUKImperial,
-          NumeratorUnit : MeasurementUsage.UsedInUSCustomary,
-          DenominatorUnit : UndefinedScientificUnit<DenominatorQuantity>,
-          DenominatorUnit : MeasurementUsage.UsedInUKImperial,
-          DenominatorUnit : MeasurementUsage.UsedInUSCustomary {
+              NumeratorUnit : UndefinedScientificUnit<NumeratorQuantity>,
+              NumeratorUnit : MeasurementUsage.UsedInUKImperial,
+              NumeratorUnit : MeasurementUsage.UsedInUSCustomary,
+              DenominatorUnit : UndefinedScientificUnit<DenominatorQuantity>,
+              DenominatorUnit : MeasurementUsage.UsedInUKImperial,
+              DenominatorUnit : MeasurementUsage.UsedInUSCustomary {
         override val system = MeasurementSystem.Imperial
         override val ukImperial: UKImperial<NumeratorQuantity, NumeratorUnit, DenominatorQuantity, DenominatorUnit> by lazy { UKImperial(numerator, denominator) }
         override val usCustomary: USCustomary<NumeratorQuantity, NumeratorUnit, DenominatorQuantity, DenominatorUnit> by lazy { USCustomary(numerator, denominator) }
@@ -123,10 +123,10 @@ sealed class UndefinedDividedUnit<
         override val denominator: DenominatorUnit,
     ) : UndefinedDividedUnit<NumeratorQuantity, NumeratorUnit, DenominatorQuantity, DenominatorUnit>(),
         UndefinedScientificUnit.UKImperial<UndefinedQuantityType.Dividing<NumeratorQuantity, DenominatorQuantity>> where
-          NumeratorUnit : UndefinedScientificUnit<NumeratorQuantity>,
-          NumeratorUnit : MeasurementUsage.UsedInUKImperial,
-          DenominatorUnit : UndefinedScientificUnit<DenominatorQuantity>,
-          DenominatorUnit : MeasurementUsage.UsedInUKImperial {
+              NumeratorUnit : UndefinedScientificUnit<NumeratorQuantity>,
+              NumeratorUnit : MeasurementUsage.UsedInUKImperial,
+              DenominatorUnit : UndefinedScientificUnit<DenominatorQuantity>,
+              DenominatorUnit : MeasurementUsage.UsedInUKImperial {
         override val system = MeasurementSystem.UKImperial
     }
 
@@ -140,10 +140,10 @@ sealed class UndefinedDividedUnit<
         override val denominator: DenominatorUnit,
     ) : UndefinedDividedUnit<NumeratorQuantity, NumeratorUnit, DenominatorQuantity, DenominatorUnit>(),
         UndefinedScientificUnit.USCustomary<UndefinedQuantityType.Dividing<NumeratorQuantity, DenominatorQuantity>> where
-          NumeratorUnit : UndefinedScientificUnit<NumeratorQuantity>,
-          NumeratorUnit : MeasurementUsage.UsedInUSCustomary,
-          DenominatorUnit : UndefinedScientificUnit<DenominatorQuantity>,
-          DenominatorUnit : MeasurementUsage.UsedInUSCustomary {
+              NumeratorUnit : UndefinedScientificUnit<NumeratorQuantity>,
+              NumeratorUnit : MeasurementUsage.UsedInUSCustomary,
+              DenominatorUnit : UndefinedScientificUnit<DenominatorQuantity>,
+              DenominatorUnit : MeasurementUsage.UsedInUSCustomary {
         override val system = MeasurementSystem.USCustomary
     }
 
@@ -157,12 +157,12 @@ sealed class UndefinedDividedUnit<
         override val denominator: DenominatorUnit,
     ) : UndefinedDividedUnit<NumeratorQuantity, NumeratorUnit, DenominatorQuantity, DenominatorUnit>(),
         UndefinedScientificUnit.MetricAndUKImperial<UndefinedQuantityType.Dividing<NumeratorQuantity, DenominatorQuantity>> where
-          NumeratorUnit : UndefinedScientificUnit<NumeratorQuantity>,
-          NumeratorUnit : MeasurementUsage.UsedInMetric,
-          NumeratorUnit : MeasurementUsage.UsedInUKImperial,
-          DenominatorUnit : UndefinedScientificUnit<DenominatorQuantity>,
-          DenominatorUnit : MeasurementUsage.UsedInMetric,
-          DenominatorUnit : MeasurementUsage.UsedInUKImperial {
+              NumeratorUnit : UndefinedScientificUnit<NumeratorQuantity>,
+              NumeratorUnit : MeasurementUsage.UsedInMetric,
+              NumeratorUnit : MeasurementUsage.UsedInUKImperial,
+              DenominatorUnit : UndefinedScientificUnit<DenominatorQuantity>,
+              DenominatorUnit : MeasurementUsage.UsedInMetric,
+              DenominatorUnit : MeasurementUsage.UsedInUKImperial {
         override val system = MeasurementSystem.MetricAndUKImperial
         override val metric: UndefinedScientificUnit.Metric<UndefinedQuantityType.Dividing<NumeratorQuantity, DenominatorQuantity>> by lazy { Metric(numerator, denominator) }
         override val ukImperial: UKImperial<NumeratorQuantity, NumeratorUnit, DenominatorQuantity, DenominatorUnit> by lazy { UKImperial(numerator, denominator) }
@@ -178,12 +178,12 @@ sealed class UndefinedDividedUnit<
         override val denominator: DenominatorUnit,
     ) : UndefinedDividedUnit<NumeratorQuantity, NumeratorUnit, DenominatorQuantity, DenominatorUnit>(),
         UndefinedScientificUnit.MetricAndUSCustomary<UndefinedQuantityType.Dividing<NumeratorQuantity, DenominatorQuantity>> where
-          NumeratorUnit : UndefinedScientificUnit<NumeratorQuantity>,
-          NumeratorUnit : MeasurementUsage.UsedInMetric,
-          NumeratorUnit : MeasurementUsage.UsedInUSCustomary,
-          DenominatorUnit : UndefinedScientificUnit<DenominatorQuantity>,
-          DenominatorUnit : MeasurementUsage.UsedInMetric,
-          DenominatorUnit : MeasurementUsage.UsedInUSCustomary {
+              NumeratorUnit : UndefinedScientificUnit<NumeratorQuantity>,
+              NumeratorUnit : MeasurementUsage.UsedInMetric,
+              NumeratorUnit : MeasurementUsage.UsedInUSCustomary,
+              DenominatorUnit : UndefinedScientificUnit<DenominatorQuantity>,
+              DenominatorUnit : MeasurementUsage.UsedInMetric,
+              DenominatorUnit : MeasurementUsage.UsedInUSCustomary {
         override val system = MeasurementSystem.MetricAndUSCustomary
         override val metric: UndefinedScientificUnit.Metric<UndefinedQuantityType.Dividing<NumeratorQuantity, DenominatorQuantity>> by lazy { Metric(numerator, denominator) }
         override val usCustomary: USCustomary<NumeratorQuantity, NumeratorUnit, DenominatorQuantity, DenominatorUnit> by lazy { USCustomary(numerator, denominator) }

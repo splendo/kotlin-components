@@ -179,7 +179,6 @@ sealed class CustomUndefinedScientificUnit<CustomQuantity> : AbstractUndefinedSc
         UndefinedScientificUnit.Imperial<UndefinedQuantityType.Custom<CustomQuantity>> {
         override val system = MeasurementSystem.Imperial
 
-
         override val ukImperial: UndefinedScientificUnit.UKImperial<UndefinedQuantityType.Custom<CustomQuantity>> by lazy {
             object : UKImperial<CustomQuantity>() {
                 override val customQuantity: CustomQuantity = this@Imperial.customQuantity

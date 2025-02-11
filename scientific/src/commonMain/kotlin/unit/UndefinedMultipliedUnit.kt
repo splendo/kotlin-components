@@ -51,14 +51,14 @@ sealed class UndefinedMultipliedUnit<
         override val right: RightUnit,
     ) : UndefinedMultipliedUnit<LeftQuantity, LeftUnit, RightQuantity, RightUnit>(),
         UndefinedScientificUnit.MetricAndImperial<UndefinedQuantityType.Multiplying<LeftQuantity, RightQuantity>> where
-          LeftUnit : UndefinedScientificUnit<LeftQuantity>,
-          LeftUnit : MeasurementUsage.UsedInMetric,
-          LeftUnit : MeasurementUsage.UsedInUKImperial,
-          LeftUnit : MeasurementUsage.UsedInUSCustomary,
-          RightUnit : UndefinedScientificUnit<RightQuantity>,
-          RightUnit : MeasurementUsage.UsedInMetric,
-          RightUnit : MeasurementUsage.UsedInUKImperial,
-          RightUnit : MeasurementUsage.UsedInUSCustomary {
+              LeftUnit : UndefinedScientificUnit<LeftQuantity>,
+              LeftUnit : MeasurementUsage.UsedInMetric,
+              LeftUnit : MeasurementUsage.UsedInUKImperial,
+              LeftUnit : MeasurementUsage.UsedInUSCustomary,
+              RightUnit : UndefinedScientificUnit<RightQuantity>,
+              RightUnit : MeasurementUsage.UsedInMetric,
+              RightUnit : MeasurementUsage.UsedInUKImperial,
+              RightUnit : MeasurementUsage.UsedInUSCustomary {
         override val system = MeasurementSystem.MetricAndImperial
 
         override val metric: Metric<LeftQuantity, LeftUnit, RightQuantity, RightUnit> by lazy { Metric(left, right) }
@@ -79,10 +79,10 @@ sealed class UndefinedMultipliedUnit<
         override val right: RightUnit,
     ) : UndefinedMultipliedUnit<LeftQuantity, LeftUnit, RightQuantity, RightUnit>(),
         UndefinedScientificUnit.Metric<UndefinedQuantityType.Multiplying<LeftQuantity, RightQuantity>> where
-          LeftUnit : UndefinedScientificUnit<LeftQuantity>,
-          LeftUnit : MeasurementUsage.UsedInMetric,
-          RightUnit : UndefinedScientificUnit<RightQuantity>,
-          RightUnit : MeasurementUsage.UsedInMetric {
+              LeftUnit : UndefinedScientificUnit<LeftQuantity>,
+              LeftUnit : MeasurementUsage.UsedInMetric,
+              RightUnit : UndefinedScientificUnit<RightQuantity>,
+              RightUnit : MeasurementUsage.UsedInMetric {
         override val system = MeasurementSystem.Metric
     }
 
@@ -96,12 +96,12 @@ sealed class UndefinedMultipliedUnit<
         override val right: RightUnit,
     ) : UndefinedMultipliedUnit<LeftQuantity, LeftUnit, RightQuantity, RightUnit>(),
         UndefinedScientificUnit.Imperial<UndefinedQuantityType.Multiplying<LeftQuantity, RightQuantity>> where
-          LeftUnit : UndefinedScientificUnit<LeftQuantity>,
-          LeftUnit : MeasurementUsage.UsedInUKImperial,
-          LeftUnit : MeasurementUsage.UsedInUSCustomary,
-          RightUnit : UndefinedScientificUnit<RightQuantity>,
-          RightUnit : MeasurementUsage.UsedInUKImperial,
-          RightUnit : MeasurementUsage.UsedInUSCustomary {
+              LeftUnit : UndefinedScientificUnit<LeftQuantity>,
+              LeftUnit : MeasurementUsage.UsedInUKImperial,
+              LeftUnit : MeasurementUsage.UsedInUSCustomary,
+              RightUnit : UndefinedScientificUnit<RightQuantity>,
+              RightUnit : MeasurementUsage.UsedInUKImperial,
+              RightUnit : MeasurementUsage.UsedInUSCustomary {
         override val system = MeasurementSystem.Imperial
 
         override val ukImperial: UKImperial<LeftQuantity, LeftUnit, RightQuantity, RightUnit> by lazy { UKImperial(left, right) }
@@ -118,10 +118,10 @@ sealed class UndefinedMultipliedUnit<
         override val right: RightUnit,
     ) : UndefinedMultipliedUnit<LeftQuantity, LeftUnit, RightQuantity, RightUnit>(),
         UndefinedScientificUnit.UKImperial<UndefinedQuantityType.Multiplying<LeftQuantity, RightQuantity>> where
-          LeftUnit : UndefinedScientificUnit<LeftQuantity>,
-          LeftUnit : MeasurementUsage.UsedInUKImperial,
-          RightUnit : UndefinedScientificUnit<RightQuantity>,
-          RightUnit : MeasurementUsage.UsedInUKImperial {
+              LeftUnit : UndefinedScientificUnit<LeftQuantity>,
+              LeftUnit : MeasurementUsage.UsedInUKImperial,
+              RightUnit : UndefinedScientificUnit<RightQuantity>,
+              RightUnit : MeasurementUsage.UsedInUKImperial {
         override val system = MeasurementSystem.UKImperial
     }
 
@@ -135,10 +135,10 @@ sealed class UndefinedMultipliedUnit<
         override val right: RightUnit,
     ) : UndefinedMultipliedUnit<LeftQuantity, LeftUnit, RightQuantity, RightUnit>(),
         UndefinedScientificUnit.USCustomary<UndefinedQuantityType.Multiplying<LeftQuantity, RightQuantity>> where
-          LeftUnit : UndefinedScientificUnit<LeftQuantity>,
-          LeftUnit : MeasurementUsage.UsedInUSCustomary,
-          RightUnit : UndefinedScientificUnit<RightQuantity>,
-          RightUnit : MeasurementUsage.UsedInUSCustomary {
+              LeftUnit : UndefinedScientificUnit<LeftQuantity>,
+              LeftUnit : MeasurementUsage.UsedInUSCustomary,
+              RightUnit : UndefinedScientificUnit<RightQuantity>,
+              RightUnit : MeasurementUsage.UsedInUSCustomary {
         override val system = MeasurementSystem.USCustomary
     }
 
@@ -152,12 +152,12 @@ sealed class UndefinedMultipliedUnit<
         override val right: RightUnit,
     ) : UndefinedMultipliedUnit<LeftQuantity, LeftUnit, RightQuantity, RightUnit>(),
         UndefinedScientificUnit.MetricAndUKImperial<UndefinedQuantityType.Multiplying<LeftQuantity, RightQuantity>> where
-          LeftUnit : UndefinedScientificUnit<LeftQuantity>,
-          LeftUnit : MeasurementUsage.UsedInMetric,
-          LeftUnit : MeasurementUsage.UsedInUKImperial,
-          RightUnit : UndefinedScientificUnit<RightQuantity>,
-          RightUnit : MeasurementUsage.UsedInMetric,
-          RightUnit : MeasurementUsage.UsedInUKImperial {
+              LeftUnit : UndefinedScientificUnit<LeftQuantity>,
+              LeftUnit : MeasurementUsage.UsedInMetric,
+              LeftUnit : MeasurementUsage.UsedInUKImperial,
+              RightUnit : UndefinedScientificUnit<RightQuantity>,
+              RightUnit : MeasurementUsage.UsedInMetric,
+              RightUnit : MeasurementUsage.UsedInUKImperial {
         override val system = MeasurementSystem.MetricAndUKImperial
         override val metric: Metric<LeftQuantity, LeftUnit, RightQuantity, RightUnit> by lazy { Metric(left, right) }
         override val ukImperial: UKImperial<LeftQuantity, LeftUnit, RightQuantity, RightUnit> by lazy { UKImperial(left, right) }
@@ -173,12 +173,12 @@ sealed class UndefinedMultipliedUnit<
         override val right: RightUnit,
     ) : UndefinedMultipliedUnit<LeftQuantity, LeftUnit, RightQuantity, RightUnit>(),
         UndefinedScientificUnit.MetricAndUSCustomary<UndefinedQuantityType.Multiplying<LeftQuantity, RightQuantity>> where
-          LeftUnit : UndefinedScientificUnit<LeftQuantity>,
-          LeftUnit : MeasurementUsage.UsedInMetric,
-          LeftUnit : MeasurementUsage.UsedInUSCustomary,
-          RightUnit : UndefinedScientificUnit<RightQuantity>,
-          RightUnit : MeasurementUsage.UsedInMetric,
-          RightUnit : MeasurementUsage.UsedInUSCustomary {
+              LeftUnit : UndefinedScientificUnit<LeftQuantity>,
+              LeftUnit : MeasurementUsage.UsedInMetric,
+              LeftUnit : MeasurementUsage.UsedInUSCustomary,
+              RightUnit : UndefinedScientificUnit<RightQuantity>,
+              RightUnit : MeasurementUsage.UsedInMetric,
+              RightUnit : MeasurementUsage.UsedInUSCustomary {
         override val system = MeasurementSystem.MetricAndUSCustomary
         override val metric: Metric<LeftQuantity, LeftUnit, RightQuantity, RightUnit> by lazy { Metric(left, right) }
         override val usCustomary: USCustomary<LeftQuantity, LeftUnit, RightQuantity, RightUnit> by lazy { USCustomary(left, right) }

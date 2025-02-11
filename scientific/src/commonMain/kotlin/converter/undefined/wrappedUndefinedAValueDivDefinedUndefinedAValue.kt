@@ -34,196 +34,194 @@ import kotlin.jvm.JvmName
 
 @JvmName("wrappedUndefinedAValueDivDefinedUndefinedAValue")
 fun <
-	NumeratorAndDenominatorQuantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
-	NumeratorAndDenominatorUnit : ScientificUnit<NumeratorAndDenominatorQuantity>,
-	WrappedNumeratorAndDenominatorUnit : WrappedUndefinedExtendedUnit<NumeratorAndDenominatorQuantity, NumeratorAndDenominatorUnit>,
-	TargetUnit : ScientificUnit<PhysicalQuantity.Dimensionless>,
-	TargetValue : ScientificValue<PhysicalQuantity.Dimensionless, TargetUnit>
-	> UndefinedScientificValue<UndefinedQuantityType.Extended<NumeratorAndDenominatorQuantity>, WrappedNumeratorAndDenominatorUnit>.div(
-	right: ScientificValue<NumeratorAndDenominatorQuantity, NumeratorAndDenominatorUnit>,
-	getDimensionless: () -> TargetUnit,
-	factory: (Decimal, TargetUnit) -> TargetValue
+    NumeratorAndDenominatorQuantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
+    NumeratorAndDenominatorUnit : ScientificUnit<NumeratorAndDenominatorQuantity>,
+    WrappedNumeratorAndDenominatorUnit : WrappedUndefinedExtendedUnit<NumeratorAndDenominatorQuantity, NumeratorAndDenominatorUnit>,
+    TargetUnit : ScientificUnit<PhysicalQuantity.Dimensionless>,
+    TargetValue : ScientificValue<PhysicalQuantity.Dimensionless, TargetUnit>,
+    > UndefinedScientificValue<UndefinedQuantityType.Extended<NumeratorAndDenominatorQuantity>, WrappedNumeratorAndDenominatorUnit>.div(
+    right: ScientificValue<NumeratorAndDenominatorQuantity, NumeratorAndDenominatorUnit>,
+    getDimensionless: () -> TargetUnit,
+    factory: (Decimal, TargetUnit) -> TargetValue,
 ) = getDimensionless().byDividing(this, right, factory)
 
 @JvmName("metricAndImperialWrappedUndefinedAValueDivMetricAndImperialDefinedUndefinedAValue")
 infix operator fun <
-	NumeratorAndDenominatorQuantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
-	NumeratorAndDenominatorUnit,
-	WrappedNumeratorAndDenominatorUnit
-	> UndefinedScientificValue<UndefinedQuantityType.Extended<NumeratorAndDenominatorQuantity>, WrappedNumeratorAndDenominatorUnit>.div(
-	right: ScientificValue<NumeratorAndDenominatorQuantity, NumeratorAndDenominatorUnit>,
+    NumeratorAndDenominatorQuantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
+    NumeratorAndDenominatorUnit,
+    WrappedNumeratorAndDenominatorUnit,
+    > UndefinedScientificValue<UndefinedQuantityType.Extended<NumeratorAndDenominatorQuantity>, WrappedNumeratorAndDenominatorUnit>.div(
+    right: ScientificValue<NumeratorAndDenominatorQuantity, NumeratorAndDenominatorUnit>,
 ) where
-	NumeratorAndDenominatorUnit : AbstractScientificUnit<NumeratorAndDenominatorQuantity>,
-	NumeratorAndDenominatorUnit : MeasurementUsage.UsedInMetric,
-	NumeratorAndDenominatorUnit : MeasurementUsage.UsedInUKImperial,
-	NumeratorAndDenominatorUnit : MeasurementUsage.UsedInUSCustomary,
-	WrappedNumeratorAndDenominatorUnit : WrappedUndefinedExtendedUnit<NumeratorAndDenominatorQuantity, NumeratorAndDenominatorUnit>,
-	WrappedNumeratorAndDenominatorUnit : MeasurementUsage.UsedInMetric,
-	WrappedNumeratorAndDenominatorUnit : MeasurementUsage.UsedInUKImperial,
-	WrappedNumeratorAndDenominatorUnit : MeasurementUsage.UsedInUSCustomary =
-	div(
-		right,
-		getDimensionless = { One },
-	) {
-		value: Decimal,
-		unit: One
-		->
-		DefaultScientificValue(value, unit)
-	}
+        NumeratorAndDenominatorUnit : AbstractScientificUnit<NumeratorAndDenominatorQuantity>,
+        NumeratorAndDenominatorUnit : MeasurementUsage.UsedInMetric,
+        NumeratorAndDenominatorUnit : MeasurementUsage.UsedInUKImperial,
+        NumeratorAndDenominatorUnit : MeasurementUsage.UsedInUSCustomary,
+        WrappedNumeratorAndDenominatorUnit : WrappedUndefinedExtendedUnit<NumeratorAndDenominatorQuantity, NumeratorAndDenominatorUnit>,
+        WrappedNumeratorAndDenominatorUnit : MeasurementUsage.UsedInMetric,
+        WrappedNumeratorAndDenominatorUnit : MeasurementUsage.UsedInUKImperial,
+        WrappedNumeratorAndDenominatorUnit : MeasurementUsage.UsedInUSCustomary =
+    div(
+        right,
+        getDimensionless = { One },
+    ) {
+            value: Decimal,
+            unit: One,
+        ->
+        DefaultScientificValue(value, unit)
+    }
 
 @JvmName("metricWrappedUndefinedAValueDivMetricDefinedUndefinedAValue")
 infix operator fun <
-	NumeratorAndDenominatorQuantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
-	NumeratorAndDenominatorUnit,
-	WrappedNumeratorAndDenominatorUnit
-	> UndefinedScientificValue<UndefinedQuantityType.Extended<NumeratorAndDenominatorQuantity>, WrappedNumeratorAndDenominatorUnit>.div(
-	right: ScientificValue<NumeratorAndDenominatorQuantity, NumeratorAndDenominatorUnit>,
+    NumeratorAndDenominatorQuantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
+    NumeratorAndDenominatorUnit,
+    WrappedNumeratorAndDenominatorUnit,
+    > UndefinedScientificValue<UndefinedQuantityType.Extended<NumeratorAndDenominatorQuantity>, WrappedNumeratorAndDenominatorUnit>.div(
+    right: ScientificValue<NumeratorAndDenominatorQuantity, NumeratorAndDenominatorUnit>,
 ) where
-	NumeratorAndDenominatorUnit : AbstractScientificUnit<NumeratorAndDenominatorQuantity>,
-	NumeratorAndDenominatorUnit : MeasurementUsage.UsedInMetric,
-	WrappedNumeratorAndDenominatorUnit : WrappedUndefinedExtendedUnit<NumeratorAndDenominatorQuantity, NumeratorAndDenominatorUnit>,
-	WrappedNumeratorAndDenominatorUnit : MeasurementUsage.UsedInMetric =
-	div(
-		right,
-		getDimensionless = { One },
-	) {
-		value: Decimal,
-		unit: One
-		->
-		DefaultScientificValue(value, unit)
-	}
+        NumeratorAndDenominatorUnit : AbstractScientificUnit<NumeratorAndDenominatorQuantity>,
+        NumeratorAndDenominatorUnit : MeasurementUsage.UsedInMetric,
+        WrappedNumeratorAndDenominatorUnit : WrappedUndefinedExtendedUnit<NumeratorAndDenominatorQuantity, NumeratorAndDenominatorUnit>,
+        WrappedNumeratorAndDenominatorUnit : MeasurementUsage.UsedInMetric =
+    div(
+        right,
+        getDimensionless = { One },
+    ) {
+            value: Decimal,
+            unit: One,
+        ->
+        DefaultScientificValue(value, unit)
+    }
 
 @JvmName("imperialWrappedUndefinedAValueDivImperialDefinedUndefinedAValue")
 infix operator fun <
-	NumeratorAndDenominatorQuantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
-	NumeratorAndDenominatorUnit,
-	WrappedNumeratorAndDenominatorUnit
-	> UndefinedScientificValue<UndefinedQuantityType.Extended<NumeratorAndDenominatorQuantity>, WrappedNumeratorAndDenominatorUnit>.div(
-	right: ScientificValue<NumeratorAndDenominatorQuantity, NumeratorAndDenominatorUnit>,
+    NumeratorAndDenominatorQuantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
+    NumeratorAndDenominatorUnit,
+    WrappedNumeratorAndDenominatorUnit,
+    > UndefinedScientificValue<UndefinedQuantityType.Extended<NumeratorAndDenominatorQuantity>, WrappedNumeratorAndDenominatorUnit>.div(
+    right: ScientificValue<NumeratorAndDenominatorQuantity, NumeratorAndDenominatorUnit>,
 ) where
-	NumeratorAndDenominatorUnit : AbstractScientificUnit<NumeratorAndDenominatorQuantity>,
-	NumeratorAndDenominatorUnit : MeasurementUsage.UsedInUKImperial,
-	NumeratorAndDenominatorUnit : MeasurementUsage.UsedInUSCustomary,
-	WrappedNumeratorAndDenominatorUnit : WrappedUndefinedExtendedUnit<NumeratorAndDenominatorQuantity, NumeratorAndDenominatorUnit>,
-	WrappedNumeratorAndDenominatorUnit : MeasurementUsage.UsedInUKImperial,
-	WrappedNumeratorAndDenominatorUnit : MeasurementUsage.UsedInUSCustomary =
-	div(
-		right,
-		getDimensionless = { One },
-	) {
-		value: Decimal,
-		unit: One
-		->
-		DefaultScientificValue(value, unit)
-	}
+        NumeratorAndDenominatorUnit : AbstractScientificUnit<NumeratorAndDenominatorQuantity>,
+        NumeratorAndDenominatorUnit : MeasurementUsage.UsedInUKImperial,
+        NumeratorAndDenominatorUnit : MeasurementUsage.UsedInUSCustomary,
+        WrappedNumeratorAndDenominatorUnit : WrappedUndefinedExtendedUnit<NumeratorAndDenominatorQuantity, NumeratorAndDenominatorUnit>,
+        WrappedNumeratorAndDenominatorUnit : MeasurementUsage.UsedInUKImperial,
+        WrappedNumeratorAndDenominatorUnit : MeasurementUsage.UsedInUSCustomary =
+    div(
+        right,
+        getDimensionless = { One },
+    ) {
+            value: Decimal,
+            unit: One,
+        ->
+        DefaultScientificValue(value, unit)
+    }
 
 @JvmName("ukImperialWrappedUndefinedAValueDivUKImperialDefinedUndefinedAValue")
 infix operator fun <
-	NumeratorAndDenominatorQuantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
-	NumeratorAndDenominatorUnit,
-	WrappedNumeratorAndDenominatorUnit
-	> UndefinedScientificValue<UndefinedQuantityType.Extended<NumeratorAndDenominatorQuantity>, WrappedNumeratorAndDenominatorUnit>.div(
-	right: ScientificValue<NumeratorAndDenominatorQuantity, NumeratorAndDenominatorUnit>,
+    NumeratorAndDenominatorQuantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
+    NumeratorAndDenominatorUnit,
+    WrappedNumeratorAndDenominatorUnit,
+    > UndefinedScientificValue<UndefinedQuantityType.Extended<NumeratorAndDenominatorQuantity>, WrappedNumeratorAndDenominatorUnit>.div(
+    right: ScientificValue<NumeratorAndDenominatorQuantity, NumeratorAndDenominatorUnit>,
 ) where
-	NumeratorAndDenominatorUnit : AbstractScientificUnit<NumeratorAndDenominatorQuantity>,
-	NumeratorAndDenominatorUnit : MeasurementUsage.UsedInUKImperial,
-	WrappedNumeratorAndDenominatorUnit : WrappedUndefinedExtendedUnit<NumeratorAndDenominatorQuantity, NumeratorAndDenominatorUnit>,
-	WrappedNumeratorAndDenominatorUnit : MeasurementUsage.UsedInUKImperial =
-	div(
-		right,
-		getDimensionless = { One },
-	) {
-		value: Decimal,
-		unit: One
-		->
-		DefaultScientificValue(value, unit)
-	}
+        NumeratorAndDenominatorUnit : AbstractScientificUnit<NumeratorAndDenominatorQuantity>,
+        NumeratorAndDenominatorUnit : MeasurementUsage.UsedInUKImperial,
+        WrappedNumeratorAndDenominatorUnit : WrappedUndefinedExtendedUnit<NumeratorAndDenominatorQuantity, NumeratorAndDenominatorUnit>,
+        WrappedNumeratorAndDenominatorUnit : MeasurementUsage.UsedInUKImperial =
+    div(
+        right,
+        getDimensionless = { One },
+    ) {
+            value: Decimal,
+            unit: One,
+        ->
+        DefaultScientificValue(value, unit)
+    }
 
 @JvmName("usCustomaryWrappedUndefinedAValueDivUSCustomaryDefinedUndefinedAValue")
 infix operator fun <
-	NumeratorAndDenominatorQuantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
-	NumeratorAndDenominatorUnit,
-	WrappedNumeratorAndDenominatorUnit
-	> UndefinedScientificValue<UndefinedQuantityType.Extended<NumeratorAndDenominatorQuantity>, WrappedNumeratorAndDenominatorUnit>.div(
-	right: ScientificValue<NumeratorAndDenominatorQuantity, NumeratorAndDenominatorUnit>,
+    NumeratorAndDenominatorQuantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
+    NumeratorAndDenominatorUnit,
+    WrappedNumeratorAndDenominatorUnit,
+    > UndefinedScientificValue<UndefinedQuantityType.Extended<NumeratorAndDenominatorQuantity>, WrappedNumeratorAndDenominatorUnit>.div(
+    right: ScientificValue<NumeratorAndDenominatorQuantity, NumeratorAndDenominatorUnit>,
 ) where
-	NumeratorAndDenominatorUnit : AbstractScientificUnit<NumeratorAndDenominatorQuantity>,
-	NumeratorAndDenominatorUnit : MeasurementUsage.UsedInUSCustomary,
-	WrappedNumeratorAndDenominatorUnit : WrappedUndefinedExtendedUnit<NumeratorAndDenominatorQuantity, NumeratorAndDenominatorUnit>,
-	WrappedNumeratorAndDenominatorUnit : MeasurementUsage.UsedInUSCustomary =
-	div(
-		right,
-		getDimensionless = { One },
-	) {
-		value: Decimal,
-		unit: One
-		->
-		DefaultScientificValue(value, unit)
-	}
+        NumeratorAndDenominatorUnit : AbstractScientificUnit<NumeratorAndDenominatorQuantity>,
+        NumeratorAndDenominatorUnit : MeasurementUsage.UsedInUSCustomary,
+        WrappedNumeratorAndDenominatorUnit : WrappedUndefinedExtendedUnit<NumeratorAndDenominatorQuantity, NumeratorAndDenominatorUnit>,
+        WrappedNumeratorAndDenominatorUnit : MeasurementUsage.UsedInUSCustomary =
+    div(
+        right,
+        getDimensionless = { One },
+    ) {
+            value: Decimal,
+            unit: One,
+        ->
+        DefaultScientificValue(value, unit)
+    }
 
 @JvmName("metricAndUKImperialWrappedUndefinedAValueDivMetricAndUKImperialDefinedUndefinedAValue")
 infix operator fun <
-	NumeratorAndDenominatorQuantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
-	NumeratorAndDenominatorUnit,
-	WrappedNumeratorAndDenominatorUnit
-	> UndefinedScientificValue<UndefinedQuantityType.Extended<NumeratorAndDenominatorQuantity>, WrappedNumeratorAndDenominatorUnit>.div(
-	right: ScientificValue<NumeratorAndDenominatorQuantity, NumeratorAndDenominatorUnit>,
+    NumeratorAndDenominatorQuantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
+    NumeratorAndDenominatorUnit,
+    WrappedNumeratorAndDenominatorUnit,
+    > UndefinedScientificValue<UndefinedQuantityType.Extended<NumeratorAndDenominatorQuantity>, WrappedNumeratorAndDenominatorUnit>.div(
+    right: ScientificValue<NumeratorAndDenominatorQuantity, NumeratorAndDenominatorUnit>,
 ) where
-	NumeratorAndDenominatorUnit : AbstractScientificUnit<NumeratorAndDenominatorQuantity>,
-	NumeratorAndDenominatorUnit : MeasurementUsage.UsedInMetric,
-	NumeratorAndDenominatorUnit : MeasurementUsage.UsedInUKImperial,
-	WrappedNumeratorAndDenominatorUnit : WrappedUndefinedExtendedUnit<NumeratorAndDenominatorQuantity, NumeratorAndDenominatorUnit>,
-	WrappedNumeratorAndDenominatorUnit : MeasurementUsage.UsedInMetric,
-	WrappedNumeratorAndDenominatorUnit : MeasurementUsage.UsedInUKImperial =
-	div(
-		right,
-		getDimensionless = { One },
-	) {
-		value: Decimal,
-		unit: One
-		->
-		DefaultScientificValue(value, unit)
-	}
+        NumeratorAndDenominatorUnit : AbstractScientificUnit<NumeratorAndDenominatorQuantity>,
+        NumeratorAndDenominatorUnit : MeasurementUsage.UsedInMetric,
+        NumeratorAndDenominatorUnit : MeasurementUsage.UsedInUKImperial,
+        WrappedNumeratorAndDenominatorUnit : WrappedUndefinedExtendedUnit<NumeratorAndDenominatorQuantity, NumeratorAndDenominatorUnit>,
+        WrappedNumeratorAndDenominatorUnit : MeasurementUsage.UsedInMetric,
+        WrappedNumeratorAndDenominatorUnit : MeasurementUsage.UsedInUKImperial =
+    div(
+        right,
+        getDimensionless = { One },
+    ) {
+            value: Decimal,
+            unit: One,
+        ->
+        DefaultScientificValue(value, unit)
+    }
 
 @JvmName("metricAndUSCustomaryWrappedUndefinedAValueDivMetricAndUSCustomaryDefinedUndefinedAValue")
 infix operator fun <
-	NumeratorAndDenominatorQuantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
-	NumeratorAndDenominatorUnit,
-	WrappedNumeratorAndDenominatorUnit
-	> UndefinedScientificValue<UndefinedQuantityType.Extended<NumeratorAndDenominatorQuantity>, WrappedNumeratorAndDenominatorUnit>.div(
-	right: ScientificValue<NumeratorAndDenominatorQuantity, NumeratorAndDenominatorUnit>,
+    NumeratorAndDenominatorQuantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
+    NumeratorAndDenominatorUnit,
+    WrappedNumeratorAndDenominatorUnit,
+    > UndefinedScientificValue<UndefinedQuantityType.Extended<NumeratorAndDenominatorQuantity>, WrappedNumeratorAndDenominatorUnit>.div(
+    right: ScientificValue<NumeratorAndDenominatorQuantity, NumeratorAndDenominatorUnit>,
 ) where
-	NumeratorAndDenominatorUnit : AbstractScientificUnit<NumeratorAndDenominatorQuantity>,
-	NumeratorAndDenominatorUnit : MeasurementUsage.UsedInMetric,
-	NumeratorAndDenominatorUnit : MeasurementUsage.UsedInUSCustomary,
-	WrappedNumeratorAndDenominatorUnit : WrappedUndefinedExtendedUnit<NumeratorAndDenominatorQuantity, NumeratorAndDenominatorUnit>,
-	WrappedNumeratorAndDenominatorUnit : MeasurementUsage.UsedInMetric,
-	WrappedNumeratorAndDenominatorUnit : MeasurementUsage.UsedInUSCustomary =
-	div(
-		right,
-		getDimensionless = { One },
-	) {
-		value: Decimal,
-		unit: One
-		->
-		DefaultScientificValue(value, unit)
-	}
+        NumeratorAndDenominatorUnit : AbstractScientificUnit<NumeratorAndDenominatorQuantity>,
+        NumeratorAndDenominatorUnit : MeasurementUsage.UsedInMetric,
+        NumeratorAndDenominatorUnit : MeasurementUsage.UsedInUSCustomary,
+        WrappedNumeratorAndDenominatorUnit : WrappedUndefinedExtendedUnit<NumeratorAndDenominatorQuantity, NumeratorAndDenominatorUnit>,
+        WrappedNumeratorAndDenominatorUnit : MeasurementUsage.UsedInMetric,
+        WrappedNumeratorAndDenominatorUnit : MeasurementUsage.UsedInUSCustomary =
+    div(
+        right,
+        getDimensionless = { One },
+    ) {
+            value: Decimal,
+            unit: One,
+        ->
+        DefaultScientificValue(value, unit)
+    }
 
 @JvmName("genericWrappedUndefinedAValueDivGenericDefinedUndefinedAValue")
 infix operator fun <
-	NumeratorAndDenominatorQuantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
-	NumeratorAndDenominatorUnit : AbstractScientificUnit<NumeratorAndDenominatorQuantity>,
-	WrappedNumeratorAndDenominatorUnit : WrappedUndefinedExtendedUnit<NumeratorAndDenominatorQuantity, NumeratorAndDenominatorUnit>
-	> UndefinedScientificValue<UndefinedQuantityType.Extended<NumeratorAndDenominatorQuantity>, WrappedNumeratorAndDenominatorUnit>.div(
-	right: ScientificValue<NumeratorAndDenominatorQuantity, NumeratorAndDenominatorUnit>,
-) =
-	div(
-		right,
-		getDimensionless = { One },
-	) {
-		value: Decimal,
-		unit: One
-		->
-		DefaultScientificValue(value, unit)
-	}
-
+    NumeratorAndDenominatorQuantity : PhysicalQuantity.DefinedPhysicalQuantityWithDimension,
+    NumeratorAndDenominatorUnit : AbstractScientificUnit<NumeratorAndDenominatorQuantity>,
+    WrappedNumeratorAndDenominatorUnit : WrappedUndefinedExtendedUnit<NumeratorAndDenominatorQuantity, NumeratorAndDenominatorUnit>,
+    > UndefinedScientificValue<UndefinedQuantityType.Extended<NumeratorAndDenominatorQuantity>, WrappedNumeratorAndDenominatorUnit>.div(
+    right: ScientificValue<NumeratorAndDenominatorQuantity, NumeratorAndDenominatorUnit>,
+) = div(
+    right,
+    getDimensionless = { One },
+) {
+        value: Decimal,
+        unit: One,
+    ->
+    DefaultScientificValue(value, unit)
+}

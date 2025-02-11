@@ -59,6 +59,13 @@ sealed interface MeasurementUsage {
         UsedInUKImperial
 
     /**
+     * A measurement that is used in both Metric and US Customary systems
+     */
+    interface UsedInMetricAndUSCustomary :
+        UsedInMetric,
+        UsedInUSCustomary
+
+    /**
      * A measurement that is used in Metric, UK Imperial and US Customary systems
      */
     interface UsedInMetricAndImperial :
@@ -103,6 +110,12 @@ sealed class MeasurementSystem :
      */
     @Serializable
     data object MetricAndUKImperial : MeasurementSystem(), MeasurementUsage.UsedInMetricAndUKImperial
+
+    /**
+     * System shared between Metric and US Customary
+     */
+    @Serializable
+    object MetricAndUSCustomary : MeasurementSystem(), MeasurementUsage.UsedInMetricAndUSCustomary
 
     /**
      * A global system

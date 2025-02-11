@@ -60,6 +60,9 @@ sealed interface ScientificUnit<Quantity : PhysicalQuantity> :
      * @return the [Decimal] value in this unit
      */
     fun fromSIUnit(value: Decimal): Decimal
+
+    fun deltaToSIUnitDelta(delta: Decimal): Decimal = toSIUnit(delta)
+    fun deltaFromSIUnitDelta(delta: Decimal): Decimal = fromSIUnit(delta)
 }
 
 /**
@@ -105,6 +108,13 @@ interface UKImperialScientificUnit<Quantity : PhysicalQuantity> :
 interface MetricAndUKImperialScientificUnit<Quantity : PhysicalQuantity> :
     SystemScientificUnit<MeasurementSystem.MetricAndUKImperial, Quantity>,
     MeasurementUsage.UsedInMetricAndUKImperial
+
+/**
+ * A [SystemScientificUnit] for [MeasurementSystem.MetricAndUSCustomary]
+ */
+interface MetricAndUSCustomaryScientificUnit<Quantity : PhysicalQuantity> :
+    SystemScientificUnit<MeasurementSystem.MetricAndUSCustomary, Quantity>,
+    MeasurementUsage.UsedInMetricAndUSCustomary
 
 /**
  * A [SystemScientificUnit] for [MeasurementSystem.MetricAndImperial]

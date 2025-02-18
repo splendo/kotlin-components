@@ -1,5 +1,5 @@
 /*
- Copyright 2022 Splendo Consulting B.V. The Netherlands
+ Copyright 2025 Splendo Consulting B.V. The Netherlands
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -23,28 +23,28 @@ import com.splendo.kaluga.scientific.PhysicalQuantity
 import com.splendo.kaluga.scientific.ScientificValue
 import com.splendo.kaluga.scientific.byDividing
 import com.splendo.kaluga.scientific.unit.MassFlowRate
-import com.splendo.kaluga.scientific.unit.Power
-import com.splendo.kaluga.scientific.unit.SpecificEnergy
+import com.splendo.kaluga.scientific.unit.Time
+import com.splendo.kaluga.scientific.unit.Weight
 import kotlin.jvm.JvmName
 
-@JvmName("massFlowRateFromPowerAndSpecificEnergyDefault")
+@JvmName("massFlowRateFromWeightAndAreaDefault")
 fun <
-    PowerUnit : Power,
-    SpecificEnergyUnit : SpecificEnergy,
+    WeightUnit : Weight,
+    TimeUnit : Time,
     MassFlowRateUnit : MassFlowRate,
     > MassFlowRateUnit.massFlowRate(
-    power: ScientificValue<PhysicalQuantity.Power, PowerUnit>,
-    specificEnergy: ScientificValue<PhysicalQuantity.SpecificEnergy, SpecificEnergyUnit>,
-) = massFlowRate(power, specificEnergy, ::DefaultScientificValue)
+    weight: ScientificValue<PhysicalQuantity.Weight, WeightUnit>,
+    time: ScientificValue<PhysicalQuantity.Time, TimeUnit>,
+) = massFlowRate(weight, time, ::DefaultScientificValue)
 
-@JvmName("massFlowRateFromPowerAndSpecificEnergy")
+@JvmName("massFlowRateFromWeightAndArea")
 fun <
-    PowerUnit : Power,
-    SpecificEnergyUnit : SpecificEnergy,
+    WeightUnit : Weight,
+    TimeUnit : Time,
     MassFlowRateUnit : MassFlowRate,
     Value : ScientificValue<PhysicalQuantity.MassFlowRate, MassFlowRateUnit>,
     > MassFlowRateUnit.massFlowRate(
-    power: ScientificValue<PhysicalQuantity.Power, PowerUnit>,
-    specificEnergy: ScientificValue<PhysicalQuantity.SpecificEnergy, SpecificEnergyUnit>,
+    weight: ScientificValue<PhysicalQuantity.Weight, WeightUnit>,
+    time: ScientificValue<PhysicalQuantity.Time, TimeUnit>,
     factory: (Decimal, MassFlowRateUnit) -> Value,
-) = byDividing(power, specificEnergy, factory)
+) = byDividing(weight, time, factory)

@@ -1876,9 +1876,6 @@ public final class com/splendo/kaluga/scientific/converter/energy/ConvertToMolar
 }
 
 public final class com/splendo/kaluga/scientific/converter/energy/ConvertToPowerKt {
-	public static final fun britishThermalUnitDivHour (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
-	public static final fun britishThermalUnitDivMinute (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
-	public static final fun britishThermalUnitDivSecond (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 	public static final fun centijouleDivTime (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 	public static final fun centiwattHourDivHour (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 	public static final fun decajouleDivTime (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
@@ -1886,28 +1883,21 @@ public final class com/splendo/kaluga/scientific/converter/energy/ConvertToPower
 	public static final fun decijouleDivTime (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 	public static final fun deciwattHourDivHour (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 	public static final fun energyDivTime (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
-	public static final fun ergDivSecond (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
-	public static final fun ergMultipleDivSecond (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
-	public static final fun footPoundForceDivMinute (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
-	public static final fun footPoundForceDivSecond (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
-	public static final fun footPoundalDivMinute (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
-	public static final fun footPoundalDivSecond (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 	public static final fun gigajouleDivTime (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 	public static final fun gigawattHourDivHour (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 	public static final fun hectojouleDivTime (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 	public static final fun hectowattHourDivHour (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 	public static final fun horsepowerHourDivHour (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 	public static final fun imperialEnergyDivTime (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
-	public static final fun inchOunceForceDivMinute (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
-	public static final fun inchOunceForceDivSecond (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
-	public static final fun inchPoundForceDivMinute (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
-	public static final fun inchPoundForceDivSecond (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun imperialNamedEnergyDivTime (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 	public static final fun jouleDivTime (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 	public static final fun kilojouleDivTime (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 	public static final fun kilowattHourDivHour (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 	public static final fun megajouleDivTime (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 	public static final fun megawattHourDivHour (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun metricAndImperialNamedEnergyDivTime (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 	public static final fun metricEnergyDivTime (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun metricNamedEnergyDivTime (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 	public static final fun microjouleDivTime (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 	public static final fun microwattHourDivHour (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 	public static final fun millijouleDivTime (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
@@ -1968,12 +1958,11 @@ public final class com/splendo/kaluga/scientific/converter/energy/ConvertToTempe
 }
 
 public final class com/splendo/kaluga/scientific/converter/energy/ConvertToTimeKt {
-	public static final fun britishThermalUnitDivBritishThermalUnitPerHour (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
-	public static final fun britishThermalUnitDivBritishThermalUnitPerMinute (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 	public static final fun energyDivPower (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
-	public static final fun footPoundForceDivFootPoundForcePerMinute (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 	public static final fun horsepowerHourDivHorsepower (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
-	public static final fun inchPoundForceDivInchPoundForcePerMinute (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun imperialNamedEnergyDivCombinedMetricPower (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun metricAndImperialNamedEnergyDivCombinedMetricAndImperialPower (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun metricNamedEnergyDivCombinedMetricPower (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 	public static final fun wattHourDivWatt (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 	public static final fun wattHourDivWattMultiple (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 	public static final fun wattHourMultipleDivWatt (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
@@ -2917,9 +2906,26 @@ public final class com/splendo/kaluga/scientific/converter/magneticInduction/Con
 	public static final fun inductionTimesArea (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 }
 
-public final class com/splendo/kaluga/scientific/converter/massFlowRate/ConvertFromWeightAndAreaKt {
+public final class com/splendo/kaluga/scientific/converter/massFlowRate/ConvertFromPowerAndSpecificEnergyKt {
 	public static final fun massFlowRateFromWeightAndArea (Lcom/splendo/kaluga/scientific/unit/MassFlowRate;Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;Lkotlin/jvm/functions/Function2;)Lcom/splendo/kaluga/scientific/ScientificValue;
 	public static final fun massFlowRateFromWeightAndAreaDefault (Lcom/splendo/kaluga/scientific/unit/MassFlowRate;Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+}
+
+public final class com/splendo/kaluga/scientific/converter/massFlowRate/ConvertFromWeightAndAreaKt {
+	public static final fun massFlowRateFromPowerAndSpecificEnergy (Lcom/splendo/kaluga/scientific/unit/MassFlowRate;Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;Lkotlin/jvm/functions/Function2;)Lcom/splendo/kaluga/scientific/ScientificValue;
+	public static final fun massFlowRateFromPowerAndSpecificEnergyDefault (Lcom/splendo/kaluga/scientific/unit/MassFlowRate;Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+}
+
+public final class com/splendo/kaluga/scientific/converter/massFlowRate/ConvertToPowerKt {
+	public static final fun imperialMassFlowRateTimesImperialSpecificEnergy (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun imperialMassFlowRateTimesUKImperialSpecificEnergy (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun imperialMassFlowRateTimesUSCustomarySpecificEnergy (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun massFlowRateTimesSpecificEnergy (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun metricMassFlowRateTimesMetricSpecificEnergy (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun ukImperialMassFlowRateTimesImperialSpecificEnergy (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun ukImperialMassFlowRateTimesUKImperialSpecificEnergy (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun usCustomaryMassFlowRateTimesImperialSpecificEnergy (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun usCustomaryMassFlowRateTimesUSCustomarySpecificEnergy (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 }
 
 public final class com/splendo/kaluga/scientific/converter/massFlowRate/ConvertToWeightKt {
@@ -3367,13 +3373,23 @@ public final class com/splendo/kaluga/scientific/converter/momentum/ConvertToWei
 }
 
 public final class com/splendo/kaluga/scientific/converter/power/ConvertFromEnergyAndTimeKt {
-	public static final fun powerFromEnergyAndTime (Lcom/splendo/kaluga/scientific/unit/Power;Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;Lkotlin/jvm/functions/Function2;)Lcom/splendo/kaluga/scientific/ScientificValue;
-	public static final fun powerFromEnergyAndTimeDefault (Lcom/splendo/kaluga/scientific/unit/Power;Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun powerFromPressureAndVolumetricFlow (Lcom/splendo/kaluga/scientific/unit/Power;Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;Lkotlin/jvm/functions/Function2;)Lcom/splendo/kaluga/scientific/ScientificValue;
+	public static final fun powerFromPressureAndVolumetricFlowDefault (Lcom/splendo/kaluga/scientific/unit/Power;Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 }
 
 public final class com/splendo/kaluga/scientific/converter/power/ConvertFromForceAndSpeedKt {
 	public static final fun powerFromForceAndSpeed (Lcom/splendo/kaluga/scientific/unit/Power;Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;Lkotlin/jvm/functions/Function2;)Lcom/splendo/kaluga/scientific/ScientificValue;
 	public static final fun powerFromForceAndSpeedDefault (Lcom/splendo/kaluga/scientific/unit/Power;Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+}
+
+public final class com/splendo/kaluga/scientific/converter/power/ConvertFromMassFlowRateAndSpecificEnergyKt {
+	public static final fun powerFromMassFlowRateAndSpecificEnergy (Lcom/splendo/kaluga/scientific/unit/Power;Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;Lkotlin/jvm/functions/Function2;)Lcom/splendo/kaluga/scientific/ScientificValue;
+	public static final fun powerFromMassFlowRateAndSpecificEnergyDefault (Lcom/splendo/kaluga/scientific/unit/Power;Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+}
+
+public final class com/splendo/kaluga/scientific/converter/power/ConvertFromPressureAndVolumetricFlowKt {
+	public static final fun powerFromEnergyAndTime (Lcom/splendo/kaluga/scientific/unit/Power;Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;Lkotlin/jvm/functions/Function2;)Lcom/splendo/kaluga/scientific/ScientificValue;
+	public static final fun powerFromEnergyAndTimeDefault (Lcom/splendo/kaluga/scientific/unit/Power;Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 }
 
 public final class com/splendo/kaluga/scientific/converter/power/ConvertFromTemperatureAndThermalResistanceKt {
@@ -3387,26 +3403,23 @@ public final class com/splendo/kaluga/scientific/converter/power/ConvertFromVolt
 }
 
 public final class com/splendo/kaluga/scientific/converter/power/ConvertToElectricCurrentKt {
-	public static final fun ergSecondDivAbvolt (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun metricCombinedPowerDivAbvolt (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 	public static final fun powerDivVoltage (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 }
 
 public final class com/splendo/kaluga/scientific/converter/power/ConvertToEnergyKt {
-	public static final fun britishThermalUnitPerHourTimesTime (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
-	public static final fun britishThermalUnitPerMinuteTimesTime (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
-	public static final fun britishThermalUnitPerSecondTimesTime (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 	public static final fun centiwattTimesHour (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 	public static final fun decawattTimesHour (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 	public static final fun deciwattTimesHour (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
-	public static final fun ergPerSecondTimesTime (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 	public static final fun gigawattTimesHour (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 	public static final fun hectowattTimesHour (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 	public static final fun horsepowerTimesHour (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun imperialCombinedPowerTimesTime (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 	public static final fun imperialPowerTimesTime (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
-	public static final fun inchPoundForcePerMinuteTimesTime (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
-	public static final fun inchPoundForcePerSecondTimesTime (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 	public static final fun kilowattTimesHour (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 	public static final fun megawattTimesHour (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun metricAndImperialCombinedPowerTimesTime (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun metricCombinedPowerTimesTime (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 	public static final fun metricPowerTimesTime (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 	public static final fun microwattTimesHour (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 	public static final fun milliwattTimesHour (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
@@ -3416,29 +3429,66 @@ public final class com/splendo/kaluga/scientific/converter/power/ConvertToEnergy
 }
 
 public final class com/splendo/kaluga/scientific/converter/power/ConvertToForceKt {
-	public static final fun ergPerSecondDivMetricSpeed (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 	public static final fun imperialPowerDivImperialSpeed (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 	public static final fun metricAndImperialPowerDivImperialSpeed (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun metricCombinedPowerDivMetricSpeed (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 	public static final fun metricPowerDivMetricSpeed (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 	public static final fun powerDivSpeed (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 }
 
+public final class com/splendo/kaluga/scientific/converter/power/ConvertToMassFlowRateKt {
+	public static final fun imperialCombinedPowerDivImperialSpecificEnergy (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun imperialCombinedPowerDivUKImperialSpecificEnergy (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun imperialCombinedPowerDivUSCustomarySpecificEnergy (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun imperialPowerDivImperialSpecificEnergy (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun imperialPowerDivUKImperialSpecificEnergy (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun imperialPowerDivUSCustomarySpecificEnergy (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun metricAndImperialCombinedPowerDivImperialSpecificEnergy (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun metricAndImperialCombinedPowerDivMetricSpecificEnergy (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun metricAndImperialCombinedPowerDivUKImperialSpecificEnergy (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun metricAndImperialCombinedPowerDivUSCustomarySpecificEnergy (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun metricCombinedPowerDivMetricSpecificEnergy (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun metricPowerDivMetricSpecificEnergy (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun powerDivSpecificEnergy (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+}
+
+public final class com/splendo/kaluga/scientific/converter/power/ConvertToPressureKt {
+	public static final fun imperialCombinedPowerDivImperialVolumetricFlow (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun imperialCombinedPowerDivUKImperialVolumetricFlow (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun imperialCombinedPowerDivUSCustomaryVolumetricFlow (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun imperialPowerDivImperialVolumetricFlow (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun imperialPowerDivUKImperialVolumetricFlow (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun imperialPowerDivUSCustomaryVolumetricFlow (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun metricCombinedPowerDivMetricVolumetricFlow (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun powerDivVolumetricFlow (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+}
+
+public final class com/splendo/kaluga/scientific/converter/power/ConvertToSpecificEnergyKt {
+	public static final fun imperialCombinedPowerDivImperialMassFlowRate (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun imperialCombinedPowerDivUKImperialMassFlowRate (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun imperialCombinedPowerDivUSCustomaryMassFlowRate (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun imperialPowerDivImperialMassFlowRate (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun imperialPowerDivUKImperialMassFlowRate (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun imperialPowerDivUSCustomaryMassFlowRate (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun metricAndImperialCombinedPowerDivImperialMassFlowRate (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun metricAndImperialCombinedPowerDivMetricMassFlowRate (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun metricAndImperialCombinedPowerDivUKImperialMassFlowRate (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun metricAndImperialCombinedPowerDivUSCustomaryMassFlowRate (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun metricCombinedPowerDivMetricMassFlowRate (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun metricPowerDivMetricMassFlowRate (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun powerDivMassFlowRate (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+}
+
 public final class com/splendo/kaluga/scientific/converter/power/ConvertToSpeedKt {
-	public static final fun britishThermalUnitPerHourDivPoundForce (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
-	public static final fun britishThermalUnitPerMinuteDivPoundForce (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
-	public static final fun britishThermalUnitPerSecondDivPoundForce (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
-	public static final fun ergPerSecondDivDyne (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
-	public static final fun ergPerSecondDivDyneMultiple (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
-	public static final fun footPoundForcePerMinuteDivImperialForce (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
-	public static final fun footPoundForcePerSecondDivImperialForce (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun imperialCombinedPowerDivImperialForce (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 	public static final fun imperialPowerDivImperialForce (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 	public static final fun imperialPowerDivUKImperialForce (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 	public static final fun imperialPowerDivUSCustomaryForce (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
-	public static final fun inchPoundForcePerMinuteDivImperialForce (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
-	public static final fun inchPoundForcePerSecondDivImperialForce (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 	public static final fun metricAndImperialPowerDivImperialForce (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 	public static final fun metricAndImperialPowerDivUKImperialForce (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 	public static final fun metricAndImperialPowerDivUSCustomaryForce (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun metricCombinedPowerDivDyne (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun metricCombinedPowerDivDyneMultiple (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 	public static final fun metricPowerDivMetricForce (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 	public static final fun powerDivForce (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 }
@@ -3455,9 +3505,33 @@ public final class com/splendo/kaluga/scientific/converter/power/ConvertToTemper
 }
 
 public final class com/splendo/kaluga/scientific/converter/power/ConvertToVoltageKt {
-	public static final fun ergSecondDivAbampere (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
-	public static final fun ergSecondDivBiot (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun metricCombinedPowerDivAbampere (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun metricCombinedPowerDivBiot (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 	public static final fun powerDivCurrent (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+}
+
+public final class com/splendo/kaluga/scientific/converter/power/ConvertToVolumetricFlowKt {
+	public static final fun imperialCombinedPowerDivImperialPressure (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun imperialCombinedPowerDivImperialTonSquareInch (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun imperialCombinedPowerDivKiloPoundSquareInch (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun imperialCombinedPowerDivKipSquareInch (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun imperialCombinedPowerDivOunceSquareInch (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun imperialCombinedPowerDivPoundSquareInch (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun imperialCombinedPowerDivUKImperialPressure (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun imperialCombinedPowerDivUsCustomaryPressure (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun imperialCombinedPowerDivUsTonSquareInch (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun imperialPowerDivImperialPressure (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun imperialPowerDivImperialTonSquareInch (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun imperialPowerDivKiloPoundSquareInch (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun imperialPowerDivKipSquareInch (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun imperialPowerDivOunceSquareInch (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun imperialPowerDivPoundSquareInch (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun imperialPowerDivUKImperialPressure (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun imperialPowerDivUsCustomaryPressure (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun imperialPowerDivUsTonSquareInch (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun metricCombinedPowerDivBarye (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun metricCombinedPowerDivBaryeMultiple (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun powerDivPressure (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 }
 
 public final class com/splendo/kaluga/scientific/converter/pressure/ConvertFromDynamicViscosityAndTimeKt {
@@ -3473,6 +3547,11 @@ public final class com/splendo/kaluga/scientific/converter/pressure/ConvertFromE
 public final class com/splendo/kaluga/scientific/converter/pressure/ConvertFromForceAndAreaKt {
 	public static final fun pressureFromForceAndArea (Lcom/splendo/kaluga/scientific/unit/Pressure;Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;Lkotlin/jvm/functions/Function2;)Lcom/splendo/kaluga/scientific/ScientificValue;
 	public static final fun pressureFromForceAndAreaDefault (Lcom/splendo/kaluga/scientific/unit/Pressure;Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+}
+
+public final class com/splendo/kaluga/scientific/converter/pressure/ConvertFromPowerAndVolumetricFlowKt {
+	public static final fun pressureFromPowerAndVolumetricFlow (Lcom/splendo/kaluga/scientific/unit/Pressure;Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;Lkotlin/jvm/functions/Function2;)Lcom/splendo/kaluga/scientific/ScientificValue;
+	public static final fun pressureFromPowerAndVolumetricFlowDefault (Lcom/splendo/kaluga/scientific/unit/Pressure;Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 }
 
 public final class com/splendo/kaluga/scientific/converter/pressure/ConvertToDynamicViscosityKt {
@@ -3517,6 +3596,31 @@ public final class com/splendo/kaluga/scientific/converter/pressure/ConvertToFor
 	public static final fun usCustomaryPressureTimesImperialArea (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 	public static final fun usTonSquareFeetTimesImperialArea (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 	public static final fun usTonSquareInchTimesImperialArea (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+}
+
+public final class com/splendo/kaluga/scientific/converter/pressure/ConvertToPowerKt {
+	public static final fun baryeMultipleTimesMetricVolumetricFlow (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun baryeTimesMetricVolumetricFlow (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun imperialPressureTimesImperialVolumetricFlow (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun imperialPressureTimesUKImperialVolumetricFlow (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun imperialPressureTimesUSCustomaryVolumetricFlow (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun imperialTonSquareInchTimesUKImperialVolumetricFlow (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun kilopoundSquareInchTimesImperialVolumetricFlow (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun kilopoundSquareInchTimesUKImperialVolumetricFlow (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun kilopoundSquareInchTimesUSCustomaryVolumetricFlow (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun kipSquareInchTimesUSCustomaryVolumetricFlow (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun ounceSquareInchTimesImperialVolumetricFlow (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun ounceSquareInchTimesUKImperialVolumetricFlow (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun ounceSquareInchTimesUSCustomaryVolumetricFlow (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun poundSquareInchTimesImperialVolumetricFlow (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun poundSquareInchTimesUKImperialVolumetricFlow (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun poundSquareInchTimesUSCustomaryVolumetricFlow (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun pressureTimesVolume (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun ukImperialPressureTimesImperialVolumetricFlow (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun ukImperialPressureTimesUKImperialVolumetricFlow (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun usCustomaryPressureTimesImperialVolumetricFlow (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun usCustomaryPressureTimesUSCustomaryVolumetricFlow (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun usTonSquareInchTimesUSCustomaryVolumetricFlow (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 }
 
 public final class com/splendo/kaluga/scientific/converter/radioactivity/ConvertFromAmountOfSubstanceAndTimeKt {
@@ -3587,6 +3691,11 @@ public final class com/splendo/kaluga/scientific/converter/specificEnergy/Conver
 	public static final fun specificEnergyFromMolarEnergyAndMolarMassDefault (Lcom/splendo/kaluga/scientific/unit/SpecificEnergy;Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 }
 
+public final class com/splendo/kaluga/scientific/converter/specificEnergy/ConvertFromPowerAndMassFlowRateKt {
+	public static final fun specificEnergyFromPowerAndMassFlowRate (Lcom/splendo/kaluga/scientific/unit/SpecificEnergy;Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;Lkotlin/jvm/functions/Function2;)Lcom/splendo/kaluga/scientific/ScientificValue;
+	public static final fun specificEnergyFromPowerAndMassFlowRateDefault (Lcom/splendo/kaluga/scientific/unit/SpecificEnergy;Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+}
+
 public final class com/splendo/kaluga/scientific/converter/specificEnergy/ConvertFromSpecificHeatCapacityAndTemperatureKt {
 	public static final fun specificEnergyFromSpecificHeatCapacityAndTemperature (Lcom/splendo/kaluga/scientific/unit/SpecificEnergy;Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;Lkotlin/jvm/functions/Function2;)Lcom/splendo/kaluga/scientific/ScientificValue;
 	public static final fun specificEnergyFromSpecificHeatCapacityAndTemperatureDefault (Lcom/splendo/kaluga/scientific/unit/SpecificEnergy;Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
@@ -3639,6 +3748,18 @@ public final class com/splendo/kaluga/scientific/converter/specificEnergy/Conver
 	public static final fun ukImperialSpecificEnergyTimesMolarMass (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 	public static final fun usCustomarySpecificEnergyDivMolality (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 	public static final fun usCustomarySpecificEnergyTimesMolarMass (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+}
+
+public final class com/splendo/kaluga/scientific/converter/specificEnergy/ConvertToPowerKt {
+	public static final fun imperialSpecificEnergyTimesImperialMassFlowRate (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun imperialSpecificEnergyTimesUKImperialMassFlowRate (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun imperialSpecificEnergyTimesUSCustomaryMassFlowRate (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun metricSpecificEnergyTimesMetricMassFlowRate (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun sSpecificEnergyTimesMassFlowRate (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun ukImperialSpecificEnergyTimesImperialMassFlowRate (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun ukImperialSpecificEnergyTimesUKImperialMassFlowRate (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun usCustomarySpecificEnergyTimesImperialMassFlowRate (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun usCustomarySpecificEnergyTimesUSCustomaryMassFlowRate (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 }
 
 public final class com/splendo/kaluga/scientific/converter/specificEnergy/ConvertToSpecificHeatCapacityKt {
@@ -4129,13 +4250,10 @@ public final class com/splendo/kaluga/scientific/converter/time/ConvertToEnergyK
 	public static final fun hourTimesMilliwatt (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 	public static final fun hourTimesNanowatt (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 	public static final fun hourTimesWatt (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
-	public static final fun timeTimesBritishThermalUnitPerHour (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
-	public static final fun timeTimesBritishThermalUnitPerMinute (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
-	public static final fun timeTimesBritishThermalUnitPerSecond (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
-	public static final fun timeTimesErgPerSecond (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun timeTimesImperialCombinedPower (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 	public static final fun timeTimesImperialPower (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
-	public static final fun timeTimesInchPoundForcePerMinute (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
-	public static final fun timeTimesInchPoundForcePerSecond (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun timeTimesMetricAndImperialCombinedPower (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun timeTimesMetricCombinedPower (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 	public static final fun timeTimesMetricPower (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 	public static final fun timeTimesPower (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 }
@@ -4447,9 +4565,14 @@ public final class com/splendo/kaluga/scientific/converter/volume/ConvertToWeigh
 	public static final fun volumeTimesDensity (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 }
 
-public final class com/splendo/kaluga/scientific/converter/volumetricFlow/ConvertFromVolumeAndTimeKt {
+public final class com/splendo/kaluga/scientific/converter/volumetricFlow/ConvertFromPowerAndPressureKt {
 	public static final fun volumetricFlowFromVolumeAndTime (Lcom/splendo/kaluga/scientific/unit/VolumetricFlow;Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;Lkotlin/jvm/functions/Function2;)Lcom/splendo/kaluga/scientific/ScientificValue;
 	public static final fun volumetricFlowFromVolumeAndTimeDefault (Lcom/splendo/kaluga/scientific/unit/VolumetricFlow;Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+}
+
+public final class com/splendo/kaluga/scientific/converter/volumetricFlow/ConvertFromVolumeAndTimeKt {
+	public static final fun volumetricFlowFromPowerAndPressure (Lcom/splendo/kaluga/scientific/unit/VolumetricFlow;Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;Lkotlin/jvm/functions/Function2;)Lcom/splendo/kaluga/scientific/ScientificValue;
+	public static final fun volumetricFlowFromPowerAndPressureDefault (Lcom/splendo/kaluga/scientific/unit/VolumetricFlow;Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 }
 
 public final class com/splendo/kaluga/scientific/converter/volumetricFlow/ConvertFromVolumetricFluxAndAreaKt {
@@ -4467,6 +4590,31 @@ public final class com/splendo/kaluga/scientific/converter/volumetricFlow/Conver
 	public static final fun usCustomaryVolumetricFlowDivImperialVolumetricFlux (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 	public static final fun usCustomaryVolumetricFlowDivUSCustomaryVolumetricFlux (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 	public static final fun volumetricFlowDivVolumetricFlux (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+}
+
+public final class com/splendo/kaluga/scientific/converter/volumetricFlow/ConvertToPowerKt {
+	public static final fun imperialVolumetricFlowTimesImperialPressure (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun imperialVolumetricFlowTimesKilopoundSquareInch (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun imperialVolumetricFlowTimesOunceSquareInch (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun imperialVolumetricFlowTimesPoundSquareInch (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun imperialVolumetricFlowTimesUkImperialPressure (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun imperialVolumetricFlowTimesUsCustomaryPressure (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun metricVolumetricFlowTimesBarye (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun metricVolumetricFlowTimesBaryeMultiple (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun uKImperialVolumetricFlowTimesImperialPressure (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun uKImperialVolumetricFlowTimesPoundSquareInch (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun uKImperialVolumetricFlowTimesUkImperialPressure (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun uSCustomaryVolumetricFlowTimesImperialPressure (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun uSCustomaryVolumetricFlowTimesPoundSquareInch (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun uSCustomaryVolumetricFlowTimesUsCustomaryPressure (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun ukImperialVolumetricFlowTimesImperialTonSquareInch (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun ukImperialVolumetricFlowTimesKilopoundSquareInch (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun ukImperialVolumetricFlowTimesOunceSquareInch (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun usCustomaryVolumetricFlowTimesKilopoundSquareInch (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun usCustomaryVolumetricFlowTimesKipSquareInch (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun usCustomaryVolumetricFlowTimesOunceSquareInch (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun usCustomaryVolumetricFlowTimesUsTonSquareInch (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
+	public static final fun volumeTimesPressure (Lcom/splendo/kaluga/scientific/ScientificValue;Lcom/splendo/kaluga/scientific/ScientificValue;)Lcom/splendo/kaluga/scientific/DefaultScientificValue;
 }
 
 public final class com/splendo/kaluga/scientific/converter/volumetricFlow/ConvertToVolumeKt {
@@ -5427,7 +5575,7 @@ public final class com/splendo/kaluga/scientific/unit/Bril : com/splendo/kaluga/
 	public fun toString ()Ljava/lang/String;
 }
 
-public final class com/splendo/kaluga/scientific/unit/BritishThermalUnit : com/splendo/kaluga/scientific/unit/ImperialEnergy, com/splendo/kaluga/scientific/unit/SystemScientificUnit {
+public final class com/splendo/kaluga/scientific/unit/BritishThermalUnit : com/splendo/kaluga/scientific/unit/ImperialNamedEnergyUnit, com/splendo/kaluga/scientific/unit/SystemScientificUnit {
 	public static final field INSTANCE Lcom/splendo/kaluga/scientific/unit/BritishThermalUnit;
 	public fun equals (Ljava/lang/Object;)Z
 	public fun fromSIUnit (Lcom/splendo/kaluga/base/utils/Decimal;)Lcom/splendo/kaluga/base/utils/Decimal;
@@ -5442,7 +5590,7 @@ public final class com/splendo/kaluga/scientific/unit/BritishThermalUnit : com/s
 	public fun toString ()Ljava/lang/String;
 }
 
-public final class com/splendo/kaluga/scientific/unit/BritishThermalUnit$Thermal : com/splendo/kaluga/scientific/unit/ImperialEnergy, com/splendo/kaluga/scientific/unit/SystemScientificUnit {
+public final class com/splendo/kaluga/scientific/unit/BritishThermalUnit$Thermal : com/splendo/kaluga/scientific/unit/ImperialNamedEnergyUnit, com/splendo/kaluga/scientific/unit/SystemScientificUnit {
 	public static final field INSTANCE Lcom/splendo/kaluga/scientific/unit/BritishThermalUnit$Thermal;
 	public fun equals (Ljava/lang/Object;)Z
 	public fun fromSIUnit (Lcom/splendo/kaluga/base/utils/Decimal;)Lcom/splendo/kaluga/base/utils/Decimal;
@@ -5457,52 +5605,7 @@ public final class com/splendo/kaluga/scientific/unit/BritishThermalUnit$Thermal
 	public fun toString ()Ljava/lang/String;
 }
 
-public final class com/splendo/kaluga/scientific/unit/BritishThermalUnitPerHour : com/splendo/kaluga/scientific/unit/ImperialPower {
-	public static final field INSTANCE Lcom/splendo/kaluga/scientific/unit/BritishThermalUnitPerHour;
-	public fun equals (Ljava/lang/Object;)Z
-	public fun fromSIUnit (Lcom/splendo/kaluga/base/utils/Decimal;)Lcom/splendo/kaluga/base/utils/Decimal;
-	public fun getQuantity ()Lcom/splendo/kaluga/scientific/PhysicalQuantity$Power;
-	public synthetic fun getQuantity ()Lcom/splendo/kaluga/scientific/PhysicalQuantity;
-	public fun getSymbol ()Ljava/lang/String;
-	public fun getSystem ()Lcom/splendo/kaluga/scientific/unit/MeasurementSystem$Imperial;
-	public synthetic fun getSystem ()Lcom/splendo/kaluga/scientific/unit/MeasurementSystem;
-	public fun hashCode ()I
-	public final fun serializer ()Lkotlinx/serialization/KSerializer;
-	public fun toSIUnit (Lcom/splendo/kaluga/base/utils/Decimal;)Lcom/splendo/kaluga/base/utils/Decimal;
-	public fun toString ()Ljava/lang/String;
-}
-
-public final class com/splendo/kaluga/scientific/unit/BritishThermalUnitPerMinute : com/splendo/kaluga/scientific/unit/ImperialPower {
-	public static final field INSTANCE Lcom/splendo/kaluga/scientific/unit/BritishThermalUnitPerMinute;
-	public fun equals (Ljava/lang/Object;)Z
-	public fun fromSIUnit (Lcom/splendo/kaluga/base/utils/Decimal;)Lcom/splendo/kaluga/base/utils/Decimal;
-	public fun getQuantity ()Lcom/splendo/kaluga/scientific/PhysicalQuantity$Power;
-	public synthetic fun getQuantity ()Lcom/splendo/kaluga/scientific/PhysicalQuantity;
-	public fun getSymbol ()Ljava/lang/String;
-	public fun getSystem ()Lcom/splendo/kaluga/scientific/unit/MeasurementSystem$Imperial;
-	public synthetic fun getSystem ()Lcom/splendo/kaluga/scientific/unit/MeasurementSystem;
-	public fun hashCode ()I
-	public final fun serializer ()Lkotlinx/serialization/KSerializer;
-	public fun toSIUnit (Lcom/splendo/kaluga/base/utils/Decimal;)Lcom/splendo/kaluga/base/utils/Decimal;
-	public fun toString ()Ljava/lang/String;
-}
-
-public final class com/splendo/kaluga/scientific/unit/BritishThermalUnitPerSecond : com/splendo/kaluga/scientific/unit/ImperialPower {
-	public static final field INSTANCE Lcom/splendo/kaluga/scientific/unit/BritishThermalUnitPerSecond;
-	public fun equals (Ljava/lang/Object;)Z
-	public fun fromSIUnit (Lcom/splendo/kaluga/base/utils/Decimal;)Lcom/splendo/kaluga/base/utils/Decimal;
-	public fun getQuantity ()Lcom/splendo/kaluga/scientific/PhysicalQuantity$Power;
-	public synthetic fun getQuantity ()Lcom/splendo/kaluga/scientific/PhysicalQuantity;
-	public fun getSymbol ()Ljava/lang/String;
-	public fun getSystem ()Lcom/splendo/kaluga/scientific/unit/MeasurementSystem$Imperial;
-	public synthetic fun getSystem ()Lcom/splendo/kaluga/scientific/unit/MeasurementSystem;
-	public fun hashCode ()I
-	public final fun serializer ()Lkotlinx/serialization/KSerializer;
-	public fun toSIUnit (Lcom/splendo/kaluga/base/utils/Decimal;)Lcom/splendo/kaluga/base/utils/Decimal;
-	public fun toString ()Ljava/lang/String;
-}
-
-public final class com/splendo/kaluga/scientific/unit/Calorie : com/splendo/kaluga/scientific/unit/MetricAndImperialEnergy, com/splendo/kaluga/scientific/unit/CalorieUnit {
+public final class com/splendo/kaluga/scientific/unit/Calorie : com/splendo/kaluga/scientific/unit/MetricAndImperialNamedEnergyUnit, com/splendo/kaluga/scientific/unit/CalorieUnit {
 	public static final field INSTANCE Lcom/splendo/kaluga/scientific/unit/Calorie;
 	public fun equals (Ljava/lang/Object;)Z
 	public fun fromSIUnit (Lcom/splendo/kaluga/base/utils/Decimal;)Lcom/splendo/kaluga/base/utils/Decimal;
@@ -5517,7 +5620,7 @@ public final class com/splendo/kaluga/scientific/unit/Calorie : com/splendo/kalu
 	public fun toString ()Ljava/lang/String;
 }
 
-public final class com/splendo/kaluga/scientific/unit/Calorie$IT : com/splendo/kaluga/scientific/unit/MetricAndImperialEnergy, com/splendo/kaluga/scientific/unit/CalorieUnit {
+public final class com/splendo/kaluga/scientific/unit/Calorie$IT : com/splendo/kaluga/scientific/unit/MetricAndImperialNamedEnergyUnit, com/splendo/kaluga/scientific/unit/CalorieUnit {
 	public static final field INSTANCE Lcom/splendo/kaluga/scientific/unit/Calorie$IT;
 	public fun equals (Ljava/lang/Object;)Z
 	public fun fromSIUnit (Lcom/splendo/kaluga/base/utils/Decimal;)Lcom/splendo/kaluga/base/utils/Decimal;
@@ -5532,7 +5635,7 @@ public final class com/splendo/kaluga/scientific/unit/Calorie$IT : com/splendo/k
 	public fun toString ()Ljava/lang/String;
 }
 
-public abstract class com/splendo/kaluga/scientific/unit/CalorieMultiple : com/splendo/kaluga/scientific/unit/MetricAndImperialEnergy, com/splendo/kaluga/scientific/unit/MetricMultipleUnit {
+public abstract class com/splendo/kaluga/scientific/unit/CalorieMultiple : com/splendo/kaluga/scientific/unit/MetricAndImperialNamedEnergyUnit, com/splendo/kaluga/scientific/unit/MetricMultipleUnit {
 	public static final field Companion Lcom/splendo/kaluga/scientific/unit/CalorieMultiple$Companion;
 	public synthetic fun <init> (ILkotlinx/serialization/internal/SerializationConstructorMarker;)V
 	public static final synthetic fun write$Self (Lcom/splendo/kaluga/scientific/unit/CalorieMultiple;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
@@ -5542,7 +5645,7 @@ public final class com/splendo/kaluga/scientific/unit/CalorieMultiple$Companion 
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public abstract class com/splendo/kaluga/scientific/unit/CalorieMultiple$IT : com/splendo/kaluga/scientific/unit/MetricAndImperialEnergy, com/splendo/kaluga/scientific/unit/MetricMultipleUnit {
+public abstract class com/splendo/kaluga/scientific/unit/CalorieMultiple$IT : com/splendo/kaluga/scientific/unit/MetricAndImperialNamedEnergyUnit, com/splendo/kaluga/scientific/unit/MetricMultipleUnit {
 	public static final field Companion Lcom/splendo/kaluga/scientific/unit/CalorieMultiple$IT$Companion;
 	public synthetic fun <init> (ILkotlinx/serialization/internal/SerializationConstructorMarker;)V
 	public static final synthetic fun write$Self (Lcom/splendo/kaluga/scientific/unit/CalorieMultiple$IT;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
@@ -6348,6 +6451,16 @@ public synthetic class com/splendo/kaluga/scientific/unit/CombinedMetricAccelera
 
 public final class com/splendo/kaluga/scientific/unit/CombinedMetricAcceleration$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class com/splendo/kaluga/scientific/unit/CombinedPower : com/splendo/kaluga/scientific/unit/SystemScientificUnit {
+	public fun fromSIUnit (Lcom/splendo/kaluga/base/utils/Decimal;)Lcom/splendo/kaluga/base/utils/Decimal;
+	public abstract fun getEnergy ()Lcom/splendo/kaluga/scientific/unit/NamedEnergyUnit;
+	public abstract fun getPer ()Lcom/splendo/kaluga/scientific/unit/Time;
+	public fun getQuantity ()Lcom/splendo/kaluga/scientific/PhysicalQuantity$Power;
+	public synthetic fun getQuantity ()Lcom/splendo/kaluga/scientific/PhysicalQuantity;
+	public fun getSymbol ()Ljava/lang/String;
+	public fun toSIUnit (Lcom/splendo/kaluga/base/utils/Decimal;)Lcom/splendo/kaluga/base/utils/Decimal;
 }
 
 public final class com/splendo/kaluga/scientific/unit/Coulomb : com/splendo/kaluga/scientific/unit/ElectricCharge, com/splendo/kaluga/scientific/unit/MetricBaseUnit {
@@ -8141,7 +8254,7 @@ public final class com/splendo/kaluga/scientific/unit/ElectricResistanceUnitKt {
 	public static final fun getElectricResistanceUnits ()Ljava/util/Set;
 }
 
-public final class com/splendo/kaluga/scientific/unit/Electronvolt : com/splendo/kaluga/scientific/unit/MetricEnergy, com/splendo/kaluga/scientific/unit/MetricBaseUnit {
+public final class com/splendo/kaluga/scientific/unit/Electronvolt : com/splendo/kaluga/scientific/unit/MetricNamedEnergyUnit, com/splendo/kaluga/scientific/unit/MetricBaseUnit {
 	public static final field INSTANCE Lcom/splendo/kaluga/scientific/unit/Electronvolt;
 	public fun equals (Ljava/lang/Object;)Z
 	public fun fromSIUnit (Lcom/splendo/kaluga/base/utils/Decimal;)Lcom/splendo/kaluga/base/utils/Decimal;
@@ -8156,7 +8269,7 @@ public final class com/splendo/kaluga/scientific/unit/Electronvolt : com/splendo
 	public fun toString ()Ljava/lang/String;
 }
 
-public abstract class com/splendo/kaluga/scientific/unit/ElectronvoltMultiple : com/splendo/kaluga/scientific/unit/MetricEnergy, com/splendo/kaluga/scientific/unit/MetricMultipleUnit {
+public abstract class com/splendo/kaluga/scientific/unit/ElectronvoltMultiple : com/splendo/kaluga/scientific/unit/MetricNamedEnergyUnit, com/splendo/kaluga/scientific/unit/MetricMultipleUnit {
 	public static final field Companion Lcom/splendo/kaluga/scientific/unit/ElectronvoltMultiple$Companion;
 	public synthetic fun <init> (ILkotlinx/serialization/internal/SerializationConstructorMarker;)V
 	public static final synthetic fun write$Self (Lcom/splendo/kaluga/scientific/unit/ElectronvoltMultiple;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
@@ -8183,9 +8296,12 @@ public final class com/splendo/kaluga/scientific/unit/EnergyUnitKt {
 	public static final fun getMetric (Lcom/splendo/kaluga/scientific/unit/MetricAndImperialEnergy;)Lcom/splendo/kaluga/scientific/unit/MetricMetricAndImperialEnergyWrapper;
 	public static final fun getMetricAndImperialEnergyUnits ()Ljava/util/Set;
 	public static final fun getMetricEnergyUnits ()Ljava/util/Set;
+	public static final fun getNamedImperialEnergyUnits ()Ljava/util/Set;
+	public static final fun getNamedMetricAndImperialEnergyUnits ()Ljava/util/Set;
+	public static final fun getNamedMetricEnergyUnits ()Ljava/util/Set;
 }
 
-public final class com/splendo/kaluga/scientific/unit/Erg : com/splendo/kaluga/scientific/unit/MetricEnergy, com/splendo/kaluga/scientific/unit/MetricBaseUnit {
+public final class com/splendo/kaluga/scientific/unit/Erg : com/splendo/kaluga/scientific/unit/MetricNamedEnergyUnit, com/splendo/kaluga/scientific/unit/MetricBaseUnit {
 	public static final field ERG_IN_JOULE I
 	public static final field INSTANCE Lcom/splendo/kaluga/scientific/unit/Erg;
 	public fun equals (Ljava/lang/Object;)Z
@@ -8201,7 +8317,7 @@ public final class com/splendo/kaluga/scientific/unit/Erg : com/splendo/kaluga/s
 	public fun toString ()Ljava/lang/String;
 }
 
-public abstract class com/splendo/kaluga/scientific/unit/ErgMultiple : com/splendo/kaluga/scientific/unit/MetricEnergy, com/splendo/kaluga/scientific/unit/MetricMultipleUnit {
+public abstract class com/splendo/kaluga/scientific/unit/ErgMultiple : com/splendo/kaluga/scientific/unit/MetricNamedEnergyUnit, com/splendo/kaluga/scientific/unit/MetricMultipleUnit {
 	public static final field Companion Lcom/splendo/kaluga/scientific/unit/ErgMultiple$Companion;
 	public synthetic fun <init> (ILkotlinx/serialization/internal/SerializationConstructorMarker;)V
 	public static final synthetic fun write$Self (Lcom/splendo/kaluga/scientific/unit/ErgMultiple;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
@@ -8209,21 +8325,6 @@ public abstract class com/splendo/kaluga/scientific/unit/ErgMultiple : com/splen
 
 public final class com/splendo/kaluga/scientific/unit/ErgMultiple$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
-}
-
-public final class com/splendo/kaluga/scientific/unit/ErgPerSecond : com/splendo/kaluga/scientific/unit/MetricPower, com/splendo/kaluga/scientific/unit/MetricBaseUnit {
-	public static final field INSTANCE Lcom/splendo/kaluga/scientific/unit/ErgPerSecond;
-	public fun equals (Ljava/lang/Object;)Z
-	public fun fromSIUnit (Lcom/splendo/kaluga/base/utils/Decimal;)Lcom/splendo/kaluga/base/utils/Decimal;
-	public fun getQuantity ()Lcom/splendo/kaluga/scientific/PhysicalQuantity$Power;
-	public synthetic fun getQuantity ()Lcom/splendo/kaluga/scientific/PhysicalQuantity;
-	public fun getSymbol ()Ljava/lang/String;
-	public fun getSystem ()Lcom/splendo/kaluga/scientific/unit/MeasurementSystem$Metric;
-	public synthetic fun getSystem ()Lcom/splendo/kaluga/scientific/unit/MeasurementSystem;
-	public fun hashCode ()I
-	public final fun serializer ()Lkotlinx/serialization/KSerializer;
-	public fun toSIUnit (Lcom/splendo/kaluga/base/utils/Decimal;)Lcom/splendo/kaluga/base/utils/Decimal;
-	public fun toString ()Ljava/lang/String;
 }
 
 public final class com/splendo/kaluga/scientific/unit/Fahrenheit : com/splendo/kaluga/scientific/unit/USCustomaryTemperature {
@@ -8315,7 +8416,7 @@ public final class com/splendo/kaluga/scientific/unit/FootOfWater : com/splendo/
 	public fun toString ()Ljava/lang/String;
 }
 
-public final class com/splendo/kaluga/scientific/unit/FootPoundForce : com/splendo/kaluga/scientific/unit/ImperialEnergy {
+public final class com/splendo/kaluga/scientific/unit/FootPoundForce : com/splendo/kaluga/scientific/unit/ImperialNamedEnergyUnit {
 	public static final field INSTANCE Lcom/splendo/kaluga/scientific/unit/FootPoundForce;
 	public fun equals (Ljava/lang/Object;)Z
 	public fun fromSIUnit (Lcom/splendo/kaluga/base/utils/Decimal;)Lcom/splendo/kaluga/base/utils/Decimal;
@@ -8330,37 +8431,7 @@ public final class com/splendo/kaluga/scientific/unit/FootPoundForce : com/splen
 	public fun toString ()Ljava/lang/String;
 }
 
-public final class com/splendo/kaluga/scientific/unit/FootPoundForcePerMinute : com/splendo/kaluga/scientific/unit/ImperialPower {
-	public static final field INSTANCE Lcom/splendo/kaluga/scientific/unit/FootPoundForcePerMinute;
-	public fun equals (Ljava/lang/Object;)Z
-	public fun fromSIUnit (Lcom/splendo/kaluga/base/utils/Decimal;)Lcom/splendo/kaluga/base/utils/Decimal;
-	public fun getQuantity ()Lcom/splendo/kaluga/scientific/PhysicalQuantity$Power;
-	public synthetic fun getQuantity ()Lcom/splendo/kaluga/scientific/PhysicalQuantity;
-	public fun getSymbol ()Ljava/lang/String;
-	public fun getSystem ()Lcom/splendo/kaluga/scientific/unit/MeasurementSystem$Imperial;
-	public synthetic fun getSystem ()Lcom/splendo/kaluga/scientific/unit/MeasurementSystem;
-	public fun hashCode ()I
-	public final fun serializer ()Lkotlinx/serialization/KSerializer;
-	public fun toSIUnit (Lcom/splendo/kaluga/base/utils/Decimal;)Lcom/splendo/kaluga/base/utils/Decimal;
-	public fun toString ()Ljava/lang/String;
-}
-
-public final class com/splendo/kaluga/scientific/unit/FootPoundForcePerSecond : com/splendo/kaluga/scientific/unit/ImperialPower {
-	public static final field INSTANCE Lcom/splendo/kaluga/scientific/unit/FootPoundForcePerSecond;
-	public fun equals (Ljava/lang/Object;)Z
-	public fun fromSIUnit (Lcom/splendo/kaluga/base/utils/Decimal;)Lcom/splendo/kaluga/base/utils/Decimal;
-	public fun getQuantity ()Lcom/splendo/kaluga/scientific/PhysicalQuantity$Power;
-	public synthetic fun getQuantity ()Lcom/splendo/kaluga/scientific/PhysicalQuantity;
-	public fun getSymbol ()Ljava/lang/String;
-	public fun getSystem ()Lcom/splendo/kaluga/scientific/unit/MeasurementSystem$Imperial;
-	public synthetic fun getSystem ()Lcom/splendo/kaluga/scientific/unit/MeasurementSystem;
-	public fun hashCode ()I
-	public final fun serializer ()Lkotlinx/serialization/KSerializer;
-	public fun toSIUnit (Lcom/splendo/kaluga/base/utils/Decimal;)Lcom/splendo/kaluga/base/utils/Decimal;
-	public fun toString ()Ljava/lang/String;
-}
-
-public final class com/splendo/kaluga/scientific/unit/FootPoundal : com/splendo/kaluga/scientific/unit/ImperialEnergy {
+public final class com/splendo/kaluga/scientific/unit/FootPoundal : com/splendo/kaluga/scientific/unit/ImperialNamedEnergyUnit {
 	public static final field INSTANCE Lcom/splendo/kaluga/scientific/unit/FootPoundal;
 	public fun equals (Ljava/lang/Object;)Z
 	public fun fromSIUnit (Lcom/splendo/kaluga/base/utils/Decimal;)Lcom/splendo/kaluga/base/utils/Decimal;
@@ -10042,6 +10113,38 @@ public final class com/splendo/kaluga/scientific/unit/ImperialAreaDensity$Compan
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class com/splendo/kaluga/scientific/unit/ImperialCombinedPower : com/splendo/kaluga/scientific/unit/ImperialPower, com/splendo/kaluga/scientific/unit/CombinedPower {
+	public static final field Companion Lcom/splendo/kaluga/scientific/unit/ImperialCombinedPower$Companion;
+	public fun <init> (Lcom/splendo/kaluga/scientific/unit/ImperialNamedEnergyUnit;Lcom/splendo/kaluga/scientific/unit/Time;)V
+	public final fun component1 ()Lcom/splendo/kaluga/scientific/unit/ImperialNamedEnergyUnit;
+	public final fun component2 ()Lcom/splendo/kaluga/scientific/unit/Time;
+	public final fun copy (Lcom/splendo/kaluga/scientific/unit/ImperialNamedEnergyUnit;Lcom/splendo/kaluga/scientific/unit/Time;)Lcom/splendo/kaluga/scientific/unit/ImperialCombinedPower;
+	public static synthetic fun copy$default (Lcom/splendo/kaluga/scientific/unit/ImperialCombinedPower;Lcom/splendo/kaluga/scientific/unit/ImperialNamedEnergyUnit;Lcom/splendo/kaluga/scientific/unit/Time;ILjava/lang/Object;)Lcom/splendo/kaluga/scientific/unit/ImperialCombinedPower;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getEnergy ()Lcom/splendo/kaluga/scientific/unit/ImperialNamedEnergyUnit;
+	public synthetic fun getEnergy ()Lcom/splendo/kaluga/scientific/unit/NamedEnergyUnit;
+	public fun getPer ()Lcom/splendo/kaluga/scientific/unit/Time;
+	public fun getSystem ()Lcom/splendo/kaluga/scientific/unit/MeasurementSystem$Imperial;
+	public synthetic fun getSystem ()Lcom/splendo/kaluga/scientific/unit/MeasurementSystem;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class com/splendo/kaluga/scientific/unit/ImperialCombinedPower$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcom/splendo/kaluga/scientific/unit/ImperialCombinedPower$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/splendo/kaluga/scientific/unit/ImperialCombinedPower;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/splendo/kaluga/scientific/unit/ImperialCombinedPower;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/splendo/kaluga/scientific/unit/ImperialCombinedPower$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class com/splendo/kaluga/scientific/unit/ImperialDensity : com/splendo/kaluga/scientific/unit/Density, com/splendo/kaluga/scientific/unit/ImperialScientificUnit {
 	public static final field Companion Lcom/splendo/kaluga/scientific/unit/ImperialDensity$Companion;
 	public fun <init> (Lcom/splendo/kaluga/scientific/unit/ImperialWeight;Lcom/splendo/kaluga/scientific/unit/ImperialVolume;)V
@@ -10671,6 +10774,16 @@ public final class com/splendo/kaluga/scientific/unit/ImperialMomentum$Companion
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public abstract class com/splendo/kaluga/scientific/unit/ImperialNamedEnergyUnit : com/splendo/kaluga/scientific/unit/ImperialEnergy, com/splendo/kaluga/scientific/unit/NamedEnergyUnit {
+	public static final field Companion Lcom/splendo/kaluga/scientific/unit/ImperialNamedEnergyUnit$Companion;
+	public synthetic fun <init> (ILkotlinx/serialization/internal/SerializationConstructorMarker;)V
+	public static final synthetic fun write$Self (Lcom/splendo/kaluga/scientific/unit/ImperialNamedEnergyUnit;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
+}
+
+public final class com/splendo/kaluga/scientific/unit/ImperialNamedEnergyUnit$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class com/splendo/kaluga/scientific/unit/ImperialPint : com/splendo/kaluga/scientific/unit/UKImperialVolume {
 	public static final field INSTANCE Lcom/splendo/kaluga/scientific/unit/ImperialPint;
 	public fun equals (Ljava/lang/Object;)Z
@@ -11061,7 +11174,7 @@ public final class com/splendo/kaluga/scientific/unit/InchOfWater : com/splendo/
 	public fun toString ()Ljava/lang/String;
 }
 
-public final class com/splendo/kaluga/scientific/unit/InchOunceForce : com/splendo/kaluga/scientific/unit/ImperialEnergy {
+public final class com/splendo/kaluga/scientific/unit/InchOunceForce : com/splendo/kaluga/scientific/unit/ImperialNamedEnergyUnit {
 	public static final field INSTANCE Lcom/splendo/kaluga/scientific/unit/InchOunceForce;
 	public fun equals (Ljava/lang/Object;)Z
 	public fun fromSIUnit (Lcom/splendo/kaluga/base/utils/Decimal;)Lcom/splendo/kaluga/base/utils/Decimal;
@@ -11076,41 +11189,11 @@ public final class com/splendo/kaluga/scientific/unit/InchOunceForce : com/splen
 	public fun toString ()Ljava/lang/String;
 }
 
-public final class com/splendo/kaluga/scientific/unit/InchPoundForce : com/splendo/kaluga/scientific/unit/ImperialEnergy {
+public final class com/splendo/kaluga/scientific/unit/InchPoundForce : com/splendo/kaluga/scientific/unit/ImperialNamedEnergyUnit {
 	public static final field INSTANCE Lcom/splendo/kaluga/scientific/unit/InchPoundForce;
 	public fun equals (Ljava/lang/Object;)Z
 	public fun fromSIUnit (Lcom/splendo/kaluga/base/utils/Decimal;)Lcom/splendo/kaluga/base/utils/Decimal;
 	public fun getQuantity ()Lcom/splendo/kaluga/scientific/PhysicalQuantity$Energy;
-	public synthetic fun getQuantity ()Lcom/splendo/kaluga/scientific/PhysicalQuantity;
-	public fun getSymbol ()Ljava/lang/String;
-	public fun getSystem ()Lcom/splendo/kaluga/scientific/unit/MeasurementSystem$Imperial;
-	public synthetic fun getSystem ()Lcom/splendo/kaluga/scientific/unit/MeasurementSystem;
-	public fun hashCode ()I
-	public final fun serializer ()Lkotlinx/serialization/KSerializer;
-	public fun toSIUnit (Lcom/splendo/kaluga/base/utils/Decimal;)Lcom/splendo/kaluga/base/utils/Decimal;
-	public fun toString ()Ljava/lang/String;
-}
-
-public final class com/splendo/kaluga/scientific/unit/InchPoundForcePerMinute : com/splendo/kaluga/scientific/unit/ImperialPower {
-	public static final field INSTANCE Lcom/splendo/kaluga/scientific/unit/InchPoundForcePerMinute;
-	public fun equals (Ljava/lang/Object;)Z
-	public fun fromSIUnit (Lcom/splendo/kaluga/base/utils/Decimal;)Lcom/splendo/kaluga/base/utils/Decimal;
-	public fun getQuantity ()Lcom/splendo/kaluga/scientific/PhysicalQuantity$Power;
-	public synthetic fun getQuantity ()Lcom/splendo/kaluga/scientific/PhysicalQuantity;
-	public fun getSymbol ()Ljava/lang/String;
-	public fun getSystem ()Lcom/splendo/kaluga/scientific/unit/MeasurementSystem$Imperial;
-	public synthetic fun getSystem ()Lcom/splendo/kaluga/scientific/unit/MeasurementSystem;
-	public fun hashCode ()I
-	public final fun serializer ()Lkotlinx/serialization/KSerializer;
-	public fun toSIUnit (Lcom/splendo/kaluga/base/utils/Decimal;)Lcom/splendo/kaluga/base/utils/Decimal;
-	public fun toString ()Ljava/lang/String;
-}
-
-public final class com/splendo/kaluga/scientific/unit/InchPoundForcePerSecond : com/splendo/kaluga/scientific/unit/ImperialPower {
-	public static final field INSTANCE Lcom/splendo/kaluga/scientific/unit/InchPoundForcePerSecond;
-	public fun equals (Ljava/lang/Object;)Z
-	public fun fromSIUnit (Lcom/splendo/kaluga/base/utils/Decimal;)Lcom/splendo/kaluga/base/utils/Decimal;
-	public fun getQuantity ()Lcom/splendo/kaluga/scientific/PhysicalQuantity$Power;
 	public synthetic fun getQuantity ()Lcom/splendo/kaluga/scientific/PhysicalQuantity;
 	public fun getSymbol ()Ljava/lang/String;
 	public fun getSystem ()Lcom/splendo/kaluga/scientific/unit/MeasurementSystem$Imperial;
@@ -11175,7 +11258,7 @@ public final class com/splendo/kaluga/scientific/unit/JoltUnitKt {
 	public static final fun per (Lcom/splendo/kaluga/scientific/unit/MetricAndImperialAcceleration;Lcom/splendo/kaluga/scientific/unit/Time;)Lcom/splendo/kaluga/scientific/unit/MetricAndImperialJolt;
 }
 
-public final class com/splendo/kaluga/scientific/unit/Joule : com/splendo/kaluga/scientific/unit/MetricEnergy, com/splendo/kaluga/scientific/unit/MetricBaseUnit {
+public final class com/splendo/kaluga/scientific/unit/Joule : com/splendo/kaluga/scientific/unit/MetricNamedEnergyUnit, com/splendo/kaluga/scientific/unit/MetricBaseUnit {
 	public static final field INSTANCE Lcom/splendo/kaluga/scientific/unit/Joule;
 	public fun equals (Ljava/lang/Object;)Z
 	public fun fromSIUnit (Lcom/splendo/kaluga/base/utils/Decimal;)Lcom/splendo/kaluga/base/utils/Decimal;
@@ -11190,7 +11273,7 @@ public final class com/splendo/kaluga/scientific/unit/Joule : com/splendo/kaluga
 	public fun toString ()Ljava/lang/String;
 }
 
-public abstract class com/splendo/kaluga/scientific/unit/JouleMultiple : com/splendo/kaluga/scientific/unit/MetricEnergy, com/splendo/kaluga/scientific/unit/MetricMultipleUnit {
+public abstract class com/splendo/kaluga/scientific/unit/JouleMultiple : com/splendo/kaluga/scientific/unit/MetricNamedEnergyUnit, com/splendo/kaluga/scientific/unit/MetricMultipleUnit {
 	public static final field Companion Lcom/splendo/kaluga/scientific/unit/JouleMultiple$Companion;
 	public synthetic fun <init> (ILkotlinx/serialization/internal/SerializationConstructorMarker;)V
 	public static final synthetic fun write$Self (Lcom/splendo/kaluga/scientific/unit/JouleMultiple;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
@@ -13113,6 +13196,38 @@ public final class com/splendo/kaluga/scientific/unit/MetricAndImperialAction$Co
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class com/splendo/kaluga/scientific/unit/MetricAndImperialCombinedPower : com/splendo/kaluga/scientific/unit/MetricAndImperialPower, com/splendo/kaluga/scientific/unit/CombinedPower {
+	public static final field Companion Lcom/splendo/kaluga/scientific/unit/MetricAndImperialCombinedPower$Companion;
+	public fun <init> (Lcom/splendo/kaluga/scientific/unit/MetricAndImperialNamedEnergyUnit;Lcom/splendo/kaluga/scientific/unit/Time;)V
+	public final fun component1 ()Lcom/splendo/kaluga/scientific/unit/MetricAndImperialNamedEnergyUnit;
+	public final fun component2 ()Lcom/splendo/kaluga/scientific/unit/Time;
+	public final fun copy (Lcom/splendo/kaluga/scientific/unit/MetricAndImperialNamedEnergyUnit;Lcom/splendo/kaluga/scientific/unit/Time;)Lcom/splendo/kaluga/scientific/unit/MetricAndImperialCombinedPower;
+	public static synthetic fun copy$default (Lcom/splendo/kaluga/scientific/unit/MetricAndImperialCombinedPower;Lcom/splendo/kaluga/scientific/unit/MetricAndImperialNamedEnergyUnit;Lcom/splendo/kaluga/scientific/unit/Time;ILjava/lang/Object;)Lcom/splendo/kaluga/scientific/unit/MetricAndImperialCombinedPower;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getEnergy ()Lcom/splendo/kaluga/scientific/unit/MetricAndImperialNamedEnergyUnit;
+	public synthetic fun getEnergy ()Lcom/splendo/kaluga/scientific/unit/NamedEnergyUnit;
+	public fun getPer ()Lcom/splendo/kaluga/scientific/unit/Time;
+	public fun getSystem ()Lcom/splendo/kaluga/scientific/unit/MeasurementSystem$MetricAndImperial;
+	public synthetic fun getSystem ()Lcom/splendo/kaluga/scientific/unit/MeasurementSystem;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class com/splendo/kaluga/scientific/unit/MetricAndImperialCombinedPower$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcom/splendo/kaluga/scientific/unit/MetricAndImperialCombinedPower$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/splendo/kaluga/scientific/unit/MetricAndImperialCombinedPower;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/splendo/kaluga/scientific/unit/MetricAndImperialCombinedPower;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/splendo/kaluga/scientific/unit/MetricAndImperialCombinedPower$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public abstract class com/splendo/kaluga/scientific/unit/MetricAndImperialEnergy : com/splendo/kaluga/scientific/unit/Energy, com/splendo/kaluga/scientific/unit/MetricAndImperialScientificUnit {
 	public static final field Companion Lcom/splendo/kaluga/scientific/unit/MetricAndImperialEnergy$Companion;
 	public synthetic fun <init> (ILkotlinx/serialization/internal/SerializationConstructorMarker;)V
@@ -13188,6 +13303,16 @@ public synthetic class com/splendo/kaluga/scientific/unit/MetricAndImperialMolar
 }
 
 public final class com/splendo/kaluga/scientific/unit/MetricAndImperialMolarEnergy$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract class com/splendo/kaluga/scientific/unit/MetricAndImperialNamedEnergyUnit : com/splendo/kaluga/scientific/unit/MetricAndImperialEnergy, com/splendo/kaluga/scientific/unit/NamedEnergyUnit {
+	public static final field Companion Lcom/splendo/kaluga/scientific/unit/MetricAndImperialNamedEnergyUnit$Companion;
+	public synthetic fun <init> (ILkotlinx/serialization/internal/SerializationConstructorMarker;)V
+	public static final synthetic fun write$Self (Lcom/splendo/kaluga/scientific/unit/MetricAndImperialNamedEnergyUnit;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
+}
+
+public final class com/splendo/kaluga/scientific/unit/MetricAndImperialNamedEnergyUnit$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -13336,6 +13461,38 @@ public final class com/splendo/kaluga/scientific/unit/MetricAreaDensity$Companio
 
 public abstract interface class com/splendo/kaluga/scientific/unit/MetricBaseUnit : com/splendo/kaluga/scientific/unit/SystemScientificUnit {
 	public abstract fun getQuantity ()Lcom/splendo/kaluga/scientific/PhysicalQuantity;
+}
+
+public final class com/splendo/kaluga/scientific/unit/MetricCombinedPower : com/splendo/kaluga/scientific/unit/MetricPower, com/splendo/kaluga/scientific/unit/CombinedPower {
+	public static final field Companion Lcom/splendo/kaluga/scientific/unit/MetricCombinedPower$Companion;
+	public fun <init> (Lcom/splendo/kaluga/scientific/unit/MetricNamedEnergyUnit;Lcom/splendo/kaluga/scientific/unit/Time;)V
+	public final fun component1 ()Lcom/splendo/kaluga/scientific/unit/MetricNamedEnergyUnit;
+	public final fun component2 ()Lcom/splendo/kaluga/scientific/unit/Time;
+	public final fun copy (Lcom/splendo/kaluga/scientific/unit/MetricNamedEnergyUnit;Lcom/splendo/kaluga/scientific/unit/Time;)Lcom/splendo/kaluga/scientific/unit/MetricCombinedPower;
+	public static synthetic fun copy$default (Lcom/splendo/kaluga/scientific/unit/MetricCombinedPower;Lcom/splendo/kaluga/scientific/unit/MetricNamedEnergyUnit;Lcom/splendo/kaluga/scientific/unit/Time;ILjava/lang/Object;)Lcom/splendo/kaluga/scientific/unit/MetricCombinedPower;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getEnergy ()Lcom/splendo/kaluga/scientific/unit/MetricNamedEnergyUnit;
+	public synthetic fun getEnergy ()Lcom/splendo/kaluga/scientific/unit/NamedEnergyUnit;
+	public fun getPer ()Lcom/splendo/kaluga/scientific/unit/Time;
+	public fun getSystem ()Lcom/splendo/kaluga/scientific/unit/MeasurementSystem$Metric;
+	public synthetic fun getSystem ()Lcom/splendo/kaluga/scientific/unit/MeasurementSystem;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public synthetic class com/splendo/kaluga/scientific/unit/MetricCombinedPower$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcom/splendo/kaluga/scientific/unit/MetricCombinedPower$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/splendo/kaluga/scientific/unit/MetricCombinedPower;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/splendo/kaluga/scientific/unit/MetricCombinedPower;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/splendo/kaluga/scientific/unit/MetricCombinedPower$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/splendo/kaluga/scientific/unit/MetricCup : com/splendo/kaluga/scientific/unit/UKImperialVolume {
@@ -13968,6 +14125,16 @@ public final class com/splendo/kaluga/scientific/unit/MetricMomentum$Companion {
 }
 
 public abstract interface class com/splendo/kaluga/scientific/unit/MetricMultipleUnit : com/splendo/kaluga/scientific/unit/SystemScientificUnit {
+}
+
+public abstract class com/splendo/kaluga/scientific/unit/MetricNamedEnergyUnit : com/splendo/kaluga/scientific/unit/MetricEnergy, com/splendo/kaluga/scientific/unit/NamedEnergyUnit {
+	public static final field Companion Lcom/splendo/kaluga/scientific/unit/MetricNamedEnergyUnit$Companion;
+	public synthetic fun <init> (ILkotlinx/serialization/internal/SerializationConstructorMarker;)V
+	public static final synthetic fun write$Self (Lcom/splendo/kaluga/scientific/unit/MetricNamedEnergyUnit;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
+}
+
+public final class com/splendo/kaluga/scientific/unit/MetricNamedEnergyUnit$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
 public abstract class com/splendo/kaluga/scientific/unit/MetricPower : com/splendo/kaluga/scientific/unit/Power, com/splendo/kaluga/scientific/unit/MetricScientificUnit {
@@ -15943,6 +16110,9 @@ public final class com/splendo/kaluga/scientific/unit/MomentumUnitKt {
 	public static final fun x (Lcom/splendo/kaluga/scientific/unit/USCustomaryWeight;Lcom/splendo/kaluga/scientific/unit/ImperialSpeed;)Lcom/splendo/kaluga/scientific/unit/USCustomaryMomentum;
 }
 
+public abstract interface class com/splendo/kaluga/scientific/unit/NamedEnergyUnit : com/splendo/kaluga/scientific/unit/SystemScientificUnit {
+}
+
 public final class com/splendo/kaluga/scientific/unit/Nano : com/splendo/kaluga/scientific/unit/MetricMultipleUnit {
 	public fun <init> (Lcom/splendo/kaluga/scientific/unit/MetricBaseUnit;)V
 	public fun fromSIUnit (Lcom/splendo/kaluga/base/utils/Decimal;)Lcom/splendo/kaluga/base/utils/Decimal;
@@ -16905,6 +17075,9 @@ public final class com/splendo/kaluga/scientific/unit/PowerUnitKt {
 	public static final fun getMetricAndImperialPowerUnits ()Ljava/util/Set;
 	public static final fun getMetricPowerUnits ()Ljava/util/Set;
 	public static final fun getPowerUnits ()Ljava/util/Set;
+	public static final fun per (Lcom/splendo/kaluga/scientific/unit/ImperialNamedEnergyUnit;Lcom/splendo/kaluga/scientific/unit/Time;)Lcom/splendo/kaluga/scientific/unit/ImperialCombinedPower;
+	public static final fun per (Lcom/splendo/kaluga/scientific/unit/MetricAndImperialNamedEnergyUnit;Lcom/splendo/kaluga/scientific/unit/Time;)Lcom/splendo/kaluga/scientific/unit/MetricAndImperialCombinedPower;
+	public static final fun per (Lcom/splendo/kaluga/scientific/unit/MetricNamedEnergyUnit;Lcom/splendo/kaluga/scientific/unit/Time;)Lcom/splendo/kaluga/scientific/unit/MetricCombinedPower;
 }
 
 public abstract class com/splendo/kaluga/scientific/unit/Pressure : com/splendo/kaluga/scientific/unit/AbstractScientificUnit {

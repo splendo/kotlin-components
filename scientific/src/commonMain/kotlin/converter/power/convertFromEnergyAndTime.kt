@@ -21,30 +21,30 @@ import com.splendo.kaluga.base.utils.Decimal
 import com.splendo.kaluga.scientific.DefaultScientificValue
 import com.splendo.kaluga.scientific.PhysicalQuantity
 import com.splendo.kaluga.scientific.ScientificValue
-import com.splendo.kaluga.scientific.byDividing
-import com.splendo.kaluga.scientific.unit.Energy
+import com.splendo.kaluga.scientific.byMultiplying
 import com.splendo.kaluga.scientific.unit.Power
-import com.splendo.kaluga.scientific.unit.Time
+import com.splendo.kaluga.scientific.unit.Pressure
+import com.splendo.kaluga.scientific.unit.VolumetricFlow
 import kotlin.jvm.JvmName
 
-@JvmName("powerFromEnergyAndTimeDefault")
+@JvmName("powerFromPressureAndVolumetricFlowDefault")
 fun <
-    EnergyUnit : Energy,
-    TimeUnit : Time,
+    PressureUnit : Pressure,
+    VolumetricFlowUnit : VolumetricFlow,
     PowerUnit : Power,
     > PowerUnit.power(
-    energy: ScientificValue<PhysicalQuantity.Energy, EnergyUnit>,
-    time: ScientificValue<PhysicalQuantity.Time, TimeUnit>,
-) = power(energy, time, ::DefaultScientificValue)
+    pressure: ScientificValue<PhysicalQuantity.Pressure, PressureUnit>,
+    volumetricFlow: ScientificValue<PhysicalQuantity.VolumetricFlow, VolumetricFlowUnit>,
+) = power(pressure, volumetricFlow, ::DefaultScientificValue)
 
-@JvmName("powerFromEnergyAndTime")
+@JvmName("powerFromPressureAndVolumetricFlow")
 fun <
-    EnergyUnit : Energy,
-    TimeUnit : Time,
+    PressureUnit : Pressure,
+    VolumetricFlowUnit : VolumetricFlow,
     PowerUnit : Power,
     Value : ScientificValue<PhysicalQuantity.Power, PowerUnit>,
     > PowerUnit.power(
-    energy: ScientificValue<PhysicalQuantity.Energy, EnergyUnit>,
-    time: ScientificValue<PhysicalQuantity.Time, TimeUnit>,
+    pressure: ScientificValue<PhysicalQuantity.Pressure, PressureUnit>,
+    volumetricFlow: ScientificValue<PhysicalQuantity.VolumetricFlow, VolumetricFlowUnit>,
     factory: (Decimal, PowerUnit) -> Value,
-) = byDividing(energy, time, factory)
+) = byMultiplying(pressure, volumetricFlow, factory)

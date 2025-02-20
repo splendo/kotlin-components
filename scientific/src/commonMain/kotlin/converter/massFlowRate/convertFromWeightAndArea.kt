@@ -23,28 +23,28 @@ import com.splendo.kaluga.scientific.PhysicalQuantity
 import com.splendo.kaluga.scientific.ScientificValue
 import com.splendo.kaluga.scientific.byDividing
 import com.splendo.kaluga.scientific.unit.MassFlowRate
-import com.splendo.kaluga.scientific.unit.Time
-import com.splendo.kaluga.scientific.unit.Weight
+import com.splendo.kaluga.scientific.unit.Power
+import com.splendo.kaluga.scientific.unit.SpecificEnergy
 import kotlin.jvm.JvmName
 
-@JvmName("massFlowRateFromWeightAndAreaDefault")
+@JvmName("massFlowRateFromPowerAndSpecificEnergyDefault")
 fun <
-    WeightUnit : Weight,
-    TimeUnit : Time,
+    PowerUnit : Power,
+    SpecificEnergyUnit : SpecificEnergy,
     MassFlowRateUnit : MassFlowRate,
     > MassFlowRateUnit.massFlowRate(
-    weight: ScientificValue<PhysicalQuantity.Weight, WeightUnit>,
-    time: ScientificValue<PhysicalQuantity.Time, TimeUnit>,
-) = massFlowRate(weight, time, ::DefaultScientificValue)
+    power: ScientificValue<PhysicalQuantity.Power, PowerUnit>,
+    specificEnergy: ScientificValue<PhysicalQuantity.SpecificEnergy, SpecificEnergyUnit>,
+) = massFlowRate(power, specificEnergy, ::DefaultScientificValue)
 
-@JvmName("massFlowRateFromWeightAndArea")
+@JvmName("massFlowRateFromPowerAndSpecificEnergy")
 fun <
-    WeightUnit : Weight,
-    TimeUnit : Time,
+    PowerUnit : Power,
+    SpecificEnergyUnit : SpecificEnergy,
     MassFlowRateUnit : MassFlowRate,
     Value : ScientificValue<PhysicalQuantity.MassFlowRate, MassFlowRateUnit>,
     > MassFlowRateUnit.massFlowRate(
-    weight: ScientificValue<PhysicalQuantity.Weight, WeightUnit>,
-    time: ScientificValue<PhysicalQuantity.Time, TimeUnit>,
+    power: ScientificValue<PhysicalQuantity.Power, PowerUnit>,
+    specificEnergy: ScientificValue<PhysicalQuantity.SpecificEnergy, SpecificEnergyUnit>,
     factory: (Decimal, MassFlowRateUnit) -> Value,
-) = byDividing(weight, time, factory)
+) = byDividing(power, specificEnergy, factory)

@@ -109,27 +109,27 @@ class TemperatureUnitTest {
         assertEqualScientificValue(4(Celsius), 2(Watt) * 2(Celsius per Watt))
         assertEqualScientificValue(4(Celsius), 2(Celsius per Watt.metric) * 2(Watt))
         assertEqualScientificValue(4(Celsius), 2(Watt) * 2(Celsius per Watt.metric))
-        assertEqualScientificValue(4(Celsius), 2(Celsius per ErgPerSecond) * 2(ErgPerSecond))
-        assertEqualScientificValue(4(Celsius), 2(ErgPerSecond) * 2(Celsius per ErgPerSecond))
+        assertEqualScientificValue(4(Celsius), 2(Celsius per (Erg per Second)) * 2(Erg per Second))
+        assertEqualScientificValue(4(Celsius), 2(Erg per Second) * 2(Celsius per (Erg per Second)))
         assertEqualScientificValue(4(Celsius), 2(Celsius per Watt.imperial) * 2(Watt))
         assertEqualScientificValue(4(Celsius), 2(Watt) * 2(Celsius per Watt.imperial))
         assertEqualScientificValue(
             4(Celsius),
-            2(Celsius per BritishThermalUnitPerSecond) * 2(BritishThermalUnitPerSecond),
+            2(Celsius per (BritishThermalUnit per Second)) * 2(BritishThermalUnit per Second),
         )
         assertEqualScientificValue(
             4(Celsius),
-            2(BritishThermalUnitPerSecond) * 2(Celsius per BritishThermalUnitPerSecond),
+            2(BritishThermalUnit per Second) * 2(Celsius per (BritishThermalUnit per Second)),
         )
         assertEqualScientificValue(4(Fahrenheit), 2(Fahrenheit per Watt) * 2(Watt))
         assertEqualScientificValue(4(Fahrenheit), 2(Watt) * 2(Fahrenheit per Watt))
         assertEqualScientificValue(
             4(Fahrenheit),
-            2(Fahrenheit per BritishThermalUnitPerSecond) * 2(BritishThermalUnitPerSecond),
+            2(Fahrenheit per (BritishThermalUnit per Second)) * 2(BritishThermalUnit per Second),
         )
         assertEqualScientificValue(
             4(Fahrenheit),
-            2(BritishThermalUnitPerSecond) * 2(Fahrenheit per BritishThermalUnitPerSecond),
+            2(BritishThermalUnit per Second) * 2(Fahrenheit per (BritishThermalUnit per Second)),
         )
         assertEqualScientificValue(
             4(Kelvin),

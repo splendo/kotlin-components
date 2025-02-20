@@ -22,29 +22,29 @@ import com.splendo.kaluga.scientific.DefaultScientificValue
 import com.splendo.kaluga.scientific.PhysicalQuantity
 import com.splendo.kaluga.scientific.ScientificValue
 import com.splendo.kaluga.scientific.byDividing
-import com.splendo.kaluga.scientific.unit.Time
-import com.splendo.kaluga.scientific.unit.Volume
+import com.splendo.kaluga.scientific.unit.Power
+import com.splendo.kaluga.scientific.unit.Pressure
 import com.splendo.kaluga.scientific.unit.VolumetricFlow
 import kotlin.jvm.JvmName
 
-@JvmName("volumetricFlowFromVolumeAndTimeDefault")
+@JvmName("volumetricFlowFromPowerAndPressureDefault")
 fun <
-    VolumeUnit : Volume,
-    TimeUnit : Time,
+    PowerUnit : Power,
+    PressureUnit : Pressure,
     VolumetricFlowUnit : VolumetricFlow,
     > VolumetricFlowUnit.volumetricFlow(
-    volume: ScientificValue<PhysicalQuantity.Volume, VolumeUnit>,
-    time: ScientificValue<PhysicalQuantity.Time, TimeUnit>,
-) = volumetricFlow(volume, time, ::DefaultScientificValue)
+    power: ScientificValue<PhysicalQuantity.Power, PowerUnit>,
+    pressure: ScientificValue<PhysicalQuantity.Pressure, PressureUnit>,
+) = volumetricFlow(power, pressure, ::DefaultScientificValue)
 
-@JvmName("volumetricFlowFromVolumeAndTime")
+@JvmName("volumetricFlowFromPowerAndPressure")
 fun <
-    VolumeUnit : Volume,
-    TimeUnit : Time,
+    PowerUnit : Power,
+    PressureUnit : Pressure,
     VolumetricFlowUnit : VolumetricFlow,
     Value : ScientificValue<PhysicalQuantity.VolumetricFlow, VolumetricFlowUnit>,
     > VolumetricFlowUnit.volumetricFlow(
-    volume: ScientificValue<PhysicalQuantity.Volume, VolumeUnit>,
-    time: ScientificValue<PhysicalQuantity.Time, TimeUnit>,
+    power: ScientificValue<PhysicalQuantity.Power, PowerUnit>,
+    pressure: ScientificValue<PhysicalQuantity.Pressure, PressureUnit>,
     factory: (Decimal, VolumetricFlowUnit) -> Value,
-) = byDividing(volume, time, factory)
+) = byDividing(power, pressure, factory)

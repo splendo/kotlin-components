@@ -112,11 +112,11 @@ class TimeUnitTest {
         assertEqualScientificValue(1(Hour), 2(WattHour) / 0.2(Decawatt))
         assertEqualScientificValue(1(Hour), 20(DeciwattHour) / 0.2(Decawatt))
         assertEqualScientificValue(1(Hour), 2(HorsepowerHour) / 2(Horsepower))
-        assertEqualScientificValue(1(Minute), 2(FootPoundForce) / 2(FootPoundForcePerMinute))
-        assertEqualScientificValue(1(Minute), 2(InchPoundForce) / 2(InchPoundForcePerMinute))
-        assertEqualScientificValue(1(Minute), 2(BritishThermalUnit) / 2(BritishThermalUnitPerMinute))
-        assertEqualScientificValue(1(Hour), 2(BritishThermalUnit) / 2(BritishThermalUnitPerHour))
-        assertEqualScientificValue(1(Second), 2(Joule) / 2(Watt).convert(BritishThermalUnitPerSecond))
+        assertEqualScientificValue(1(Minute), 2(FootPoundForce) / 2(FootPoundForce per Minute))
+        assertEqualScientificValue(1(Minute), 2(InchPoundForce) / 2(InchPoundForce per Minute))
+        assertEqualScientificValue(1(Minute), 2(BritishThermalUnit) / 2(BritishThermalUnit per Minute))
+        assertEqualScientificValue(1(Hour), 2(BritishThermalUnit) / 2(BritishThermalUnit per Hour))
+        assertEqualScientificValue(1(Second), 2(Joule) / 2(Watt).convert(BritishThermalUnit per Second))
     }
 
     @Test

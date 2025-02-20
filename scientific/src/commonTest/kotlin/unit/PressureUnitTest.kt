@@ -22,6 +22,7 @@ import com.splendo.kaluga.scientific.convert
 import com.splendo.kaluga.scientific.converter.dynamicViscosity.div
 import com.splendo.kaluga.scientific.converter.energy.div
 import com.splendo.kaluga.scientific.converter.force.div
+import com.splendo.kaluga.scientific.converter.power.div
 import com.splendo.kaluga.scientific.invoke
 import kotlin.test.Test
 
@@ -214,5 +215,17 @@ class PressureUnitTest {
             2(PoundForce.usCustomary) / 2(SquareInch),
         )
         assertEqualScientificValue(1(Pascal), 2(Newton) / 2(SquareMeter).convert(SquareFoot))
+    }
+
+    @Test
+    fun pressureFromPowerAndVolumetricFlowTest() {
+        assertEqualScientificValue(1(Barye), 2(Erg per Second) / 2(CubicCentimeter per Second))
+        assertEqualScientificValue(1(PoundSquareInch), 2(InchPoundForce per Second) / 2(CubicInch per Second))
+        assertEqualScientificValue(1(PoundSquareInch.ukImperial), 2(InchPoundForce per Second) / 2(CubicInch.ukImperial per Second))
+        assertEqualScientificValue(1(PoundSquareInch.usCustomary), 2(InchPoundForce per Second) / 2(CubicInch.usCustomary per Second))
+        assertEqualScientificValue(6600(PoundSquareInch), 2(Horsepower) / 2(CubicInch per Second))
+        assertEqualScientificValue(6600(PoundSquareInch.ukImperial), 2(Horsepower) / 2(CubicInch.ukImperial per Second))
+        assertEqualScientificValue(6600(PoundSquareInch.usCustomary), 2(Horsepower) / 2(CubicInch.usCustomary per Second))
+        assertEqualScientificValue(1(Pascal), 2(Watt) / 2(CubicMeter per Second))
     }
 }

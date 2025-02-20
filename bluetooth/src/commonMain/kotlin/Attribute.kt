@@ -19,6 +19,7 @@ package com.splendo.kaluga.bluetooth
 
 import com.splendo.kaluga.bluetooth.device.DeviceAction
 import com.splendo.kaluga.bluetooth.device.DeviceConnectionManager
+import com.splendo.kaluga.bluetooth.extensions.printableString
 import com.splendo.kaluga.logging.Logger
 import com.splendo.kaluga.logging.debug
 import com.splendo.kaluga.logging.info
@@ -85,7 +86,7 @@ abstract class Attribute<ReadAction : DeviceAction.Read, WriteAction : DeviceAct
      */
     open fun updateValue() {
         val nextValue = getUpdatedValue()
-        logger.debug(logTag) { "Updated value to $nextValue" }
+        logger.debug(logTag) { "Updated value to ${nextValue?.printableString}" }
         sharedFlow.tryEmit(nextValue)
     }
 

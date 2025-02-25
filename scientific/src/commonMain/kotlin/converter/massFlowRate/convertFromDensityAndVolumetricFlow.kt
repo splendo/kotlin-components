@@ -1,5 +1,5 @@
 /*
- Copyright 2022 Splendo Consulting B.V. The Netherlands
+ Copyright 2025 Splendo Consulting B.V. The Netherlands
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -21,30 +21,30 @@ import com.splendo.kaluga.base.utils.Decimal
 import com.splendo.kaluga.scientific.DefaultScientificValue
 import com.splendo.kaluga.scientific.PhysicalQuantity
 import com.splendo.kaluga.scientific.ScientificValue
-import com.splendo.kaluga.scientific.byDividing
+import com.splendo.kaluga.scientific.byMultiplying
+import com.splendo.kaluga.scientific.unit.Density
 import com.splendo.kaluga.scientific.unit.MassFlowRate
-import com.splendo.kaluga.scientific.unit.Power
-import com.splendo.kaluga.scientific.unit.SpecificEnergy
+import com.splendo.kaluga.scientific.unit.VolumetricFlow
 import kotlin.jvm.JvmName
 
-@JvmName("massFlowRateFromPowerAndSpecificEnergyDefault")
+@JvmName("massFlowRateFromDensityAndVolumetricFlowDefault")
 fun <
-    PowerUnit : Power,
-    SpecificEnergyUnit : SpecificEnergy,
+    DensityUnit : Density,
+    VolumetricFlowUnit : VolumetricFlow,
     MassFlowRateUnit : MassFlowRate,
     > MassFlowRateUnit.massFlowRate(
-    power: ScientificValue<PhysicalQuantity.Power, PowerUnit>,
-    specificEnergy: ScientificValue<PhysicalQuantity.SpecificEnergy, SpecificEnergyUnit>,
-) = massFlowRate(power, specificEnergy, ::DefaultScientificValue)
+    density: ScientificValue<PhysicalQuantity.Density, DensityUnit>,
+    volumetricFlow: ScientificValue<PhysicalQuantity.VolumetricFlow, VolumetricFlowUnit>,
+) = massFlowRate(density, volumetricFlow, ::DefaultScientificValue)
 
-@JvmName("massFlowRateFromPowerAndSpecificEnergy")
+@JvmName("massFlowRateFromDensityAndVolumetricFlow")
 fun <
-    PowerUnit : Power,
-    SpecificEnergyUnit : SpecificEnergy,
+    DensityUnit : Density,
+    VolumetricFlowUnit : VolumetricFlow,
     MassFlowRateUnit : MassFlowRate,
     Value : ScientificValue<PhysicalQuantity.MassFlowRate, MassFlowRateUnit>,
     > MassFlowRateUnit.massFlowRate(
-    power: ScientificValue<PhysicalQuantity.Power, PowerUnit>,
-    specificEnergy: ScientificValue<PhysicalQuantity.SpecificEnergy, SpecificEnergyUnit>,
+    density: ScientificValue<PhysicalQuantity.Density, DensityUnit>,
+    volumetricFlow: ScientificValue<PhysicalQuantity.VolumetricFlow, VolumetricFlowUnit>,
     factory: (Decimal, MassFlowRateUnit) -> Value,
-) = byDividing(power, specificEnergy, factory)
+) = byMultiplying(density, volumetricFlow, factory)

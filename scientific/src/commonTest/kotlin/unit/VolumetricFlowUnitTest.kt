@@ -20,6 +20,7 @@ package com.splendo.kaluga.scientific.unit
 import com.splendo.kaluga.scientific.assertEqualScientificValue
 import com.splendo.kaluga.scientific.convert
 import com.splendo.kaluga.scientific.converter.area.times
+import com.splendo.kaluga.scientific.converter.massFlowRate.div
 import com.splendo.kaluga.scientific.converter.power.div
 import com.splendo.kaluga.scientific.converter.volume.div
 import com.splendo.kaluga.scientific.converter.volumetricFlux.times
@@ -87,6 +88,40 @@ class VolumetricFlowUnitTest {
         assertEquals(
             4(CubicMeter per Second),
             2(SquareMeter).convert(SquareFoot) * 2((CubicMeter per Second) per SquareMeter),
+        )
+    }
+
+    @Test
+    fun densityFromMassFlowRateAndDensityFlowTest() {
+        assertEquals(1(CubicMeter per Minute), 2(Kilogram per Minute) / 2(Kilogram per CubicMeter))
+        assertEquals(1(CubicFoot per Minute), 2(Pound per Minute) / 2(Pound per CubicFoot))
+        assertEquals(
+            1(CubicFoot.ukImperial per Minute),
+            2(Pound per Minute) / 2(Pound.ukImperial per CubicFoot),
+        )
+        assertEquals(
+            1(CubicFoot.usCustomary per Minute),
+            2(Pound per Minute) / 2(Pound.usCustomary per CubicFoot),
+        )
+        assertEquals(
+            1(CubicFoot per Minute),
+            2(Pound.ukImperial per Minute) / 2(Pound per CubicFoot),
+        )
+        assertEquals(
+            1(CubicFoot.ukImperial per Minute),
+            2(Pound.ukImperial per Minute) / 2(Pound.ukImperial per CubicFoot),
+        )
+        assertEquals(
+            1(CubicFoot per Minute),
+            2(Pound.usCustomary per Minute) / 2(Pound per CubicFoot),
+        )
+        assertEquals(
+            1(CubicFoot.usCustomary per Minute),
+            2(Pound.usCustomary per Minute) / 2(Pound.usCustomary per CubicFoot),
+        )
+        assertEquals(
+            1(CubicMeter per Second),
+            2(Kilogram per Second) / 2(Kilogram per CubicMeter).convert(Pound per CubicFoot),
         )
     }
 

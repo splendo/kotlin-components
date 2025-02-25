@@ -21,6 +21,7 @@ import com.splendo.kaluga.scientific.convert
 import com.splendo.kaluga.scientific.converter.areaDensity.div
 import com.splendo.kaluga.scientific.converter.dynamicViscosity.div
 import com.splendo.kaluga.scientific.converter.linearMassDensity.div
+import com.splendo.kaluga.scientific.converter.massFlowRate.div
 import com.splendo.kaluga.scientific.converter.molarMass.div
 import com.splendo.kaluga.scientific.converter.molarMass.times
 import com.splendo.kaluga.scientific.converter.molarity.div
@@ -80,6 +81,40 @@ class DensityUnitTest {
         assertEquals(
             1(Kilogram per CubicMeter),
             2(Kilogram per Meter) / 2(SquareMeter).convert(SquareFoot),
+        )
+    }
+
+    @Test
+    fun densityFromMassFlowRateAndVolumetricFlowTest() {
+        assertEquals(1(Kilogram per CubicMeter), 2(Kilogram per Minute) / 2(CubicMeter per Minute))
+        assertEquals(1(Pound per CubicFoot), 2(Pound per Minute) / 2(CubicFoot per Minute))
+        assertEquals(
+            1(Pound per CubicFoot.ukImperial),
+            2(Pound per Minute) / 2(CubicFoot.ukImperial per Minute),
+        )
+        assertEquals(
+            1(Pound per CubicFoot.usCustomary),
+            2(Pound per Minute) / 2(CubicFoot.usCustomary per Minute),
+        )
+        assertEquals(
+            1(Pound.ukImperial per CubicFoot),
+            2(Pound.ukImperial per Minute) / 2(CubicFoot per Minute),
+        )
+        assertEquals(
+            1(Pound.ukImperial per CubicFoot.ukImperial),
+            2(Pound.ukImperial per Minute) / 2(CubicFoot.ukImperial per Minute),
+        )
+        assertEquals(
+            1(Pound.usCustomary per CubicFoot),
+            2(Pound.usCustomary per Minute) / 2(CubicFoot per Minute),
+        )
+        assertEquals(
+            1(Pound.usCustomary per CubicFoot.usCustomary),
+            2(Pound.usCustomary per Minute) / 2(CubicFoot.usCustomary per Minute),
+        )
+        assertEquals(
+            1(Kilogram per CubicMeter),
+            2(Kilogram per Second) / 2(CubicMeter per Second).convert(CubicFoot per Minute),
         )
     }
 
